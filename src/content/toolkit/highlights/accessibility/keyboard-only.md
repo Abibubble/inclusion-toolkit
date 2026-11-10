@@ -12,7 +12,7 @@ Many people navigate using their keyboard only, but it's especially important fo
 
 ### How to support it
 
-Make sure that all interactive elements (buttons, links, etc.) can be navigated to using the keyboard, and that all interactivity still functions as expected. The focus should also be clear: if your focus is on a button, can you tell that's where your focus is just by looking?
+Make sure that all interactive elements (buttons, links, and so on) can be navigated to using the keyboard, and that all interactivity still functions as expected. The focus should also be clear: if your focus is on a button, can you tell that's where your focus is just by looking?
 
 To test keyboard accessibility:
 

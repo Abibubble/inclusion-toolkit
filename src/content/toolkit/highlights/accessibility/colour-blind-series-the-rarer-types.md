@@ -13,7 +13,7 @@ These conditions lead to the same design lesson as the rest of the series. If so
 The key principle is that colour should always be paired with another visual cue.
 
 - Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour-blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
-- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (e.g. by using icons or supporting text).
+- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
 ### Useful links

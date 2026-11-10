@@ -3,7 +3,8 @@
 Free resources about accessibility and neurodiversity.
 
 Built with React, TypeScript and React Router, with every page prerendered to static HTML. The site
-aims for WCAG 2.2 Level AAA.
+aims for WCAG 2.2 Level AAA. [ACCESSIBILITY.md](ACCESSIBILITY.md) explains how that's checked, and how to report a
+problem.
 
 ## Getting started
 

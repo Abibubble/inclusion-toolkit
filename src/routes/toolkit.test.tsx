@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import type { ToolkitPageData } from '../content/toolkitPage';
 import { pageMeta } from '../seo/pageMeta';
 import { websiteSchema } from '../seo/website';
-import { loader, meta, toolkitSlugsFrom } from './toolkit';
+import { loader, meta, toolkitSlugsFrom, withFolder } from './toolkit';
 
 const ITEM = {
   slug: 'dark-mode',
@@ -70,6 +70,38 @@ describe('Inclusion Toolkit pages', () => {
         path: '/highlights/dark-mode',
       }),
     );
+  });
+
+  it('adds the folder to a resource’s title, so two resources with the same name differ (WCAG 2.4.2)', () => {
+    const trail = [
+      { title: 'Home', path: '/' },
+      { title: 'Highlights', path: '/highlights' },
+      { title: 'Neurodiversity Highlights', path: '/highlights/neurodiversity' },
+    ];
+
+    expect(
+      metaFor({
+        kind: 'item',
+        item: { ...ITEM, title: 'Meetings' },
+        slugs: [],
+        trail,
+        textHtml: '',
+      }),
+    ).toContainEqual({ title: 'Meetings, Neurodiversity Highlights, Inclusion Toolkit' });
+  });
+
+  it.each([
+    ['at the top of the toolkit', [{ title: 'Home', path: '/' }], 'Highlights'],
+    [
+      'named after their folder',
+      [
+        { title: 'Home', path: '/' },
+        { title: 'Accessibility Infographics', path: '/infographics/accessibility' },
+      ],
+      'Accessibility Infographics',
+    ],
+  ])('keeps just the name for pages %s', (_, trail, title) => {
+    expect(withFolder(title, trail)).toBe(title);
   });
 
   it('leaves the title to the not found page when there’s nothing to show', () => {

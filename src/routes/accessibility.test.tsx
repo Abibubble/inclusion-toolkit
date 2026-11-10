@@ -44,10 +44,11 @@ describe('Accessibility page', () => {
       'href',
       '/display-settings',
     );
-    expect(screen.getAllByRole('link', { name: 'glossary' })[0]).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'list of abbreviations' })).toHaveAttribute(
       'href',
       '/glossary#abbreviations',
     );
+    expect(screen.getByRole('link', { name: 'glossary' })).toHaveAttribute('href', '/glossary');
   });
 
   it('says how to report a problem, and that it needs a GitHub account', () => {

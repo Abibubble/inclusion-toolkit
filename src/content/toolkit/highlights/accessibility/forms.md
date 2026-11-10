@@ -10,14 +10,14 @@ Inaccessible forms create significant barriers that can prevent people from comp
 - Small tap targets: Small radio buttons or checkboxes are difficult to select for users with motor impairments
 - Overly complex layouts or time limits can create cognitive barriers, making the form confusing or stressful to complete
 
-All modern web browsers and assistive technologies (like screen readers) fully support the standard HTML elements (`<label>`, `<input>`, `<fieldset>`, `<legend>`, etc.) and Accessible Rich Internet Applications (ARIA) attributes needed to create accessible forms.
+All modern web browsers and assistive technologies (like screen readers) fully support the standard HTML elements (`<label>`, `<input>`, `<fieldset>`, `<legend>`, and so on) and Accessible Rich Internet Applications (ARIA) attributes needed to create accessible forms.
 
 ### How to support it
 
 To ensure your form is accessible, you should build it with semantic HTML and clear instructions from the start.
 
 - Always use `<label>` tags and associate them with their inputs (using the `for` and `id` attributes)
-  - Placeholder text (e.g., "Enter your name") is not a substitute for a label
+  - Placeholder text (for example, "Enter your name") is not a substitute for a label
 - Group related fields
   - Use a `<fieldset>` to group related items (like a set of radio buttons for a "Yes/No" question, or the fields for a shipping address) and a `<legend>` to describe the group
 - Provide clear error validation

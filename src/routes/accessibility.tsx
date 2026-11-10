@@ -24,7 +24,8 @@ export function meta(): Route.MetaDescriptors {
 }
 
 const SECTIONS = {
-  displaySettings: { id: 'display-settings', title: 'Display settings' },
+  // Not called Display settings, as the footer has a link with that name to another page (WCAG 2.4.9)
+  displaySettings: { id: 'display-settings', title: 'Change how the site looks' },
   howAccessible: { id: 'how-accessible', title: 'How accessible this site is' },
   whatsBeenDone: { id: 'whats-been-done', title: 'What’s been done to make it accessible' },
   knownIssues: { id: 'known-issues', title: 'Known issues' },
@@ -129,7 +130,7 @@ export default function Accessibility() {
           <li>Nothing flashes, moves on its own or has a time limit.</li>
           <li>
             Every abbreviation is listed with what it stands for in the{' '}
-            <Link to={`${GLOSSARY_PATH}#abbreviations`}>glossary</Link>.
+            <Link to={`${GLOSSARY_PATH}#abbreviations`}>list of abbreviations</Link>.
           </li>
           <li>
             Technical words are explained in the <Link to={GLOSSARY_PATH}>glossary</Link>.

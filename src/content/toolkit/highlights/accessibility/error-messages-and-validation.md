@@ -12,7 +12,7 @@ This is a core design pattern, not a single tag. Support depends on using standa
 
 Errors need to be clear, visible, and announced.
 
-- Be specific. Don't say 'Invalid', instead say something like 'Please enter a valid email address (e.g., name@example.com).'
+- Be specific. Don't say 'Invalid', instead say something like 'Please enter a valid email address (for example, `name@example.com`).'
 - Don't use colour alone, always add a text message and/or an accessible icon (like an `X`) next to the field.
 - Connect the error. Use `aria-describedby` to programmatically link the input field to its error message. This tells screen readers to announce the error when the user focuses on that field
 - Manage Focus. When a form submission fails, ideally, move focus to the first field with an error. If that's not possible, move the focus to a summary of errors at the top of the form

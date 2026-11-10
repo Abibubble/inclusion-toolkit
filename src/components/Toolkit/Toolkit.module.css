@@ -89,12 +89,6 @@
   list-style: none;
 }
 
-.newTabIcon {
-  width: 0.75em;
-  height: 0.75em;
-  margin-inline-start: var(--spacer-4);
-}
-
 .search {
   display: flex;
   flex-direction: column;

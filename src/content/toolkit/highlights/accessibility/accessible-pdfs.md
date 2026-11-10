@@ -19,7 +19,7 @@ Avoid PDFs, even the accessible ones! Yes, PDFs are not at all as accessible as 
 - HTML web pages and web applications are the most feature-rich alternatives and can be fully accessible when built with semantic HTML.
 - Word Documents (with Accessibility Features Enabled) as well as Google Docs / Microsoft Office Online.
   - Offers a built-in accessibility checker.
-  - More accessible than PDFs when used properly (heading styles, alt text, etc.)
+  - More accessible than PDFs when used properly (heading styles, alt text, and so on)
   - Screen reader-friendly with good keyboard support.
 - Accessible Slide Presentations (Google Slides, PowerPoint Online)
   - Can be shared as HTML or accessible PowerPoint format instead of PDF exports.

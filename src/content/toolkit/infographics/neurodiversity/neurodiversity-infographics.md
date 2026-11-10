@@ -208,7 +208,7 @@
 
 - Multisensory teaching using physical objects like counters.
 - Technological aids like calculators or voice-activated apps.
-- Focus on practical maths needed for daily life (e.g. money, time).
+- Focus on practical maths needed for daily life (for example, money, time).
 
 #### Support
 

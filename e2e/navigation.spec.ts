@@ -81,7 +81,7 @@ test.describe('Moving between pages', () => {
 
     await page
       .getByRole('navigation', { name: 'Breadcrumbs' })
-      .getByRole('link', { name: 'Accessibility' })
+      .getByRole('link', { name: 'Accessibility Highlights' })
       .click();
     await expect(page).toHaveURL('/highlights/accessibility');
     await page.goBack();

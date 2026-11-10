@@ -8,7 +8,7 @@ Safety is about moderation.
 
 - Ensure nothing flashes more than three times in one second
 - Avoid rapid spinning or intense zooming
-- If a video must contain flashing (e.g. concert footage), add a static "Warning: Flashing images" cover slide so users can scroll past before it auto-plays
+- If a video must contain flashing (for example, concert footage), add a static "Warning: Flashing images" cover slide so users can scroll past before it auto-plays
 - Avoid autoplay on websites; let users choose to start the video manually
 
 A lot of this is manual and relies on people adding warnings and making sure that content is safe for others before it’s shared. However, it's worth noting that social media feeds usually auto-play videos by default. The platform won't stop a dangerous video, so it is entirely up to the person posting to check that their content is safe before sharing.

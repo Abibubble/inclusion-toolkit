@@ -55,25 +55,6 @@ function ToolkitVersionSection({ title, version }: { title: string; version: Too
   );
 }
 
-/** A box with an arrow leaving it, for opening in a new tab. Different from the external site arrow */
-function NewTabIcon() {
-  return (
-    <svg
-      className={styles.newTabIcon}
-      aria-hidden="true"
-      focusable="false"
-      viewBox="0 0 16 16"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M9 2h5v5M14 2 7 9M12 10v4H2V4h4" />
-    </svg>
-  );
-}
-
 interface VersionFilesProps {
   title: string;
   version: ToolkitVersion;
@@ -95,12 +76,10 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
             {type} <span className={styles.meta}>({file.size})</span>:{' '}
             {type === 'PDF' && (
               <>
-                {/* A new tab keeps the toolkit open. The icon says so before it's followed, and
-                    screen readers hear it (WCAG 3.2.5) */}
+                {/* A new tab keeps the toolkit open. The link says so in words before it's
+                    followed, for everyone, not only screen reader users (WCAG 3.2.5) */}
                 <a href={`${BASE_URL}${file.path}`} target="_blank" rel="noreferrer">
-                  View
-                  <NewTabIcon />
-                  <ScreenReaderOnly>: {about}, PDF, opens in a new tab</ScreenReaderOnly>
+                  View<ScreenReaderOnly>: {about}, PDF</ScreenReaderOnly> (opens in a new tab)
                 </a>{' '}
                 or{' '}
               </>

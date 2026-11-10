@@ -1,5 +1,7 @@
 import { Marked, type RendererObject } from 'marked';
 
+import { ABBREVIATIONS, type Abbreviation } from './abbreviations';
+
 /**
  * Turns the toolkit's Markdown into HTML. Only loaders use this, and loaders run when the site is
  * built, so neither the Markdown nor the Markdown library are sent to visitors' browsers. They get
@@ -37,10 +39,49 @@ export function markLinkOnlyItems(html: string): string {
   );
 }
 
+const NAMES = (Object.keys(ABBREVIATIONS) as Abbreviation[]).sort((a, b) => b.length - a.length);
+
+// Each abbreviation as a whole word, with an optional plural "s", as in "PDFs". The same as AbbrText
+const ABBREVIATION = new RegExp(
+  `(?<![A-Za-z])(${NAMES.map((name) => name.replace('/', '\\/')).join('|')})(s?)(?![A-Za-z])`,
+  'g',
+);
+
+// The HTML split into tags and the text between them. Text inside these elements is left alone
+const TAG = /(<[^>]+>)/;
+const SKIPPED = /^<(\/?)(code|pre|abbr)[\s>]/i;
+
+/**
+ * Marks up every abbreviation in the text with its full form, the same way the Abbr component does
+ * without JavaScript (WCAG 3.1.4). Abbreviations most people don't know are also written out in the
+ * text the first time, which the end to end tests check. Text in code, and abbreviations that are
+ * already marked up, are left as they are
+ */
+export function markAbbreviations(html: string): string {
+  let skippedDepth = 0;
+
+  return html
+    .split(TAG)
+    .map((part) => {
+      if (part.startsWith('<')) {
+        const skipped = SKIPPED.exec(part);
+        if (skipped) skippedDepth += skipped[1] ? -1 : 1;
+        return part;
+      }
+      if (skippedDepth > 0) return part;
+      return part.replace(
+        ABBREVIATION,
+        (_, name: Abbreviation, ending: string) =>
+          `<abbr title="${ABBREVIATIONS[name]}">${name}${ending}</abbr>`,
+      );
+    })
+    .join('');
+}
+
 /**
  * Turns a resource's text into HTML. It sits under the page's "What’s in it" heading, so it uses
  * third level headings (###) and below, which a test checks
  */
 export function renderMarkdown(source: string): string {
-  return markLinkOnlyItems(markdown.parse(source, { async: false }));
+  return markAbbreviations(markLinkOnlyItems(markdown.parse(source, { async: false })));
 }

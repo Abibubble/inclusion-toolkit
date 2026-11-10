@@ -10,7 +10,7 @@ To keep your content fun but readable, follow these best practices:
 
 - Use them sparingly. One or two emojis are usually enough to convey a mood.
 - Put them at the end. Place emojis at the end of a sentence or paragraph so they do not interrupt the flow of reading.
-- Never replace a word with an emoji (e.g. writing 'I want \[pizza emoji\]' instead of 'I want pizza'). This ensures the sentence still makes sense if the emoji description is different from what you expect.
+- Never replace a word with an emoji (for example, writing 'I want \[pizza emoji\]' instead of 'I want pizza'). This ensures the sentence still makes sense if the emoji description is different from what you expect.
 - Check the emoji description. Use a site like [Emojipedia](https://emojipedia.org/) to check exactly how your chosen emoji will be described to a blind user.
 
 ### Useful links

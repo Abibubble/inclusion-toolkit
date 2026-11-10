@@ -10,7 +10,7 @@ Here’s how to manage or 'pay it off':
 
 - Run regular accessibility audits (manual and automated)
 - Add accessibility issues to your backlog and track them like bugs
-- Prioritise fixes that block user journeys (e.g. login, forms, navigation)
+- Prioritise fixes that block user journeys (for example, login, forms, navigation)
 - Fix inaccessible components in your design system
 - Include accessibility in your development and design workflow to prevent new debt
 

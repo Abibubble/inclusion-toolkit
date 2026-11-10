@@ -1,6 +1,6 @@
 ### What is it for?
 
-People often use generator websites to make their text look unique (e.g. 𝓬𝓾𝓻𝓼𝓲𝓿𝓮 or 𝕓𝕠𝕝𝕕). However, these are not real fonts. They are mathematical symbols from the Unicode standard designed for equations, not language.
+People often use generator websites to make their text look unique (for example, 𝓬𝓾𝓻𝓼𝓲𝓿𝓮 or 𝕓𝕠𝕝𝕕). However, these are not real fonts. They are mathematical symbols from the Unicode standard designed for equations, not language.
 
 When a screen reader encounters this text, it does not read the word. It reads the mathematical description of every single character. 𝓗𝓮𝓵𝓵𝓸 ("Hello") becomes "Mathematical script capital H, mathematical script small e..." which renders the message completely unintelligible.
 

@@ -31,11 +31,11 @@ Note: Examples of poor link text in this section are shown without a link. The o
 
 #### What is it for?
 
-Everyone has used links. Those wonderful clickable bits of text that take you to magical places (a.k.a. other pages).
+Everyone has used links. Those wonderful clickable bits of text that take you to magical places (also known as other pages).
 
 Have you seen 'click here' links? A visual user will be able to set it in context and understand the place where the link will direct. But a person relying on assistive technology may scan links on the page, and they will be presented with a list of 'click here' links. They won't be able to understand where each link will direct them.
 
-Sometimes people use the uniform resource locator (URL) as is, like this - https://inclusiontoolkit.org/highlights/accessibility/buttons. Visual users may not mind this too much, just scanning through it. However, a person relying on assistive technology will have to listen to the whole URL being read out to understand where the link will direct them. This can be disorientating as well as annoying.
+Sometimes people use the uniform resource locator (URL) as is, like this - `https://inclusiontoolkit.org/highlights/accessibility/buttons`. Visual users may not mind this too much, just scanning through it. However, a person relying on assistive technology will have to listen to the whole URL being read out to understand where the link will direct them. This can be disorientating as well as annoying.
 
 #### How to support it
 
@@ -72,7 +72,7 @@ Avoid PDFs, even the accessible ones! Yes, PDFs are not at all as accessible as 
 - HTML web pages and web applications are the most feature-rich alternatives and can be fully accessible when built with semantic HTML.
 - Word Documents (with Accessibility Features Enabled) as well as Google Docs / Microsoft Office Online.
   - Offers a built-in accessibility checker.
-  - More accessible than PDFs when used properly (heading styles, alt text, etc.)
+  - More accessible than PDFs when used properly (heading styles, alt text, and so on)
   - Screen reader-friendly with good keyboard support.
 - Accessible Slide Presentations (Google Slides, PowerPoint Online)
   - Can be shared as HTML or accessible PowerPoint format instead of PDF exports.
@@ -104,7 +104,7 @@ Here’s how to manage or 'pay it off':
 
 - Run regular accessibility audits (manual and automated)
 - Add accessibility issues to your backlog and track them like bugs
-- Prioritise fixes that block user journeys (e.g. login, forms, navigation)
+- Prioritise fixes that block user journeys (for example, login, forms, navigation)
 - Fix inaccessible components in your design system
 - Include accessibility in your development and design workflow to prevent new debt
 
@@ -223,7 +223,7 @@ There are [many different ARIA attributes](https://developer.mozilla.org/en-US/d
 - Hides elements from screen readers without removing them visually.
 - This is ideal for decorative or redundant elements.
 
-[ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles) add meaning to content. This lets assistive technologies (such as screen readers) present the content in the way users expect. These should be avoided when there is semantic HTML that can provide the same meaning (e.g. don't use `role=listitem`, and instead use an `<li>`).
+[ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles) add meaning to content. This lets assistive technologies (such as screen readers) present the content in the way users expect. These should be avoided when there is semantic HTML that can provide the same meaning (for example, don't use `role=listitem`, and instead use an `<li>`).
 
 #### Useful links
 
@@ -250,7 +250,7 @@ You can still share these visuals, but you should change the format to be inclus
 
 - Take a screenshot of the ASCII art you want to share.
 - Upload the screenshot rather than pasting the text directly.
-- Write a description of the image as alt text (e.g. "A line drawing of a rabbit made of text characters").
+- Write a description of the image as alt text (for example, "A line drawing of a rabbit made of text characters").
 
 #### Useful links
 
@@ -276,7 +276,7 @@ Make your designs compatible. It's simpler than you think and mostly means follo
 - Prioritise keyboard navigation. This is the #1 rule. If you can use your site with only the keyboard (Tab, Shift + Tab, Enter, Space, the arrow keys and Escape), you're supporting switch devices, voice control, and more
 - Make sure your layout doesn't break or hide text when a user zooms in
 - Use clear, simple labels. 'Submit Form' is much better than just a \> icon for voice control users
-- If you show info on hover, make sure keyboard users can get that same info (e.g. by tabbing to it)
+- If you show info on hover, make sure keyboard users can get that same info (for example, by tabbing to it)
 
 #### Useful links
 
@@ -444,7 +444,7 @@ Protanopia is part of a broader family of colour vision deficiencies, and this C
 The key principle is that colour should always be paired with another visual cue.
 
 - Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
-- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (e.g. by using icons or supporting text).
+- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
 #### Useful links
@@ -468,7 +468,7 @@ Deuteranopia is part of a broader family of colour vision deficiencies, and this
 The key principle is that colour should always be paired with another visual cue.
 
 - Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
-- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (e.g. by using icons or supporting text).
+- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
 #### Useful links
@@ -492,7 +492,7 @@ Tritanopia is part of a broader family of colour vision deficiencies, and this C
 The key principle is that colour should always be paired with another visual cue.
 
 - Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour-blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
-- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (e.g. by using icons or supporting text).
+- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
 #### Useful links
@@ -522,7 +522,7 @@ This is milder than full colour blindness, so people with anomalous trichromacy 
 The key principle is that colour should always be paired with another visual cue.
 
 - Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour-blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
-- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (e.g. by using icons or supporting text).
+- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
 #### Useful links
@@ -548,7 +548,7 @@ These conditions lead to the same design lesson as the rest of the series. If so
 The key principle is that colour should always be paired with another visual cue.
 
 - Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour-blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
-- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (e.g. by using icons or supporting text).
+- Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
 #### Useful links
@@ -569,7 +569,7 @@ It is useful for, but not limited to, the following people:
 - People with colour vision deficiency (also known as colour blindness)
 - Elderly people
 - People with cataracts
-- People in different lighting situations (e.g. sun glare on a phone screen)
+- People in different lighting situations (for example, sun glare on a phone screen)
 
 It's also worth noting that anything that is indicated by colour also needs to have a secondary way for it to be distinguished. For example, it's no good saying "use the green button if you agree or the red button if you don’t” by itself, as some people may not be able to distinguish between those two colours.
 
@@ -696,7 +696,7 @@ This is a core design pattern, not a single tag. Support depends on using standa
 
 Errors need to be clear, visible, and announced.
 
-- Be specific. Don't say 'Invalid', instead say something like 'Please enter a valid email address (e.g., name@example.com).'
+- Be specific. Don't say 'Invalid', instead say something like 'Please enter a valid email address (for example, `name@example.com`).'
 - Don't use colour alone, always add a text message and/or an accessible icon (like an `X`) next to the field.
 - Connect the error. Use `aria-describedby` to programmatically link the input field to its error message. This tells screen readers to announce the error when the user focuses on that field
 - Manage Focus. When a form submission fails, ideally, move focus to the first field with an error. If that's not possible, move the focus to a summary of errors at the top of the form
@@ -719,7 +719,7 @@ Safety is about moderation.
 
 - Ensure nothing flashes more than three times in one second
 - Avoid rapid spinning or intense zooming
-- If a video must contain flashing (e.g. concert footage), add a static "Warning: Flashing images" cover slide so users can scroll past before it auto-plays
+- If a video must contain flashing (for example, concert footage), add a static "Warning: Flashing images" cover slide so users can scroll past before it auto-plays
 - Avoid autoplay on websites; let users choose to start the video manually
 
 A lot of this is manual and relies on people adding warnings and making sure that content is safe for others before it’s shared. However, it's worth noting that social media feeds usually auto-play videos by default. The platform won't stop a dangerous video, so it is entirely up to the person posting to check that their content is safe before sharing.
@@ -822,14 +822,14 @@ Inaccessible forms create significant barriers that can prevent people from comp
 - Small tap targets: Small radio buttons or checkboxes are difficult to select for users with motor impairments
 - Overly complex layouts or time limits can create cognitive barriers, making the form confusing or stressful to complete
 
-All modern web browsers and assistive technologies (like screen readers) fully support the standard HTML elements (`<label>`, `<input>`, `<fieldset>`, `<legend>`, etc.) and Accessible Rich Internet Applications (ARIA) attributes needed to create accessible forms.
+All modern web browsers and assistive technologies (like screen readers) fully support the standard HTML elements (`<label>`, `<input>`, `<fieldset>`, `<legend>`, and so on) and Accessible Rich Internet Applications (ARIA) attributes needed to create accessible forms.
 
 #### How to support it
 
 To ensure your form is accessible, you should build it with semantic HTML and clear instructions from the start.
 
 - Always use `<label>` tags and associate them with their inputs (using the `for` and `id` attributes)
-  - Placeholder text (e.g., "Enter your name") is not a substitute for a label
+  - Placeholder text (for example, "Enter your name") is not a substitute for a label
 - Group related fields
   - Use a `<fieldset>` to group related items (like a set of radio buttons for a "Yes/No" question, or the fields for a shipping address) and a `<legend>` to describe the group
 - Provide clear error validation
@@ -937,7 +937,7 @@ Hover states must also follow all the usual accessibility guidelines. For instan
 
 #### How to support it
 
-If you're building or designing a new component, make sure it has hover states that follow all accessibility guidelines (e.g. colour contrast, target size, descriptive text, etc.)
+If you're building or designing a new component, make sure it has hover states that follow all accessibility guidelines (for example, colour contrast, target size, descriptive text, and so on)
 
 #### Useful links
 
@@ -953,10 +953,10 @@ Inclusive language means using words that respect everyone. It avoids words that
 
 In accessibility, language is a critical part of the user experience. Non-inclusive language creates significant barriers, making people feel unwelcome, unseen, or disrespected. These barriers include:
 
-- Ableist language (e.g., 'lame', 'crazy', 'blind spot') uses disability as a negative metaphor, which can be offensive and alienating
-- Biased or gendered terms (e.g., 'salesman', 'guys') can exclude people who don't identify with those terms
+- Ableist language (for example, 'lame', 'crazy', 'blind spot') uses disability as a negative metaphor, which can be offensive and alienating
+- Biased or gendered terms (for example, 'salesman', 'guys') can exclude people who don't identify with those terms
 - Complicated jargon or sayings can be real barriers for people with cognitive disabilities, people who don't speak English as a first language, or people who find reading hard
-- Using labels (e.g., 'the disabled') defines people by their condition rather than as individuals
+- Using labels (for example, 'the disabled') defines people by their condition rather than as individuals
 
 This is a communication practice, not a technical feature. It is fully supported and encouraged across all platforms and forms of communication.
 
@@ -964,13 +964,13 @@ This is a communication practice, not a technical feature. It is fully supported
 
 To ensure your language is inclusive, you must be conscious, precise, and empathetic in your word choices.
 
-Use person-first language (e.g., 'a person with vision loss') unless a group or individual expresses a preference for identity-first language (e.g., 'an autistic person'). When in doubt, person-first is often a safer starting point. The Deaf community generally prefers identity-first language (e.g., 'Deaf people').
+Use person-first language (for example, 'a person with vision loss') unless a group or individual expresses a preference for identity-first language (for example, 'an autistic person'). When in doubt, person-first is often a safer starting point. The Deaf community generally prefers identity-first language (for example, 'Deaf people').
 
 Avoid ableist metaphors. Instead of 'that idea is lame', say 'that idea is underdeveloped'. Instead of 'fell on deaf ears', say 'the feedback was ignored'.
 
 Use neutral terms. Opt for 'everyone', 'team', or 'you all' instead of 'guys'. Use 'parent' instead of 'mother/father', and 'partner' instead of 'husband/wife/boyfriend/girlfriend' if you don't know.
 
-Be specific and clear. Avoid jargon and write in plain language. Clearly describe functionality without assuming ability (e.g., instead of 'Click here', use 'Select the 'Submit' button').
+Be specific and clear. Avoid jargon and write in plain language. Clearly describe functionality without assuming ability (for example, instead of 'Click here', use 'Select the 'Submit' button').
 
 #### Useful links
 
@@ -994,7 +994,7 @@ Many people navigate using their keyboard only, but it's especially important fo
 
 #### How to support it
 
-Make sure that all interactive elements (buttons, links, etc.) can be navigated to using the keyboard, and that all interactivity still functions as expected. The focus should also be clear: if your focus is on a button, can you tell that's where your focus is just by looking?
+Make sure that all interactive elements (buttons, links, and so on) can be navigated to using the keyboard, and that all interactivity still functions as expected. The focus should also be clear: if your focus is on a button, can you tell that's where your focus is just by looking?
 
 To test keyboard accessibility:
 
@@ -1036,7 +1036,7 @@ The best way is to use semantic HTML (standard HTML tags). When you use the righ
 You can use code to force a plain box (`<div>`) to act like a `<button>`, but it is risky, and takes much more work.
 
 - Using a `<button>` tag is like buying a chair. It comes ready to sit on.
-- Using a `<div>` is like buying a pile of wood and writing 'Chair' on it. It says it's a chair, but you have to build the legs yourself (e.g. add keyboard support) or it will fall apart.
+- Using a `<div>` is like buying a pile of wood and writing 'Chair' on it. It says it's a chair, but you have to build the legs yourself (for example, add keyboard support) or it will fall apart.
 
 #### Useful links
 
@@ -1153,7 +1153,7 @@ To make an experience better for everyone, focus on making things clear, predict
 
 - Keep it simple and clear, use plain English and short sentences
 - Choose simple, easy-to-read fonts
-- Make it predictable, use headings and lists to organise content. Keep your layout the same on every page, and make sure buttons clearly say what they do (e.g., "Submit your form")
+- Make it predictable, use headings and lists to organise content. Keep your layout the same on every page, and make sure buttons clearly say what they do (for example, "Submit your form")
 - Reduce distractions, letting the user be in control. Avoid auto-playing videos or flashing animations
 - Be forgiving. Write error messages that clearly explain what is wrong and how to fix it
 - Make content easy to read by breaking up long text with headings, lists, and empty space
@@ -1286,7 +1286,7 @@ While QR codes can help users with motor or cognitive disabilities by removing t
 
 To ensure your QR code is accessible, you must provide alternatives and context.
 
-- Always include a short, readable URL (e.g., [InclusionToolkit.org/highlights](/highlights)) and a clear description of the link's purpose next to the code
+- Always include a short, readable URL (for example, [InclusionToolkit.org/highlights](/highlights)) and a clear description of the link's purpose next to the code
 - Use high-contrast colours (dark on light), a large size (at least 1 inch x 1 inch), and place it at a height reachable by all users
 
 If you can avoid using a QR code, you should. Here are a few alternatives:
@@ -1426,7 +1426,7 @@ In workplace chat tools like Slack, upload the image, click ‘Edit file details
 
 #### What is it for?
 
-People often use generator websites to make their text look unique (e.g. 𝓬𝓾𝓻𝓼𝓲𝓿𝓮 or 𝕓𝕠𝕝𝕕). However, these are not real fonts. They are mathematical symbols from the Unicode standard designed for equations, not language.
+People often use generator websites to make their text look unique (for example, 𝓬𝓾𝓻𝓼𝓲𝓿𝓮 or 𝕓𝕠𝕝𝕕). However, these are not real fonts. They are mathematical symbols from the Unicode standard designed for equations, not language.
 
 When a screen reader encounters this text, it does not read the word. It reads the mathematical description of every single character. 𝓗𝓮𝓵𝓵𝓸 ("Hello") becomes "Mathematical script capital H, mathematical script small e..." which renders the message completely unintelligible.
 
@@ -1455,7 +1455,7 @@ To keep your content fun but readable, follow these best practices:
 
 - Use them sparingly. One or two emojis are usually enough to convey a mood.
 - Put them at the end. Place emojis at the end of a sentence or paragraph so they do not interrupt the flow of reading.
-- Never replace a word with an emoji (e.g. writing 'I want \[pizza emoji\]' instead of 'I want pizza'). This ensures the sentence still makes sense if the emoji description is different from what you expect.
+- Never replace a word with an emoji (for example, writing 'I want \[pizza emoji\]' instead of 'I want pizza'). This ensures the sentence still makes sense if the emoji description is different from what you expect.
 - Check the emoji description. Use a site like [Emojipedia](https://emojipedia.org/) to check exactly how your chosen emoji will be described to a blind user.
 
 #### Useful links
@@ -1584,7 +1584,7 @@ Standard 'alt text' is great for simple photos, but it often fails for complex d
 
 It requires a two-step approach because a short description is not enough
 
-1. Use the standard 'alt text' to briefly identify the image (e.g. 'Bar chart showing Q3 revenue')
+1. Use the standard 'alt text' to briefly identify the image (for example, 'Bar chart showing Q3 revenue')
 2. Provide the full data in a text format nearby
 
 For charts and graphs, place a properly formatted data table immediately below the image.\

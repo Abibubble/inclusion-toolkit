@@ -12,7 +12,7 @@ You can still share these visuals, but you should change the format to be inclus
 
 - Take a screenshot of the ASCII art you want to share.
 - Upload the screenshot rather than pasting the text directly.
-- Write a description of the image as alt text (e.g. "A line drawing of a rabbit made of text characters").
+- Write a description of the image as alt text (for example, "A line drawing of a rabbit made of text characters").
 
 ### Useful links
 

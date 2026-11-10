@@ -8,7 +8,7 @@ It is useful for, but not limited to, the following people:
 - People with colour vision deficiency (also known as colour blindness)
 - Elderly people
 - People with cataracts
-- People in different lighting situations (e.g. sun glare on a phone screen)
+- People in different lighting situations (for example, sun glare on a phone screen)
 
 It's also worth noting that anything that is indicated by colour also needs to have a secondary way for it to be distinguished. For example, it's no good saying "use the green button if you agree or the red button if you don’t” by itself, as some people may not be able to distinguish between those two colours.
 

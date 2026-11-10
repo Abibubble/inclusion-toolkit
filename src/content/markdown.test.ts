@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { markLinkOnlyItems, renderMarkdown } from './markdown';
+import { markAbbreviations, markLinkOnlyItems, renderMarkdown } from './markdown';
 
 describe('renderMarkdown', () => {
   it('turns Markdown into HTML', () => {
@@ -16,9 +16,9 @@ describe('renderMarkdown', () => {
   });
 
   it('marks links to other sites, for everyone and not just people who can see the icon', () => {
-    const html = renderMarkdown('[WCAG](https://www.w3.org/TR/WCAG22/)');
+    const html = renderMarkdown('[The guidelines](https://www.w3.org/TR/WCAG22/)');
 
-    expect(html).toContain('<a href="https://www.w3.org/TR/WCAG22/">WCAG <svg');
+    expect(html).toContain('<a href="https://www.w3.org/TR/WCAG22/">The guidelines <svg');
     expect(html).toContain('aria-hidden="true"');
     expect(html).toContain('<span class="screenReaderOnly">(external site)</span></a>');
   });
@@ -41,5 +41,42 @@ describe('markLinkOnlyItems', () => {
     const html = '<ul><li>See <a href="/a">A</a> first</li></ul>';
 
     expect(markLinkOnlyItems(html)).toBe(html);
+  });
+});
+
+describe('markAbbreviations', () => {
+  it('marks up each abbreviation with its full form (WCAG 3.1.4)', () => {
+    expect(markAbbreviations('<p>Save it as a PDF, or two PDFs.</p>')).toBe(
+      '<p>Save it as a <abbr title="Portable Document Format">PDF</abbr>, or two <abbr title="Portable Document Format">PDFs</abbr>.</p>',
+    );
+  });
+
+  it('ignores capitals inside other words', () => {
+    expect(markAbbreviations('<p>A UKULELE band.</p>')).toBe('<p>A UKULELE band.</p>');
+  });
+
+  it('leaves code, and abbreviations already marked up, as they are', () => {
+    const html =
+      '<pre><code>const pdf = "PDF";</code></pre><p><code>HTML</code> and <abbr title="x">CSS</abbr></p>';
+
+    expect(markAbbreviations(html)).toBe(html);
+  });
+
+  it('marks up abbreviations after code, in headings and in links', () => {
+    expect(markAbbreviations('<p><code>x</code> HTML</p><h3>CSS</h3><a href="/a">PDF</a>')).toBe(
+      '<p><code>x</code> <abbr title="HyperText Markup Language">HTML</abbr></p><h3><abbr title="Cascading Style Sheets">CSS</abbr></h3><a href="/a"><abbr title="Portable Document Format">PDF</abbr></a>',
+    );
+  });
+
+  it('never changes what’s inside a tag, such as an address', () => {
+    const html = '<a href="https://example.com/PDF">guide</a>';
+
+    expect(markAbbreviations(html)).toBe(html);
+  });
+
+  it('runs on every resource’s text', () => {
+    expect(renderMarkdown('An ADHD guide.')).toBe(
+      '<p>An <abbr title="attention deficit hyperactivity disorder">ADHD</abbr> guide.</p>\n',
+    );
   });
 });

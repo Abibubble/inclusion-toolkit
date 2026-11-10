@@ -206,7 +206,7 @@ describe('ToolkitPage', () => {
 
     const guide = within(files.getByRole('region', { name: 'Full guide' }));
     const view = guide.getByRole('link', {
-      name: 'View: Dark mode, full guide, PDF, opens in a new tab',
+      name: 'View: Dark mode, full guide, PDF (opens in a new tab)',
     });
     expect(view).toHaveAttribute('href', '/files/highlights/dark-mode.pdf');
     expect(view).toHaveAttribute('target', '_blank');
@@ -217,7 +217,7 @@ describe('ToolkitPage', () => {
     const summary = within(files.getByRole('region', { name: 'Visual summary' }));
     expect(
       summary.getByRole('link', {
-        name: 'View: Dark mode, visual summary, PDF, opens in a new tab',
+        name: 'View: Dark mode, visual summary, PDF (opens in a new tab)',
       }),
     ).toHaveAttribute('href', '/files/highlights/dark-mode-visual-summary.pdf');
     expect(

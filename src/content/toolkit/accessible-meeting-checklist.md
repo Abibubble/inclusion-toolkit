@@ -17,8 +17,8 @@ A checklist of steps to take before, during, and after meetings to make them mor
 - Enable closed captions on Zoom/Teams by default
 - At the start of the meeting, state ‘cameras are completely optional’, to reduce sensory exhaustion
 - Ask speakers to introduce themselves with their name, pronouns, and a short visual description
-- Ask speakers to briefly describe visual content (e.g. ‘On the screen is a bar chart showing…’)
-- Ensure all participants are aware of the different ways they can participate in the meeting (e.g. ‘Raise hands’ feature, speaking out loud, messaging in the chat, etc.)
+- Ask speakers to briefly describe visual content (for example, ‘On the screen is a bar chart showing…’)
+- Ensure all participants are aware of the different ways they can participate in the meeting (for example, ‘Raise hands’ feature, speaking out loud, messaging in the chat, and so on)
 - Ensure someone is watching the chat and communicating any messages to the speakers
 - Vary your communication. Use a mix of verbal, visual and written content
 - Think about sensory needs. Let people move, doodle, fidget or stand

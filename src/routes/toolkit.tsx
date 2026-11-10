@@ -7,7 +7,7 @@ import {
 
 import { ToolkitPage } from '../components/Toolkit';
 import { SITE_DESCRIPTION, SITE_NAME, pageTitle } from '../content/site';
-import { TOOLKIT_PATH, toolkitPath } from '../content/toolkit';
+import { TOOLKIT_PATH, type ToolkitCrumb, toolkitPath } from '../content/toolkit';
 import { loadToolkitPage } from '../content/toolkitPage';
 import { pageMeta } from '../seo/pageMeta';
 import { websiteSchema } from '../seo/website';
@@ -31,6 +31,16 @@ export function loader({ request }: LoaderFunctionArgs) {
   return loadToolkitPage(toolkitSlugsFrom(request.url));
 }
 
+/**
+ * A page's title, with the folder it's in, so no two pages share a title (WCAG 2.4.2). There are
+ * resources called Meetings in both the accessibility and neurodiversity highlights, for example.
+ * Pages at the top of the toolkit, and resources named after their folder, keep just their own name
+ */
+export function withFolder(title: string, trail: readonly ToolkitCrumb[]): string {
+  const folder = trail.length > 1 ? trail.at(-1)?.title : undefined;
+  return folder && folder !== title ? `${title}, ${folder}` : title;
+}
+
 export function meta({ loaderData }: MetaArgs<typeof loader>): MetaDescriptor[] {
   if (!loaderData) return [];
 
@@ -43,7 +53,7 @@ export function meta({ loaderData }: MetaArgs<typeof loader>): MetaDescriptor[] 
 
   const { title, description } = loaderData.kind === 'folder' ? loaderData.folder : loaderData.item;
   return pageMeta({
-    title: pageTitle(title),
+    title: pageTitle(withFolder(title, loaderData.trail)),
     description,
     path: toolkitPath(loaderData.slugs),
   });

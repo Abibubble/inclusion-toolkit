@@ -18,11 +18,11 @@ Closed captions and a transcript can be turned on via the Zoom meeting controls 
 
 #### Goals for the meeting
 
-- \[What you want to happen by the end of the meeting, e.g. key decisions\]
+- \[What you want to happen by the end of the meeting, for example, key decisions\]
 
 #### Resources
 
-- \[Any slides, notes, sign-up sheet, etc.\]
+- \[Any slides, notes, sign-up sheet, and so on\]
 
 #### Acronyms
 
@@ -34,7 +34,7 @@ Closed captions and a transcript can be turned on via the Zoom meeting controls 
 
 #### Info about cameras on/off request
 
-\[e.g. We’d love to see your faces, but cameras are entirely optional\]
+\[For example: We’d love to see your faces, but cameras are entirely optional\]
 
 #### Will it be recorded?
 

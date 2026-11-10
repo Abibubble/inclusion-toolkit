@@ -6,7 +6,7 @@ Hover states must also follow all the usual accessibility guidelines. For instan
 
 ### How to support it
 
-If you're building or designing a new component, make sure it has hover states that follow all accessibility guidelines (e.g. colour contrast, target size, descriptive text, etc.)
+If you're building or designing a new component, make sure it has hover states that follow all accessibility guidelines (for example, colour contrast, target size, descriptive text, and so on)
 
 ### Useful links
 

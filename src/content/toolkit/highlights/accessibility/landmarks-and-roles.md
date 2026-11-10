@@ -19,7 +19,7 @@ The best way is to use semantic HTML (standard HTML tags). When you use the righ
 You can use code to force a plain box (`<div>`) to act like a `<button>`, but it is risky, and takes much more work.
 
 - Using a `<button>` tag is like buying a chair. It comes ready to sit on.
-- Using a `<div>` is like buying a pile of wood and writing 'Chair' on it. It says it's a chair, but you have to build the legs yourself (e.g. add keyboard support) or it will fall apart.
+- Using a `<div>` is like buying a pile of wood and writing 'Chair' on it. It says it's a chair, but you have to build the legs yourself (for example, add keyboard support) or it will fall apart.
 
 ### Useful links
 

@@ -18,7 +18,7 @@ To make an experience better for everyone, focus on making things clear, predict
 
 - Keep it simple and clear, use plain English and short sentences
 - Choose simple, easy-to-read fonts
-- Make it predictable, use headings and lists to organise content. Keep your layout the same on every page, and make sure buttons clearly say what they do (e.g., "Submit your form")
+- Make it predictable, use headings and lists to organise content. Keep your layout the same on every page, and make sure buttons clearly say what they do (for example, "Submit your form")
 - Reduce distractions, letting the user be in control. Avoid auto-playing videos or flashing animations
 - Be forgiving. Write error messages that clearly explain what is wrong and how to fix it
 - Make content easy to read by breaking up long text with headings, lists, and empty space

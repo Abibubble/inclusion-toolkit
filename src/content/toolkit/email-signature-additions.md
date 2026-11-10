@@ -34,7 +34,7 @@ These are great for individuals with ADHD, anxiety, or anyone who struggles with
 - I check my inbox twice a day to protect time for deep, focused work. If you need a faster response, please message me directly on \[Teams/Slack\]
 - If this email requires no action from you, please feel free not to reply. I don’t track email acknowledgements, and it’s better for the environment
 
-### Audio vs. Text
+### Audio or Text
 
 People process information differently. Some need written records, while others find typing exhausting or difficult.
 

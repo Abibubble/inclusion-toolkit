@@ -341,7 +341,7 @@
       "folders": [
         {
           "slug": "neurodiversity",
-          "title": "Neurodiversity",
+          "title": "Neurodiversity Highlights",
           "description": "Highlights covering topics related to neurodiversity.",
           "folders": [],
           "items": [
@@ -493,7 +493,7 @@
         },
         {
           "slug": "accessibility",
-          "title": "Accessibility",
+          "title": "Accessibility Highlights",
           "description": "Highlights covering topics related to accessibility.",
           "folders": [],
           "items": [
@@ -959,7 +959,7 @@
             {
               "slug": "social-media-custom-fonts",
               "title": "Social Media: Custom Fonts",
-              "description": "People often use generator websites to make their text look unique (e.g.",
+              "description": "People often use generator websites to make their text look unique.",
               "updated": "2026-11-05",
               "slides": true,
               "text": "checked",
