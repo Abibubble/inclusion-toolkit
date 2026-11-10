@@ -32,7 +32,7 @@ Closed captions and a transcript can be turned on via the Zoom meeting controls 
 
 \[Remote / Hybrid / Office\]
 
-#### Info about cameras on/off request
+#### Information about cameras on/off request
 
 \[For example: We’d love to see your faces, but cameras are entirely optional\]
 

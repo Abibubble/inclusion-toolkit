@@ -100,7 +100,7 @@
 #### Support options
 
 - CBT with exposure therapy helps face fears without rituals.
-- Antidepressants called selective serotonin reuptake inhibitors (SSRIs) can reduce symptom intensity.
+- Antidepressants called selective serotonin reuptake inhibitors can reduce symptom intensity.
 - Peer support groups help reduce isolation.
 
 #### Support
@@ -242,7 +242,7 @@
 
 #### Support options
 
-- Comprehensive Behavioural Intervention for Tics (CBIT) teaches strategies to manage tic urges.
+- Comprehensive Behavioural Intervention for Tics teaches strategies to manage tic urges.
 - Medication may be used if tics cause pain, injury, or severe distress.
 - Support groups help reduce stigma and improve self-esteem.
 
@@ -346,7 +346,7 @@
 
 #### Diagnosis
 
-- It isn't a separate diagnosis in the DSM-5, the main diagnostic manual.
+- It isn't a separate diagnosis in the Diagnostic and Statistical Manual of Mental Disorders, the main book doctors use to diagnose conditions.
 - Often identified by an occupational therapist.
 - Frequently co-occurs with other conditions.
 

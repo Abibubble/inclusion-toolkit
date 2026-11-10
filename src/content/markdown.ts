@@ -1,6 +1,8 @@
 import { Marked, type RendererObject } from 'marked';
 
-import { ABBREVIATIONS, type Abbreviation } from './abbreviations';
+import { ABBREVIATIONS, ALWAYS_SHORT, type Abbreviation } from './abbreviations';
+import { GLOSSARY, glossaryId } from './glossary';
+import { GLOSSARY_PATH } from './navigation';
 
 /**
  * Turns the toolkit's Markdown into HTML. Only loaders use this, and loaders run when the site is
@@ -47,35 +49,156 @@ const ABBREVIATION = new RegExp(
   'g',
 );
 
-// The HTML split into tags and the text between them. Text inside these elements is left alone
+// The HTML split into tags and the text between them
 const TAG = /(<[^>]+>)/;
-const SKIPPED = /^<(\/?)(code|pre|abbr)[\s>]/i;
+
+/** Elements whose text is left alone, and elements that start a new block of text */
+const NO_ABBREVIATIONS = ['code', 'pre', 'abbr'];
+const NO_GLOSSARY_LINKS = ['code', 'pre', 'abbr', 'a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+const BLOCKS = [
+  'p',
+  'li',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'td',
+  'th',
+  'dt',
+  'dd',
+  'blockquote',
+];
+
+interface TextPart {
+  text: string;
+  /** Whether the text is inside one of the elements being skipped */
+  skipped: boolean;
+  /** Whether this is the first text in a block, such as a paragraph or list item */
+  blockStart: boolean;
+}
 
 /**
- * Marks up every abbreviation in the text with its full form, the same way the Abbr component does
- * without JavaScript (WCAG 3.1.4). Abbreviations most people don't know are also written out in the
- * text the first time, which the end to end tests check. Text in code, and abbreviations that are
- * already marked up, are left as they are
+ * Changes the text between the tags, and never the tags themselves, so addresses and other
+ * attributes stay as they are. Elements in `skip` are left alone, along with everything in them
  */
-export function markAbbreviations(html: string): string {
+function mapText(
+  html: string,
+  skip: readonly string[],
+  change: (part: TextPart) => string,
+): string {
   let skippedDepth = 0;
+  let blockStart = false;
 
   return html
     .split(TAG)
     .map((part) => {
-      if (part.startsWith('<')) {
-        const skipped = SKIPPED.exec(part);
-        if (skipped) skippedDepth += skipped[1] ? -1 : 1;
+      const tag = /^<(\/?)([a-z0-9]+)/i.exec(part);
+      if (tag) {
+        const [, closing, name = ''] = tag;
+        if (skip.includes(name.toLowerCase())) skippedDepth += closing ? -1 : 1;
+        if (!closing && BLOCKS.includes(name.toLowerCase())) blockStart = true;
         return part;
       }
-      if (skippedDepth > 0) return part;
-      return part.replace(
-        ABBREVIATION,
-        (_, name: Abbreviation, ending: string) =>
-          `<abbr title="${ABBREVIATIONS[name]}">${name}${ending}</abbr>`,
-      );
+      if (!part) return part;
+      const changed = change({ text: part, skipped: skippedDepth > 0, blockStart });
+      if (part.trim()) blockStart = false;
+      return changed;
     })
     .join('');
+}
+
+function capitalise(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+/**
+ * Marks up every abbreviation in the text with its full form, the same way the Abbr component does
+ * without JavaScript (WCAG 3.1.4). The first time an abbreviation is used, it's also written out in
+ * full, unless the text already does that, or it's one most people know (ALWAYS_SHORT). The end to
+ * end tests check every page does this. Text in code, and abbreviations already marked up, are
+ * left as they are
+ */
+export function markAbbreviations(html: string): string {
+  const used = new Set<Abbreviation>();
+  let textSoFar = '';
+
+  return mapText(html, NO_ABBREVIATIONS, ({ text, skipped, blockStart }) => {
+    const before = textSoFar;
+    textSoFar += text;
+    if (skipped) return text;
+
+    return text.replace(
+      ABBREVIATION,
+      (_match: string, name: Abbreviation, ending: string, index: number) => {
+        const fullForm = ABBREVIATIONS[name];
+        const abbr = `<abbr title="${fullForm}">${name}${ending}</abbr>`;
+        const first = !used.has(name);
+        used.add(name);
+        if (!first || ALWAYS_SHORT.includes(name)) return abbr;
+
+        const textBefore = `${before}${text.slice(0, index)}`.toLowerCase();
+        const writtenOut = [`${fullForm} (`, `${fullForm}s (`].some((form) =>
+          textBefore.endsWith(form.toLowerCase()),
+        );
+        if (writtenOut) return abbr;
+
+        const startsSentence =
+          (blockStart && !text.slice(0, index).trim()) || /[.!?]\s*$/.test(textBefore);
+        const written = `${fullForm}${ending}`;
+        return `${startsSentence ? capitalise(written) : written} (${abbr})`;
+      },
+    );
+  });
+}
+
+/** The other names a glossary term goes by, which are split by a slash with a space either side */
+export function termForms(term: string): string[] {
+  return term.split(' / ').map((form) => form.trim());
+}
+
+/**
+ * A pattern for one form of a glossary term, as a whole word, with or without a plural ending. A
+ * straight or curly apostrophe matches either, as the text uses both
+ */
+export function termPattern(form: string): string {
+  const escaped = form.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/['’]/g, "['’]");
+  return /s$/i.test(escaped) && escaped.length > 3
+    ? `${escaped.slice(0, -1)}s?`
+    : `${escaped}(?:s|es)?`;
+}
+
+const LINKED_TERMS = GLOSSARY.filter(({ link }) => link !== false).map((entry) => ({
+  entry,
+  pattern: new RegExp(`^(?:${termForms(entry.term).map(termPattern).join('|')})$`, 'i'),
+}));
+
+const GLOSSARY_TERM = new RegExp(
+  `(?<![A-Za-z-])(${LINKED_TERMS.flatMap(({ entry }) => termForms(entry.term).map(termPattern))
+    .sort((a, b) => b.length - a.length)
+    .join('|')})(?![A-Za-z-])`,
+  'gi',
+);
+
+/**
+ * Links the first use of each glossary term on a page to its explanation on the Glossary page
+ * (WCAG 3.1.3). The link's name says it goes to the glossary, so it makes sense on its own (WCAG
+ * 2.4.9). Terms in headings, links and code aren't linked
+ */
+export function linkGlossaryTerms(html: string): string {
+  const linked = new Set<string>();
+
+  return mapText(html, NO_GLOSSARY_LINKS, ({ text, skipped }) => {
+    if (skipped) return text;
+
+    return text.replace(GLOSSARY_TERM, (match: string) => {
+      const term = LINKED_TERMS.find(({ pattern }) => pattern.test(match))?.entry;
+      if (!term || linked.has(term.term)) return match;
+      linked.add(term.term);
+      return `<a href="${GLOSSARY_PATH}#${glossaryId(term.term)}" aria-label="${match}, in the glossary">${match}</a>`;
+    });
+  });
 }
 
 /**
@@ -83,5 +206,7 @@ export function markAbbreviations(html: string): string {
  * third level headings (###) and below, which a test checks
  */
 export function renderMarkdown(source: string): string {
-  return markAbbreviations(markLinkOnlyItems(markdown.parse(source, { async: false })));
+  return markAbbreviations(
+    markLinkOnlyItems(linkGlossaryTerms(markdown.parse(source, { async: false }))),
+  );
 }

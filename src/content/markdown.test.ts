@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
-import { markAbbreviations, markLinkOnlyItems, renderMarkdown } from './markdown';
+import {
+  linkGlossaryTerms,
+  markAbbreviations,
+  markLinkOnlyItems,
+  renderMarkdown,
+} from './markdown';
 
 describe('renderMarkdown', () => {
   it('turns Markdown into HTML', () => {
@@ -78,5 +83,60 @@ describe('markAbbreviations', () => {
     expect(renderMarkdown('An ADHD guide.')).toBe(
       '<p>An <abbr title="attention deficit hyperactivity disorder">ADHD</abbr> guide.</p>\n',
     );
+  });
+});
+
+describe('writing out abbreviations', () => {
+  it('writes an abbreviation out in full the first time, and only marks it up after that', () => {
+    expect(markAbbreviations('<p>Meet SC 2.5.8, then SC 2.5.5.</p>')).toBe(
+      '<p>Meet success criterion (<abbr title="success criterion">SC</abbr>) 2.5.8, then <abbr title="success criterion">SC</abbr> 2.5.5.</p>',
+    );
+  });
+
+  it('starts with a capital letter at the start of a sentence or block', () => {
+    expect(markAbbreviations('<p>SC 1.4.3 matters. SC 1.4.6 too.</p><li>MDN Web Docs</li>')).toBe(
+      '<p>Success criterion (<abbr title="success criterion">SC</abbr>) 1.4.3 matters. <abbr title="success criterion">SC</abbr> 1.4.6 too.</p><li>Mozilla Developer Network (<abbr title="Mozilla Developer Network">MDN</abbr>) Web Docs</li>',
+    );
+  });
+
+  it('leaves it alone when the text already writes it out, including in a plural', () => {
+    expect(
+      markAbbreviations('<p>Assistive Technology (AT) and IQs. Intelligence quotients (IQs)</p>'),
+    ).toBe(
+      '<p>Assistive Technology (<abbr title="assistive technology">AT</abbr>) and intelligence quotients (<abbr title="intelligence quotient">IQs</abbr>). Intelligence quotients (<abbr title="intelligence quotient">IQs</abbr>)</p>',
+    );
+  });
+
+  it('never writes out ones most people know, or text in code', () => {
+    expect(markAbbreviations('<p>A TV and <code>WAI</code>, then WAI.</p>')).toBe(
+      '<p>A <abbr title="television">TV</abbr> and <code>WAI</code>, then Web Accessibility Initiative (<abbr title="Web Accessibility Initiative">WAI</abbr>).</p>',
+    );
+  });
+});
+
+describe('linkGlossaryTerms', () => {
+  it('links the first use of each glossary term to the glossary, saying so in its name', () => {
+    expect(linkGlossaryTerms('<p>Add alt text. Good alt text helps.</p>')).toBe(
+      '<p>Add <a href="/glossary#alt-text" aria-label="alt text, in the glossary">alt text</a>. Good alt text helps.</p>',
+    );
+  });
+
+  it('finds plurals and other names for the same thing', () => {
+    expect(linkGlossaryTerms('<p>Use landmarks and popovers.</p>')).toBe(
+      '<p>Use <a href="/glossary#landmark" aria-label="landmarks, in the glossary">landmarks</a> and <a href="/glossary#tooltip-popover" aria-label="popovers, in the glossary">popovers</a>.</p>',
+    );
+  });
+
+  it('only matches whole words', () => {
+    const html = '<p>A personal reflowable page.</p>';
+
+    expect(linkGlossaryTerms(html)).toBe(html);
+  });
+
+  it('leaves headings, links, code and everyday words alone', () => {
+    const html =
+      '<h3>Alt text</h3><p><a href="/x">alt text</a> <code>modal</code>, and focus on people.</p>';
+
+    expect(linkGlossaryTerms(html)).toBe(html);
   });
 });

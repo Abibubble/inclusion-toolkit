@@ -1,6 +1,6 @@
 ### What is it for?
 
-Tooltips and popovers give users extra info on demand (like for an icon button). But they often fail accessibility by being:
+Tooltips and popovers give users extra information on demand (like for an icon button). But they often fail accessibility by being:
 
 - Mouse-only. They don't appear for keyboard users (focus).
 - Silent. Screen readers don't announce the new content.
@@ -12,7 +12,7 @@ It's important to note that popovers and modals are not the same thing. A modal 
 
 They must work for keyboard, mouse, and screen reader users.
 
-- For simple tooltips (read-only info):
+- For simple tooltips (read-only information):
   - Show on hover and focus
   - Keep it visible while the pointer is over it, and let users close it with the Escape key
   - Use aria-describedby to link the trigger button to the tooltip. This is how screen readers announce it

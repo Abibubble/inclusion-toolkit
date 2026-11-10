@@ -18,7 +18,7 @@
 
 ### Diagnosis
 
-- It isn't a separate diagnosis in the DSM-5, the main diagnostic manual.
+- It isn't a separate diagnosis in the Diagnostic and Statistical Manual of Mental Disorders, the main book doctors use to diagnose conditions.
 - Often identified by an occupational therapist.
 - Frequently co-occurs with other conditions.
 

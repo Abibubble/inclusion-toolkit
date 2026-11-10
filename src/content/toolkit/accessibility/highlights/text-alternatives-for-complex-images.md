@@ -6,7 +6,7 @@ Standard 'alt text' is great for simple photos, but it often fails for complex d
 
 It requires a two-step approach because a short description is not enough
 
-1. Use the standard 'alt text' to briefly identify the image (for example, 'Bar chart showing Q3 revenue')
+1. Use the standard 'alt text' to briefly identify the image (for example, 'Bar chart showing money earned from July to September')
 2. Provide the full data in a text format nearby
 
 For charts and graphs, place a properly formatted data table immediately below the image.\

@@ -56,7 +56,9 @@ async function checkFocus(page: Page): Promise<FocusCheck> {
       own.outlineStyle === 'none' && after.content !== 'none' && after.outlineStyle !== 'none'
         ? after
         : own;
-    const rect = element.getBoundingClientRect();
+    // A link that wraps onto a second line has a box round both lines, whose middle can fall in the
+    // gap between them, so this checks the middle of its first line instead
+    const rect = element.getClientRects()[0] ?? element.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
     const y = rect.top + Math.min(rect.height / 2, 10);
     const top = document.elementFromPoint(x, y);

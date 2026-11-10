@@ -94,7 +94,7 @@ Avoid PDFs, even the accessible ones! Yes, PDFs are not at all as accessible as 
 
 #### What is it for?
 
-Accessibility debt is like technical debt, but for accessibility. It refers to all the accessibility issues that build up over time when inclusive practices aren’t followed from the start. Just like tech debt, the longer it's left unmanaged, the harder (and more expensive) it becomes to fix.
+Accessibility debt is like technical debt, but for accessibility. It refers to all the accessibility issues that build up over time when inclusive practices aren’t followed from the start. Just like technical debt, the longer it's left unmanaged, the harder (and more expensive) it becomes to fix.
 
 #### How to support it
 
@@ -276,7 +276,7 @@ Make your designs compatible. It's simpler than you think and mostly means follo
 - Prioritise keyboard navigation. This is the #1 rule. If you can use your site with only the keyboard (Tab, Shift + Tab, Enter, Space, the arrow keys and Escape), you're supporting switch devices, voice control, and more
 - Make sure your layout doesn't break or hide text when a user zooms in
 - Use clear, simple labels. 'Submit Form' is much better than just a \> icon for voice control users
-- If you show info on hover, make sure keyboard users can get that same info (for example, by tabbing to it)
+- If you show information on hover, make sure keyboard users can get that same information (for example, by tabbing to it)
 
 #### Useful links
 
@@ -700,7 +700,7 @@ Errors need to be clear, visible, and announced.
 - Don't use colour alone, always add a text message and/or an accessible icon (like an `X`) next to the field.
 - Connect the error. Use `aria-describedby` to programmatically link the input field to its error message. This tells screen readers to announce the error when the user focuses on that field
 - Manage Focus. When a form submission fails, ideally, move focus to the first field with an error. If that's not possible, move the focus to a summary of errors at the top of the form
-- Use aria-invalid="true". Set this on the input field so assistive tech knows it has an error
+- Use aria-invalid="true". Set this on the input field so assistive technology knows it has an error
 
 #### Useful links
 
@@ -908,7 +908,7 @@ Headings are especially important for the following:
 
 #### How to support it
 
-Headings are simple to get right, but are often misunderstood. To start with, headings shouldn't be used for styling. Using a 'Heading 2' in your Word doc for some large, bold text might give you the right font size and font weight (how bold it is), but it also tells a screen reader that your text is a heading. This meaning may not be accurate. The 'meaning' here is called 'semantics'. Semantics are often referred to as 'building blocks' - without them, everything falls apart!
+Headings are simple to get right, but are often misunderstood. To start with, headings shouldn't be used for styling. Using a 'Heading 2' in your Word document for some large, bold text might give you the right font size and font weight (how bold it is), but it also tells a screen reader that your text is a heading. This meaning may not be accurate. The 'meaning' here is called 'semantics'. Semantics are often referred to as 'building blocks' - without them, everything falls apart!
 
 The examples below refer to the code elements of headings and the heading style names in Word and Google Docs. However, the principle applies to everything.
 
@@ -1432,7 +1432,7 @@ When a screen reader encounters this text, it does not read the word. It reads t
 
 #### How to support it
 
-The kindest thing you can do is avoid these generators entirely for your display name, bio, and captions.
+The kindest thing you can do is avoid these generators entirely for your display name, profile description, and captions.
 
 - Use the default keyboard font provided by the platform. This ensures your text is readable and searchable.
 - Since you cannot use bold or italics on most apps, highlight key words by capitalising only the first letter (for example, 'this is Really important') instead. Avoid writing whole words in capital letters, as they're harder to read.
@@ -1584,7 +1584,7 @@ Standard 'alt text' is great for simple photos, but it often fails for complex d
 
 It requires a two-step approach because a short description is not enough
 
-1. Use the standard 'alt text' to briefly identify the image (for example, 'Bar chart showing Q3 revenue')
+1. Use the standard 'alt text' to briefly identify the image (for example, 'Bar chart showing money earned from July to September')
 2. Provide the full data in a text format nearby
 
 For charts and graphs, place a properly formatted data table immediately below the image.\
@@ -1626,7 +1626,7 @@ Ensure that any time limits you use can be manually extended. Also ensure that t
 
 #### What is it for?
 
-Tooltips and popovers give users extra info on demand (like for an icon button). But they often fail accessibility by being:
+Tooltips and popovers give users extra information on demand (like for an icon button). But they often fail accessibility by being:
 
 - Mouse-only. They don't appear for keyboard users (focus).
 - Silent. Screen readers don't announce the new content.
@@ -1638,7 +1638,7 @@ It's important to note that popovers and modals are not the same thing. A modal 
 
 They must work for keyboard, mouse, and screen reader users.
 
-- For simple tooltips (read-only info):
+- For simple tooltips (read-only information):
   - Show on hover and focus
   - Keep it visible while the pointer is over it, and let users close it with the Escape key
   - Use aria-describedby to link the trigger button to the tooltip. This is how screen readers announce it

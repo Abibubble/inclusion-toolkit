@@ -25,7 +25,7 @@
 ### Support options
 
 - CBT with exposure therapy helps face fears without rituals.
-- Antidepressants called selective serotonin reuptake inhibitors (SSRIs) can reduce symptom intensity.
+- Antidepressants called selective serotonin reuptake inhibitors can reduce symptom intensity.
 - Peer support groups help reduce isolation.
 
 ### Support

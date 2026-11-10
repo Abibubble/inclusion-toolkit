@@ -17,12 +17,12 @@
 
 ### Diagnosis
 
-- Electroencephalogram (EEG) tests record the electrical activity of the brain to find unusual patterns.
+- Electroencephalogram tests record the electrical activity of the brain to find unusual patterns.
 - MRI or CT scans check for any physical causes of seizures in the brain.
 
 ### Treatment
 
-- Anti-epileptic drugs (AEDs) are the most common way to prevent seizures.
+- Anti-epileptic drugs are the most common way to prevent seizures.
 - Emergency medication can be used to stop a seizure that lasts too long.
 
 ### Support

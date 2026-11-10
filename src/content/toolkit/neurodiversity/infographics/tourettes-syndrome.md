@@ -22,7 +22,7 @@
 
 ### Support options
 
-- Comprehensive Behavioural Intervention for Tics (CBIT) teaches strategies to manage tic urges.
+- Comprehensive Behavioural Intervention for Tics teaches strategies to manage tic urges.
 - Medication may be used if tics cause pain, injury, or severe distress.
 - Support groups help reduce stigma and improve self-esteem.
 

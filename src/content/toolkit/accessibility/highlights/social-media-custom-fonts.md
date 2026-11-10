@@ -6,7 +6,7 @@ When a screen reader encounters this text, it does not read the word. It reads t
 
 ### How to support it
 
-The kindest thing you can do is avoid these generators entirely for your display name, bio, and captions.
+The kindest thing you can do is avoid these generators entirely for your display name, profile description, and captions.
 
 - Use the default keyboard font provided by the platform. This ensures your text is readable and searchable.
 - Since you cannot use bold or italics on most apps, highlight key words by capitalising only the first letter (for example, 'this is Really important') instead. Avoid writing whole words in capital letters, as they're harder to read.

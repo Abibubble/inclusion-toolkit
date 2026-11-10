@@ -2,7 +2,7 @@ import { PageContents, PageContentsSection, type PageSection } from '../componen
 import { PageHeading } from '../components/PageHeading';
 import { Stack } from '../components/Stack';
 import { ABBREVIATIONS, type Abbreviation } from '../content/abbreviations';
-import { GLOSSARY } from '../content/glossary';
+import { GLOSSARY, glossaryId } from '../content/glossary';
 import { GLOSSARY_PATH } from '../content/navigation';
 import { pageTitle } from '../content/site';
 import { pageMeta } from '../seo/pageMeta';
@@ -42,7 +42,8 @@ export default function Glossary() {
         <dl className={styles.definitions}>
           {GLOSSARY.map(({ term, definition }) => (
             <div key={term}>
-              <dt>{term}</dt>
+              {/* Each toolkit page links its first use of the term here */}
+              <dt id={glossaryId(term)}>{term}</dt>
               <dd>{definition}</dd>
             </div>
           ))}

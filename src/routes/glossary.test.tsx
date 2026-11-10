@@ -57,7 +57,8 @@ describe('Glossary page', () => {
     );
   });
 
-  it('has no detectable accessibility issues', async () => {
+  // The glossary is long, so axe takes longer than most pages to check it
+  it('has no detectable accessibility issues', { timeout: 20_000 }, async () => {
     const { container } = renderWithRouter(<Glossary />);
 
     await expectNoAxeViolations(container);

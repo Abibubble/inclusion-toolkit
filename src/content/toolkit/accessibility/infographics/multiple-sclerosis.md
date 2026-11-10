@@ -23,7 +23,7 @@
 
 ### Treatment
 
-- Disease-modifying therapies (DMTs) help reduce the number of relapses.
+- Disease-modifying therapies help reduce the number of relapses.
 - Steroids are used to speed up recovery from sudden attacks.
 - Physiotherapy maintains strength and manages muscle stiffness.
 

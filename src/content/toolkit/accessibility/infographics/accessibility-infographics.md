@@ -337,12 +337,12 @@
 
 #### Diagnosis
 
-- Electroencephalogram (EEG) tests record the electrical activity of the brain to find unusual patterns.
+- Electroencephalogram tests record the electrical activity of the brain to find unusual patterns.
 - MRI or CT scans check for any physical causes of seizures in the brain.
 
 #### Treatment
 
-- Anti-epileptic drugs (AEDs) are the most common way to prevent seizures.
+- Anti-epileptic drugs are the most common way to prevent seizures.
 - Emergency medication can be used to stop a seizure that lasts too long.
 
 #### Support
@@ -520,7 +520,7 @@
 
 #### Treatment
 
-- Disease-modifying therapies (DMTs) help reduce the number of relapses.
+- Disease-modifying therapies help reduce the number of relapses.
 - Steroids are used to speed up recovery from sudden attacks.
 - Physiotherapy maintains strength and manages muscle stiffness.
 
@@ -588,7 +588,7 @@
 
 #### Diagnosis
 
-- Blood tests measure levels of thyroid-stimulating hormone (TSH) and thyroid hormones like thyroxine (T4).
+- Blood tests measure levels of thyroid-stimulating hormone and thyroid hormones like thyroxine.
 - Physical exams check for swelling in the neck, known as a goitre.
 
 #### Treatment

@@ -10,7 +10,7 @@ Headings are especially important for the following:
 
 ### How to support it
 
-Headings are simple to get right, but are often misunderstood. To start with, headings shouldn't be used for styling. Using a 'Heading 2' in your Word doc for some large, bold text might give you the right font size and font weight (how bold it is), but it also tells a screen reader that your text is a heading. This meaning may not be accurate. The 'meaning' here is called 'semantics'. Semantics are often referred to as 'building blocks' - without them, everything falls apart!
+Headings are simple to get right, but are often misunderstood. To start with, headings shouldn't be used for styling. Using a 'Heading 2' in your Word document for some large, bold text might give you the right font size and font weight (how bold it is), but it also tells a screen reader that your text is a heading. This meaning may not be accurate. The 'meaning' here is called 'semantics'. Semantics are often referred to as 'building blocks' - without them, everything falls apart!
 
 The examples below refer to the code elements of headings and the heading style names in Word and Google Docs. However, the principle applies to everything.
 

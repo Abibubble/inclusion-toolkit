@@ -16,7 +16,7 @@ Errors need to be clear, visible, and announced.
 - Don't use colour alone, always add a text message and/or an accessible icon (like an `X`) next to the field.
 - Connect the error. Use `aria-describedby` to programmatically link the input field to its error message. This tells screen readers to announce the error when the user focuses on that field
 - Manage Focus. When a form submission fails, ideally, move focus to the first field with an error. If that's not possible, move the focus to a summary of errors at the top of the form
-- Use aria-invalid="true". Set this on the input field so assistive tech knows it has an error
+- Use aria-invalid="true". Set this on the input field so assistive technology knows it has an error
 
 ### Useful links
 

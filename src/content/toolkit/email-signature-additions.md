@@ -7,7 +7,7 @@ These allow for clarity about the hours in which an employee works. Some people 
 - My working hours may not be the same as yours. Please reply when convenient for you
 - I work flexibly and sometimes send emails at odd hours. Please do not feel obliged to read or reply to this outside of your own working hours
 
-### Assistive Tech & Typing
+### Assistive Technology and Typing
 
 These allow people to stop masking their spelling or motor-control difficulties.
 

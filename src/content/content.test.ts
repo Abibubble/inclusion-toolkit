@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 
 import { ABBREVIATIONS } from './abbreviations';
 import { GLOSSARY } from './glossary';
+import { termForms, termPattern } from './markdown';
 import { TOOLKIT_RECORD } from './toolkit';
 import { TOOLKIT_TEXT } from './toolkitPage';
 
@@ -35,16 +36,18 @@ describe('glossary', () => {
   });
 
   it('writes definitions without abbreviations, so they need no explaining themselves', () => {
+    // Level names, such as Level AA, aren't abbreviations
     for (const { term, definition } of GLOSSARY) {
-      expect(definition, term).not.toMatch(/\b[A-Z]{2,}\b/);
+      expect(definition.replace(/\bLevel A{1,3}\b/g, ''), term).not.toMatch(/\b[A-Z]{2,}\b/);
     }
   });
 
-  it('only explains words the site uses', () => {
-    const text = ALL_TEXT.toLowerCase();
-
+  it('only explains words the site uses, as whole words', () => {
     for (const { term } of GLOSSARY) {
-      expect(text.includes(term.toLowerCase()), term).toBe(true);
+      const used = termForms(term).some((form) =>
+        new RegExp(`(?<![A-Za-z-])${termPattern(form)}(?![A-Za-z-])`, 'i').test(ALL_TEXT),
+      );
+      expect(used, term).toBe(true);
     }
   });
 });

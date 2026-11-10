@@ -17,7 +17,7 @@
 
 ### Diagnosis
 
-- Blood tests measure levels of thyroid-stimulating hormone (TSH) and thyroid hormones like thyroxine (T4).
+- Blood tests measure levels of thyroid-stimulating hormone and thyroid hormones like thyroxine.
 - Physical exams check for swelling in the neck, known as a goitre.
 
 ### Treatment
