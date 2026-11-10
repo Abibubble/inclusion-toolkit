@@ -1,0 +1,71 @@
+.header {
+  border-block-end: var(--border-width) solid var(--color-border-decorative);
+  container: site-header / inline-size;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-16);
+  align-items: center;
+  padding-block: var(--spacer-16);
+}
+
+.siteName {
+  display: inline-flex;
+  gap: var(--spacer-8);
+  align-items: center;
+  min-height: var(--size-target-min);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+  color: var(--color-text);
+  text-decoration-line: none;
+
+  &:hover {
+    color: var(--color-action-hover);
+    text-decoration-line: underline;
+  }
+}
+
+/* Sized in em, so it grows with the name when the text size setting changes */
+.mark {
+  flex-shrink: 0;
+  inline-size: 1.5em;
+  block-size: 1.5em;
+}
+
+.markSquare {
+  stroke: var(--color-logo-outline);
+}
+
+.subnav {
+  display: none;
+  background: var(--color-surface);
+  border-block-start: var(--border-width) solid var(--color-border-decorative);
+}
+
+.subnavInner {
+  display: flex;
+  justify-content: flex-end;
+  padding-block: var(--spacer-4);
+}
+
+/* On the narrowest screens, a smaller name leaves room for the menu button on the same line, rather
+   than the button sitting on a line of its own. With larger text, they still wrap */
+@container site-header (width < 23em) {
+  .siteName {
+    font-size: var(--font-size-1);
+  }
+}
+
+/* Should match SiteNav.module.css */
+@container site-header (width >= 79em) {
+  .inner {
+    flex-wrap: nowrap;
+  }
+
+  .subnav {
+    display: block;
+  }
+}

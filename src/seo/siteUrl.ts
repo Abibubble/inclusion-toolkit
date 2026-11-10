@@ -6,7 +6,7 @@ export function siteUrlFromEnv(env: Partial<Record<string, string>>): string {
   if (!value) {
     if (env.GITHUB_PAGES) {
       throw new Error(
-        'Set SITE_URL to the site’s address, such as https://abibubble.github.io/inclusion-toolkit, as a repository variable for GitHub Actions.',
+        'Set SITE_URL to the site’s address, such as https://inclusiontoolkit.org, as a repository variable for GitHub Actions.',
       );
     }
     return LOCAL_SITE_URL;

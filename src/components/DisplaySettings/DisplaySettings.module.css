@@ -1,0 +1,30 @@
+.section,
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-32);
+}
+
+.section > *,
+.controls > * {
+  margin: 0;
+}
+
+:global(:root:not([data-js])) .controls {
+  display: none;
+}
+
+:global(:root[data-js]) .withoutJavaScript {
+  display: none;
+}
+
+.reset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-16);
+  align-items: center;
+
+  > p {
+    margin: 0;
+  }
+}

@@ -19,10 +19,13 @@ The dev server runs at http://localhost:5173.
 
 ## Site address
 
-Canonical addresses and the base path come from the `SITE_URL` environment variable. It can include
-a path, such as `https://abibubble.github.io/inclusion-toolkit`, and every page and file address then
-starts with `/inclusion-toolkit/`. Local builds use http://localhost:4173 without it. The GitHub
-Pages build fails without it, so the live site can never point at localhost.
+The site's address is https://inclusiontoolkit.org.
+
+Canonical addresses, share previews and the base path come from the `SITE_URL` environment
+variable, such as `https://inclusiontoolkit.org`. It can also include a path, such as
+`https://abibubble.github.io/inclusion-toolkit`, and every page and file address then starts with
+`/inclusion-toolkit/`. Local builds use http://localhost:4173 without it. The GitHub Pages build
+fails without it, so the live site can never point at localhost.
 
 ## Scripts
 
@@ -40,6 +43,7 @@ Pages build fails without it, so the live site can never point at localhost.
 | `pnpm test:storybook`  | Tests every Storybook story in a real browser, including axe checks  |
 | `pnpm storybook`       | Starts Storybook at http://localhost:6006                            |
 | `pnpm build-storybook` | Builds a static copy of Storybook into `storybook-static`            |
+| `pnpm brand-images`    | Redraws the icons and share image in `public/` from the site's mark  |
 | `pnpm commit:check`    | Runs the checks that must pass before committing                     |
 
 The first time, run `pnpm exec playwright install chromium` so the Storybook tests have a browser.

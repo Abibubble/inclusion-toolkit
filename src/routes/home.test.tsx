@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
+import { pageMeta } from '../seo/pageMeta';
 import Home, { meta } from './home';
 
 describe('Home', () => {
@@ -10,6 +11,12 @@ describe('Home', () => {
   });
 
   it('uses the site name as its title', () => {
-    expect(meta()).toEqual([{ title: 'Inclusion Toolkit' }]);
+    expect(meta()).toEqual(
+      pageMeta({
+        title: 'Inclusion Toolkit',
+        description: 'Free resources about accessibility and neurodiversity.',
+        path: '/',
+      }),
+    );
   });
 });

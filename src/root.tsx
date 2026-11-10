@@ -1,9 +1,24 @@
 import bodyFontUrl from '@fontsource-variable/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-wght-normal.woff2?url';
 import { type ReactNode, useEffect } from 'react';
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  isRouteErrorResponse,
+  useLocation,
+} from 'react-router';
 
 import type { Route } from './+types/root';
+import { AbbreviationScope } from './components/Abbr';
+import { ErrorPage } from './components/ErrorPage';
+import { NotFoundPage } from './components/NotFoundPage';
+import { SiteShell } from './components/SiteShell';
+import { BEFORE_PAINT_SCRIPT } from './settings/beforePaintScript';
 import stylesheetUrl from './styles/index.css?url';
+
+const { BASE_URL } = import.meta.env;
 
 /**
  * Each page is a folder with an index.html in it, so GitHub Pages adds a slash to the end of a
@@ -27,6 +42,11 @@ export const links: Route.LinksFunction = () => [
     crossOrigin: 'anonymous',
   },
   { rel: 'stylesheet', href: stylesheetUrl },
+  // Browsers that support SVG icons use that, others the .ico
+  { rel: 'icon', href: `${BASE_URL}favicon.ico`, sizes: '32x32' },
+  { rel: 'icon', href: `${BASE_URL}favicon.svg`, type: 'image/svg+xml' },
+  { rel: 'apple-touch-icon', href: `${BASE_URL}apple-touch-icon.png` },
+  { rel: 'manifest', href: `${BASE_URL}site.webmanifest` },
 ];
 
 export function Layout({ children }: { children: ReactNode }) {
@@ -36,7 +56,9 @@ export function Layout({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <html lang="en-GB">
+    // The before paint script adds attributes to <html> before React loads, which React would
+    // otherwise warn about
+    <html lang="en-GB" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -46,6 +68,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <meta name="theme-color" content="#f5effa" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#160c24" media="(prefers-color-scheme: dark)" />
         <script dangerouslySetInnerHTML={{ __html: WITHOUT_TRAILING_SLASH_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: BEFORE_PAINT_SCRIPT }} />
         <Meta />
         <Links />
       </head>
@@ -59,5 +82,19 @@ export function Layout({ children }: { children: ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const { pathname } = useLocation();
+
+  return (
+    <SiteShell>
+      <AbbreviationScope key={pathname}>
+        <Outlet />
+      </AbbreviationScope>
+    </SiteShell>
+  );
+}
+
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  const notFound = isRouteErrorResponse(error) && error.status === 404;
+
+  return <SiteShell>{notFound ? <NotFoundPage /> : <ErrorPage />}</SiteShell>;
 }

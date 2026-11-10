@@ -1,17 +1,18 @@
 import { PageHeading } from '../components/PageHeading';
-import { SITE_NAME } from '../content/site';
+import { SITE_DESCRIPTION, SITE_NAME } from '../content/site';
+import { pageMeta } from '../seo/pageMeta';
 import type { Route } from './+types/home';
 
 // A placeholder until the toolkit's own pages are added
 export function meta(): Route.MetaDescriptors {
-  return [{ title: SITE_NAME }];
+  return pageMeta({ title: SITE_NAME, description: SITE_DESCRIPTION, path: '/' });
 }
 
 export default function Home() {
   return (
-    <main>
+    <>
       <PageHeading>{SITE_NAME}</PageHeading>
-      <p>Free resources about accessibility and neurodiversity.</p>
-    </main>
+      <p>{SITE_DESCRIPTION}</p>
+    </>
   );
 }

@@ -1,0 +1,25 @@
+.footer {
+  background: var(--color-surface);
+  border-block-start: var(--border-width) solid var(--color-border-decorative);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-16) var(--spacer-32);
+  align-items: center;
+  padding-block: var(--spacer-32);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-4) var(--spacer-16);
+  margin: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target-min);
+}

@@ -1,0 +1,18 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding-block: var(--spacer-48) var(--spacer-96);
+
+  @media (width < 48rem) {
+    padding-block-end: var(--spacer-48);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

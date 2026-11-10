@@ -1,0 +1,126 @@
+.toggle {
+  display: none;
+  gap: var(--spacer-8);
+  align-items: center;
+  min-width: var(--size-target-min);
+  min-height: var(--size-target-min);
+  padding-inline: var(--spacer-16);
+  margin-inline-start: auto;
+  font-weight: var(--font-weight-emphasis);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-emphasis);
+  cursor: pointer;
+  background: var(--color-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-small);
+
+  &:hover {
+    background: var(--color-surface);
+  }
+}
+
+.icon {
+  width: var(--spacer-24);
+  height: var(--spacer-24);
+}
+
+.panel {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+  gap: var(--spacer-24);
+  min-width: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-4);
+  margin: 0;
+}
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: var(--size-target-min);
+  min-height: var(--size-target-min);
+  padding-inline: var(--spacer-16);
+  color: var(--color-text);
+  text-decoration-line: none;
+
+  /* In the narrow menu, a name like "Inclusion Toolkit" wraps rather than making the page scroll
+     sideways with large text (WCAG 1.4.10). It only stays on one line in the wide layout below */
+  overflow-wrap: anywhere;
+
+  &:hover {
+    color: var(--color-action-hover);
+    text-decoration-line: underline;
+  }
+
+  &[aria-current='page'] {
+    font-weight: var(--font-weight-emphasis);
+    letter-spacing: var(--letter-spacing-emphasis);
+
+    &::after {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--spacer-4);
+      content: '';
+      background: var(--color-action);
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .link[aria-current='page']::after {
+    forced-color-adjust: none;
+    background: CanvasText;
+  }
+}
+
+.display {
+  padding-block-start: var(--spacer-24);
+  border-block-start: var(--border-width) solid var(--color-border-decorative);
+}
+
+/* Only collapse the panel once JavaScript can open it again */
+:global(:root[data-js]) .toggle {
+  display: inline-flex;
+}
+
+:global(:root[data-js]) .panel:not([data-open='true']) {
+  display: none;
+}
+
+/* Should match SiteHeader.module.css */
+@container site-header (width >= 79em) {
+  :global(:root[data-js]) .toggle {
+    display: none;
+  }
+
+  .panel,
+  :global(:root[data-js]) .panel:not([data-open='true']) {
+    display: flex;
+    flex-basis: auto;
+    margin-inline-start: auto;
+  }
+
+  .list {
+    flex-direction: row;
+  }
+
+  .link {
+    white-space: nowrap;
+  }
+
+  .link[aria-current='page']::after {
+    inset: auto var(--spacer-16) 0;
+    width: auto;
+    height: var(--spacer-4);
+  }
+
+  .display {
+    display: none;
+  }
+}
