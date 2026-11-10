@@ -181,3 +181,6 @@ lighthouse-report
 
 # The built site served under its GitHub Pages base path, for pnpm test:pages
 .pages-preview
+
+# Personal list of future work that's blocked or waiting on something
+/TODO.md
