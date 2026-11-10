@@ -20,7 +20,7 @@ const meta = {
         <p>Why dark mode helps some people, and how to design it well.</p>
         <TagList tags={['Slides', 'Word', 'PDF']} label="Formats" />
         <p>
-          <Link to="/highlights/accessibility/dark-mode">Read the dark mode highlight</Link>
+          <Link to="/accessibility/highlights/dark-mode">Read the dark mode highlight</Link>
         </p>
       </Stack>
     ),

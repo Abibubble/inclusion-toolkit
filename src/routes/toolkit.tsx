@@ -13,7 +13,7 @@ import { pageMeta } from '../seo/pageMeta';
 import { websiteSchema } from '../seo/website';
 
 /**
- * /highlights/dark-mode gives highlights and dark-mode. Anything before it in the site's base path,
+ * /accessibility/highlights gives accessibility and highlights. Anything before it in the site's base path,
  * such as /inclusion-toolkit/ on GitHub Pages, is left out. The home page's data is at /_.data
  */
 export function toolkitSlugsFrom(

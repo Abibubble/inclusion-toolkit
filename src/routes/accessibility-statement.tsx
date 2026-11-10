@@ -11,12 +11,12 @@ import { ACCESSIBILITY_PATH, DISPLAY_SETTINGS_PATH, GLOSSARY_PATH } from '../con
 import { pageTitle } from '../content/site';
 import { ACCESSIBILITY_REVIEWED, MANUAL_TESTING, NEW_ISSUE_URL } from '../content/statements';
 import { pageMeta } from '../seo/pageMeta';
-import type { Route } from './+types/accessibility';
-import styles from './accessibility.module.css';
+import type { Route } from './+types/accessibility-statement';
+import styles from './accessibility-statement.module.css';
 
 export function meta(): Route.MetaDescriptors {
   return pageMeta({
-    title: pageTitle('Accessibility'),
+    title: pageTitle('Accessibility statement'),
     description:
       'How accessible this site is, what doesn’t work yet, how to report a problem, and display settings to make it work for you.',
     path: ACCESSIBILITY_PATH,
@@ -75,7 +75,7 @@ export default function Accessibility() {
   return (
     <Stack gap={6}>
       <Stack gap={5}>
-        <PageHeading>Accessibility</PageHeading>
+        <PageHeading>Accessibility statement</PageHeading>
         <p>
           This site is for everyone. This page explains how accessible it is, what doesn’t work yet,
           and how to report a problem. You can also change how the site looks, to make it easier for

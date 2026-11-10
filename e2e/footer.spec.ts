@@ -2,7 +2,7 @@ import { expect, test } from './support/test';
 
 test.describe('Footer', () => {
   test('links to the About page, where the licence credit is, on every page', async ({ page }) => {
-    await page.goto('/highlights');
+    await page.goto('/accessibility');
 
     await page.getByRole('contentinfo').getByRole('link', { name: 'About' }).click();
 

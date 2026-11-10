@@ -1,7 +1,7 @@
 import { SITE_NAME } from './site';
 import RECORD from './toolkit.json' with { type: 'json' };
 
-/** The toolkit is the whole site, so folders and resources sit under the home page, such as /highlights */
+/** The toolkit is the whole site, so folders and resources sit under the home page, such as /accessibility */
 export const TOOLKIT_PATH = '/';
 
 /** What the first step of the breadcrumbs is called. The same as the home page's name in the menu */
@@ -97,10 +97,10 @@ export type ToolkitFormats = Pick<ToolkitItemRecord, 'slides' | 'infographic'>;
 
 /**
  * Each version of a resource, with where its files go in public/, named after the slugs leading to
- * it. Most resources have the full guide. So highlights/accessibility/dark-mode has
- * files/highlights/accessibility/dark-mode.docx and .pdf. If it has slides, it
+ * it. Most resources have the full guide. So accessibility/highlights/dark-mode has
+ * files/accessibility/highlights/dark-mode.docx and .pdf. If it has slides, it
  * also has the visual summary, dark-mode-visual-summary.pptx and .pdf. An infographic only has
- * its PowerPoint file and PDF, such as infographics/accessibility/asthma.pptx and .pdf. The sizes
+ * its PowerPoint file and PDF, such as accessibility/infographics/asthma.pptx and .pdf. The sizes
  * are filled in when the site is built
  */
 export function toolkitVersions(

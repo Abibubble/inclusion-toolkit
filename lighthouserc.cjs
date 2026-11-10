@@ -10,9 +10,9 @@ const SITE = 'http://localhost:4173';
 // other page is tested. e2e/support/routes.ts uses the same sample
 const TOOLKIT_SAMPLE = [
   // The biggest page, a typical one with code in it, and a typical infographic
-  'highlights/accessibility/accessibility-highlights',
-  'highlights/accessibility/aria',
-  'infographics/accessibility/arthritis',
+  'accessibility/highlights/accessibility-highlights',
+  'accessibility/highlights/aria',
+  'accessibility/infographics/arthritis',
 ];
 
 function inSample(path) {
@@ -49,7 +49,7 @@ function shareOf(urlList, shard) {
 const urls = shareOf(allUrls, process.env.LIGHTHOUSE_SHARD);
 
 // Addresses ending like this need 0.9 for performance, rather than 0.95 (see the assertMatrix below)
-const SLOWER_PAGES = '/highlights/accessibility/accessibility-highlights/$';
+const SLOWER_PAGES = '/accessibility/highlights/accessibility-highlights/$';
 
 const ASSERTIONS = {
   'categories:performance': ['error', { minScore: 0.95 }],

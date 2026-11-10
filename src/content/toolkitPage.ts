@@ -58,7 +58,7 @@ const TEXT_FILES = import.meta.glob<string>(['./toolkit/**/*.md', '!./toolkit/RE
   eager: true,
 });
 
-/** Every resource's text, keyed by the slugs leading to it: ./toolkit/highlights/dark-mode.md gives highlights/dark-mode */
+/** Every resource's text, keyed by the slugs leading to it: ./toolkit/accessibility/highlights/dark-mode.md gives accessibility/highlights/dark-mode */
 export const TOOLKIT_TEXT: Record<string, string> = Object.fromEntries(
   Object.entries(TEXT_FILES).map(([path, markdown]) => [
     path.replace(/^\.\/toolkit\//, '').replace(/\.md$/, ''),

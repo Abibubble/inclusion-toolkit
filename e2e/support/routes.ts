@@ -4,7 +4,7 @@ import type { DisplaySettings } from '../../src/settings/displaySettings';
 export const SITE_PAGES = [
   { name: 'Inclusion Toolkit', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Accessibility', path: '/accessibility' },
+  { name: 'Accessibility statement', path: '/accessibility-statement' },
   { name: 'Display settings', path: '/display-settings' },
   { name: 'Glossary', path: '/glossary' },
   { name: 'Privacy', path: '/privacy' },
@@ -21,9 +21,9 @@ export const EVERY_PAGE = '@every-page';
 
 const TOOLKIT_SAMPLE = [
   // The biggest page, a typical one with code in it, and a typical infographic
-  'highlights/accessibility/accessibility-highlights',
-  'highlights/accessibility/aria',
-  'infographics/accessibility/arthritis',
+  'accessibility/highlights/accessibility-highlights',
+  'accessibility/highlights/aria',
+  'accessibility/infographics/arthritis',
 ];
 
 function isSampledOut(kind: 'folder' | 'item', slugs: readonly string[]): boolean {

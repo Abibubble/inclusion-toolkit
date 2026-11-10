@@ -5,15 +5,17 @@ import { NEW_ISSUE_URL } from '../content/statements';
 import { pageMeta } from '../seo/pageMeta';
 import { expectNoAxeViolations } from '../test/axe';
 import { renderWithRouter } from '../test/render';
-import Accessibility, { meta } from './accessibility';
+import Accessibility, { meta } from './accessibility-statement';
 
 const region = (name: string) => within(screen.getByRole('region', { name }));
 
-describe('Accessibility page', () => {
+describe('Accessibility statement', () => {
   it('has the page heading, and lists its sections at the top', () => {
     renderWithRouter(<Accessibility />);
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Accessibility' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Accessibility statement' }),
+    ).toBeInTheDocument();
     expect(
       within(screen.getByRole('navigation', { name: 'On this page' })).getAllByRole('link'),
     ).toHaveLength(7);
@@ -72,10 +74,10 @@ describe('Accessibility page', () => {
   it('has its own page title and description, at its own address', () => {
     expect(meta()).toEqual(
       pageMeta({
-        title: 'Accessibility, Inclusion Toolkit',
+        title: 'Accessibility statement, Inclusion Toolkit',
         description:
           'How accessible this site is, what doesn’t work yet, how to report a problem, and display settings to make it work for you.',
-        path: '/accessibility',
+        path: '/accessibility-statement',
       }),
     );
   });

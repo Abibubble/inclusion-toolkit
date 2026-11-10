@@ -40,11 +40,11 @@ test.describe(`GitHub Pages, under ${BASE}`, () => {
 
     await page
       .getByRole('navigation', { name: 'Main' })
-      .getByRole('link', { name: 'Highlights' })
+      .getByRole('link', { name: 'Neurodiversity' })
       .click();
 
-    await expect(page.getByRole('heading', { level: 1, name: 'Highlights' })).toBeFocused();
-    expect(new URL(page.url()).pathname).toBe(`${BASE}highlights`);
+    await expect(page.getByRole('heading', { level: 1, name: 'Neurodiversity' })).toBeFocused();
+    expect(new URL(page.url()).pathname).toBe(`${BASE}neurodiversity`);
     expect(problems).toEqual([]);
   });
 

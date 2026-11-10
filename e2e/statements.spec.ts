@@ -1,7 +1,7 @@
 import { expect, test } from './support/test';
 
 test.describe('Accessibility and Privacy pages', () => {
-  for (const path of ['/accessibility', '/privacy']) {
+  for (const path of ['/accessibility-statement', '/privacy']) {
     test(`${path} contents move focus to each section`, async ({ page }) => {
       await page.goto(path);
       const contents = page.getByRole('navigation', { name: 'On this page' });

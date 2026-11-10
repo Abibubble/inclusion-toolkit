@@ -13,7 +13,7 @@ export default [
   route('search.json', 'routes/toolkit-search.ts'),
   ...toolkitPages,
   route('about', 'routes/about.tsx'),
-  route('accessibility', 'routes/accessibility.tsx'),
+  route('accessibility-statement', 'routes/accessibility-statement.tsx'),
   route('display-settings', 'routes/display-settings.tsx'),
   route('glossary', 'routes/glossary.tsx'),
   route('privacy', 'routes/privacy.tsx'),

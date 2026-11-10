@@ -41,10 +41,10 @@ test.describe('Content Security Policy', () => {
     await expect(page.getByText(/results? found/)).toBeVisible();
     await page
       .getByRole('navigation', { name: 'Main' })
-      .getByRole('link', { name: 'Highlights' })
+      .getByRole('link', { name: 'Neurodiversity' })
       .click();
 
-    await expect(page.getByRole('heading', { level: 1, name: 'Highlights' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Neurodiversity' })).toBeVisible();
     expect(await violations()).toEqual([]);
   });
 

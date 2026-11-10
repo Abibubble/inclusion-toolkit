@@ -269,7 +269,7 @@ describe('the toolkit’s addresses', () => {
     'display-settings',
     'search.json',
     'files',
-    'accessibility',
+    'accessibility-statement',
     'glossary',
     'privacy',
     '404',

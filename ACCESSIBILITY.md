@@ -3,7 +3,7 @@
 This is the code for [InclusionToolkit.org](https://inclusiontoolkit.org). The site is for
 everyone, so everyone should be able to use it.
 
-For visitors, the site's [Accessibility page](https://inclusiontoolkit.org/accessibility) explains
+For visitors, the site's [accessibility statement](https://inclusiontoolkit.org/accessibility-statement) explains
 how accessible it is, the known issues and how to get around them, and how the site is tested. This
 file is for anyone looking at the code, and doesn't repeat that page.
 
@@ -13,7 +13,7 @@ The site aims to meet the Web Content Accessibility Guidelines (WCAG) version 2.
 
 This is a target, not a claim that the site meets it. The automated checks below find some
 problems, but not all, and the manual checks with assistive technology aren't finished yet. Where
-the site falls short, it's listed in the known issues on the Accessibility page.
+the site falls short, it's listed in the known issues on the accessibility statement.
 
 The Word, PowerPoint and PDF files can't be checked by the tests. Every resource has its own page
 with everything in its files as text, so the files are never the only way to get the content.
@@ -58,10 +58,10 @@ helps to know what you were using, such as your browser or screen reader.
 ## What happens to a report
 
 Each report gets a reply to say it's been seen. If it's a problem with the site, it's added to the
-known issues on the Accessibility page, with a way to get around it if there is one, until it's
+known issues on the accessibility statement, with a way to get around it if there is one, until it's
 fixed. Problems that stop someone using the site come first.
 
 ## Keeping this file up to date
 
-This file and the Accessibility page are kept up to date together. The Accessibility page shows the
+This file and the accessibility statement are kept up to date together. The accessibility statement shows the
 date it was last checked.

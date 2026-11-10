@@ -7,14 +7,14 @@ import { renderWithRouter } from '../test/render';
 import DisplaySettingsPage, { meta } from './display-settings';
 
 describe('Display settings page', () => {
-  it('has the page heading, every setting, and a link to the Accessibility page', () => {
+  it('has the page heading, every setting, and a link to the accessibility statement', () => {
     renderWithRouter(<DisplaySettingsPage />);
 
     expect(screen.getByRole('heading', { level: 1, name: 'Display settings' })).toBeInTheDocument();
     expect(screen.getByRole('group', { name: 'Text size' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'how accessible this site is' })).toHaveAttribute(
       'href',
-      '/accessibility',
+      '/accessibility-statement',
     );
   });
 

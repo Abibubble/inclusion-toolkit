@@ -19,9 +19,9 @@ test.describe('Theme switcher in the header', () => {
 
     await page
       .getByRole('navigation', { name: 'Main' })
-      .getByRole('link', { name: 'Highlights' })
+      .getByRole('link', { name: 'Neurodiversity' })
       .click();
-    await expect(page.getByRole('heading', { level: 1, name: 'Highlights' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Neurodiversity' })).toBeVisible();
     await expect.poll(() => bodyBackground(page)).toBe(DARK_BACKGROUND);
 
     await page.reload();

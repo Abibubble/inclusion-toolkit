@@ -7,7 +7,8 @@ The Inclusion Toolkit is the whole site, starting at the home page, `/`. Its fol
 
 Each folder has a `slug` for its address, a `title`, a `description`, and its own `folders` and
 `items`. A folder only appears once something in it is ready. The address comes from the slugs, so
-`highlights`, then `accessibility`, is `/highlights/accessibility`.
+`accessibility`, then `highlights`, is `/accessibility/highlights`. Folders are by topic first,
+then by kind of resource, so a new topic is one new folder at the top.
 
 ## Resources
 
@@ -32,18 +33,18 @@ choose the format that works for them:
 
 The files go in `public/files/`, named after the resource's address. The visual
 summary's files have `-visual-summary` added. So the resource at
-`/highlights/accessibility/dark-mode` has:
+`/accessibility/highlights/dark-mode` has:
 
-- `highlights/accessibility/dark-mode.docx`
-- `highlights/accessibility/dark-mode.pdf`
-- `highlights/accessibility/dark-mode-visual-summary.pptx`
-- `highlights/accessibility/dark-mode-visual-summary.pdf`
+- `accessibility/highlights/dark-mode.docx`
+- `accessibility/highlights/dark-mode.pdf`
+- `accessibility/highlights/dark-mode-visual-summary.pptx`
+- `accessibility/highlights/dark-mode-visual-summary.pdf`
 
 An infographic has `"infographic": true`, and only its PowerPoint file and a PDF of it, named
-after its address. So `/infographics/accessibility/asthma` has:
+after its address. So `/accessibility/infographics/asthma` has:
 
-- `infographics/accessibility/asthma.pptx`
-- `infographics/accessibility/asthma.pdf`
+- `accessibility/infographics/asthma.pptx`
+- `accessibility/infographics/asthma.pdf`
 
 They aren't listed in `toolkit.json`. The site finds them by their names, and works out their sizes
 when it's built. Each PDF's View link opens it in a new tab.
@@ -76,7 +77,7 @@ To update a file by hand:
 
 Every resource has a page with everything in it as text, so it meets WCAG AAA even for people who
 can't use the files. The text goes in this folder, at the same path as the address, such as
-`highlights/accessibility/dark-mode.md`.
+`accessibility/highlights/dark-mode.md`.
 
 - Start headings at `###`, as the page already has a "What’s in it" heading above them.
 - Describe every picture, chart and diagram in words, the same way as the slide descriptions.

@@ -184,7 +184,7 @@ describe('the real search index', () => {
       Object.entries(index)
         .filter(([, words]) => words.includes('adhd'))
         .map(([path]) => path),
-    ).toContain('/highlights/accessibility/neurodiversity-and-inclusive-design');
+    ).toContain('/accessibility/highlights/neurodiversity-and-inclusive-design');
   });
 
   it('leaves out words too common to tell resources apart', () => {

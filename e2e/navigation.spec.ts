@@ -72,7 +72,7 @@ test.describe('Moving between pages', () => {
   test('works when coming back to a page first opened with a slash at the end of its address', async ({
     page,
   }) => {
-    const resource = '/highlights/accessibility/aria';
+    const resource = '/accessibility/highlights/aria';
     const firstHeading = page.locator('[data-page-html] h3').first();
     await page.goto(`${resource}/`);
 
@@ -83,7 +83,7 @@ test.describe('Moving between pages', () => {
       .getByRole('navigation', { name: 'Breadcrumbs' })
       .getByRole('link', { name: 'Accessibility Highlights' })
       .click();
-    await expect(page).toHaveURL('/highlights/accessibility');
+    await expect(page).toHaveURL('/accessibility/highlights');
     await page.goBack();
 
     await expect(page).toHaveURL(resource);
@@ -141,7 +141,7 @@ test.describe('Navigation on narrow screens', () => {
 
     await expect(menuButton(page)).toBeVisible();
     await expect(menuButton(page)).toHaveAttribute('aria-expanded', 'false');
-    await expect(mainNav(page).getByRole('link', { name: 'Highlights' })).toBeHidden();
+    await expect(mainNav(page).getByRole('link', { name: 'Neurodiversity' })).toBeHidden();
   });
 
   test('opens the menu in the page, pushing content down rather than covering it', async ({
@@ -153,7 +153,7 @@ test.describe('Navigation on narrow screens', () => {
     await menuButton(page).click();
 
     await expect(menuButton(page)).toHaveAttribute('aria-expanded', 'true');
-    await expect(mainNav(page).getByRole('link', { name: 'Highlights' })).toBeVisible();
+    await expect(mainNav(page).getByRole('link', { name: 'Neurodiversity' })).toBeVisible();
     const headingAfter = await page.getByRole('heading', { level: 1 }).boundingBox();
     expect(headingAfter?.y).toBeGreaterThan(headingBefore?.y ?? Infinity);
   });
@@ -169,7 +169,7 @@ test.describe('Navigation on narrow screens', () => {
   test('closes with Escape and returns focus to the Menu button', async ({ page }) => {
     await page.goto('/');
     await menuButton(page).click();
-    await mainNav(page).getByRole('link', { name: 'Highlights' }).focus();
+    await mainNav(page).getByRole('link', { name: 'Neurodiversity' }).focus();
 
     await page.keyboard.press('Escape');
 
@@ -180,9 +180,9 @@ test.describe('Navigation on narrow screens', () => {
   test('closes after choosing a page, and moves focus to its heading', async ({ page }) => {
     await page.goto('/');
     await menuButton(page).click();
-    await mainNav(page).getByRole('link', { name: 'Highlights' }).click();
+    await mainNav(page).getByRole('link', { name: 'Neurodiversity' }).click();
 
-    await expect(page.getByRole('heading', { level: 1, name: 'Highlights' })).toBeFocused();
+    await expect(page.getByRole('heading', { level: 1, name: 'Neurodiversity' })).toBeFocused();
     await expect(menuButton(page)).toHaveAttribute('aria-expanded', 'false');
   });
 });
@@ -214,7 +214,7 @@ test.describe('Page not found', () => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
 
-    const response = await page.goto('/highlights/not-a-real-highlight');
+    const response = await page.goto('/accessibility/not-a-real-resource');
 
     expect(response?.status()).toBe(404);
     await expect(page.getByRole('heading', { level: 1, name: 'Page not found' })).toBeVisible();
