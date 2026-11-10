@@ -1,0 +1,40 @@
+/*
+ * Print rules. Components opt in with data attributes rather than needing their own print styles:
+ *
+ *   data-print="hide"           Not printed, for example navigation and the theme switcher
+ *   data-print="keep-together"  Never split across two pages, for example a card
+ *   data-print-url="hide"       A link whose URL shouldn't be printed after it
+ */
+@media print {
+  body {
+    background: none;
+  }
+
+  [data-print='hide'] {
+    display: none !important;
+  }
+
+  [data-print='keep-together'],
+  figure,
+  blockquote,
+  pre {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Paper links can't be clicked, so show where external links go */
+  a[href^='http']:not([data-print-url='hide'])::after {
+    content: ' (' attr(href) ')';
+    overflow-wrap: anywhere;
+  }
+}

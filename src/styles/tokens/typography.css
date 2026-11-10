@@ -1,0 +1,76 @@
+/*
+ * Typography. Font sizes come from the same 16, 24, 32, 48 pixel steps as the spacing scale. Line
+ * heights are unitless so they scale with the font size and with any text spacing a visitor applies
+ */
+:root {
+  --font-family-body:
+    'Atkinson Hyperlegible Next Variable', system-ui, -apple-system, 'Segoe UI', roboto, sans-serif;
+  --font-family-code:
+    'Atkinson Hyperlegible Mono Variable', ui-monospace, 'SF Mono', menlo, consolas, monospace;
+  --font-family-system: system-ui, -apple-system, 'Segoe UI', roboto, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-size-1: 1rem; /* 16px */
+  --font-size-2: 1.5rem; /* 24px */
+  --font-size-3: 2rem; /* 32px */
+  --font-size-4: 3rem; /* 48px */
+
+  /*
+   * Emphasis: bold text at body size, such as buttons, labels and error messages. Full bold letters
+   * blur together for people with astigmatism, especially light text on a dark background, such as
+   * white on a purple button. Semi bold with a little extra space keeps each letter distinct
+   * Headings stay bold, because the blurring is much less at larger sizes. Always use these two
+   * tokens together
+   */
+  --font-weight-emphasis: var(--font-weight-semibold);
+  --letter-spacing-emphasis: 0.05em;
+
+  /* WCAG 1.4.8 asks for at least 1.5 within paragraphs */
+  --line-height-body: 1.5;
+  --line-height-heading: 1.25;
+  --letter-spacing-body: normal;
+  --word-spacing-body: normal;
+
+  /* Narrow screens, including desktop browsers zoomed to 400% */
+  --font-size-body: var(--font-size-1);
+  --font-size-h1: var(--font-size-3);
+  --font-size-h2: var(--font-size-2);
+  --font-size-h3: var(--font-size-1);
+}
+
+@media (width >= 48rem) {
+  :root {
+    --font-size-h1: var(--font-size-4);
+    --font-size-h2: var(--font-size-3);
+    --font-size-h3: var(--font-size-2);
+  }
+}
+
+/*
+ * Display settings, set as attributes on <html> by src/settings/displaySettings.ts
+ *
+ * Text size changes the root font size as a percentage, so it builds on whatever size the visitor has
+ * already chosen in their browser. Every size on the site is in rem, so the whole layout scales
+ */
+:root[data-text-size='large'] {
+  font-size: 125%;
+}
+
+:root[data-text-size='larger'] {
+  font-size: 150%;
+}
+
+/* At least the WCAG 1.4.12 text spacing values, applied across the whole site */
+:root[data-text-spacing='increased'] {
+  --line-height-body: 2;
+  --line-height-heading: 1.5;
+  --letter-spacing-body: 0.12em;
+  --letter-spacing-emphasis: 0.12em;
+  --word-spacing-body: 0.16em;
+  --space-paragraph: var(--spacer-48);
+}
+
+:root[data-font='system'] {
+  --font-family-body: var(--font-family-system);
+}

@@ -1,0 +1,68 @@
+/*
+ * Semantic colour tokens. Each one is light-dark(light theme, dark theme), so the light and dark
+ * themes are just colour schemes. With no data-theme attribute the site follows the system setting
+ *
+ * Every text pairing meets the 7:1 AAA contrast ratio in every theme. tokens.test.ts checks this, so a
+ * change that breaks contrast fails the tests
+ *
+ * Contrast is deliberately well above 7:1 but not at the maximum. Near black on near white glares for
+ * some dyslexic readers and people with visual stress, and very bright text on a dark background can
+ * appear to glow (halation), especially for people with astigmatism
+ */
+:root {
+  color-scheme: light dark;
+
+  --color-bg: light-dark(var(--purple-50), var(--purple-950));
+  --color-surface: light-dark(var(--purple-100), var(--purple-900));
+  --color-text: light-dark(var(--mauve-900), var(--mauve-100));
+  --color-text-muted: light-dark(var(--mauve-700), var(--mauve-300));
+  --color-action: light-dark(var(--purple-700), var(--purple-200));
+  --color-action-hover: light-dark(var(--purple-800), var(--purple-250));
+  --color-action-text: light-dark(var(--white), var(--purple-950));
+  --color-focus: light-dark(var(--purple-700), var(--purple-200));
+  --color-error: light-dark(var(--red-800), var(--red-200));
+  --color-success: light-dark(var(--green-800), var(--green-200));
+
+  /* Borders that carry meaning, such as form fields */
+  --color-border: light-dark(var(--mauve-700), var(--mauve-300));
+
+  /* Decorative dividers only. Never use for anything someone needs to see to use the page */
+  --color-border-decorative: light-dark(var(--purple-200), var(--mauve-700));
+  --color-selection-bg: light-dark(var(--purple-200), var(--purple-700));
+  --color-selection-text: light-dark(var(--mauve-900), var(--white));
+
+  /* The logo's outline. On dark backgrounds the logo has a lilac outline, so its purple square stands out */
+  --color-logo-outline: light-dark(var(--logo-purple), var(--logo-lilac));
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/*
+ * Cream: a warm light theme. Some dyslexic readers find warm backgrounds easier to read than cool ones,
+ * so it's offered as a choice in the display settings. Every semantic colour must be set here
+ */
+:root[data-theme='cream'] {
+  color-scheme: light;
+
+  --color-bg: var(--cream-50);
+  --color-surface: var(--cream-100);
+  --color-text: var(--mauve-900);
+  --color-text-muted: var(--mauve-700);
+  --color-action: var(--purple-700);
+  --color-action-hover: var(--purple-800);
+  --color-action-text: var(--white);
+  --color-focus: var(--purple-700);
+  --color-error: var(--red-800);
+  --color-success: var(--green-800);
+  --color-border: var(--mauve-700);
+  --color-border-decorative: var(--cream-300);
+  --color-selection-bg: var(--purple-200);
+  --color-selection-text: var(--mauve-900);
+  --color-logo-outline: var(--logo-purple);
+}

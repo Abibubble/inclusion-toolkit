@@ -1,0 +1,16 @@
+/*
+ * Global styles. Everything here sits in a cascade layer, so component CSS Modules (which aren't
+ * layered) always win over it without needing extra specificity
+ */
+@layer reset, tokens, base, print;
+
+@import url('@fontsource-variable/atkinson-hyperlegible-next/wght.css') layer(base);
+@import url('@fontsource-variable/atkinson-hyperlegible-mono/wght.css') layer(base);
+@import url('./reset.css') layer(reset);
+@import url('./tokens/primitives.css') layer(tokens);
+@import url('./tokens/colours.css') layer(tokens);
+@import url('./tokens/spacing.css') layer(tokens);
+@import url('./tokens/typography.css') layer(tokens);
+@import url('./tokens/print.css') layer(tokens);
+@import url('./base.css') layer(base);
+@import url('./print.css') layer(print);

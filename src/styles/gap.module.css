@@ -1,0 +1,33 @@
+/* One class per step of the spacing scale, shared by layout components such as Stack and Cluster */
+.gap1 {
+  gap: var(--spacer-4);
+}
+
+.gap2 {
+  gap: var(--spacer-8);
+}
+
+.gap3 {
+  gap: var(--spacer-16);
+}
+
+.gap4 {
+  gap: var(--spacer-24);
+}
+
+.gap5 {
+  gap: var(--spacer-32);
+}
+
+.gap6 {
+  gap: var(--spacer-48);
+}
+
+.gap7 {
+  gap: var(--spacer-96);
+
+  /* Narrow screens show less at once, so the largest gap is halved to keep sections close */
+  @media (width < 48rem) {
+    gap: var(--spacer-48);
+  }
+}

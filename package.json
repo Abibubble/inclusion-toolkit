@@ -27,6 +27,8 @@
     "commit:check": "node scripts/check.ts"
   },
   "dependencies": {
+    "@fontsource-variable/atkinson-hyperlegible-mono": "^5.3.0",
+    "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
     "@react-router/node": "^8.4.0",
     "isbot": "^5.2.2",
     "react": "^19.3.0",

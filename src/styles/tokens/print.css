@@ -1,0 +1,45 @@
+/*
+ * Print tokens. Whatever theme is active, printed pages are black on white with print friendly sizes
+ */
+@media print {
+  /* Includes :root[data-theme] so a chosen theme, such as Cream, can't override print colours */
+  :root,
+  :root[data-theme] {
+    color-scheme: light;
+
+    --color-bg: var(--white);
+    --color-surface: var(--white);
+    --color-text: var(--black);
+    --color-text-muted: var(--black);
+    --color-action: var(--black);
+    --color-action-hover: var(--black);
+    --color-action-text: var(--white);
+    --color-focus: var(--black);
+    --color-error: var(--black);
+    --color-success: var(--black);
+    --color-border: var(--black);
+    --color-border-decorative: var(--black);
+    --font-size-body: 11pt;
+    --font-size-2: 13pt;
+    --font-size-h1: 20pt;
+    --font-size-h2: 16pt;
+    --font-size-h3: 13pt;
+
+    /* The same spacing steps, sized for paper (which gets spread larger on paper than on a webpage) */
+    --spacer-4: 2pt;
+    --spacer-8: 3pt;
+    --spacer-16: 6pt;
+    --spacer-24: 8pt;
+    --spacer-32: 10pt;
+    --spacer-48: 14pt;
+    --spacer-96: 20pt;
+    --space-paragraph: 6pt;
+
+    /* Sizes built from the spacing scale would shrink with it, so paper uses its full width */
+    --size-content-max: 100%;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+}

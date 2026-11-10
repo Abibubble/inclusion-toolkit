@@ -1,5 +1,9 @@
+import bodyFontUrl from '@fontsource-variable/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-wght-normal.woff2?url';
 import { type ReactNode, useEffect } from 'react';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+
+import type { Route } from './+types/root';
+import stylesheetUrl from './styles/index.css?url';
 
 /**
  * Each page is a folder with an index.html in it, so GitHub Pages adds a slash to the end of a
@@ -14,6 +18,17 @@ export const WITHOUT_TRAILING_SLASH_SCRIPT = `(function () {
   }
 })();`;
 
+export const links: Route.LinksFunction = () => [
+  {
+    rel: 'preload',
+    href: bodyFontUrl,
+    as: 'font',
+    type: 'font/woff2',
+    crossOrigin: 'anonymous',
+  },
+  { rel: 'stylesheet', href: stylesheetUrl },
+];
+
 export function Layout({ children }: { children: ReactNode }) {
   // Marks that React has taken over the prerendered page, so tests know when it's ready to use
   useEffect(() => {
@@ -27,6 +42,9 @@ export function Layout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="light dark" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+        {/* The same as --purple-50 and --purple-950, the light and dark page backgrounds */}
+        <meta name="theme-color" content="#f5effa" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#160c24" media="(prefers-color-scheme: dark)" />
         <script dangerouslySetInnerHTML={{ __html: WITHOUT_TRAILING_SLASH_SCRIPT }} />
         <Meta />
         <Links />
