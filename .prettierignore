@@ -1,0 +1,10 @@
+build
+coverage
+storybook-static
+playwright-report
+test-results
+.react-router
+pnpm-lock.yaml
+
+# Written by the Claude app, and not committed
+.claude/settings.local.json

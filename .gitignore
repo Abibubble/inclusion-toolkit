@@ -147,3 +147,37 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# React Router build output and generated route types
+/build/
+.react-router/
+
+# Storybook
+storybook-static/
+*storybook.log
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
+
+# Office documents and PDFs are never committed by mistake
+*.doc
+*.docx
+*.pdf
+# Except Inclusion Toolkit files. The build leaves out any whose resource isn't ready.
+!public/inclusion-toolkit/files/**/*.pdf
+!public/inclusion-toolkit/files/**/*.docx
+
+# Folder settings that macOS Finder adds
+.DS_Store
+
+# The Claude app's preview server setting, which is only for this computer
+/.claude/launch.json
+
+# Lighthouse CI reports
+.lighthouseci
+lighthouse-report
+
+# The built site served under its GitHub Pages base path, for pnpm test:pages
+.pages-preview
