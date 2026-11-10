@@ -10,6 +10,7 @@ import { SITE_DESCRIPTION, SITE_NAME, pageTitle } from '../content/site';
 import { TOOLKIT_PATH, toolkitPath } from '../content/toolkit';
 import { loadToolkitPage } from '../content/toolkitPage';
 import { pageMeta } from '../seo/pageMeta';
+import { websiteSchema } from '../seo/website';
 
 /**
  * /highlights/dark-mode gives highlights and dark-mode. Anything before it in the site's base path,
@@ -34,7 +35,10 @@ export function meta({ loaderData }: MetaArgs<typeof loader>): MetaDescriptor[] 
   if (!loaderData) return [];
 
   if (loaderData.kind === 'home') {
-    return pageMeta({ title: SITE_NAME, description: SITE_DESCRIPTION, path: TOOLKIT_PATH });
+    return [
+      ...pageMeta({ title: SITE_NAME, description: SITE_DESCRIPTION, path: TOOLKIT_PATH }),
+      { 'script:ld+json': websiteSchema() },
+    ];
   }
 
   const { title, description } = loaderData.kind === 'folder' ? loaderData.folder : loaderData.item;

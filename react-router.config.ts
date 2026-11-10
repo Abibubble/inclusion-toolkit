@@ -3,9 +3,11 @@ import { join } from 'node:path';
 
 import type { Config } from '@react-router/dev/config';
 
-import { BASE_PATH } from './build-constants.ts';
+import { BASE_PATH, SITE_URL } from './build-constants.ts';
 import { withoutRepeatedHtml } from './src/build/repeatedHtml.ts';
 import { unpublishedToolkitFiles } from './src/content/toolkit.ts';
+import { withContentSecurityPolicy } from './src/security/contentSecurityPolicy.ts';
+import { pagePaths, robotsTxt, sitemapXml } from './src/seo/sitemap.ts';
 
 const NOT_FOUND_PATH = '/404';
 
@@ -56,10 +58,16 @@ export default {
     const htmlFiles = (await readdir(client, { recursive: true })).filter((file) =>
       file.endsWith('.html'),
     );
+    await writeFile(join(client, 'sitemap.xml'), sitemapXml(SITE_URL, pagePaths(htmlFiles)));
+    await writeFile(join(client, 'robots.txt'), robotsTxt(SITE_URL));
+
+    // GitHub Pages can't send headers, so each page gets its own policy as a meta tag
     await Promise.all(
       htmlFiles.map(async (file) => {
         const path = join(client, file);
-        await writeFile(path, withoutRepeatedHtml(await readFile(path, 'utf8')));
+        // The policy allows each inline script by its hash, so it must come after any change to them
+        const html = withoutRepeatedHtml(await readFile(path, 'utf8'));
+        await writeFile(path, withContentSecurityPolicy(html));
       }),
     );
   },

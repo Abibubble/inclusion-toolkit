@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import type { ToolkitPageData } from '../content/toolkitPage';
 import { pageMeta } from '../seo/pageMeta';
+import { websiteSchema } from '../seo/website';
 import { loader, meta, toolkitSlugsFrom } from './toolkit';
 
 const ITEM = {
@@ -43,13 +44,14 @@ describe('Inclusion Toolkit pages', () => {
         toolkit: { slug: '', title: 'Inclusion Toolkit', description: '', folders: [], items: [] },
         search: [],
       }),
-    ).toEqual(
-      pageMeta({
+    ).toEqual([
+      ...pageMeta({
         title: 'Inclusion Toolkit',
         description: 'Free resources about accessibility and neurodiversity.',
         path: '/',
       }),
-    );
+      { 'script:ld+json': websiteSchema() },
+    ]);
   });
 
   it('gives each resource a title that says it’s part of the toolkit, at its own address', () => {

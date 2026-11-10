@@ -21,7 +21,7 @@ The dev server runs at http://localhost:5173.
 
 The site's address is https://inclusiontoolkit.org.
 
-Canonical addresses, share previews and the base path come from the `SITE_URL` environment
+Canonical addresses, share previews, the sitemap and the base path come from the `SITE_URL` environment
 variable, such as `https://inclusiontoolkit.org`. It can also include a path, such as
 `https://abibubble.github.io/inclusion-toolkit`, and every page and file address then starts with
 `/inclusion-toolkit/`. Local builds use http://localhost:4173 without it. The GitHub Pages build
@@ -33,6 +33,7 @@ fails without it, so the live site can never point at localhost.
 | ---------------------- | -------------------------------------------------------------------- |
 | `pnpm dev`             | Starts the dev server                                                |
 | `pnpm build`           | Builds the site and prerenders every page into `build/client`        |
+| `pnpm preview`         | Serves the production build at http://localhost:4173                 |
 | `pnpm typecheck`       | Generates route types and runs the TypeScript compiler               |
 | `pnpm lint`            | Lints TypeScript and React, including strict accessibility rules     |
 | `pnpm lint:css`        | Lints CSS, and fails on raw colours or sizes outside the token files |
