@@ -21,5 +21,8 @@
 .link {
   display: inline-flex;
   align-items: center;
+
+  /* Short links, such as About, still get a full size target (WCAG 2.5.5) */
+  min-width: var(--size-target-min);
   min-height: var(--size-target-min);
 }

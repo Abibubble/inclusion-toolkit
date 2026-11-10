@@ -51,3 +51,114 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm test:storybook
       - run: pnpm build-storybook
+
+  # Split into 3 jobs that run side by side, each running a third of the tests, so the run is quicker
+  e2e:
+    name: End to end tests (${{ matrix.shard }} of 3)
+    runs-on: ubuntu-24.04
+    # Playwright's ready-made setup, with the browsers and the system libraries they need already
+    # installed. Installing them on each run downloads from Ubuntu's servers, which can take an hour.
+    # The version must match playwright in package.json. --ipc=host gives Chrome the machine's
+    # shared memory, as the container's own is too small and Chrome crashes without it
+    container:
+      image: mcr.microsoft.com/playwright:v1.63.0-noble
+      options: --user 1001 --ipc=host
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test:e2e --shard=${{ matrix.shard }}/3
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-report-${{ matrix.shard }}
+          path: playwright-report/
+          retention-days: 14
+
+  # Split into 3 jobs that run side by side, each testing a third of the pages (see
+  # LIGHTHOUSE_SHARD in lighthouserc.cjs), so the run is quicker
+  lighthouse:
+    name: Lighthouse (${{ matrix.shard }} of 3)
+    runs-on: ubuntu-24.04
+    # Playwright's ready-made setup, with the browsers and the system libraries they need already
+    # installed. Installing them on each run downloads from Ubuntu's servers, which can take an hour.
+    # The version must match playwright in package.json. --ipc=host gives Chrome the machine's
+    # shared memory, as the container's own is too small and Chrome crashes without it
+    container:
+      image: mcr.microsoft.com/playwright:v1.63.0-noble
+      options: --user 1001 --ipc=host
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+    env:
+      LIGHTHOUSE_SHARD: ${{ matrix.shard }}/3
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm test:lighthouse
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: lighthouse-report-${{ matrix.shard }}
+          path: lighthouse-report/
+          retention-days: 14
+
+  pages:
+    name: GitHub Pages build
+    runs-on: ubuntu-24.04
+    # Playwright's ready-made setup, with the browsers and the system libraries they need already
+    # installed. Installing them on each run downloads from Ubuntu's servers, which can take an hour.
+    # The version must match playwright in package.json. --ipc=host gives Chrome the machine's
+    # shared memory, as the container's own is too small and Chrome crashes without it
+    container:
+      image: mcr.microsoft.com/playwright:v1.63.0-noble
+      options: --user 1001 --ipc=host
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+        env:
+          GITHUB_PAGES: 'true'
+          SITE_URL: ${{ vars.SITE_URL }}
+      - run: pnpm test:pages
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: build/client
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [quality, storybook, e2e, lighthouse, pages]
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v6
+      - id: deployment
+        uses: actions/deploy-pages@v5

@@ -21,6 +21,9 @@
     max-width: 100%;
     overflow-wrap: anywhere;
     align-items: center;
+
+    /* Short links, such as Home, still get a full size target */
+    min-width: var(--size-target-min);
     min-height: var(--size-target-min);
   }
 

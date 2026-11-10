@@ -56,6 +56,23 @@ export default defineConfig([
     },
   },
   {
+    files: ['e2e/**/*.spec.ts', 'e2e-pages/**/*.spec.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: '@playwright/test',
+              message:
+                'Import from ./support/test instead. It waits for React to start after each page load.',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     files: ['**/*.js', '**/*.cjs'],
     extends: [tseslint.configs.disableTypeChecked],
   },
