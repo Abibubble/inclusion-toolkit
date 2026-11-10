@@ -166,8 +166,8 @@ blob-report/
 *.docx
 *.pdf
 # Except Inclusion Toolkit files. The build leaves out any whose resource isn't ready.
-!public/inclusion-toolkit/files/**/*.pdf
-!public/inclusion-toolkit/files/**/*.docx
+!public/files/**/*.pdf
+!public/files/**/*.docx
 
 # Folder settings that macOS Finder adds
 .DS_Store

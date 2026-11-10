@@ -8,6 +8,8 @@ export const ABOUT_PATH = '/about';
 
 export const MAIN_NAV: NavItem[] = [
   { label: 'Home', to: '/' },
+  { label: 'Highlights', to: '/highlights' },
+  { label: 'Infographics', to: '/infographics' },
   { label: 'About', to: ABOUT_PATH },
 ];
 

@@ -1,0 +1,1084 @@
+{
+  "folders": [
+    {
+      "slug": "infographics",
+      "title": "Infographics",
+      "description": "Visual resources covering neurodiversity and accessibility topics.",
+      "folders": [
+        {
+          "slug": "neurodiversity",
+          "title": "Neurodiversity Infographics",
+          "description": "Infographics covering neurodivergent conditions.",
+          "folders": [],
+          "items": [
+            {
+              "slug": "neurodiversity-infographics",
+              "title": "Neurodiversity Infographics",
+              "description": "Every neurodiversity infographic in one file, each covering a condition’s signs, myths, diagnosis and support.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "adhd",
+              "title": "ADHD",
+              "description": "The signs of ADHD, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "anxiety",
+              "title": "Anxiety",
+              "description": "The signs of anxiety, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "auditory-processing-disorder",
+              "title": "Auditory Processing Disorder",
+              "description": "The signs of auditory processing disorder, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "autism",
+              "title": "Autism",
+              "description": "The signs of autism, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "dyscalculia",
+              "title": "Dyscalculia",
+              "description": "The signs of dyscalculia, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "dysgraphia",
+              "title": "Dysgraphia",
+              "description": "The signs of dysgraphia, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "dyslexia",
+              "title": "Dyslexia",
+              "description": "The signs of dyslexia, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "dyspraxia",
+              "title": "Dyspraxia",
+              "description": "The signs of dyspraxia, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "ocd",
+              "title": "OCD",
+              "description": "The signs of OCD, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "sensory-processing-disorder",
+              "title": "Sensory Processing Disorder",
+              "description": "The signs of sensory processing disorder, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "tourettes-syndrome",
+              "title": "Tourette’s Syndrome",
+              "description": "The signs of Tourette’s Syndrome, common myths about it, how it’s diagnosed, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            }
+          ]
+        },
+        {
+          "slug": "accessibility",
+          "title": "Accessibility Infographics",
+          "description": "Infographics covering disabilities and health conditions.",
+          "folders": [],
+          "items": [
+            {
+              "slug": "accessibility-infographics",
+              "title": "Accessibility Infographics",
+              "description": "Every accessibility infographic in one file, each covering a condition’s symptoms, myths, diagnosis, treatment and support.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "arthritis",
+              "title": "Arthritis",
+              "description": "The symptoms of arthritis, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "asthma",
+              "title": "Asthma",
+              "description": "The symptoms of asthma, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "cancer",
+              "title": "Cancer",
+              "description": "The symptoms of cancer, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "cerebral-palsy",
+              "title": "Cerebral Palsy",
+              "description": "The symptoms of cerebral palsy, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "colour-blindness",
+              "title": "Colour Blindness",
+              "description": "The symptoms of colour blindness, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "crohns-disease",
+              "title": "Crohn’s Disease",
+              "description": "The symptoms of Crohn’s disease, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "dementia",
+              "title": "Dementia",
+              "description": "The symptoms of dementia, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "diabetes",
+              "title": "Diabetes",
+              "description": "The symptoms of diabetes, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "endometriosis",
+              "title": "Endometriosis",
+              "description": "The symptoms of endometriosis, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "epilepsy",
+              "title": "Epilepsy",
+              "description": "The symptoms of epilepsy, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "fibromyalgia",
+              "title": "Fibromyalgia",
+              "description": "The symptoms of fibromyalgia, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "hearing-impairment",
+              "title": "Hearing Impairment",
+              "description": "The symptoms of hearing impairment, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "lupus",
+              "title": "Lupus",
+              "description": "The symptoms of lupus, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "migraine",
+              "title": "Migraine",
+              "description": "The symptoms of migraine, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "multiple-sclerosis",
+              "title": "Multiple Sclerosis (MS)",
+              "description": "The symptoms of multiple sclerosis (MS), common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "parkinsons",
+              "title": "Parkinson’s",
+              "description": "The symptoms of Parkinson’s, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "thyroid-conditions",
+              "title": "Thyroid Conditions",
+              "description": "The symptoms of thyroid conditions, common myths about them, how they’re diagnosed and treated, and how to support someone with them.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "visual-impairment",
+              "title": "Visual Impairment",
+              "description": "The symptoms of visual impairment, common myths about it, how it’s diagnosed and treated, and how to support someone with it.",
+              "updated": "2026-11-06",
+              "slides": false,
+              "infographic": true,
+              "text": "checked",
+              "todo": []
+            }
+          ]
+        }
+      ],
+      "items": []
+    },
+    {
+      "slug": "highlights",
+      "title": "Highlights",
+      "description": "Posts and other resources that highlight topics and events related to neurodiversity and accessibility.",
+      "folders": [
+        {
+          "slug": "neurodiversity",
+          "title": "Neurodiversity",
+          "description": "Highlights covering topics related to neurodiversity.",
+          "folders": [],
+          "items": [
+            {
+              "slug": "neurodiversity-highlights",
+              "title": "Neurodiversity Highlights",
+              "description": "Every neurodiversity highlight in one file, each explaining a topic and how to support people, with useful links.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "body-doubling",
+              "title": "Body Doubling",
+              "description": "Body doubling is working alongside someone else, to help you focus and get started on tasks.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "hidden-disabilities-sunflower",
+              "title": "Hidden Disabilities Sunflower",
+              "description": "What the sunflower lanyard means, and how to support someone who wears one.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "infinity-symbol",
+              "title": "Infinity Symbol",
+              "description": "The infinity symbol, which many neurodivergent people prefer to the puzzle piece, and what its colours mean.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "key-terminology",
+              "title": "Key Terminology",
+              "description": "The difference between neurodiversity, neurodivergent, neurodiverse, neurotypical and neurotypes, and when to use each.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "masking",
+              "title": "Masking",
+              "description": "Masking is when neurodivergent people hide their natural traits to fit in, which can be exhausting.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "meetings",
+              "title": "Meetings",
+              "description": "Why standard meetings can be hard for neurodivergent people, and simple changes that help.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "neurospicy",
+              "title": "Neurospicy",
+              "description": "Why many people find the slang word 'neurospicy' a problem, and what to say instead.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "puzzle-piece-symbol",
+              "title": "Puzzle Piece Symbol",
+              "description": "Why many autistic people find the puzzle piece symbol outdated or offensive.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "sensory-series-light",
+              "title": "Sensory Series: Light",
+              "description": "How harsh lighting affects neurodivergent people, and how to make workspaces easier on the eyes.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "sensory-series-sound",
+              "title": "Sensory Series: Sound",
+              "description": "How everyday workplace noise can overwhelm neurodivergent people, and how colleagues can help.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "sensory-series-touch",
+              "title": "Sensory Series: Touch",
+              "description": "How textures, temperature and touch can affect neurodivergent people at work, and how to help.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "spiky-profiles",
+              "title": "Spiky Profiles",
+              "description": "A spiky profile is being brilliant at some things but finding others very hard, which is common for neurodivergent people.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "spoon-theory",
+              "title": "Spoon Theory",
+              "description": "Spoon theory explains living with limited energy, and how to support colleagues who are 'low on spoons'.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "superpowers-debate",
+              "title": "Superpowers Debate",
+              "description": "Why calling neurodivergence a 'superpower' can be tricky, and better ways to recognise strengths.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "tourettes-syndrome",
+              "title": "Tourette’s Syndrome",
+              "description": "What Tourette's Syndrome is, beyond the myths, and how to be a good ally to someone with tics.",
+              "updated": "2026-11-06",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            }
+          ]
+        },
+        {
+          "slug": "accessibility",
+          "title": "Accessibility",
+          "description": "Highlights covering topics related to accessibility.",
+          "folders": [],
+          "items": [
+            {
+              "slug": "accessibility-highlights",
+              "title": "Accessibility Highlights",
+              "description": "Every accessibility highlight in one file, each with what it’s for, how to support it and useful links, plus a glossary of terms.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "accessibility-debt",
+              "title": "Accessibility Debt",
+              "description": "Accessibility debt is like technical debt, but for accessibility.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "accessibility-overlays",
+              "title": "Accessibility Overlays",
+              "description": "Accessibility overlays are automated tools that claim to find and fix accessibility issues on websites.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "accessibility-testing",
+              "title": "Accessibility Testing",
+              "description": "Accessibility Testing is the process of checking a digital product to ensure it can be used by people with disabilities.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "accessible-authentication",
+              "title": "Accessible Authentication",
+              "description": "When people can't use a login page, the harm can be serious.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "accessible-links",
+              "title": "Accessible Links",
+              "description": "Link text should say where a link goes, so it makes sense on its own, including for people using assistive technology.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "accessible-pdfs",
+              "title": "Accessible PDFs",
+              "description": "We use PDF (Portable Document Format) to present all kinds of documents like guidelines, contractual agreements, data-heavy reports and even site maps.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "alt-text",
+              "title": "Alt Text",
+              "description": "Some people cannot see the images we display.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "aria",
+              "title": "Accessible Rich Internet Applications (ARIA)",
+              "description": "ARIA stands for 'Accessible Rich Internet Applications'.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "ascii-art",
+              "title": "ASCII Art",
+              "description": "ASCII art is the practice of arranging punctuation and symbols to create a picture, like the ‘shrug’ ¯\\_(ツ)_/¯ or drawings of animals.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "assistive-technology-beyond-screen-readers",
+              "title": "Assistive Technology (Beyond Screen Readers)",
+              "description": "Assistive Technology (AT) is any tool that helps people with disabilities use a computer.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "basic-accessibility-testing",
+              "title": "Basic Accessibility Testing",
+              "description": "Testing makes sure that what gets built actually works for everyone.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "breadcrumbs-and-wayfinding",
+              "title": "Breadcrumbs & Wayfinding",
+              "description": "Breadcrumbs are a secondary navigation system that shows a user's current location within a site's hierarchy.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "buttons",
+              "title": "Buttons",
+              "description": "Buttons let people take an action, such as submitting a form, saving information or opening a menu.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "captions-and-transcripts",
+              "title": "Captions & Transcripts",
+              "description": "Captions are timed text that appears with a video to show spoken words, music, and sounds, helping viewers who are deaf or hard of hearing.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "carousels-and-sliders",
+              "title": "Carousels & Sliders",
+              "description": "A carousel is a sliding banner that automatically cycles through images or messages on a webpage, like a digital billboard.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "colour-blind-series-anomalous-trichromacy",
+              "title": "Colour-blind Series: Anomalous Trichromacy",
+              "description": "Anomalous trichromacy is when all three types of colour sensing cells are present, but one doesn’t work as strongly as it should.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "colour-blind-series-deuteranopia",
+              "title": "Colour-blind Series: Deuteranopia",
+              "description": "Deuteranopia is a form of colour blindness that affects the ability to see green.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "colour-blind-series-protanopia",
+              "title": "Colour-blind Series: Protanopia",
+              "description": "Protanopia is a form of colour blindness that affects the ability to see red.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "colour-blind-series-the-rarer-types",
+              "title": "Colour-blind Series: The Rarer Types",
+              "description": "Earlier entries in this series covered Protanopia, Deuteranopia, and Tritanopia.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "colour-blind-series-tritanopia",
+              "title": "Colour-blind Series: Tritanopia",
+              "description": "Tritanopia is a form of colour blindness that affects the ability to see blue.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "colour-blindness",
+              "title": "Colour Blindness",
+              "description": "Colour blindness (or Colour Vision Deficiency) is about more than just seeing in black and white.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "colour-contrast",
+              "title": "Colour Contrast",
+              "description": "Websites, social media images, and out-of-home advertising should have a good colour contrast between text and background colour.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "consistency",
+              "title": "Consistency",
+              "description": "Navigation, buttons and labels that look and work the same on every page help people find their way around.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "dark-mode",
+              "title": "Dark Mode",
+              "description": "Dark mode is a colour option that flips the user’s view from the typical dark text on a light background to light text on a dark background.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "device-orientation",
+              "title": "Device Orientation",
+              "description": "Websites and apps should work whichever way a screen is turned, as some people can’t turn their device.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "error-messages-and-validation",
+              "title": "Error Messages & Validation",
+              "description": "Form errors are a major barrier for all users, but they can completely block users with disabilities.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "flashing-and-photosensitivity",
+              "title": "Flashing & Photosensitivity",
+              "description": "High-energy videos with strobing effects or rapid transitions can be physically dangerous.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "focus-states",
+              "title": "Focus States",
+              "description": "Focus states occur when an interactive element receives focus.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "focus-traps",
+              "title": "Focus Traps",
+              "description": "A focus trap keeps keyboard focus inside one part of the page while it’s open, such as a modal, but always lets the user leave.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "fonts",
+              "title": "Fonts",
+              "description": "Fonts are used everywhere, whether that's in a Word document, in a design, in a slide deck, or on a website.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "forms",
+              "title": "Forms",
+              "description": "An accessible form is an online form that everyone can fill in, including people with vision, movement, or cognitive disabilities.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "good-alt-text",
+              "title": "Good Alt Text",
+              "description": "While basic alt text just labels an image, good alt text explains its purpose.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "head-pointer",
+              "title": "Head Pointer",
+              "description": "Head pointer allows users with limited hand function to control a computer cursor using head movements and, in some cases, facial expressions.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "headings",
+              "title": "Headings",
+              "description": "Most people are familiar with headings, whether that's a title in a document or a title sheet on a slide deck.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "hover-states",
+              "title": "Hover states",
+              "description": "Hover states are what happen when a mouse pointer moves over an interactive element.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "inclusive-language",
+              "title": "Inclusive Language",
+              "description": "Inclusive language means using words that respect everyone.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "keyboard-only",
+              "title": "Keyboard Only",
+              "description": "Keyboard only is a method for navigating the web using just a keyboard (not using the mouse at all).",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "landmarks-and-roles",
+              "title": "Landmarks & Roles",
+              "description": "Imagine trying to navigate a city with no street signs, where every building looks exactly the same.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "link-text",
+              "title": "Link Text",
+              "description": "Many screen reader users navigate websites by pulling up a list of only the links on a page.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "meetings",
+              "title": "Meetings",
+              "description": "Meetings are part of most workdays, and there are many ways to make them fully accessible and inclusive.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "modals",
+              "title": "Modals",
+              "description": "Modals are manually triggered pop-ups that provide extra information.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "neurodiversity-and-inclusive-design",
+              "title": "Neurodiversity & Inclusive Design",
+              "description": "Neurodiversity describes the natural variations in how human brains function, process information, learn, and interact.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "personas",
+              "title": "Personas",
+              "description": "Personas are made-up people with real accessibility needs, which you can role-play as while testing your work.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "prefers-reduced-motion",
+              "title": "Prefers-reduced-motion",
+              "description": "Some people struggle with motion on websites.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "presentations",
+              "title": "Presentations",
+              "description": "Most people will have to give a presentation at some point.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "qr-codes",
+              "title": "QR Codes",
+              "description": "A QR (Quick Response) code is a type of two-dimensional barcode.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "screen-reader-only-styling",
+              "title": "Screen reader only styling",
+              "description": "Screen reader only styling ensures that everyone who uses a website can access the important information it contains.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "screen-readers",
+              "title": "Screen Readers",
+              "description": "Screen readers are pieces of software that announce content audibly.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "shifting-left",
+              "title": "Shifting Left",
+              "description": "Imagine baking a cake, pulling it out of the oven, and realising you forgot the sugar.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "social-media-alt-text",
+              "title": "Social Media: Alt Text",
+              "description": "On social media, images often hold the core message or punchline.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "social-media-custom-fonts",
+              "title": "Social Media: Custom Fonts",
+              "description": "People often use generator websites to make their text look unique (e.g.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "social-media-emojis",
+              "title": "Social Media: Emojis",
+              "description": "Emojis add personality and tone to messages, but for a screen reader user, they are read aloud as literal text descriptions.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "social-media-hashtags",
+              "title": "Social Media: Hashtags",
+              "description": "Imagine trying to read a sentence where all the spaces have been removed.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "tap-targets",
+              "title": "Tap Targets",
+              "description": "Buttons and links should be big enough, with enough space around them, to press without hitting something else by mistake.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "temporary-and-situational-disabilities",
+              "title": "Temporary & Situational Disabilities",
+              "description": "People often link accessibility with permanent disabilities.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "text-alternatives-for-complex-images",
+              "title": "Text Alternatives for Complex Images",
+              "description": "Standard 'alt text' is great for simple photos, but it often fails for complex data like charts, graphs, flowcharts, or infographics.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "time-limits",
+              "title": "Time Limits",
+              "description": "Time limits refer to when a page sets a time limit on doing a certain action.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "tooltips-and-popovers",
+              "title": "Tooltips & Popovers",
+              "description": "Tooltips and popovers give users extra info on demand (like for an icon button).",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "touch-gestures",
+              "title": "Touch Gestures",
+              "description": "Imagine trying to open a heavy door, but the rule is you can only use your pinky fingers.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "zooming",
+              "title": "Zooming",
+              "description": "Some people need to make the text and images on a website bigger to see them clearly.",
+              "updated": "2026-11-05",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            }
+          ]
+        }
+      ],
+      "items": []
+    }
+  ],
+  "items": [
+    {
+      "slug": "accessible-meeting-checklist",
+      "title": "Accessible Meeting Checklist",
+      "description": "A checklist of things to ensure meetings are accessible to all attendees.",
+      "updated": "2026-11-05",
+      "slides": false,
+      "text": "checked",
+      "todo": []
+    },
+    {
+      "slug": "email-signature-additions",
+      "title": "Email Signature Additions",
+      "description": "Some template examples that can be added to an email signature to share information about accessibility, neurodiversity, and working differences.",
+      "updated": "2026-11-05",
+      "slides": false,
+      "text": "checked",
+      "todo": []
+    },
+    {
+      "slug": "meeting-invite-template",
+      "title": "Meeting Invite Template",
+      "description": "A meeting invite template, created so that no information gets missed when setting up meetings.",
+      "updated": "2026-11-05",
+      "slides": false,
+      "text": "checked",
+      "todo": []
+    }
+  ]
+}

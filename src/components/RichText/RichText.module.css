@@ -1,0 +1,94 @@
+.richText {
+  > * {
+    margin-block: 0 var(--spacer-24);
+  }
+
+  > :last-child {
+    margin-block-end: 0;
+  }
+
+  :global(h2),
+  :global(h3),
+  :global(h4) {
+    margin-block-start: var(--spacer-48);
+  }
+
+  > :first-child {
+    margin-block-start: 0;
+  }
+
+  :global(ul),
+  :global(ol) {
+    padding-inline-start: var(--spacer-24);
+  }
+
+  /* A list item that's only a link, such as in a list of useful links, stands on its own, so it
+     needs a full size target (WCAG 2.5.5) */
+  :global(li.linkOnly) > a {
+    display: inline-flex;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    gap: var(--spacer-4);
+    align-items: center;
+    min-height: var(--size-target-min);
+  }
+
+  :global(pre) {
+    max-width: var(--size-measure);
+    padding: var(--spacer-16);
+    white-space: pre-wrap;
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border-decorative);
+    border-radius: var(--radius-small);
+  }
+
+  /* Tables fill the width, with lines between rows. Long words can break, so a table never makes the
+     page scroll sideways, even with the largest text at 320px (WCAG 1.4.10) */
+  :global(table) {
+    width: 100%;
+    max-width: var(--size-measure);
+    border-collapse: collapse;
+  }
+
+  :global(th),
+  :global(td) {
+    padding: var(--spacer-8);
+    text-align: start;
+    overflow-wrap: anywhere;
+    vertical-align: top;
+    border-block-end: var(--border-width) solid var(--color-border-decorative);
+  }
+
+  :global(th:first-child),
+  :global(td:first-child) {
+    padding-inline-start: 0;
+  }
+
+  :global(blockquote) {
+    padding-inline-start: var(--spacer-24);
+    border-inline-start: var(--spacer-4) solid var(--color-border-decorative);
+  }
+}
+
+/* Links in the Markdown can't use the Link and ScreenReaderOnly components, so they get the same
+   styles here */
+.richText :global(.externalIcon) {
+  display: inline;
+  width: 0.75em;
+  height: 0.75em;
+  vertical-align: baseline;
+}
+
+.richText :global(.screenReaderOnly) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+
+  /* Left out when the page is copied, as in the ScreenReaderOnly component */
+  user-select: none;
+}

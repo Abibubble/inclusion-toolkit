@@ -1,9 +1,11 @@
-import { readdir, rename, rm, rmdir, stat } from 'node:fs/promises';
+import { readFile, readdir, rename, rm, rmdir, stat, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import type { Config } from '@react-router/dev/config';
 
 import { BASE_PATH } from './build-constants.ts';
+import { withoutRepeatedHtml } from './src/build/repeatedHtml.ts';
+import { unpublishedToolkitFiles } from './src/content/toolkit.ts';
 
 const NOT_FOUND_PATH = '/404';
 
@@ -41,8 +43,24 @@ export default {
       await rm(join(client, baseFolder), { recursive: true });
     }
 
+    // Everything in public/ is copied into the build, so resources' files only go live once their
+    // text is checked
+    await Promise.all(
+      unpublishedToolkitFiles().map((path) => rm(join(client, path), { force: true })),
+    );
+
     // Static hosts, including GitHub Pages, serve 404.html with a 404 status for unknown addresses
     await rename(join(client, NOT_FOUND_PATH, 'index.html'), join(client, '404.html'));
     await rmdir(join(client, NOT_FOUND_PATH));
+
+    const htmlFiles = (await readdir(client, { recursive: true })).filter((file) =>
+      file.endsWith('.html'),
+    );
+    await Promise.all(
+      htmlFiles.map(async (file) => {
+        const path = join(client, file);
+        await writeFile(path, withoutRepeatedHtml(await readFile(path, 'utf8')));
+      }),
+    );
   },
 } satisfies Config;

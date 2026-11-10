@@ -1,0 +1,158 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, calc(var(--spacer-96) * 3.5)), 1fr));
+  gap: var(--spacer-24);
+  padding: 0;
+  margin: 0;
+
+  > li {
+    display: flex;
+  }
+
+  /* The minimum width lets a card be narrower than its longest word, which then wraps */
+  > li > * {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.meta {
+  color: var(--color-text-muted);
+}
+
+/* A card that's one big link. The link's clickable area stretches over the whole card, so the
+   card can be clicked anywhere, while it stays one link with a short name for screen readers */
+.linkCard {
+  position: relative;
+
+  &:hover {
+    border-color: var(--color-action);
+  }
+}
+
+.cardLink::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  border-radius: var(--radius-medium);
+}
+
+/* The focus ring goes round the whole card, as that's what the link covers (WCAG 2.4.7 and
+   2.4.13) */
+.cardLink:focus-visible {
+  outline: none;
+
+  &::after {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
+/* The heading link stands on its own, so it needs a full size target (WCAG 2.5.5). The maximum
+   width lets a long word, such as "Photosensitivity" in large text, wrap rather than make the link
+   wider than the screen (WCAG 1.4.10) */
+.title a {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  min-height: var(--size-target-min);
+  padding-block: var(--spacer-8);
+}
+
+/* Links that stand on their own, rather than in a sentence, need a full size target (WCAG 2.5.5).
+   The file links are short words, such as "View", so they're at least that wide too */
+.standalone a,
+.file a,
+.results a {
+  display: inline-flex;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  align-items: center;
+  min-height: var(--size-target-min);
+}
+
+.file a {
+  min-width: var(--size-target-min);
+}
+
+/* The full guide, then the visual summary, each under its own heading */
+.versions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-24);
+}
+
+/* A line for each file: what it is and its size, then its links */
+.files {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.newTabIcon {
+  width: 0.75em;
+  height: 0.75em;
+  margin-inline-start: var(--spacer-4);
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-8);
+  max-width: var(--size-measure);
+}
+
+/* Search needs JavaScript, so without it only the folders show, which lead to everything */
+:global(:root:not([data-js])) .search {
+  display: none;
+}
+
+.label {
+  font-weight: var(--font-weight-emphasis);
+  letter-spacing: var(--letter-spacing-emphasis);
+}
+
+.searchRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-8) var(--spacer-16);
+  align-items: center;
+}
+
+.input {
+  flex: 1 1 var(--size-input-max);
+  width: 100%;
+  max-width: var(--size-input-max);
+  min-height: var(--size-target-min);
+  padding: var(--spacer-8) var(--spacer-16);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-small);
+
+  /* The Clear search button does this, so the browser's own small cross would be a second way */
+  &::-webkit-search-cancel-button {
+    appearance: none;
+  }
+}
+
+.status {
+  margin: 0;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-16);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  p {
+    margin: 0;
+  }
+}
