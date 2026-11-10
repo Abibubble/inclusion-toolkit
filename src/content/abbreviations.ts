@@ -9,7 +9,6 @@ export const ABBREVIATIONS = {
   CBT: 'cognitive behavioural therapy',
   CSS: 'Cascading Style Sheets',
   CT: 'computed tomography',
-  GDPR: 'General Data Protection Regulation',
   GP: 'general practitioner',
   HTML: 'HyperText Markup Language',
   MRI: 'magnetic resonance imaging',

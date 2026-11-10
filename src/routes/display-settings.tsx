@@ -1,7 +1,8 @@
 import { DisplaySettings } from '../components/DisplaySettings';
+import { Link } from '../components/Link';
 import { PageHeading } from '../components/PageHeading';
 import { Stack } from '../components/Stack';
-import { DISPLAY_SETTINGS_PATH } from '../content/navigation';
+import { ACCESSIBILITY_PATH, DISPLAY_SETTINGS_PATH } from '../content/navigation';
 import { pageTitle } from '../content/site';
 import { pageMeta } from '../seo/pageMeta';
 import type { Route } from './+types/display-settings';
@@ -20,8 +21,10 @@ export default function DisplaySettingsPage() {
     <Stack gap={6}>
       <Stack gap={4}>
         <PageHeading>Display settings</PageHeading>
-        {/* Links to the Accessibility page once it's added */}
-        <p>Change how the site looks, to make it easier for you to use.</p>
+        <p>
+          Change how the site looks, to make it easier for you to use. You can also read about{' '}
+          <Link to={ACCESSIBILITY_PATH}>how accessible this site is</Link>.
+        </p>
       </Stack>
       <DisplaySettings />
     </Stack>
