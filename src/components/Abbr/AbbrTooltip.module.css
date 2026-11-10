@@ -1,0 +1,53 @@
+.wrapper {
+  position: relative;
+}
+
+/* Looks like the text around it, with the dotted underline that marks an abbreviation */
+.trigger {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  text-decoration: underline dotted;
+  cursor: help;
+  background: none;
+  border: none;
+}
+
+/* Sits just under the abbreviation. The padding joins the two, so the pointer can move onto it */
+.tooltip {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  z-index: 10;
+  width: max-content;
+  max-width: min(20rem, calc(100vw - var(--spacer-32)));
+  padding-block-start: var(--spacer-4);
+}
+
+/* Body text, whatever it's next to, such as a heading */
+.bubble {
+  display: block;
+  padding: var(--spacer-8) var(--spacer-16);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-body);
+  word-spacing: var(--word-spacing-body);
+  text-align: start;
+  white-space: normal;
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-small);
+}
+
+@media print {
+  .tooltip {
+    display: none;
+  }
+}

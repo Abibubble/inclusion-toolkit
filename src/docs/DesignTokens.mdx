@@ -1,0 +1,135 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design tokens" />
+
+export const colours = [
+  ['color-bg', 'Page background'],
+  ['color-surface', 'Raised areas such as cards'],
+  ['color-text', 'Body text'],
+  ['color-text-muted', 'Secondary text such as dates'],
+  ['color-action', 'Links and primary buttons'],
+  ['color-action-hover', 'Links and buttons on hover'],
+  ['color-action-text', 'Text on primary buttons'],
+  ['color-focus', 'Focus rings'],
+  ['color-error', 'Error messages'],
+  ['color-success', 'Success messages'],
+  ['color-border', 'Borders that carry meaning, such as form fields'],
+  ['color-border-decorative', 'Decorative dividers only'],
+];
+
+export const spaces = [
+  ['space-1', '4px'],
+  ['space-2', '8px'],
+  ['space-3', '16px'],
+  ['space-4', '24px'],
+  ['space-5', '32px'],
+  ['space-6', '48px'],
+  ['space-7', '96px'],
+];
+
+export const fontSizes = [
+  ['font-size-1', '16px'],
+  ['font-size-2', '24px'],
+  ['font-size-3', '32px'],
+  ['font-size-4', '48px'],
+];
+
+# Design tokens
+
+Components only ever use the semantic tokens on this page. Use the Theme button in the toolbar to see
+each colour in the light and dark themes. Every text colour meets the 7:1 AAA contrast ratio against
+both backgrounds, and the unit tests fail if it doesn't.
+
+## Colour
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Swatch</th>
+      <th scope="col">Token</th>
+      <th scope="col">Used for</th>
+    </tr>
+  </thead>
+  <tbody>
+    {colours.map(([token, use]) => (
+      <tr key={token}>
+        <td>
+          <div
+            aria-hidden="true"
+            style={{
+              width: 'var(--spacer-48)',
+              height: 'var(--spacer-48)',
+              background: `var(--${token})`,
+              border: 'var(--border-width) solid var(--color-border)',
+              borderRadius: 'var(--radius-small)',
+            }}
+          />
+        </td>
+        <td>
+          <code>--{token}</code>
+        </td>
+        <td>{use}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+## Spacing
+
+Every size on the site comes from this scale. Values are in rem, so they grow with the visitor's text
+size.
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Token</th>
+      <th scope="col">Size</th>
+      <th scope="col">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    {spaces.map(([token, size]) => (
+      <tr key={token}>
+        <td>
+          <code>--{token}</code>
+        </td>
+        <td>{size}</td>
+        <td>
+          <div
+            aria-hidden="true"
+            style={{
+              width: `var(--${token})`,
+              height: 'var(--spacer-16)',
+              background: 'var(--color-action)',
+            }}
+          />
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+## Type
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Token</th>
+      <th scope="col">Size</th>
+      <th scope="col">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    {fontSizes.map(([token, size]) => (
+      <tr key={token}>
+        <td>
+          <code>--{token}</code>
+        </td>
+        <td>{size}</td>
+        <td style={{ fontSize: `var(--${token})`, lineHeight: 'var(--line-height-heading)' }}>
+          Inclusion Toolkit
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>

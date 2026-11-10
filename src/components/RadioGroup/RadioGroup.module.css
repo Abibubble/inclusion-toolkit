@@ -1,0 +1,43 @@
+.fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.legend {
+  padding: 0;
+  margin-block-end: var(--spacer-8);
+  font-weight: var(--font-weight-emphasis);
+  letter-spacing: var(--letter-spacing-emphasis);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-4);
+}
+
+.label {
+  display: inline-flex;
+  gap: var(--spacer-16);
+  align-items: center;
+  min-height: var(--size-target-min);
+  cursor: pointer;
+}
+
+.input {
+  flex-shrink: 0;
+  width: var(--spacer-24);
+  height: var(--spacer-24);
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-action);
+}
+
+.hint {
+  padding-inline-start: calc(var(--spacer-24) + var(--spacer-16));
+  margin: 0;
+  margin-block-end: var(--spacer-8);
+  color: var(--color-text-muted);
+}

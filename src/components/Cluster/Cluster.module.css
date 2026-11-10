@@ -1,0 +1,37 @@
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.cluster > * {
+  margin: 0;
+}
+
+/* stylelint-disable selector-class-pattern -- these names are built from prop values in Cluster.tsx */
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-baseline {
+  align-items: baseline;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-spaceBetween {
+  justify-content: space-between;
+}
+/* stylelint-enable selector-class-pattern */

@@ -1,7 +1,13 @@
+import { fileURLToPath } from 'node:url';
+
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import react from '@vitejs/plugin-react';
+import { playwright } from '@vitest/browser-playwright';
 import { defineConfig } from 'vitest/config';
 
 import { BUILD_DEFINES } from './build-constants.ts';
+
+const storybookConfigDir = fileURLToPath(new URL('./.storybook', import.meta.url));
 
 export default defineConfig({
   define: BUILD_DEFINES,
@@ -32,6 +38,19 @@ export default defineConfig({
           environment: 'jsdom',
           include: ['src/**/*.test.{ts,tsx}'],
           setupFiles: ['src/test/setup.ts'],
+        },
+      },
+      {
+        extends: true,
+        plugins: [storybookTest({ configDir: storybookConfigDir })],
+        test: {
+          name: 'storybook',
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright(),
+            instances: [{ browser: 'chromium' }],
+          },
         },
       },
     ],

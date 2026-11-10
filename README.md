@@ -26,20 +26,28 @@ Pages build fails without it, so the live site can never point at localhost.
 
 ## Scripts
 
-| Script               | What it does                                                         |
-| -------------------- | -------------------------------------------------------------------- |
-| `pnpm dev`           | Starts the dev server                                                |
-| `pnpm build`         | Builds the site and prerenders every page into `build/client`        |
-| `pnpm typecheck`     | Generates route types and runs the TypeScript compiler               |
-| `pnpm lint`          | Lints TypeScript and React, including strict accessibility rules     |
-| `pnpm lint:css`      | Lints CSS, and fails on raw colours or sizes outside the token files |
-| `pnpm format`        | Formats everything with Prettier                                     |
-| `pnpm test`          | Runs unit and component tests                                        |
-| `pnpm test:watch`    | Runs unit tests in watch mode                                        |
-| `pnpm test:coverage` | Runs unit tests with a 90% coverage threshold                        |
-| `pnpm commit:check`  | Runs the checks that must pass before committing                     |
+| Script                 | What it does                                                         |
+| ---------------------- | -------------------------------------------------------------------- |
+| `pnpm dev`             | Starts the dev server                                                |
+| `pnpm build`           | Builds the site and prerenders every page into `build/client`        |
+| `pnpm typecheck`       | Generates route types and runs the TypeScript compiler               |
+| `pnpm lint`            | Lints TypeScript and React, including strict accessibility rules     |
+| `pnpm lint:css`        | Lints CSS, and fails on raw colours or sizes outside the token files |
+| `pnpm format`          | Formats everything with Prettier                                     |
+| `pnpm test`            | Runs unit and component tests                                        |
+| `pnpm test:watch`      | Runs unit tests in watch mode                                        |
+| `pnpm test:coverage`   | Runs unit tests with a 90% coverage threshold                        |
+| `pnpm test:storybook`  | Tests every Storybook story in a real browser, including axe checks  |
+| `pnpm storybook`       | Starts Storybook at http://localhost:6006                            |
+| `pnpm build-storybook` | Builds a static copy of Storybook into `storybook-static`            |
+| `pnpm commit:check`    | Runs the checks that must pass before committing                     |
+
+The first time, run `pnpm exec playwright install chromium` so the Storybook tests have a browser.
 
 ## Before committing
 
-Run `pnpm commit:check`. It runs formatting, CSS lint, TypeScript and React lint, and type checks at
-the same time, then the unit tests with the coverage threshold.
+Run `pnpm commit:check`. It runs these checks in 2 stages, and stops after any stage with a failure:
+
+1. At the same time: formatting, CSS lint, TypeScript and React lint, and type checks.
+2. At the same time: the unit tests with the coverage threshold, and the Storybook story tests.
+   Both include axe checks.

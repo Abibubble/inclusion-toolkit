@@ -11,7 +11,10 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "overrides": {
+      "@joshwooding/vite-plugin-react-docgen-typescript>glob": "^14.0.2"
+    }
   },
   "scripts": {
     "dev": "react-router dev",
@@ -24,6 +27,9 @@
     "test": "vitest run --project unit",
     "test:watch": "vitest --project unit",
     "test:coverage": "vitest run --project unit --coverage",
+    "test:storybook": "vitest run --project storybook --passWithNoTests",
+    "storybook": "storybook dev --port 6006 --no-open",
+    "build-storybook": "storybook build --quiet",
     "commit:check": "node scripts/check.ts"
   },
   "dependencies": {
@@ -38,6 +44,10 @@
   "devDependencies": {
     "@eslint/js": "^9.39.5",
     "@react-router/dev": "^8.4.0",
+    "@storybook/addon-a11y": "^10.6.7",
+    "@storybook/addon-docs": "^10.6.7",
+    "@storybook/addon-vitest": "^10.6.7",
+    "@storybook/react-vite": "^10.6.7",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
@@ -46,15 +56,21 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/browser": "^5.1.0",
+    "@vitest/browser-playwright": "^5.1.0",
     "@vitest/coverage-v8": "^5.1.0",
+    "axe-core": "^4.13.0",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-storybook": "^10.6.7",
     "globals": "^17.13.0",
     "jsdom": "^30.1.2",
+    "playwright": "^1.63.0",
     "prettier": "^3.9.9",
+    "storybook": "^10.6.7",
     "stylelint": "^17.16.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-declaration-strict-value": "^1.12.1",

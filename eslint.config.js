@@ -4,6 +4,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import storybook from 'eslint-plugin-storybook';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -33,6 +34,7 @@ export default defineConfig([
   react.configs.flat['jsx-runtime'],
   reactHooks.configs.flat['recommended-latest'],
   jsxA11y.flatConfigs.strict,
+  storybook.configs['flat/recommended'],
   {
     rules: {
       '@typescript-eslint/consistent-type-imports': 'error',

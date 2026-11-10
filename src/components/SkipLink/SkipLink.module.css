@@ -1,0 +1,36 @@
+.skipLink {
+  position: absolute;
+  inset-block-start: var(--spacer-8);
+  inset-inline-start: var(--spacer-16);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target-min);
+  padding-inline: var(--spacer-24);
+  font-weight: var(--font-weight-emphasis);
+  color: var(--color-action-text);
+  letter-spacing: var(--letter-spacing-emphasis);
+  text-decoration-line: none;
+  background: var(--color-action);
+  border-radius: var(--radius-small);
+
+  &:not(:focus) {
+    width: 1px;
+    height: 1px;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  &:hover {
+    color: var(--color-action-text);
+    text-decoration-line: underline;
+  }
+
+  &:focus-visible {
+    outline-color: var(--color-action-text);
+    outline-offset: calc(var(--focus-ring-width) * -2);
+  }
+}

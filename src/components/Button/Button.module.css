@@ -1,0 +1,39 @@
+.button {
+  display: inline-flex;
+  gap: var(--spacer-8);
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-target-min);
+  min-height: var(--size-target-min);
+  padding-inline: var(--spacer-24);
+  font-weight: var(--font-weight-emphasis);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-emphasis);
+  text-decoration-line: none;
+  cursor: pointer;
+
+  /* Transparent borders still show in Windows high contrast mode, so the button keeps its edges */
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-small);
+}
+
+.primary {
+  color: var(--color-action-text);
+  background: var(--color-action);
+
+  &:hover {
+    background: var(--color-action-hover);
+  }
+}
+
+.secondary {
+  color: var(--color-action);
+  background: transparent;
+  border-color: var(--color-action);
+
+  &:hover {
+    color: var(--color-action-hover);
+    background: var(--color-surface);
+    border-color: var(--color-action-hover);
+  }
+}

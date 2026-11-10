@@ -1,0 +1,43 @@
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-8);
+  padding-inline-start: var(--spacer-16);
+  border-inline-start: var(--spacer-4) solid var(--color-border-decorative);
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--font-size-body);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding-inline-start: var(--spacer-24);
+  margin: 0;
+
+  /* A long word, such as "neurodivergence" in large text, breaks rather than making the page
+     scroll sideways (WCAG 1.4.10) */
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-width: var(--size-target-min);
+    max-width: 100%;
+    min-height: var(--size-target-min);
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Long lists read down each column, then across, so the order matches the page */
+.columns {
+  @media (width >= 48rem) {
+    display: block;
+    column-width: 16rem;
+    column-gap: var(--spacer-48);
+
+    li {
+      break-inside: avoid;
+    }
+  }
+}

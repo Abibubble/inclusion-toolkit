@@ -7,7 +7,10 @@
  */
 import { spawn } from 'node:child_process';
 
-const STAGES = [['format:check', 'lint:css', 'lint', 'typecheck'], ['test:coverage']];
+const STAGES = [
+  ['format:check', 'lint:css', 'lint', 'typecheck'],
+  ['test:coverage', 'test:storybook'],
+];
 
 interface Result {
   name: string;

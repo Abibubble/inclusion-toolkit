@@ -1,5 +1,5 @@
-import { Link } from 'react-router';
-
+import { Link } from '../components/Link';
+import { PageHeading } from '../components/PageHeading';
 import { pageTitle } from '../content/site';
 import type { Route } from './+types/not-found';
 
@@ -11,7 +11,7 @@ export function meta(): Route.MetaDescriptors {
 export default function NotFound() {
   return (
     <main>
-      <h1>Page not found</h1>
+      <PageHeading>Page not found</PageHeading>
       <p>
         <Link to="/">Go to the Inclusion Toolkit home page</Link>
       </p>

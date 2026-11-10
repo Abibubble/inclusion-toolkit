@@ -1,0 +1,22 @@
+.card {
+  padding: var(--spacer-24);
+  background: var(--color-surface);
+
+  /* The background colour alone is a subtle change, so a border marks the edge, including in high contrast mode */
+  border: var(--border-width) solid var(--color-border-decorative);
+  border-radius: var(--radius-medium);
+
+  > :last-child {
+    margin-block-end: 0;
+  }
+
+  /* Less padding on the narrowest screens, so the text has room for more than a few words a line */
+  @media (width < 30rem) {
+    padding: var(--spacer-16);
+  }
+
+  @media print {
+    padding: 0;
+    border: none;
+  }
+}
