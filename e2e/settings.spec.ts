@@ -2,7 +2,7 @@ import { type Page, expect, test } from './support/test';
 
 import { saveDisplaySettings } from './support/settings';
 
-const DARK_BACKGROUND = 'rgb(22, 12, 36)';
+const DARK_BACKGROUND = 'rgb(11, 20, 34)';
 const CREAM_BACKGROUND = 'rgb(251, 245, 230)';
 
 const bodyBackground = (page: Page) =>

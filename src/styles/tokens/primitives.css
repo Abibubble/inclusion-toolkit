@@ -3,18 +3,18 @@
  * Components use the semantic tokens in colours.css, which map to these per theme
  */
 :root {
-  --purple-50: #f5effa;
-  --purple-100: #ede5f6;
-  --purple-200: #cdb4ff;
-  --purple-250: #e6daff;
-  --purple-700: #5b2a99;
-  --purple-800: #3f1a70;
-  --purple-900: #22143a;
-  --purple-950: #160c24;
-  --mauve-100: #e2d9f0;
-  --mauve-300: #bfb2d6;
-  --mauve-700: #4a3d5c;
-  --mauve-900: #2b2138;
+  --blue-50: #eff5fb;
+  --blue-100: #e2ecf7;
+  --blue-200: #9cc3f5;
+  --blue-250: #c3dbfa;
+  --blue-700: #1c4882;
+  --blue-800: #163a6b;
+  --blue-900: #13213a;
+  --blue-950: #0b1422;
+  --slate-100: #dce6f2;
+  --slate-300: #afc0d6;
+  --slate-700: #3a4a5e;
+  --slate-900: #1a2433;
   --cream-50: #fbf5e6;
   --cream-100: #f3ead3;
   --cream-300: #d9c9a3;
@@ -26,6 +26,6 @@
   --black: #000;
 
   /* The logo's colours. Only for the logo itself */
-  --logo-purple: #5b2a86;
-  --logo-lilac: #c9b6f2;
+  --logo-blue: #1c4882;
+  --logo-light-blue: #bcd6f5;
 }

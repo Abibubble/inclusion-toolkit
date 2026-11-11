@@ -1,7 +1,7 @@
 import { type Page, expect, test } from './support/test';
 
-const LIGHT_BACKGROUND = 'rgb(245, 239, 250)';
-const DARK_BACKGROUND = 'rgb(22, 12, 36)';
+const LIGHT_BACKGROUND = 'rgb(239, 245, 251)';
+const DARK_BACKGROUND = 'rgb(11, 20, 34)';
 const CREAM_BACKGROUND = 'rgb(251, 245, 230)';
 
 const bodyBackground = (page: Page) =>

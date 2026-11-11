@@ -11,12 +11,12 @@ describe('markSvg', () => {
     const svg = markSvg();
 
     expect(svg).toMatch(/^<svg xmlns="http:\/\/www\.w3\.org\/2000\/svg" viewBox="0 0 64 64">/);
-    expect(svg).toContain('<rect width="64" height="64" rx="14" fill="#5B2A86"/>');
+    expect(svg).toContain('<rect width="64" height="64" rx="14" fill="#1C4882"/>');
     expect(svg.match(/<rect /g)).toHaveLength(MARK.shapes.length + 1);
   });
 
   it('can have square corners, for Apple’s home screen icons', () => {
-    expect(markSvg({ rounded: false })).toContain('<rect width="64" height="64" fill="#5B2A86"/>');
+    expect(markSvg({ rounded: false })).toContain('<rect width="64" height="64" fill="#1C4882"/>');
   });
 
   it('keeps every shape inside the square', () => {

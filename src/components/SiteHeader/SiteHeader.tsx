@@ -24,8 +24,12 @@ function Mark() {
         fill={MARK.background}
         strokeWidth="2"
       />
-      {MARK.shapes.map(({ x, y, width, height, radius, fill }) => (
-        <rect key={`${String(x)},${String(y)}`} {...{ x, y, width, height, fill }} rx={radius} />
+      {MARK.shapes.map(({ x, y, width, height, radius, fill, stroke, strokeWidth }) => (
+        <rect
+          key={`${String(x)},${String(y)}`}
+          {...{ x, y, width, height, fill, stroke, strokeWidth }}
+          rx={radius}
+        />
       ))}
     </svg>
   );

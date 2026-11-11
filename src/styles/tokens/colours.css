@@ -12,27 +12,27 @@
 :root {
   color-scheme: light dark;
 
-  --color-bg: light-dark(var(--purple-50), var(--purple-950));
-  --color-surface: light-dark(var(--purple-100), var(--purple-900));
-  --color-text: light-dark(var(--mauve-900), var(--mauve-100));
-  --color-text-muted: light-dark(var(--mauve-700), var(--mauve-300));
-  --color-action: light-dark(var(--purple-700), var(--purple-200));
-  --color-action-hover: light-dark(var(--purple-800), var(--purple-250));
-  --color-action-text: light-dark(var(--white), var(--purple-950));
-  --color-focus: light-dark(var(--purple-700), var(--purple-200));
+  --color-bg: light-dark(var(--blue-50), var(--blue-950));
+  --color-surface: light-dark(var(--blue-100), var(--blue-900));
+  --color-text: light-dark(var(--slate-900), var(--slate-100));
+  --color-text-muted: light-dark(var(--slate-700), var(--slate-300));
+  --color-action: light-dark(var(--blue-700), var(--blue-200));
+  --color-action-hover: light-dark(var(--blue-800), var(--blue-250));
+  --color-action-text: light-dark(var(--white), var(--blue-950));
+  --color-focus: light-dark(var(--blue-700), var(--blue-200));
   --color-error: light-dark(var(--red-800), var(--red-200));
   --color-success: light-dark(var(--green-800), var(--green-200));
 
   /* Borders that carry meaning, such as form fields */
-  --color-border: light-dark(var(--mauve-700), var(--mauve-300));
+  --color-border: light-dark(var(--slate-700), var(--slate-300));
 
   /* Decorative dividers only. Never use for anything someone needs to see to use the page */
-  --color-border-decorative: light-dark(var(--purple-200), var(--mauve-700));
-  --color-selection-bg: light-dark(var(--purple-200), var(--purple-700));
-  --color-selection-text: light-dark(var(--mauve-900), var(--white));
+  --color-border-decorative: light-dark(var(--blue-200), var(--slate-700));
+  --color-selection-bg: light-dark(var(--blue-200), var(--blue-700));
+  --color-selection-text: light-dark(var(--slate-900), var(--white));
 
-  /* The logo's outline. On dark backgrounds the logo has a lilac outline, so its purple square stands out */
-  --color-logo-outline: light-dark(var(--logo-purple), var(--logo-lilac));
+  /* The logo's outline. On dark backgrounds the logo has a light blue outline, so its blue square stands out */
+  --color-logo-outline: light-dark(var(--logo-blue), var(--logo-light-blue));
 }
 
 :root[data-theme='light'] {
@@ -52,17 +52,17 @@
 
   --color-bg: var(--cream-50);
   --color-surface: var(--cream-100);
-  --color-text: var(--mauve-900);
-  --color-text-muted: var(--mauve-700);
-  --color-action: var(--purple-700);
-  --color-action-hover: var(--purple-800);
+  --color-text: var(--slate-900);
+  --color-text-muted: var(--slate-700);
+  --color-action: var(--blue-700);
+  --color-action-hover: var(--blue-800);
   --color-action-text: var(--white);
-  --color-focus: var(--purple-700);
+  --color-focus: var(--blue-700);
   --color-error: var(--red-800);
   --color-success: var(--green-800);
-  --color-border: var(--mauve-700);
+  --color-border: var(--slate-700);
   --color-border-decorative: var(--cream-300);
-  --color-selection-bg: var(--purple-200);
-  --color-selection-text: var(--mauve-900);
-  --color-logo-outline: var(--logo-purple);
+  --color-selection-bg: var(--blue-200);
+  --color-selection-text: var(--slate-900);
+  --color-logo-outline: var(--logo-blue);
 }
