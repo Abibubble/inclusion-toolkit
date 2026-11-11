@@ -1,6 +1,7 @@
 import { DisplaySettings } from '../components/DisplaySettings';
 import { Link } from '../components/Link';
 import { PageHeading } from '../components/PageHeading';
+import { TitleBand } from '../components/TitleBand';
 import { Stack } from '../components/Stack';
 import { ACCESSIBILITY_PATH, DISPLAY_SETTINGS_PATH } from '../content/navigation';
 import { pageTitle } from '../content/site';
@@ -19,13 +20,15 @@ export function meta(): Route.MetaDescriptors {
 export default function DisplaySettingsPage() {
   return (
     <Stack gap={6}>
-      <Stack gap={4}>
-        <PageHeading>Display settings</PageHeading>
-        <p>
-          Change how the site looks, to make it easier for you to use. You can also read about{' '}
-          <Link to={ACCESSIBILITY_PATH}>how accessible this site is</Link>.
-        </p>
-      </Stack>
+      <TitleBand>
+        <Stack gap={4}>
+          <PageHeading>Display settings</PageHeading>
+          <p>
+            Change how the site looks, to make it easier for you to use. You can also read about{' '}
+            <Link to={ACCESSIBILITY_PATH}>how accessible this site is</Link>.
+          </p>
+        </Stack>
+      </TitleBand>
       <DisplaySettings />
     </Stack>
   );

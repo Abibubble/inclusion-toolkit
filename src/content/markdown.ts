@@ -202,11 +202,24 @@ export function linkGlossaryTerms(html: string): string {
 }
 
 /**
+ * Puts each "In short" heading and the paragraph after it in a box, so the summary stands out. The
+ * box is only a div, so screen readers still find the summary by its heading
+ */
+export function markSummaries(html: string): string {
+  return html.replace(
+    /<(h[34])>In short<\/\1>\s*<p>([\s\S]*?)<\/p>/g,
+    '<div class="summary"><$1>In short</$1>\n<p>$2</p></div>',
+  );
+}
+
+/**
  * Turns a resource's text into HTML. It sits under the page's "What’s in it" heading, so it uses
  * third level headings (###) and below, which a test checks
  */
 export function renderMarkdown(source: string): string {
-  return markAbbreviations(
-    markLinkOnlyItems(linkGlossaryTerms(markdown.parse(source, { async: false }))),
+  return markSummaries(
+    markAbbreviations(
+      markLinkOnlyItems(linkGlossaryTerms(markdown.parse(source, { async: false }))),
+    ),
   );
 }

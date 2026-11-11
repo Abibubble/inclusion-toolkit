@@ -75,6 +75,29 @@ const PAIRINGS: [foreground: string, background: string][] = [
   ['color-border', 'color-bg'],
   ['color-border', 'color-surface'],
   ['color-selection-text', 'color-selection-bg'],
+  ['color-header-text', 'color-header-bg'],
+  ['color-text', 'color-card'],
+  ['color-text-muted', 'color-card'],
+  ['color-action', 'color-card'],
+  ['color-action-hover', 'color-card'],
+  ['color-focus', 'color-card'],
+  ['color-error', 'color-card'],
+  ['color-success', 'color-card'],
+  ['color-border', 'color-card'],
+  ['color-text', 'color-summary'],
+  ['color-text-muted', 'color-summary'],
+  ['color-action', 'color-summary'],
+  ['color-action-hover', 'color-summary'],
+  ['color-focus', 'color-summary'],
+];
+
+// Lines and shapes that aren't text need 3:1 (WCAG 1.4.11)
+const NON_TEXT = 3;
+
+const NON_TEXT_PAIRINGS: [foreground: string, background: string][] = [
+  ['color-header-accent', 'color-header-bg'],
+  ['color-card-accent', 'color-card'],
+  ['color-highlight', 'color-header-bg'],
 ];
 
 describe('colour tokens', () => {
@@ -101,6 +124,15 @@ describe('colour tokens', () => {
 
       expect(ratio).toBeGreaterThanOrEqual(AAA_TEXT);
     });
+
+    it.each(NON_TEXT_PAIRINGS)(
+      '%s on %s meets the 3:1 non-text contrast ratio',
+      (foreground, background) => {
+        const ratio = contrastRatio(resolve(foreground, theme), resolve(background, theme));
+
+        expect(ratio).toBeGreaterThanOrEqual(NON_TEXT);
+      },
+    );
   });
 });
 

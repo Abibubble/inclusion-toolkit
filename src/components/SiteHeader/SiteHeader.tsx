@@ -38,17 +38,19 @@ function Mark() {
 export function SiteHeader() {
   return (
     <header className={styles.header}>
-      <Container>
-        <div className={styles.inner}>
-          <Link to="/" className={styles.siteName}>
-            <Mark />
-            <span>
-              {SITE_NAME} <ScreenReaderOnly>home page</ScreenReaderOnly>
-            </span>
-          </Link>
-          <SiteNav />
-        </div>
-      </Container>
+      <div className={styles.bar}>
+        <Container>
+          <div className={styles.inner}>
+            <Link to="/" className={styles.siteName}>
+              <Mark />
+              <span>
+                {SITE_NAME} <ScreenReaderOnly>home page</ScreenReaderOnly>
+              </span>
+            </Link>
+            <SiteNav />
+          </div>
+        </Container>
+      </div>
       <div className={styles.subnav} data-print="hide">
         <Container>
           <div className={styles.subnavInner}>

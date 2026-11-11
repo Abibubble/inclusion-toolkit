@@ -1,9 +1,12 @@
 .card {
   padding: var(--spacer-24);
-  background: var(--color-surface);
+  background: var(--color-card);
 
   /* The background colour alone is a subtle change, so a border marks the edge, including in high contrast mode */
   border: var(--border-width) solid var(--color-border-decorative);
+
+  /* A thick line along the top, in the toolkit's blue */
+  border-block-start: var(--spacer-4) solid var(--color-card-accent);
   border-radius: var(--radius-medium);
 
   > :last-child {

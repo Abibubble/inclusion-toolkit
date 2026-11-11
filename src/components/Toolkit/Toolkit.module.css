@@ -1,3 +1,8 @@
+/* Each version's heading, with its few words straight underneath */
+.versionTitle > * {
+  margin-block: 0;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, calc(var(--spacer-96) * 3.5)), 1fr));
@@ -59,10 +64,8 @@
   padding-block: var(--spacer-8);
 }
 
-/* Links that stand on their own, rather than in a sentence, need a full size target (WCAG 2.5.5).
-   The file links are short words, such as "View", so they're at least that wide too */
+/* Links that stand on their own, rather than in a sentence, need a full size target (WCAG 2.5.5) */
 .standalone a,
-.file a,
 .results a {
   display: inline-flex;
   max-width: 100%;
@@ -71,15 +74,32 @@
   min-height: var(--size-target-min);
 }
 
-.file a {
-  min-width: var(--size-target-min);
+/* Each file is a line of text, such as "PDF (42KB): View or Download", with
+   the links in it. Links in a sentence don't need a full size target (WCAG 2.5.5), so the lines
+   can sit close together. A little space between them keeps the links easy to tell apart */
+.file + .file {
+  margin-block-start: var(--spacer-4);
 }
 
-/* The full guide, then the visual summary, each under its own heading */
+/* The full guide and the visual summary, each in its own card, side by side when there's room.
+   A card is never narrower than 20rem, or the screen if that's narrower, and the pair never
+   stretches across the whole page */
 .versions {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacer-24);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: var(--spacer-16);
+  max-width: calc(var(--spacer-96) * 10);
+}
+
+/* Less padding than other cards, so the files take up less room */
+.versions > .versionCard {
+  padding: var(--spacer-16) var(--spacer-24);
+}
+
+/* A line between the files and the resource's text, so they're clearly separate */
+.text {
+  padding-block-start: var(--spacer-32);
+  border-block-start: var(--border-width) solid var(--color-border-decorative);
 }
 
 /* A line for each file: what it is and its size, then its links */

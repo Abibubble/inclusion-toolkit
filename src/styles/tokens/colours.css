@@ -31,8 +31,24 @@
   --color-selection-bg: light-dark(var(--blue-200), var(--blue-700));
   --color-selection-text: light-dark(var(--slate-900), var(--white));
 
-  /* The logo's outline. On dark backgrounds the logo has a light blue outline, so its blue square stands out */
-  --color-logo-outline: light-dark(var(--logo-blue), var(--logo-light-blue));
+  /* The logo's outline, so its blue square stands out on the blue header bar */
+  --color-logo-outline: light-dark(var(--logo-light-blue), var(--logo-light-blue));
+
+  /* The header bar at the top of every page. The accent is the line under the current page */
+  --color-header-bg: light-dark(var(--blue-700), var(--blue-900));
+  --color-header-text: light-dark(var(--white), var(--slate-100));
+  --color-header-accent: light-dark(var(--amber-400), var(--amber-400));
+
+  /* Cards, such as the folders and files. The accent is the thick line along the top */
+  --color-card: light-dark(var(--white), var(--blue-900));
+  --color-card-accent: light-dark(var(--blue-700), var(--blue-200));
+
+  /* Yellow touches: the line under each page's title band, the edge of each "In short" box and the
+     footer links' underline. Never text, and never the only way something is shown */
+  --color-highlight: light-dark(var(--amber-400), var(--amber-400));
+
+  /* The background of each "In short" box */
+  --color-summary: light-dark(var(--yellow-100), var(--yellow-900));
 }
 
 :root[data-theme='light'] {
@@ -64,5 +80,12 @@
   --color-border-decorative: var(--cream-300);
   --color-selection-bg: var(--blue-200);
   --color-selection-text: var(--slate-900);
-  --color-logo-outline: var(--logo-blue);
+  --color-logo-outline: var(--logo-light-blue);
+  --color-header-bg: var(--blue-700);
+  --color-header-text: var(--white);
+  --color-header-accent: var(--amber-400);
+  --color-card: var(--cream-100);
+  --color-card-accent: var(--blue-700);
+  --color-highlight: var(--amber-400);
+  --color-summary: var(--yellow-100);
 }

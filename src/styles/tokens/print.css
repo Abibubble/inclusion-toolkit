@@ -19,6 +19,13 @@
     --color-success: var(--black);
     --color-border: var(--black);
     --color-border-decorative: var(--black);
+    --color-header-bg: var(--white);
+    --color-header-text: var(--black);
+    --color-header-accent: var(--black);
+    --color-card: var(--white);
+    --color-card-accent: var(--black);
+    --color-highlight: var(--black);
+    --color-summary: var(--white);
     --font-size-body: 11pt;
     --font-size-2: 13pt;
     --font-size-h1: 20pt;

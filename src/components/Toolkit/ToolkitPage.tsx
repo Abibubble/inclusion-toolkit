@@ -5,6 +5,7 @@ import type { ToolkitPageData } from '../../content/toolkitPage';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { Heading } from '../Heading';
 import { PageHeading } from '../PageHeading';
+import { TitleBand } from '../TitleBand';
 import { Stack } from '../Stack';
 import { Time } from '../Time';
 import { RichText } from '../RichText';
@@ -68,17 +69,19 @@ export function ToolkitPage({ data }: { data: ToolkitPageData }) {
   if (data.kind === 'home') {
     return (
       <Stack gap={6}>
-        <Stack gap={4}>
-          <PageHeading>{data.toolkit.title}</PageHeading>
-          <p>
-            These resources help make workplaces, meetings and the web more accessible and
-            inclusive, covering accessibility and neurodiversity.
-          </p>
-          <p>
-            They’re free for anyone to use, with no sign-up. Each one has its own page with
-            everything in it as text, and files you can view or download.
-          </p>
-        </Stack>
+        <TitleBand>
+          <Stack gap={4}>
+            <PageHeading>{data.toolkit.title}</PageHeading>
+            <p>
+              These resources help make workplaces, meetings and the web more accessible and
+              inclusive, covering accessibility and neurodiversity.
+            </p>
+            <p>
+              They’re free for anyone to use, with no sign-up. Each one has its own page with
+              everything in it as text, and files you can view or download.
+            </p>
+          </Stack>
+        </TitleBand>
         <ToolkitSearch entries={data.search} />
         <ToolkitContents folder={data.toolkit} slugs={[]} />
       </Stack>
@@ -88,11 +91,13 @@ export function ToolkitPage({ data }: { data: ToolkitPageData }) {
   if (data.kind === 'folder') {
     return (
       <Stack gap={6}>
-        <Stack gap={4}>
-          <Breadcrumbs trail={data.trail} current={data.folder.title} />
-          <PageHeading>{data.folder.title}</PageHeading>
-          <p>{data.folder.description}</p>
-        </Stack>
+        <TitleBand>
+          <Stack gap={4}>
+            <Breadcrumbs trail={data.trail} current={data.folder.title} />
+            <PageHeading>{data.folder.title}</PageHeading>
+            <p>{data.folder.description}</p>
+          </Stack>
+        </TitleBand>
         <ToolkitContents folder={data.folder} slugs={data.slugs} />
       </Stack>
     );
@@ -101,23 +106,25 @@ export function ToolkitPage({ data }: { data: ToolkitPageData }) {
   const { item } = data;
   return (
     <Stack gap={6}>
-      <Stack gap={4}>
-        <Breadcrumbs trail={data.trail} current={item.title} />
-        <Stack gap={2}>
-          <PageHeading>{item.title}</PageHeading>
-          <p className={styles.meta}>
-            Last updated <Time date={item.updated} />
-          </p>
+      <TitleBand>
+        <Stack gap={4}>
+          <Breadcrumbs trail={data.trail} current={item.title} />
+          <Stack gap={2}>
+            <PageHeading>{item.title}</PageHeading>
+            <p className={styles.meta}>
+              Last updated <Time date={item.updated} />
+            </p>
+          </Stack>
+          <p>{item.description}</p>
         </Stack>
-        <p>{item.description}</p>
-      </Stack>
+      </TitleBand>
       <Stack as="section" gap={4} aria-labelledby="files">
         <Heading level={2} id="files">
           Files
         </Heading>
         <ToolkitFileLinks item={item} />
       </Stack>
-      <Stack as="section" gap={4} aria-labelledby="whats-in-it">
+      <Stack as="section" gap={4} aria-labelledby="whats-in-it" className={styles.text}>
         <Heading level={2} id="whats-in-it">
           What’s in it
         </Heading>

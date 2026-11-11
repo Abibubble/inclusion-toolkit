@@ -10,7 +10,6 @@ export const MAIN_NAV: NavItem[] = [
   { label: 'Home', to: '/' },
   { label: 'Accessibility', to: '/accessibility' },
   { label: 'Neurodiversity', to: '/neurodiversity' },
-  { label: 'About', to: ABOUT_PATH },
 ];
 
 /** The page where visitors can change the theme, text size, spacing, font and motion */

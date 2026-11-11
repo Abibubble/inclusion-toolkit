@@ -2,6 +2,11 @@
   position: relative;
 }
 
+/* An abbreviation in brackets, after its full form, kept on one line */
+.together {
+  white-space: nowrap;
+}
+
 /* Looks like the text around it, with the dotted underline that marks an abbreviation */
 .trigger {
   display: inline;

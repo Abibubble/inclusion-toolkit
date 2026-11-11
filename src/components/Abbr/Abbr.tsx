@@ -2,6 +2,7 @@ import { useId } from 'react';
 
 import { ABBREVIATIONS, ALWAYS_SHORT, type Abbreviation } from '../../content/abbreviations';
 import { AbbrTooltip } from './AbbrTooltip';
+import styles from './AbbrTooltip.module.css';
 import { useFirstUses } from './AbbreviationScope';
 
 interface AbbrProps {
@@ -27,10 +28,12 @@ export function Abbr({ name, expand, spelledOut = false, plural = false }: AbbrP
 
   if (!(expand ?? (isFirst && !spelledOut))) return abbr;
 
+  // The brackets and the abbreviation stay on one line. The abbreviation is a button, which a line
+  // could otherwise break before, leaving the opening bracket on its own
   return (
     <>
       {fullForm}
-      {ending} ({abbr})
+      {ending} <span className={styles.together}>({abbr})</span>
     </>
   );
 }

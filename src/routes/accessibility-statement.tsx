@@ -5,6 +5,7 @@ import { Heading } from '../components/Heading';
 import { Link } from '../components/Link';
 import { PageContents, PageContentsSection, type PageSection } from '../components/PageContents';
 import { PageHeading } from '../components/PageHeading';
+import { TitleBand } from '../components/TitleBand';
 import { Stack } from '../components/Stack';
 import { Time } from '../components/Time';
 import { ACCESSIBILITY_PATH, DISPLAY_SETTINGS_PATH, GLOSSARY_PATH } from '../content/navigation';
@@ -74,15 +75,17 @@ function KnownIssue({ title, criteria, affects, workaround, plan }: KnownIssuePr
 export default function Accessibility() {
   return (
     <Stack gap={6}>
-      <Stack gap={5}>
-        <PageHeading>Accessibility statement</PageHeading>
-        <p>
-          This site is for everyone. This page explains how accessible it is, what doesn’t work yet,
-          and how to report a problem. You can also change how the site looks, to make it easier for
-          you to use.
-        </p>
-        <PageContents sections={Object.values(SECTIONS)} />
-      </Stack>
+      <TitleBand>
+        <Stack gap={5}>
+          <PageHeading>Accessibility statement</PageHeading>
+          <p>
+            This site is for everyone. This page explains how accessible it is, what doesn’t work
+            yet, and how to report a problem. You can also change how the site looks, to make it
+            easier for you to use.
+          </p>
+        </Stack>
+      </TitleBand>
+      <PageContents sections={Object.values(SECTIONS)} />
 
       <PageContentsSection section={SECTIONS.displaySettings}>
         <p>

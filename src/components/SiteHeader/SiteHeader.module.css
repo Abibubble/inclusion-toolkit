@@ -3,6 +3,12 @@
   container: site-header / inline-size;
 }
 
+/* The blue bar with the site's name and the menu */
+.bar {
+  color: var(--color-header-text);
+  background: var(--color-header-bg);
+}
+
 .inner {
   display: flex;
   flex-wrap: wrap;
@@ -19,12 +25,16 @@
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-heading);
-  color: var(--color-text);
+  color: var(--color-header-text);
   text-decoration-line: none;
 
   &:hover {
-    color: var(--color-action-hover);
+    color: var(--color-header-text);
     text-decoration-line: underline;
+  }
+
+  &:focus-visible {
+    outline-color: var(--color-header-text);
   }
 }
 

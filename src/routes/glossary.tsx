@@ -1,5 +1,6 @@
 import { PageContents, PageContentsSection, type PageSection } from '../components/PageContents';
 import { PageHeading } from '../components/PageHeading';
+import { TitleBand } from '../components/TitleBand';
 import { Stack } from '../components/Stack';
 import { ABBREVIATIONS, type Abbreviation } from '../content/abbreviations';
 import { GLOSSARY, glossaryId } from '../content/glossary';
@@ -29,14 +30,16 @@ const ABBREVIATION_NAMES = Object.keys(ABBREVIATIONS) as Abbreviation[];
 export default function Glossary() {
   return (
     <Stack gap={6}>
-      <Stack gap={4}>
-        <PageHeading>Glossary</PageHeading>
-        <p>
-          These are the technical words and abbreviations used on this site, explained in plain
-          words.
-        </p>
-        <PageContents sections={Object.values(SECTIONS)} />
-      </Stack>
+      <TitleBand>
+        <Stack gap={4}>
+          <PageHeading>Glossary</PageHeading>
+          <p>
+            These are the technical words and abbreviations used on this site, explained in plain
+            words.
+          </p>
+        </Stack>
+      </TitleBand>
+      <PageContents sections={Object.values(SECTIONS)} />
 
       <PageContentsSection section={SECTIONS.words}>
         <dl className={styles.definitions}>

@@ -1,6 +1,7 @@
 import { Link } from '../components/Link';
 import { PageContents, PageContentsSection, type PageSection } from '../components/PageContents';
 import { PageHeading } from '../components/PageHeading';
+import { TitleBand } from '../components/TitleBand';
 import { Stack } from '../components/Stack';
 import { Time } from '../components/Time';
 import { DISPLAY_SETTINGS_PATH, PRIVACY_PATH } from '../content/navigation';
@@ -31,15 +32,17 @@ const SECTIONS = {
 export default function Privacy() {
   return (
     <Stack gap={6}>
-      <Stack gap={5}>
-        <PageHeading>Privacy</PageHeading>
-        <p>This notice explains what information this site collects, and what happens to it.</p>
-        <p>
-          In short, this site doesn’t collect any personal information. There’s no tracking,
-          analytics or advertising, and no cookies.
-        </p>
-        <PageContents sections={Object.values(SECTIONS)} />
-      </Stack>
+      <TitleBand>
+        <Stack gap={5}>
+          <PageHeading>Privacy</PageHeading>
+          <p>This notice explains what information this site collects, and what happens to it.</p>
+          <p>
+            In short, this site doesn’t collect any personal information. There’s no tracking,
+            analytics or advertising, and no cookies.
+          </p>
+        </Stack>
+      </TitleBand>
+      <PageContents sections={Object.values(SECTIONS)} />
 
       <PageContentsSection section={SECTIONS.whatsCollected}>
         <p>

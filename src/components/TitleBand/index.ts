@@ -1,0 +1,1 @@
+export { TitleBand } from './TitleBand';

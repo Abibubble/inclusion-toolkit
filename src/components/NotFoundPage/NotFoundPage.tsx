@@ -1,10 +1,13 @@
 import { Link } from '../Link';
 import { PageHeading } from '../PageHeading';
+import { TitleBand } from '../TitleBand';
 
 export function NotFoundPage() {
   return (
     <>
-      <PageHeading>Page not found</PageHeading>
+      <TitleBand>
+        <PageHeading>Page not found</PageHeading>
+      </TitleBand>
       <p>If you typed the web address, check it’s correct.</p>
       <p>If you pasted the web address, check you copied the whole address.</p>
       <p>

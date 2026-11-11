@@ -52,9 +52,9 @@ test.describe('Skip link', () => {
 
 test.describe('Moving between pages', () => {
   test('marks the current page in the navigation', async ({ page }) => {
-    await page.goto('/about');
+    await page.goto('/neurodiversity');
 
-    await expect(mainNav(page).getByRole('link', { name: 'About' })).toHaveAttribute(
+    await expect(mainNav(page).getByRole('link', { name: 'Neurodiversity' })).toHaveAttribute(
       'aria-current',
       'page',
     );
@@ -119,7 +119,7 @@ test.describe('Navigation on wide screens', () => {
     await page.goto('/');
 
     await expect(menuButton(page)).toBeHidden();
-    await expect(mainNav(page).getByRole('link')).toHaveCount(4);
+    await expect(mainNav(page).getByRole('link')).toHaveCount(3);
     for (const link of await mainNav(page).getByRole('link').all()) {
       await expect(link).toBeVisible();
     }

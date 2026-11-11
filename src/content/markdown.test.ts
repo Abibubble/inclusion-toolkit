@@ -4,8 +4,29 @@ import {
   linkGlossaryTerms,
   markAbbreviations,
   markLinkOnlyItems,
+  markSummaries,
   renderMarkdown,
 } from './markdown';
+
+describe('markSummaries', () => {
+  it('puts the "In short" heading and its paragraph in a box', () => {
+    expect(renderMarkdown('### In short\n\nKeep it simple.\n\n### What is it for?')).toBe(
+      '<div class="summary"><h3>In short</h3>\n<p>Keep it simple.</p></div>\n<h3>What is it for?</h3>\n',
+    );
+  });
+
+  it('works for the fourth level summaries on the all-in-one pages', () => {
+    expect(markSummaries('<h4>In short</h4>\n<p>One.</p>\n<h4>In short</h4>\n<p>Two.</p>')).toBe(
+      '<div class="summary"><h4>In short</h4>\n<p>One.</p></div>\n<div class="summary"><h4>In short</h4>\n<p>Two.</p></div>',
+    );
+  });
+
+  it('leaves other headings alone', () => {
+    const html = '<h3>Overview</h3>\n<p>Text.</p>';
+
+    expect(markSummaries(html)).toBe(html);
+  });
+});
 
 describe('renderMarkdown', () => {
   it('turns Markdown into HTML', () => {

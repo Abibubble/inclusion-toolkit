@@ -17,6 +17,11 @@
   &:hover {
     background: var(--color-surface);
   }
+
+  /* It sits on the blue header bar */
+  &:focus-visible {
+    outline-color: var(--color-header-text);
+  }
 }
 
 .icon {
@@ -24,12 +29,17 @@
   height: var(--spacer-24);
 }
 
+/* On narrow screens the open menu is a panel below the header bar, in the page's own colours */
 .panel {
   display: flex;
   flex-basis: 100%;
   flex-direction: column;
   gap: var(--spacer-24);
   min-width: 0;
+  padding: var(--spacer-16);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border-radius: var(--radius-medium);
 }
 
 .list {
@@ -103,21 +113,35 @@
   :global(:root[data-js]) .panel:not([data-open='true']) {
     display: flex;
     flex-basis: auto;
+    padding: 0;
     margin-inline-start: auto;
+    color: inherit;
+    background: none;
   }
 
   .list {
     flex-direction: row;
   }
 
+  /* In the wide layout the links sit on the blue header bar */
   .link {
+    color: var(--color-header-text);
     white-space: nowrap;
+
+    &:hover {
+      color: var(--color-header-text);
+    }
+
+    &:focus-visible {
+      outline-color: var(--color-header-text);
+    }
   }
 
   .link[aria-current='page']::after {
     inset: auto var(--spacer-16) 0;
     width: auto;
     height: var(--spacer-4);
+    background: var(--color-header-accent);
   }
 
   .display {

@@ -2,6 +2,7 @@ import { screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { LICENCE_URL } from '../content/about';
+import { NEW_ISSUE_URL } from '../content/statements';
 import { pageMeta } from '../seo/pageMeta';
 import { expectNoAxeViolations } from '../test/axe';
 import { renderWithRouter } from '../test/render';
@@ -14,12 +15,35 @@ describe('About page', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'About' })).toBeInTheDocument();
   });
 
+  it('says who made the toolkit, why, what it’s for and what it hopes to do', () => {
+    renderWithRouter(<About />);
+
+    expect(
+      screen.getAllByRole('heading', { level: 2 }).map((heading) => heading.textContent),
+    ).toEqual([
+      'Who made it',
+      'Why I made it',
+      'What it’s for',
+      'What I hope it does',
+      'Credit and licence',
+    ]);
+    expect(screen.getByText(/I’m Abi Harrison-Nye/)).toBeInTheDocument();
+  });
+
+  it('asks for suggestions on GitHub', () => {
+    renderWithRouter(<About />);
+
+    expect(
+      screen.getByRole('link', { name: 'suggest a change on GitHub (external site)' }),
+    ).toHaveAttribute('href', NEW_ISSUE_URL);
+  });
+
   it('gives the credit the licence asks for, in the agreed words', () => {
     renderWithRouter(<About />);
     const credit = screen.getByText(/first made the Inclusion Toolkit/);
 
     expect(credit.textContent).toBe(
-      'Abi Harrison-Nye first made the Inclusion Toolkit for giffgaff and HAND (Home of Accessibility and NeuroDiversity), and it has been updated since. Shared under CC BY 4.0 licence (external site).',
+      'Abi Harrison-Nye first made the Inclusion Toolkit for giffgaff and HAND (Home of Accessibility and NeuroDiversity), and it has been updated and added to since. Shared under CC BY 4.0 licence (external site).',
     );
   });
 
@@ -44,7 +68,8 @@ describe('About page', () => {
     expect(meta()).toEqual(
       pageMeta({
         title: 'About, Inclusion Toolkit',
-        description: 'What the Inclusion Toolkit is, who first made it, and how you can share it.',
+        description:
+          'What the Inclusion Toolkit is, who made it and why, and how you can share it.',
         path: '/about',
       }),
     );

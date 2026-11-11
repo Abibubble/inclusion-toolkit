@@ -1,5 +1,7 @@
+/* The same blue as the header bar, with the yellow highlight under each link */
 .footer {
-  background: var(--color-surface);
+  color: var(--color-header-text);
+  background: var(--color-header-bg);
   border-block-start: var(--border-width) solid var(--color-border-decorative);
 }
 
@@ -25,4 +27,14 @@
   /* Short links, such as About, still get a full size target (WCAG 2.5.5) */
   min-width: var(--size-target-min);
   min-height: var(--size-target-min);
+  color: var(--color-header-text);
+  text-decoration-color: var(--color-highlight);
+
+  &:hover {
+    color: var(--color-header-text);
+  }
+
+  &:focus-visible {
+    outline-color: var(--color-header-text);
+  }
 }

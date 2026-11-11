@@ -23,9 +23,9 @@ describe('SiteNav', () => {
   });
 
   it('marks the current page (WCAG 2.4.8)', () => {
-    renderWithRouter(<SiteNav />, { path: '/about' });
+    renderWithRouter(<SiteNav />, { path: '/neurodiversity' });
 
-    expect(within(mainNav()).getByRole('link', { name: 'About' })).toHaveAttribute(
+    expect(within(mainNav()).getByRole('link', { name: 'Neurodiversity' })).toHaveAttribute(
       'aria-current',
       'page',
     );
@@ -82,7 +82,7 @@ describe('SiteNav', () => {
       renderWithRouter(<SiteNav />);
 
       await user.click(menuButton());
-      within(mainNav()).getByRole('link', { name: 'About' }).focus();
+      within(mainNav()).getByRole('link', { name: 'Neurodiversity' }).focus();
       await user.keyboard('{Escape}');
 
       expect(menuButton()).toHaveAttribute('aria-expanded', 'false');
@@ -121,10 +121,10 @@ describe('SiteNav', () => {
       const user = userEvent.setup();
       renderWithRouter(<SiteNav />);
 
-      within(mainNav()).getByRole('link', { name: 'About' }).focus();
+      within(mainNav()).getByRole('link', { name: 'Neurodiversity' }).focus();
       await user.keyboard('{Escape}');
 
-      expect(within(mainNav()).getByRole('link', { name: 'About' })).toHaveFocus();
+      expect(within(mainNav()).getByRole('link', { name: 'Neurodiversity' })).toHaveFocus();
     });
 
     it('closes after choosing a page', async () => {
@@ -132,7 +132,7 @@ describe('SiteNav', () => {
       renderWithRouter(<SiteNav />);
 
       await user.click(menuButton());
-      await user.click(within(mainNav()).getByRole('link', { name: 'About' }));
+      await user.click(within(mainNav()).getByRole('link', { name: 'Neurodiversity' }));
 
       expect(menuButton()).toHaveAttribute('aria-expanded', 'false');
     });

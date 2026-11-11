@@ -1,0 +1,28 @@
+/*
+ * The band starts at the top of the main area, so it meets the header. Its background is a border
+ * image that reaches out to both edges of the window. A border image is only drawn, so it never
+ * makes the page scroll sideways (WCAG 1.4.10). The bottom of it is the yellow line
+ */
+.band {
+  padding-block: var(--spacer-32) calc(var(--spacer-32) + var(--spacer-4));
+  border-image: linear-gradient(
+      var(--color-surface) calc(100% - var(--spacer-4)),
+      var(--color-highlight) 0
+    )
+    fill 0 / 0 / 0 100vw;
+
+  @media print {
+    padding-block: 0;
+    border-image: none;
+  }
+}
+
+/* Pulled up over the main area's top padding, so there's no gap above it. The class is repeated so
+   this wins over Stack, which sets the margins of everything inside it to 0 */
+.band.band {
+  margin-block-start: calc(-1 * var(--spacer-48));
+
+  @media print {
+    margin-block-start: 0;
+  }
+}

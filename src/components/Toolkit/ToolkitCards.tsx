@@ -30,26 +30,45 @@ export function ToolkitFileLinks({ item }: { item: ToolkitItem }) {
 
   // With only one version, there's nothing to tell apart, so it isn't named
   if (item.versions.length === 1 && only) {
-    return <ToolkitVersionFiles title={item.title} version={only} />;
+    return (
+      <div className={styles.versions}>
+        <Card className={styles.versionCard}>
+          <ToolkitVersionFiles title={item.title} version={only} />
+        </Card>
+      </div>
+    );
   }
 
+  // Each version in a card of its own, side by side when there's room
   return (
     <div className={styles.versions}>
       {item.versions.map((version) => (
-        <ToolkitVersionSection key={version.name} title={item.title} version={version} />
+        <Card key={version.name} className={styles.versionCard}>
+          <ToolkitVersionSection title={item.title} version={version} />
+        </Card>
       ))}
     </div>
   );
 }
 
+/** A few words under each version's heading, so it's clear which one to choose */
+const VERSION_SUMMARIES: Partial<Record<ToolkitVersion['name'], string>> = {
+  'Full guide': 'Everything, in detail.',
+  'Visual summary': 'The main points, as slides.',
+};
+
 function ToolkitVersionSection({ title, version }: { title: string; version: ToolkitVersion }) {
   const headingId = useId();
+  const summary = VERSION_SUMMARIES[version.name];
 
   return (
     <Stack as="section" gap={2} aria-labelledby={headingId}>
-      <Heading level={3} id={headingId}>
-        {version.name}
-      </Heading>
+      <div className={styles.versionTitle}>
+        <Heading level={3} id={headingId}>
+          {version.name}
+        </Heading>
+        {summary && <p className={styles.meta}>{summary}</p>}
+      </div>
       <ToolkitVersionFiles title={title} version={version} named />
     </Stack>
   );
@@ -76,10 +95,10 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
             {type} <span className={styles.meta}>({file.size})</span>:{' '}
             {type === 'PDF' && (
               <>
-                {/* A new tab keeps the toolkit open. The link says so in words before it's
-                    followed, for everyone, not only screen reader users (WCAG 3.2.5) */}
-                <a href={`${BASE_URL}${file.path}`} target="_blank" rel="noreferrer">
-                  View<ScreenReaderOnly>: {about}, PDF</ScreenReaderOnly> (opens in a new tab)
+                {/* It opens in the same tab, so people aren't moved somewhere they didn't
+                    expect, and the Back button brings them back (WCAG 3.2.5) */}
+                <a href={`${BASE_URL}${file.path}`}>
+                  View<ScreenReaderOnly>: {about}, PDF</ScreenReaderOnly>
                 </a>{' '}
                 or{' '}
               </>

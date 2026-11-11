@@ -205,11 +205,10 @@ describe('ToolkitPage', () => {
     ).toEqual(['Full guide', 'Visual summary']);
 
     const guide = within(files.getByRole('region', { name: 'Full guide' }));
-    const view = guide.getByRole('link', {
-      name: 'View: Dark mode, full guide, PDF (opens in a new tab)',
-    });
+    const view = guide.getByRole('link', { name: 'View: Dark mode, full guide, PDF' });
     expect(view).toHaveAttribute('href', '/files/highlights/dark-mode.pdf');
-    expect(view).toHaveAttribute('target', '_blank');
+    // It opens in the same tab, so the Back button brings people back
+    expect(view).not.toHaveAttribute('target');
     expect(
       guide.getByRole('link', { name: 'Download: Dark mode, full guide, Word document, 45KB' }),
     ).toHaveAttribute('download');
@@ -217,7 +216,7 @@ describe('ToolkitPage', () => {
     const summary = within(files.getByRole('region', { name: 'Visual summary' }));
     expect(
       summary.getByRole('link', {
-        name: 'View: Dark mode, visual summary, PDF (opens in a new tab)',
+        name: 'View: Dark mode, visual summary, PDF',
       }),
     ).toHaveAttribute('href', '/files/highlights/dark-mode-visual-summary.pdf');
     expect(
