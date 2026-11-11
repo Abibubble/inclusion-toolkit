@@ -14,6 +14,8 @@ interface RadioGroupProps<Value extends string> {
   options: readonly RadioOption<Value>[];
   value: Value;
   onChange: (value: Value) => void;
+  /** Side by side on one line, for short options with no descriptions */
+  inline?: boolean;
 }
 
 export function RadioGroup<Value extends string>({
@@ -22,13 +24,14 @@ export function RadioGroup<Value extends string>({
   options,
   value,
   onChange,
+  inline = false,
 }: RadioGroupProps<Value>) {
   const id = useId();
 
   return (
     <fieldset className={styles.fieldset}>
       <legend className={styles.legend}>{legend}</legend>
-      <div className={styles.options}>
+      <div className={inline ? styles.inline : styles.options}>
         {options.map((option) => {
           const inputId = `${id}-${option.value}`;
           const hintId = option.hint ? `${inputId}-hint` : undefined;

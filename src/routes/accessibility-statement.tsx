@@ -89,8 +89,8 @@ export default function Accessibility() {
 
       <PageContentsSection section={SECTIONS.displaySettings}>
         <p>
-          You can change the theme, text size, spacing, font and motion, to make the site easier for
-          you to use. Your choices are saved in this browser only.
+          You can change the theme, text size, spacing and font, to make the site easier for you to
+          use. Your choices are saved in this browser only.
         </p>
         <p className={styles.standalone}>
           <Link to={DISPLAY_SETTINGS_PATH}>Change the display settings</Link>
@@ -119,7 +119,7 @@ export default function Accessibility() {
             Text has a contrast ratio of at least 7 to 1 against its background, in every theme.
           </li>
           <li>
-            You can change the theme, text size, spacing, font and motion in the{' '}
+            You can change the theme, text size, spacing and font in the{' '}
             <Link to={DISPLAY_SETTINGS_PATH}>display settings</Link>.
           </li>
           <li>The font is Atkinson Hyperlegible, which is designed to be easy to read.</li>

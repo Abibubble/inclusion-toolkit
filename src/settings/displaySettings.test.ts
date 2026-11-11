@@ -76,10 +76,10 @@ describe('parseSettings', () => {
 
 describe('applySettings', () => {
   it('sets an attribute for each setting that differs from its default', () => {
-    applySettings({ ...DEFAULT_SETTINGS, theme: 'dark', motion: 'reduce' });
+    applySettings({ ...DEFAULT_SETTINGS, theme: 'dark', textSpacing: 'increased' });
 
     expect(root).toHaveAttribute('data-theme', 'dark');
-    expect(root).toHaveAttribute('data-motion', 'reduce');
+    expect(root).toHaveAttribute('data-text-spacing', 'increased');
     expect(root).not.toHaveAttribute('data-text-size');
   });
 

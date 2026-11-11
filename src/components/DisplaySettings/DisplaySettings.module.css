@@ -2,7 +2,20 @@
 .controls {
   display: flex;
   flex-direction: column;
-  gap: var(--spacer-32);
+  gap: var(--spacer-24);
+}
+
+/* One setting after another, with a line between each */
+.settings {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--size-measure);
+
+  > * + * {
+    padding-block-start: var(--spacer-16);
+    margin-block-start: var(--spacer-16);
+    border-block-start: var(--border-width) solid var(--color-border-decorative);
+  }
 }
 
 .section > *,

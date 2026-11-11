@@ -21,19 +21,25 @@ export function DisplaySettings() {
         <p>
           Changes apply straight away. They’re saved in this browser only, and never sent anywhere.
         </p>
-        {SETTING_NAMES.map((name) => (
-          <RadioGroup<string>
-            key={name}
-            legend={SETTINGS[name].legend}
-            name={name}
-            options={SETTINGS[name].options}
-            value={settings[name]}
-            onChange={(value) => {
-              update({ [name]: value });
-              setAnnouncement('');
-            }}
-          />
-        ))}
+        <div className={styles.settings}>
+          {SETTING_NAMES.map((name) => (
+            // A wrapper for the line between settings, as a line on the group itself would run
+            // through its name
+            <div key={name}>
+              <RadioGroup<string>
+                legend={SETTINGS[name].legend}
+                name={name}
+                options={SETTINGS[name].options}
+                value={settings[name]}
+                inline={SETTINGS[name].options.every((option) => !('hint' in option))}
+                onChange={(value) => {
+                  update({ [name]: value });
+                  setAnnouncement('');
+                }}
+              />
+            </div>
+          ))}
+        </div>
         <div className={styles.reset}>
           <Button
             variant="secondary"

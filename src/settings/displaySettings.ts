@@ -12,13 +12,17 @@ export const SETTINGS = {
     attribute: 'data-theme',
     default: 'system',
     options: [
-      { value: 'system', label: 'Match my device' },
-      { value: 'light', label: 'Light' },
-      { value: 'dark', label: 'Dark' },
+      {
+        value: 'system',
+        label: 'Match my device',
+        hint: 'Light or dark, like your device. This is the default.',
+      },
+      { value: 'light', label: 'Light', hint: 'Dark text on a light blue background.' },
+      { value: 'dark', label: 'Dark', hint: 'Light text on a dark blue background.' },
       {
         value: 'cream',
         label: 'Cream',
-        hint: 'A warm background, which some people find easier to read',
+        hint: 'Dark text on a warm cream background, which some people find easier to read.',
       },
     ],
   },
@@ -28,8 +32,8 @@ export const SETTINGS = {
     default: 'default',
     options: [
       { value: 'default', label: 'Default' },
-      { value: 'large', label: 'Large' },
-      { value: 'larger', label: 'Larger' },
+      { value: 'large', label: 'Large (25% bigger)' },
+      { value: 'larger', label: 'Largest (50% bigger)' },
     ],
   },
   textSpacing: {
@@ -38,20 +42,7 @@ export const SETTINGS = {
     default: 'default',
     options: [
       { value: 'default', label: 'Default' },
-      {
-        value: 'increased',
-        label: 'Increased',
-        hint: 'More space between lines, words and letters',
-      },
-    ],
-  },
-  motion: {
-    legend: 'Motion',
-    attribute: 'data-motion',
-    default: 'system',
-    options: [
-      { value: 'system', label: 'Match my device' },
-      { value: 'reduce', label: 'Reduce motion', hint: 'Turns off all animation and transitions' },
+      { value: 'increased', label: 'Increased (more space between lines, words and letters)' },
     ],
   },
   font: {
@@ -62,12 +53,12 @@ export const SETTINGS = {
       {
         value: 'site',
         label: 'Atkinson Hyperlegible',
-        hint: 'Designed to make letters easy to tell apart',
+        hint: 'Letters that look alike are easy to tell apart. This is the default.',
       },
       {
         value: 'system',
         label: 'My device’s font',
-        hint: 'The font you’re used to on this device',
+        hint: 'The font you’re used to on this device.',
       },
     ],
   },

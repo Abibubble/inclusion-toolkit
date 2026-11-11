@@ -88,7 +88,7 @@ test.describe('Display settings page', () => {
   });
 
   test('makes text bigger', async ({ page }) => {
-    await page.getByRole('radio', { name: 'Larger' }).check();
+    await page.getByRole('radio', { name: 'Largest (50% bigger)' }).check();
 
     expect(await page.evaluate(() => getComputedStyle(document.documentElement).fontSize)).toBe(
       '24px',
@@ -96,7 +96,9 @@ test.describe('Display settings page', () => {
   });
 
   test('increases text spacing to at least the WCAG 1.4.12 values', async ({ page }) => {
-    await page.getByRole('radio', { name: 'Increased' }).check();
+    await page
+      .getByRole('radio', { name: 'Increased (more space between lines, words and letters)' })
+      .check();
 
     const spacing = await page.evaluate(() => {
       const style = getComputedStyle(document.querySelector('p') as Element);
@@ -121,12 +123,6 @@ test.describe('Display settings page', () => {
     );
   });
 
-  test('turns off motion', async ({ page }) => {
-    await page.getByRole('radio', { name: 'Reduce motion' }).check();
-
-    await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduce');
-  });
-
   test('stays in step with the header theme switcher', async ({ page }) => {
     await page.getByRole('radio', { name: 'Cream' }).check();
 
@@ -135,7 +131,7 @@ test.describe('Display settings page', () => {
 
   test('resets everything, and says so', async ({ page }) => {
     await page.getByRole('radio', { name: 'Dark' }).check();
-    await page.getByRole('radio', { name: 'Larger' }).check();
+    await page.getByRole('radio', { name: 'Largest (50% bigger)' }).check();
 
     await page.getByRole('button', { name: 'Reset to defaults' }).click();
 

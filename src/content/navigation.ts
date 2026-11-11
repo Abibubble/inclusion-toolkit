@@ -12,7 +12,7 @@ export const MAIN_NAV: NavItem[] = [
   { label: 'Neurodiversity', to: '/neurodiversity' },
 ];
 
-/** The page where visitors can change the theme, text size, spacing, font and motion */
+/** The page where visitors can change the theme, text size, spacing and font */
 export const DISPLAY_SETTINGS_PATH = '/display-settings';
 
 /** The page explaining technical words used on the site, in plain words (WCAG 3.1.3) */

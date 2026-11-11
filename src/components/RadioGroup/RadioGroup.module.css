@@ -12,14 +12,36 @@
   letter-spacing: var(--letter-spacing-emphasis);
 }
 
+/*
+ * Each option on a line of its own, with its description beside it, lined up in a second column.
+ * The option's wrapper is left out of the layout, so every option's name and description share
+ * the same 2 columns. On narrow screens, the description goes under its option's name instead
+ */
 .options {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0 var(--spacer-24);
+  align-items: center;
+
+  @media (width < 40rem) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.option {
+  display: contents;
+}
+
+/* Short options with no descriptions, side by side, wrapping onto more lines if they need to */
+.inline {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacer-4);
+  flex-wrap: wrap;
+  gap: 0 var(--spacer-32);
 }
 
 .label {
   display: inline-flex;
+  grid-column: 1;
   gap: var(--spacer-16);
   align-items: center;
   min-height: var(--size-target-min);
@@ -36,8 +58,13 @@
 }
 
 .hint {
-  padding-inline-start: calc(var(--spacer-24) + var(--spacer-16));
+  grid-column: 2;
   margin: 0;
-  margin-block-end: var(--spacer-8);
   color: var(--color-text-muted);
+
+  @media (width < 40rem) {
+    grid-column: 1;
+    padding-inline-start: calc(var(--spacer-24) + var(--spacer-16));
+    margin-block-end: var(--spacer-8);
+  }
 }
