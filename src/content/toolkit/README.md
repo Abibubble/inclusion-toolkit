@@ -57,21 +57,24 @@ out. Until then, the build removes its files, so they never go live.
 
 ## Making the files
 
-The Word files are the ones to edit. Everything else is made from them. The source files and the
-scripts that tidy and export them aren't in this repo. They're kept with the original toolkit
-files, in the `toolkit-sources` folder of the `abi-harrison-nye` repo, which isn't committed.
+The files are made from 9 source files in `toolkit-sources/branded/`: the 3 small resources' Word
+files, each set of highlights as one Word file and one PowerPoint file, and each set of
+infographics as one PowerPoint file. Edit those, never the files in `public/files`. The scripts cut
+them into one file for each resource, and make every PDF.
 
-The files here still have the footer and links from when they were made, which point to
-abiharrisonnye.dev. They can be updated later.
+To update the files:
 
-To update a file by hand:
+1. Edit the source file in Word or PowerPoint, and save it.
+2. Run the scripts from the repo root, with Python 3.10 or newer and the Node version from
+   `.nvmrc`:
 
-1. Save the Word file, then save it as a PDF from Word, choosing the option that's best for
-   accessibility.
-2. If it has slides, save the PowerPoint file, then save it as a PDF from PowerPoint, choosing the
-   same option.
-3. Name the files as shown above, and put them in the right folder.
-4. Update the page's text in this folder.
+   ```sh
+   /opt/homebrew/bin/python3 -I toolkit-sources/rebrand.py
+   /opt/homebrew/bin/python3 -I toolkit-sources/export.py
+   ```
+
+3. Update the page's text in this folder, so it matches. The Word files and their PDFs have the
+   "In short" summaries. The slides don't.
 
 ## Text
 

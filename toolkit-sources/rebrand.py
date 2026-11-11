@@ -1,18 +1,22 @@
 """
-Makes and tidies my own-branded Inclusion Toolkit files. The Word files and slides in
+Makes and tidies the Inclusion Toolkit's branded files. The Word files and slides in
 toolkit-sources/branded/ are the ones to edit. Everything else is made from them.
 
 Each branded file was first made from the original I made at giffgaff, keeping every layout, and
 changing the things below. The originals aren't in this repo, so the code that did this
 (rebrand_docx and rebrand_pptx) no longer runs:
-- the font, from Poppins to Atkinson Hyperlegible Next, which is my site's font
-- the colours, to my site's purple, with lilac slide backgrounds
-- the logos, from giffgaff and HAND to mine, and adds my name and a link to my site to each slide
-- every example and link that went to giffgaff, so they go to my site instead
+- the font, from Poppins to Atkinson Hyperlegible Next, which is the site's font
+- the colours, to the site's colours
+- the logos, from giffgaff and HAND to the site's logo, with the site's name and a link to it on
+  each slide
+- every example and link that went to giffgaff, so they go to the site instead
 - the file details (title, author and language), and adds alt text that was missing
 
+They were rebranded again on 11 November 2026, from my personal site's purple to the Inclusion
+Toolkit's own blue, logo and address.
+
 It never remakes a branded file, so edits to them are kept. Each run only:
-- sets each Word file's footer, with my name, my site and the page number
+- sets each Word file's footer, with the site's name, its address and the page number
 - puts the fonts inside each Word file, so they look the same for people who don't have them
 - sets the file details, which Word can change when I save
 - cuts the full highlights into one Word file for each highlight
@@ -36,12 +40,15 @@ ROOT = Path(__file__).resolve().parent
 BRANDED = ROOT / 'branded'
 
 # The site's address. SITE_DISPLAY is how it's written, with capitals so it's easier to read
-SITE_URL = 'https://abiharrisonnye.dev'
-SITE_DISPLAY = 'AbiHarrisonNye.dev'
+SITE_URL = 'https://inclusiontoolkit.org'
+SITE_DISPLAY = 'InclusionToolkit.org'
+SITE_NAME = 'Inclusion Toolkit'
 
-# The logo's square mark, at the top left of each slide, where the HAND logo was
-LOGO = ROOT.parent / 'brand' / 'logo' / 'png' / 'ahn-mark-512.png'
+# The site's logo, at the top left of each slide, where the HAND logo was. `pnpm brand-images`
+# draws it from src/brand/mark.ts
+LOGO = ROOT.parent / 'public' / 'icon-512.png'
 
+# The author, in each file's details
 NAME = 'Abi Harrison-Nye'
 FONT = 'Atkinson Hyperlegible Next'
 MONO_FONT = 'Atkinson Hyperlegible Mono'
@@ -53,12 +60,12 @@ FONT_FILES = {FONT: 'AtkinsonHyperlegibleNext', MONO_FONT: 'AtkinsonHyperlegible
 FONT_STYLES = ('Regular', 'Bold', 'Italic', 'BoldItalic')
 
 # From src/styles/tokens/primitives.css. Each pair passes WCAG AAA contrast (7:1 or more)
-PURPLE = '5B2A99'  # Headings and links on white: 9.4:1
-PURPLE_DARK = '3F1A70'  # My name on lilac: 7.3:1
-LILAC = 'CDB4FF'  # Slide backgrounds and decoration only, never text
-MAUVE = '4A3D5C'  # Footer text on white: 10.2:1
+BLUE = '1C4882'  # Headings and links on white: 9.1:1
+BLUE_DARK = '163A6B'  # The site's name and address on light blue: 7.6:1
+LIGHT_BLUE = 'BCD6F5'  # Slide backgrounds and decoration only, never text
+SLATE = '3A4A5E'  # Footer text on white: 9.1:1
 
-TOOLKIT_URL = f'{SITE_URL}/inclusion-toolkit'
+TOOLKIT_URL = SITE_URL
 
 # Each original, where its branded copy goes (the same path as in public/inclusion-toolkit/files),
 # and its title. The branded copy is only made from the original if it isn't there
@@ -342,7 +349,7 @@ def docx_rewrite_paragraph(pkg: Package, marker: str, segments: list) -> None:
     plain = first_rpr.group(1) if first_rpr else '<w:rPr></w:rPr>'
     linked = re.search(r'<w:hyperlink [^>]*><w:r[ >][^>]*?>?(<w:rPr>.*?</w:rPr>)', old, re.S)
     link_rpr = linked.group(1) if linked else plain.replace(
-        '</w:rPr>', f'<w:color w:val="{PURPLE}"/><w:u w:val="single"/></w:rPr>'
+        '</w:rPr>', f'<w:color w:val="{BLUE}"/><w:u w:val="single"/></w:rPr>'
     )
     runs = ''
     for segment in segments:
@@ -368,14 +375,14 @@ def docx_styles(pkg: Package) -> None:
         style = match.group(0)
         new = re.sub(r'<w:color [^>]*/>', '', style)
         new = (
-            new.replace('<w:sz ', f'<w:color w:val="{PURPLE}"/><w:sz ', 1)
+            new.replace('<w:sz ', f'<w:color w:val="{BLUE}"/><w:sz ', 1)
             if '<w:sz ' in new
-            else new.replace('</w:rPr>', f'<w:color w:val="{PURPLE}"/></w:rPr>', 1)
+            else new.replace('</w:rPr>', f'<w:color w:val="{BLUE}"/></w:rPr>', 1)
         )
         if style_id in ('Title', 'Heading1'):
             new = new.replace(
                 '<w:spacing ',
-                f'<w:pBdr><w:bottom w:val="single" w:sz="36" w:space="8" w:color="{LILAC}"/></w:pBdr>'
+                f'<w:pBdr><w:bottom w:val="single" w:sz="36" w:space="8" w:color="{LIGHT_BLUE}"/></w:pBdr>'
                 '<w:spacing ',
                 1,
             ).replace('w:after="60"', 'w:after="240"', 1)
@@ -384,7 +391,7 @@ def docx_styles(pkg: Package) -> None:
     pkg.set_text('word/styles.xml', at_least_1_5_line_spacing(styles))
 
     xml = pkg.text('word/document.xml')
-    xml = xml.replace('w:val="005f69"', f'w:val="{PURPLE}"')
+    xml = xml.replace('w:val="005f69"', f'w:val="{BLUE}"')
     pkg.set_text('word/document.xml', at_least_1_5_line_spacing(xml))
 
 
@@ -489,17 +496,17 @@ def docx_embed_fonts(pkg: Package) -> None:
 
 def docx_footer_text(pkg: Package, site_link: bool) -> None:
     """
-    The footer's text: my name on the left, then a link to my site if site_link is true, and the
-    page number on the right
+    The footer's text: the site's name on the left, then a link to the site if site_link is true,
+    and the page number on the right
     """
     xml = pkg.text('word/document.xml')
     sect = re.findall(r'<w:sectPr[ >].*?</w:sectPr>', xml, re.S)[-1]
     width = int(re.search(r'<w:pgSz [^>]*w:w="(\d+)"', sect).group(1))
     left = int(re.search(r'<w:pgMar [^>]*w:left="(\d+)"', sect).group(1))
     right = int(re.search(r'<w:pgMar [^>]*w:right="(\d+)"', sect).group(1))
-    rpr = f'<w:rPr><w:color w:val="{MAUVE}"/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr>'
+    rpr = f'<w:rPr><w:color w:val="{SLATE}"/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr>'
     link_rpr = (
-        f'<w:rPr><w:color w:val="{PURPLE}"/><w:sz w:val="20"/><w:szCs w:val="20"/>'
+        f'<w:rPr><w:color w:val="{BLUE}"/><w:sz w:val="20"/><w:szCs w:val="20"/>'
         '<w:u w:val="single"/></w:rPr>'
     )
 
@@ -533,8 +540,7 @@ def docx_footer_text(pkg: Package, site_link: bool) -> None:
         '<w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
         'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
         f'<w:p><w:pPr><w:tabs><w:tab w:val="right" w:pos="{width - left - right}"/></w:tabs></w:pPr>'
-        # A non-breaking hyphen keeps my surname on one line
-        f'{run("Inclusion Toolkit by Abi Harrison")}<w:r>{rpr}<w:noBreakHyphen/></w:r>{run("Nye")}'
+        f'{run(SITE_NAME)}'
         f'{link}<w:r>{rpr}<w:tab/></w:r>'
         f'{run("Page ")}{field("PAGE")}{run(" of ")}{field("NUMPAGES")}</w:p></w:ftr>'
     )
@@ -587,7 +593,7 @@ def docx_meeting_invite_text(pkg: Package) -> None:
 
 
 def docx_highlights_text(pkg: Package) -> None:
-    """Swaps each giffgaff example and link for one on my site"""
+    """Swaps each giffgaff example and link for one on the site"""
     rels = 'word/_rels/document.xml.rels'
     long_url = f'{SITE_URL}/talks/a11y-series-buttons/transcript'
 
@@ -678,7 +684,7 @@ def docx_highlights_text(pkg: Package) -> None:
 
 
 def docx_neurodiversity_text(pkg: Package) -> None:
-    """Swaps the giffgaff examples and links for general ones, or ones on my site"""
+    """Swaps the giffgaff examples and links for general ones, or ones on the site"""
     rels = 'word/_rels/document.xml.rels'
     template = f'{TOOLKIT_URL}/meeting-invite-template'
 
@@ -951,22 +957,22 @@ LOGO_BOX = (342900, 231683, 731520, 731520)
 # Wide enough for "Harrison-Nye" on its own line, which is 1.19 inches
 NAME_BOX = (7818120, 231683, 1188720, 731520)
 
-# The slides' content moves up this much, to make room for the link to my site at the bottom
+# The slides' content moves up this much, to make room for the link to the site at the bottom
 CONTENT_SHIFT = 114300
 # The link's box, at the bottom right, in line with the right edge of the content
 FOOTER_BOX = (6170850, 4914900, 2286000, 182880)
 
 
 def pptx_layout_shapes(logo_rid: str) -> str:
-    """The title box, logo and my name, drawn behind every slide's own content"""
+    """The title box, logo and the site's name, drawn behind every slide's own content"""
     x, y, w, h = TITLE_BOX
     lx, ly, lw, lh = LOGO_BOX
     nx, ny, nw, nh = NAME_BOX
     name_rpr = (
-        f'<a:rPr lang="en-GB" sz="1400" b="1"><a:solidFill><a:srgbClr val="{PURPLE_DARK}"/></a:solidFill>'
+        f'<a:rPr lang="en-GB" sz="1400" b="1"><a:solidFill><a:srgbClr val="{BLUE_DARK}"/></a:solidFill>'
         f'<a:latin typeface="{FONT}"/><a:cs typeface="{FONT}"/></a:rPr>'
     )
-    first, last = NAME.split(' ', 1)
+    first, last = SITE_NAME.split(' ', 1)
     return (
         '<p:sp><p:nvSpPr><p:cNvPr id="900" name="Title box">'
         '<a:extLst><a:ext uri="{C183D7F6-B498-43B3-948B-1728B52AA6E4}">'
@@ -975,7 +981,7 @@ def pptx_layout_shapes(logo_rid: str) -> str:
         f'<p:spPr><a:xfrm><a:off x="{x}" y="{y}"/><a:ext cx="{w}" cy="{h}"/></a:xfrm>'
         '<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 16000"/></a:avLst></a:prstGeom>'
         '<a:solidFill><a:srgbClr val="FFFFFF"/></a:solidFill>'
-        f'<a:ln w="28575"><a:solidFill><a:srgbClr val="{PURPLE}"/></a:solidFill></a:ln></p:spPr>'
+        f'<a:ln w="28575"><a:solidFill><a:srgbClr val="{BLUE}"/></a:solidFill></a:ln></p:spPr>'
         '<p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:endParaRPr lang="en-GB"/></a:p></p:txBody></p:sp>'
         '<p:pic><p:nvPicPr><p:cNvPr id="901" name="Logo" descr="">'
         '<a:extLst><a:ext uri="{C183D7F6-B498-43B3-948B-1728B52AA6E4}">'
@@ -989,7 +995,7 @@ def pptx_layout_shapes(logo_rid: str) -> str:
         f'<p:spPr><a:xfrm><a:off x="{nx}" y="{ny}"/><a:ext cx="{nw}" cy="{nh}"/></a:xfrm>'
         '<a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr>'
         '<p:txBody><a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" anchor="ctr"><a:noAutofit/></a:bodyPr>'
-        # A line break after my first name, so my surname is never split at its hyphen
+        # A line break between the 2 words, so they always fit the box
         f'<a:lstStyle/><a:p><a:pPr algn="r"/><a:r>{name_rpr}<a:t>{first}</a:t></a:r>'
         f'<a:br>{name_rpr}</a:br><a:r>{name_rpr}<a:t>{last}</a:t></a:r></a:p></p:txBody></p:sp>'
     )
@@ -997,7 +1003,7 @@ def pptx_layout_shapes(logo_rid: str) -> str:
 
 def pptx_footer_links(pkg: Package) -> None:
     """
-    Moves each slide's content up a little, and puts a link to my site at the bottom right. It's
+    Moves each slide's content up a little, and puts a link to the site at the bottom right. It's
     on each slide, rather than the layout, so the link works and screen readers reach it last
     """
     x, y, w, h = FOOTER_BOX
@@ -1023,7 +1029,7 @@ def pptx_footer_links(pkg: Package) -> None:
             '</a:bodyPr><a:lstStyle/><a:p><a:pPr algn="r"/><a:r>'
             # The darker purple passes AAA contrast on lilac (7.3:1). hlinkClr="tx" keeps the link
             # in that colour, rather than the theme's link colour
-            f'<a:rPr lang="en-GB" sz="1100" u="sng"><a:solidFill><a:srgbClr val="{PURPLE_DARK}"/></a:solidFill>'
+            f'<a:rPr lang="en-GB" sz="1100" u="sng"><a:solidFill><a:srgbClr val="{BLUE_DARK}"/></a:solidFill>'
             f'<a:latin typeface="{FONT}"/><a:cs typeface="{FONT}"/><a:hlinkClick r:id="{rid}"><a:extLst>'
             '<a:ext uri="{A12FA001-AC4F-418D-AE19-62706E023703}"><ahyp:hlinkClr '
             'xmlns:ahyp="http://schemas.microsoft.com/office/drawing/2018/hyperlinkcolor" val="tx"/>'
@@ -1047,7 +1053,7 @@ def pptx_backgrounds(pkg: Package) -> None:
             rid = re.search(r'r:embed="([^"]+)"', bg.group(0))
             xml = xml.replace(
                 bg.group(0),
-                f'<p:bg><p:bgPr><a:solidFill><a:srgbClr val="{LILAC}"/></a:solidFill>'
+                f'<p:bg><p:bgPr><a:solidFill><a:srgbClr val="{LIGHT_BLUE}"/></a:solidFill>'
                 '<a:effectLst/></p:bgPr></p:bg>',
             )
             pkg.set_text(slide, xml)
@@ -1092,10 +1098,10 @@ def pptx_colours(pkg: Package) -> None:
     """
     # Every theme, as a deck's slide master can use a different one from theme1
     for part in [n for n in pkg.names if re.fullmatch(r'ppt/theme/theme\d+\.xml', n)]:
-        theme = pkg.text(part).replace('005F69', PURPLE)
+        theme = pkg.text(part).replace('005F69', BLUE)
         theme = re.sub(
             r'<a:(hlink|folHlink|accent5)><a:srgbClr val="[0-9A-Fa-f]{6}"/>',
-            rf'<a:\1><a:srgbClr val="{PURPLE}"/>',
+            rf'<a:\1><a:srgbClr val="{BLUE}"/>',
             theme,
         )
         pkg.set_text(part, theme)
@@ -1413,7 +1419,7 @@ INFO_TEXT_HEIGHT = INFO_ROW_HEIGHT - INFO_TAB_TO_TEXT
 INFO_TEXT_INSET = 45720
 INFO_ROWS = (FIRST_ROW_Y, FIRST_ROW_Y + INFO_ROW_HEIGHT + ROW_GAP)
 INFO_RIGHT = INFO_COLUMNS[-1] + INFO_BOX_WIDTH
-# The link to my site, lined up with the right edge of the boxes, and the note beside it
+# The link to the site, lined up with the right edge of the boxes, and the note beside it
 INFO_FOOTER_X = INFO_RIGHT - FOOTER_BOX[2]
 INFO_NOTE_BOX = (
     INFO_COLUMNS[0],
@@ -1428,7 +1434,7 @@ def decorative_box(shape_id: int, box: tuple, outline: bool) -> str:
     x, y, cx, cy = box
     adj = round(0.16 * TITLE_BOX[3] / min(cx, cy) * 100000)
     line = (
-        f'<a:ln w="28575"><a:solidFill><a:srgbClr val="{PURPLE}"/></a:solidFill></a:ln>'
+        f'<a:ln w="28575"><a:solidFill><a:srgbClr val="{BLUE}"/></a:solidFill></a:ln>'
         if outline
         else '<a:ln><a:noFill/></a:ln>'
     )
@@ -1463,7 +1469,7 @@ def pptx_infographic_layout(pkg: Package) -> None:
     """
     Draws each infographic's boxes and heading tabs, puts the text in the same place on every
     slide, and names the shapes for what they are, so the PDF made from them has the right
-    headings. The note at the bottom moves to the left, next to the link to my site, in 10pt
+    headings. The note at the bottom moves to the left, next to the link to the site, in 10pt
     rather than 8pt, so it's easier to read
     """
     for slide in [n for n in pkg.names if re.fullmatch(r'ppt/slides/slide\d+\.xml', n)]:
@@ -1498,7 +1504,7 @@ def pptx_infographic_layout(pkg: Package) -> None:
                     count=1,
                 )
                 note = re.sub(r'algn="ctr"', 'algn="l"', note).replace('sz="800"', 'sz="1000"')
-                # 12pt lines, with no extra space, so 2 lines fit beside the link to my site
+                # 12pt lines, with no extra space, so 2 lines fit beside the link to the site
                 note = re.sub(r'<a:lnSpc>.*?</a:lnSpc>', '', note, flags=re.S)
                 note = re.sub(r'<a:(spcBef|spcAft)>.*?</a:\1>', r'<a:\1><a:spcPts val="0"/></a:\1>', note, flags=re.S)
                 note = line_spacing(note, 1200)
@@ -1541,7 +1547,7 @@ def pptx_infographic_layout(pkg: Package) -> None:
                 drawn += decorative_box(shape_id + 1, tab, True)
                 shape_id += 2
         xml = xml.replace('</p:grpSpPr>', f'</p:grpSpPr>{drawn}', 1)
-        # The link to my site lines up with the right edge of the boxes
+        # The link to the site lines up with the right edge of the boxes
         xml = re.sub(
             r'(name="Site link".*?<a:off x=")\d+(")',
             rf'\g<1>{INFO_FOOTER_X}\2',
@@ -1577,7 +1583,7 @@ def check_and_save(pkg: Package, out: Path) -> None:
     left = [
         n
         for n in pkg.xml_names()
-        if re.search('giffgaff|Poppins|Consolas|Abigail Harrison \\(UK\\)', pkg.text(n), re.I)
+        if re.search('giffgaff|Poppins|Consolas|Abigail Harrison \\(UK\\)|abiharrisonnye', pkg.text(n), re.I)
     ]
     if left:
         sys.exit(f'{out.name} still mentions giffgaff, an old font or the old author in: {", ".join(left)}')

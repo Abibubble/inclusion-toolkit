@@ -49,11 +49,11 @@ NAME = 'Abi Harrison-Nye'
 # The slides' version of each resource, and what's added to its files' names
 SUMMARY = 'visual summary'
 SUMMARY_SUFFIX = '-visual-summary'
-SITE_DISPLAY = 'AbiHarrisonNye.dev'
+SITE_DISPLAY = 'InclusionToolkit.org'
 FONT = 'Atkinson Hyperlegible Next'
 MONO_FONT = 'Atkinson Hyperlegible Mono'
-LINK = '#5B2A99'
-FOOTER = '#4A3D5C'
+LINK = '#1C4882'
+FOOTER = '#3A4A5E'
 
 W = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'
 R = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships'
@@ -470,7 +470,7 @@ def style_attr(css: str) -> str:
 
 def footer_template(site_link: bool) -> str:
     """
-    Like the Word file's footer: my name on the left, then my site's address if the Word file has
+    Like the Word file's footer: the site's name on the left, then its address if the Word file has
     it, and the page number on the right. The browser can't make links in footers, so the address
     is written out in full
     """
@@ -482,7 +482,7 @@ def footer_template(site_link: bool) -> str:
     return (
         f'<div style="width: 100%; margin: 0 1in 0.45in; display: flex; justify-content: space-between; '
         f"font-family: '{FONT}', sans-serif; font-size: 10pt; color: {FOOTER};\">"
-        f'<span>Inclusion Toolkit by Abi <span style="white-space: nowrap">Harrison-Nye</span>{site}</span>'
+        f'<span>Inclusion Toolkit{site}</span>'
         '<span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span></div>'
     )
 
@@ -842,7 +842,7 @@ def slides_html(path: Path, title: str) -> str:
         layout = pptx.xml(layout_part)
 
         drawn, text, last = '', '', ''
-        # The master's and layout's own shapes, such as the logo, title box and my name, but not
+        # The master's and layout's own shapes, such as the logo, title box and the site's name, but not
         # their empty placeholders, which the slide fills in
         for part, context in zip(reversed(parts), reversed(contexts)):
             if part == master_part and layout.get('showMasterSp') == '0':
