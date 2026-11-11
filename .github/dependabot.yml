@@ -1,0 +1,39 @@
+# Dependabot version updates: a pull request each week to keep packages and GitHub Actions up to
+# date. Security alerts and security fixes come from the repo's settings, not this file.
+version: 2
+updates:
+  # The site's packages. Dependabot reads pnpm-lock.yaml, so it updates it with pnpm
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '09:00'
+      timezone: Europe/London
+    # Waits a week after a version comes out before suggesting it, so problems with a new release,
+    # or a package someone has tampered with, are usually found by then
+    cooldown:
+      default-days: 7
+    groups:
+      # Small updates come together in one pull request. Major updates, which can need changes to
+      # the code, come one at a time
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    open-pull-requests-limit: 5
+
+  # The actions the CI workflows use
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '09:00'
+      timezone: Europe/London
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns:
+          - '*'
