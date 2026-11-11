@@ -1,3 +1,7 @@
+### In short
+
+Moving parts on a website can be hard for people with ADHD, motion sickness, or balance problems. People can turn on a setting to reduce motion on their device. Use the prefers-reduced-motion CSS feature so motion only plays when they haven’t asked for less.
+
 ### What is it for?
 
 Some people struggle with motion on websites. This can be due to a number of reasons, including (but not limited to):

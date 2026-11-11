@@ -1,20 +1,20 @@
-Email signatures are one of the easiest, lowest-friction ways to normalise inclusion across a whole company. They appear on every email, so they act as tiny, constant reminders of your company's inclusive culture. Feel free to use any of these in your email signature. Where text is inside square brackets \[like this\], please update it to be relevant to you.
+Email signatures are one of the easiest ways to normalise inclusion across a whole company. They appear on every email, so they act as tiny, constant reminders of your company's inclusive culture. Feel free to use any of these in your email signature. Where text is inside square brackets \[like this\], please update it to be relevant to you.
 
 ### Working hours
 
 These allow for clarity about the hours in which an employee works. Some people do flexible working, or may be in a different time zone, and therefore may not reply during a 9am to 5pm workday.
 
 - My working hours may not be the same as yours. Please reply when convenient for you
-- I work flexibly and sometimes send emails at odd hours. Please do not feel obliged to read or reply to this outside of your own working hours
+- I work flexibly and sometimes send emails outside usual working hours. Please do not feel obliged to read or reply to this outside of your own working hours
 
 ### Assistive Technology and Typing
 
 These allow people to stop masking their spelling or motor-control difficulties.
 
-- I use text-to-speech software; please excuse any unusual formatting
+- I use speech-to-text software; please excuse any unusual formatting
 - I use assistive software to draft emails. Please forgive any unusual formatting or typos
 - I use dictation software to write my emails. Sometimes it gets a little creative with my words. Please ask for clarification if a sentence doesn't make sense
-- Sent from a mobile device. Please excuse any brevity or autocorrect errors
+- Sent from a mobile device. Please excuse any very short replies or autocorrect errors
 
 ### Communication requests
 

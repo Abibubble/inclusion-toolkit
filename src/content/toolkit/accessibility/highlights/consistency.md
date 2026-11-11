@@ -1,3 +1,7 @@
+### In short
+
+When menus, buttons, and labels stay the same on every page, people know what to expect. Changes can make a product hard to use, especially for people with ADHD, anxiety, or dyslexia. Use the same parts and the same words for the same things.
+
 ### What is it for?
 
 Think about your favourite supermarket. You know roughly where everything is, and even if you visit a different branch, the layout follows the same pattern. Now imagine if every time you visited, the dairy aisle had moved, the signage used different words, and the tills were in a completely different spot. Even for someone with no disabilities, that would be exhausting and disorienting.

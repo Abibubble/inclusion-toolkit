@@ -1,3 +1,7 @@
+### In short
+
+Vague error messages, or fields that only turn red, can stop people finishing a form. Say exactly what’s wrong and how to fix it, and don’t rely on colour. Link each message to its field, and move focus to the first error.
+
 ### What is it for?
 
 Form errors are a major barrier for all users, but they can completely block users with disabilities. Inaccessible errors include:

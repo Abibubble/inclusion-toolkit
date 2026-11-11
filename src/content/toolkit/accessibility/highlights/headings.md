@@ -1,6 +1,10 @@
+### In short
+
+A clear heading structure helps screen reader users and search engines understand a page. Use only one main title, and don’t skip levels, like going from Heading 2 to 4. Never use a heading only to make text big or bold.
+
 ### What is it for?
 
-Most people are familiar with headings, whether that's a title in a document or a title sheet on a slide deck. But what some people aren't aware of is that headings are important for more than just making an impact.
+Most people are familiar with headings, whether that's a title in a document or a title sheet on a slide deck. But what some people aren't aware of is that headings are important for more than just making text stand out.
 
 Headings are especially important for the following:
 
@@ -10,7 +14,7 @@ Headings are especially important for the following:
 
 ### How to support it
 
-Headings are simple to get right, but are often misunderstood. To start with, headings shouldn't be used for styling. Using a 'Heading 2' in your Word document for some large, bold text might give you the right font size and font weight (how bold it is), but it also tells a screen reader that your text is a heading. This meaning may not be accurate. The 'meaning' here is called 'semantics'. Semantics are often referred to as 'building blocks' - without them, everything falls apart!
+Headings are simple to get right, but are often misunderstood. To start with, headings shouldn't be used for styling. Using a 'Heading 2' in your Word document for some large, bold text might give you the right font size and font weight (how bold it is), but it also tells a screen reader that your text is a heading. This meaning may not be accurate. The 'meaning' here is called 'semantics'. Semantics give your content its structure. Without them, people and tools can’t understand how it’s organised.
 
 The examples below refer to the code elements of headings and the heading style names in Word and Google Docs. However, the principle applies to everything.
 
@@ -20,7 +24,7 @@ After that, headings should follow in a sequential order. So a Heading 1 (`h1`) 
 
 You shouldn't use a heading to get a certain font size or styling. Instead, style it yourself. Headings convey meaning to screen readers and search engines, so you should only use headings for text that is necessary as a heading; other text should have the styling changed to match designs.
 
-Search engines are effectively 'blind'. They don't see visually; instead, they scan through the code of what they are given. If you're using headings incorrectly, search engines will get the wrong information, and search engine optimisation (SEO) can suffer as a result.
+Search engines can't see the page. They don't see visually; instead, they scan through the code of what they are given. If you're using headings incorrectly, search engines will get the wrong information, and search engine optimisation (SEO) can suffer as a result.
 
 ### Useful links
 

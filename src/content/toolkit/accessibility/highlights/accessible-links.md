@@ -1,8 +1,12 @@
-Note: Examples of poor link text in this section are shown without a link. The one example link outside the 'Useful Links' section is just for demonstration, so you don't need to follow it.
+### In short
+
+People using screen readers often hear a list of links with no other words around them. Link text like ‘click here’ or a full web address doesn’t tell them where it goes. Write link text that says where the link takes you.
+
+Note: Examples of poor link text in this section are shown without a link. The one example link outside the 'Useful links' section is just for demonstration, so you don't need to follow it.
 
 ### What is it for?
 
-Everyone has used links. Those wonderful clickable bits of text that take you to magical places (also known as other pages).
+Everyone has used links. Those wonderful bits of text can be selected to go to other pages.
 
 Have you seen 'click here' links? A visual user will be able to set it in context and understand the place where the link will direct. But a person relying on assistive technology may scan links on the page, and they will be presented with a list of 'click here' links. They won't be able to understand where each link will direct them.
 
@@ -10,7 +14,7 @@ Sometimes people use the uniform resource locator (URL) as is, like this - `http
 
 ### How to support it
 
-Link text should make it clear where the link takes you, even without any context. For instance, the link above could direct people to [the Buttons highlight in this toolkit](/accessibility/highlights/buttons). If it's in a sentence, make sure it makes sense, while also being clear where it goes to.
+Link text should make it clear where the link takes you, even without any context. For instance, instead of showing the web address, the link could say [the Buttons highlight in this toolkit](/accessibility/highlights/buttons). If it's in a sentence, make sure it makes sense, while also being clear where it goes to.
 
 You should also avoid non-descriptive link text, like here, click here, read more, and more information.
 

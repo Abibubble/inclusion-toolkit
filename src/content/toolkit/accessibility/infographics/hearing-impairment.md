@@ -1,3 +1,7 @@
+### In short
+
+When someone has hearing loss, it’s hard to hear people clearly, especially in noisy places. Shouting doesn’t help, because it can make sound less clear. Face the person, keep your mouth visible, and reduce background noise.
+
 ### Symptoms
 
 - Difficulty hearing people clearly, especially in noisy or crowded places.
@@ -9,7 +13,7 @@
 - Prevalence increases with age, particularly for those over 50.
 - It affects males and females at similar rates, though males often have more noise-induced loss.
 
-### Misconceptions
+### Common myths
 
 - It’s not just an 'older person's problem'. It can affect people of all ages.
 - Not everyone who is hard of hearing uses or knows sign language.
@@ -25,7 +29,7 @@
 - Hearing aids or cochlear implants clarify sounds.
 - Loop systems and speech-to-text apps improve accessibility.
 
-### Support
+### How to help
 
 - Face the person directly and keep your mouth visible while speaking.
 - Reduce background noise when holding meetings or conversations.

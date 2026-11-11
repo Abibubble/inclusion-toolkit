@@ -2,13 +2,17 @@ This section provides the comprehensive details of all neurodiversity highlights
 
 ### Body Doubling
 
-#### Let’s talk about it
+#### In short
+
+Working next to someone else can make it easier to focus and start a task. They don’t need to do the same work. Try a quiet video call with colleagues, or sit near someone who’s focusing.
+
+#### Overview
 
 Body doubling is when you work alongside another person to help you focus. The other person doesn't need to be working on the same task as you. Their presence simply acts as an anchor to keep your mind from wandering and keeps you on track. It's a popular strategy used by many neurodivergent people to tackle boring or difficult jobs, such as cleaning.
 
-Body doubling lowers the mental barrier to getting started on a task. Having someone else in the room or on a video call creates a sense of accountability, stopping the feeling of isolation and reducing the urge to procrastinate.
+Body doubling makes it easier to get started on a task. Having someone else in the room or on a video call creates a sense of accountability, stopping the feeling of isolation and reducing the urge to procrastinate.
 
-You can try this with your colleagues by setting up quiet 'co-working' sessions. Just jump on a video call together, state your goals, and then get to work. You can also do this in the office by sitting near someone who's also trying to focus. It's all about sharing the same productive energy.
+You can try this with your colleagues by setting up quiet 'co-working' sessions. Just start a video call together, state your goals, and then get to work. You can also do this in the office by sitting near someone who's also trying to focus. It's all about sharing the same productive energy.
 
 #### Useful links
 
@@ -18,7 +22,11 @@ You can try this with your colleagues by setting up quiet 'co-working' sessions.
 
 ### Hidden Disabilities Sunflower
 
-#### Let’s talk about it
+#### In short
+
+A green lanyard with yellow sunflowers shows that someone may have a disability you can’t see. They might need more time, patience, or help. You don’t need to ask what their disability is.
+
+#### Overview
 
 You've probably seen green lanyards with yellow sunflowers in airports, shops, or even at the office. This is the Hidden Disabilities Sunflower. While not exclusive to neurodiversity, it's widely used by the community.
 
@@ -38,9 +46,13 @@ It is a simple symbol that promotes kindness and patience without forcing anyone
 
 ### Infinity Symbol
 
-#### Let’s talk about it
+#### In short
 
-If you've read the Puzzle Piece Symbol highlight, you might be wondering what symbol is preferred. The answer is (usually) the Infinity Symbol. It represents a spectrum of possibilities, rather than a linear scale.
+Many neurodivergent people prefer the infinity symbol to the puzzle piece. A rainbow one stands for neurodiversity, and a gold one for autism. It has no start or end, which shows that no one is missing a piece.
+
+#### Overview
+
+If you've read the Puzzle Piece Symbol highlight, you might be wondering what symbol is preferred. The answer is (usually) the Infinity Symbol. It represents a spectrum of possibilities, rather than a line from less to more.
 
 Here is a quick guide to the variations you might see:
 
@@ -56,7 +68,11 @@ Adopting these symbols is a great way to show that you're up to date with the co
 
 ### Key Terminology
 
-#### Let’s talk about it
+#### In short
+
+Neurodiversity, neurodiverse, and neurodivergent sound alike, but they mean different things. Use neurodiverse for a group, and neurodivergent for one person. Using the right word shows respect.
+
+#### Overview
 
 You might have heard words like 'neurodiversity', 'neurodiverse', and 'neurodivergent'. They all sound similar, but they mean different things. Using the right word is important. It shows respect and helps us be clear. Using the wrong word can be confusing for everyone.
 
@@ -74,7 +90,7 @@ This is why being mindful of our words is essential for showing respect and buil
 - Do use 'neurodiverse' when describing a group (for example, 'We are proud to have a neurodiverse team')
 - Do use 'neurodivergent' when describing an individual (for example, 'This is a resource for our neurodivergent colleagues')
 - Avoid calling a person 'neurodiverse' (that's for groups)
-- Avoid calling a person 'a neurodivergent' (it's an adjective, not a noun). Instead, say 'a neurodivergent person' or 'they are neurodivergent'
+- Avoid calling a person 'a neurodivergent' (it describes a person, it isn’t a name for one). Instead, say 'a neurodivergent person' or 'they are neurodivergent'
 
 #### Useful links
 
@@ -83,7 +99,11 @@ This is why being mindful of our words is essential for showing respect and buil
 
 ### Masking
 
-#### Let’s talk about it
+#### In short
+
+Hiding natural traits to fit in is called masking, and many neurodivergent people do it. It’s very tiring and can lead to burnout. Don’t judge habits like fidgeting, and focus on the quality of someone’s work.
+
+#### Overview
 
 Masking is when neurodivergent people hide their natural traits to fit in. It's often a constant performance to meet social expectations. It's like wearing a mask to hide things like stimming or social anxiety. Here are a few reasons why it's a challenge:
 
@@ -102,21 +122,25 @@ You can help to create a more inclusive space where everyone feels safe enough t
 #### Useful links
 
 - [National Autistic Society: Masking](https://www.autism.org.uk/advice-and-guidance/behaviour/masking)
-- [Dropping the mask takes two](https://www.bps.org.uk/research-digest/dropping-mask-takes-two)
+- [British Psychological Society: Dropping the mask takes two](https://www.bps.org.uk/research-digest/dropping-mask-takes-two)
 
 ### Meetings
 
-#### Let’s talk about it
+#### In short
+
+Standard meetings can be hard for many neurodivergent people, because of noise, fast talk, or unclear plans. Send an agenda 24 hours ahead and make cameras optional. Stick to time, add breaks, and end with clear actions.
+
+#### Overview
 
 Meetings can be tough, especially if you need accommodations of any kind. For many neurodivergent individuals, a standard meeting format can be a barrier to contributing their best work. For example:
 
 - Sensory overload means that a grid of faces on a video call, poor audio, or a noisy room can all be overwhelming
 - Processing pace issues make it difficult to keep up if the discussion is too fast, topics change suddenly, or information isn't presented clearly
-- Unclear rules like vague agendas, unwritten social rules about turn-taking, and the pressure of being "put on the spot" can create significant anxiety
+- Unclear rules like vague agendas, unwritten social rules about turn-taking, and the pressure of being asked to answer with no warning can create significant anxiety
 - Focus fatigue means that long, unstructured meetings can be particularly draining for those with conditions affecting executive function or attention
 - Cameras being required to be on means that the neurodivergent person may feel like they have to mask for the meeting, which increases exhaustion
 
-This is why creating a more inclusive meeting culture isn't just a 'nice-to-have'. It's essential for collaboration.
+This is why creating a more inclusive meeting culture isn't just an optional extra. It's essential for collaboration.
 
 Simple adjustments can make a huge difference, such as:
 
@@ -134,12 +158,16 @@ There's also a [meeting invite template](/meeting-invite-template), which provid
 
 #### Useful links
 
-- [Inclusion Toolkit](/)
+- [Inclusion Toolkit home page](/)
 - [Meeting Invite Template](/meeting-invite-template)
 
 ### Neurospicy
 
-#### Let’s talk about it
+#### In short
+
+Some people use ‘neurospicy’ as a light-hearted word for neurodivergent, but many people don’t like it. It can make real struggles sound small. If someone uses it about themselves, that’s fine, but don’t use it about others.
+
+#### Overview
 
 You may have heard this word used as an informal, light-hearted way to say 'neurodivergent'. It's often used with good intentions, and some neurodivergent people use it about themselves. However, many people find the word problematic, and it can get in the way of clear and respectful conversation. For example:
 
@@ -161,7 +189,11 @@ This is why being mindful of our words is essential for showing respect and buil
 
 ### Puzzle Piece Symbol
 
-#### Let’s talk about it
+#### In short
+
+Many autistic people find the puzzle piece symbol old-fashioned or hurtful. It suggests they’re a problem to solve, or missing a piece. Most prefer the infinity symbol.
+
+#### Overview
 
 You've likely seen the puzzle piece used to represent autism. While common, it is highly controversial. Many in the autistic community view it as outdated or offensive. Understanding why helps you be a better ally.
 
@@ -181,11 +213,15 @@ Being mindful of imagery shows that you’re listening to the lived experiences 
 
 ### Sensory Series: Light
 
-#### Let’s talk about it
+#### In short
+
+Bright or flickering lights can cause eye strain, migraines, and stress for some neurodivergent people. Coping with them takes a lot of energy. Let people sit in dimmer areas, use desk lamps, and wear sunglasses or caps indoors.
+
+#### Overview
 
 Harsh lighting can completely drain a person's focus without them even realising why. For many neurodivergent individuals, visual environments are often much more intense. Standard office lighting can easily trigger severe eye strain, migraines, or a state of constant anxiety.
 
-Older fluorescent tubes are a frequent culprit because they actually flicker. While most people don't notice it, some neurodivergent brains process this rapid pulsing, which can feel like sitting under a strobe light all day. Bright glare from a window or a screen that's too bright can also become an impossible distraction. It leaves the nervous system working overtime just to cope with the brightness.
+Older fluorescent tubes are a common cause because they actually flicker. While most people don't notice it, some neurodivergent brains process this rapid pulsing, which can feel like sitting under a strobe light all day. Bright glare from a window or a screen that's too bright can also become an impossible distraction. It leaves the nervous system working much harder than usual just to cope with the brightness.
 
 Adjusting the visual environment helps prevent the hidden exhaustion that comes from simply sitting in a brightly lit room.
 
@@ -199,15 +235,19 @@ Simple shifts in how workspaces are set up can offer huge relief. Letting people
 
 ### Sensory Series: Sound
 
-#### Let’s talk about it
+#### In short
+
+Everyday office noise can be overwhelming for some neurodivergent people. Blocking it out takes a lot of energy. Keeping noise down, using meeting rooms for long chats, and respecting headphones all help.
+
+#### Overview
 
 Sound affects people in completely different ways. For many neurodivergent individuals, everyday workplace noises aren't just distracting; they can be physically overwhelming. This is often due to sensory processing differences, where the brain can't easily filter out background noise.
 
-An open-plan office can quickly become a wall of sound. Things like keyboards clicking, loud chats, or a humming air conditioner take up a huge amount of mental energy. Some people might experience 'misophonia', where specific sounds trigger a strong stress reaction. Others might have trouble understanding speech when there's background noise, which makes collaboration extra challenging.
+An open-plan office can quickly fill with noise from every side. Things like keyboards clicking, loud chats, or a humming air conditioner take up a huge amount of mental energy. Some people might experience 'misophonia', where specific sounds trigger a strong stress reaction. Others might have trouble understanding speech when there's background noise, which makes collaboration extra challenging.
 
 Creating a workspace that's comfortable for everyone's sensory needs is essential for a productive team.
 
-Colleagues can support each other by being mindful of volume in shared spaces. It's always best to move long conversations to a meeting room or a breakout area. Respecting when someone is wearing headphones is also important, as it's often their way of creating a quiet bubble so they can focus.
+Colleagues can support each other by being mindful of volume in shared spaces. It's always best to move long conversations to a meeting room or a breakout area. Respecting when someone is wearing headphones is also important, as it's often their way of creating a quiet space of their own so they can focus.
 
 #### Useful links
 
@@ -217,31 +257,39 @@ Colleagues can support each other by being mindful of volume in shared spaces. I
 
 ### Sensory Series: Touch
 
-#### Let’s talk about it
+#### In short
 
-Think about how many things touch your skin during a standard workday. For a neurodivergent person with tactile sensitivity, the physical world can feel 'dialled up to eleven'. The brain often can't mute these physical inputs, which turns minor textures into a source of constant distress.
+For some neurodivergent people, things touching their skin feel much stronger than usual. Labels, rough fabric, or cold desks can be distressing. Letting people choose comfortable clothes, and respecting personal space, helps.
 
-It's not just about a scratchy clothing label or a stiff uniform, though those can easily derail a whole afternoon of focus. The office environment itself can present unexpected hurdles. A freezing metal desk, a rough chair fabric, or a sudden breeze from the air conditioning can feel deeply unsettling. Physical boundaries matter a lot too, since an unexpected tap on the shoulder can easily startle someone's entire nervous system.
+#### Overview
+
+Think about how many things touch your skin during a standard workday. For a neurodivergent person with sensitivity to touch, the physical world can feel much stronger than it does for other people. The brain often can't mute these physical inputs, which turns minor textures into a source of constant distress.
+
+It's not just about a scratchy clothing label or a stiff uniform, though those can easily spoil a whole afternoon of focus. The office environment itself can present unexpected problems. A freezing metal desk, a rough chair fabric, or a sudden breeze from the air conditioning can feel deeply unsettling. Physical boundaries matter a lot too, since an unexpected tap on the shoulder can easily startle someone's entire nervous system.
 
 Creating a physically comfortable workspace allows everyone to put their energy into their actual jobs instead of just coping with discomfort.
 
-Giving people autonomy over their immediate environment is a brilliant first step. This might mean allowing casual, soft clothing or letting staff use their own desk mats and chair covers. Respecting personal space by avoiding uninvited physical contact is another simple way to help colleagues feel secure.
+Giving people control over their immediate environment is a brilliant first step. This might mean allowing casual, soft clothing or letting staff use their own desk mats and chair covers. Respecting personal space by avoiding uninvited physical contact is another simple way to help colleagues feel secure.
 
 #### Useful links
 
 - [Autism and sensory processing](https://www.autism.org.uk/advice-and-guidance/about-autism/sensory-processing)
-- [Sensory - Touch](https://autismunderstood.co.uk/autistic-differences/sensory-touch/)
-- [Tactile](https://connect.humber.nhs.uk/service/humber-sensory-processing-hub/sense-tactile/)
+- [Autism Understood: sensitivity to touch](https://autismunderstood.co.uk/autistic-differences/sensory-touch/)
+- [Humber NHS sensory processing hub: touch](https://connect.humber.nhs.uk/service/humber-sensory-processing-hub/sense-tactile/)
 
 ### Spiky Profiles
 
-#### Let’s talk about it
+#### In short
+
+Having a spiky profile means being brilliant at some things but finding simple tasks very hard. It’s not laziness, but a brain that works differently. Think about how you share out work so people can use their strengths.
+
+#### Overview
 
 A spiky profile is when someone is really brilliant at some things but finds other things very hard. This includes things that might seem simple to other people. For example, someone might be amazing at solving tricky problems at work but find it hard to reply to a basic email.
 
 This is not about being lazy or not trying hard enough. Neurodivergent brains are wired in a different way. Some skills, like creativity, focus, and spotting patterns, can be super strong. But other skills, like planning, switching between tasks, or doing routine jobs, can take a lot more effort.
 
-Knowing about spiky profiles can help us be better allies. If someone seems to be struggling with something easy, it might just be that their brain works differently. Small changes can make a big difference. Try pairing with people whose strengths fill in your gaps, or think about how you share out work in your team.
+Knowing about spiky profiles can help us be better allies. If someone seems to be struggling with something easy, it might just be that their brain works differently. Small changes can make a big difference. Try working with people who are good at the things you find hard, or think about how you share out work in your team.
 
 #### Useful links
 
@@ -251,9 +299,13 @@ Knowing about spiky profiles can help us be better allies. If someone seems to b
 
 ### Spoon Theory
 
-#### Let’s talk about it
+#### In short
 
-Spoon theory is a way to explain living with limited energy. A writer named [Christine Miserandino](https://lymphoma-action.org.uk/sites/default/files/media/documents/2020-05/Spoon%20theory%20by%20Christine%20Miserandino.pdf) created it to describe chronic illness, but the neurodivergent community uses it a lot now.
+Each day, some people start with less energy than others, and simple tasks can use up more of it. Spoon theory uses spoons to stand for this energy. Respect it when a colleague says they’re ‘low on spoons’, and keep meetings short.
+
+#### Overview
+
+Spoon theory is a way to explain living with limited energy. A writer named Christine Miserandino created it to describe chronic illness, in [her essay, The Spoon Theory (PDF)](https://lymphoma-action.org.uk/sites/default/files/media/documents/2020-05/Spoon%20theory%20by%20Christine%20Miserandino.pdf), but the neurodivergent community uses it a lot now.
 
 Imagine you start the day with twelve spoons, but a colleague might start with twenty. Every single task costs spoons, like getting dressed or answering an email. However, a task that takes one spoon for you might take four spoons for someone else. Once you're out of spoons, you've got no energy left for anything else. You can sometimes borrow spoons from tomorrow if you really need to, but that leaves you at serious risk of burnout.
 
@@ -269,7 +321,11 @@ Everyone should be able to manage their energy without shame. You can help suppo
 
 ### Superpowers Debate
 
-#### Let’s talk about it
+#### In short
+
+Calling neurodivergence a ‘superpower’ is meant kindly, but it can hide the support people need. It can also put pressure on people to be amazing. Praise a specific skill instead, and only use the word if the person does.
+
+#### Overview
 
 You might hear people say that being neurodivergent is a 'superpower'. While this is usually meant as a compliment, the community has mixed feelings about it.
 
@@ -283,7 +339,7 @@ Recognising strengths is great, but it's also important to acknowledge the barri
 
 - Let the person decide. If someone calls their own neurodivergence a superpower, that's their choice. If they don't, don't use that term with them
 - Be specific about strengths. Instead of using 'superpower', try complimenting a specific skill like great problem-solving or creative thinking
-- Offer support regardless. Make sure people feel valued for who they are, even on days when they aren't feeling super
+- Offer support regardless. Make sure people feel valued for who they are, even on their hard days
 
 #### Useful links
 
@@ -293,11 +349,15 @@ Recognising strengths is great, but it's also important to acknowledge the barri
 
 ### Tourette’s Syndrome
 
-#### Let’s talk about it
+#### In short
+
+Tics are sounds or movements that someone with Tourette’s Syndrome can’t easily stop. Swearing is rare, and tics aren’t a choice. Don’t draw attention to them, and focus on what the person is saying.
+
+#### Overview
 
 Tourette's Syndrome (or Tourette Syndrome, in more medical settings) is a condition that's often misunderstood. Many people think that it's just about swearing, but that's actually quite rare (it's called coprolalia). It's mostly about tics, which are sounds or movements that someone can't easily stop.
 
-It's important to bear in mind that managing tics all day can be exhausting. Tics can increase when someone is stressed or tired, and trying to hide those tics can make it more difficult to focus. On top of this, other people can be judgmental about Tourette's, especially when they don't understand that it's not voluntary.
+It's important to remember that managing tics all day can be exhausting. Tics can increase when someone is stressed or tired, and trying to hide those tics can make it more difficult to focus. On top of this, other people can be judgemental about Tourette's, especially when they don't understand that it's not voluntary.
 
 So how can you be a good ally to someone who has Tourette's Syndrome?
 

@@ -1,3 +1,7 @@
+### In short
+
+Dementia is a brain disease that affects memory, mood, and personality. It isn’t a natural part of getting older. Speak in short, clear sentences, keep a steady routine, and focus on their feelings.
+
 ### Symptoms
 
 - Persistent memory loss, especially forgetting recent events or names.
@@ -9,7 +13,7 @@
 - Most common in people over 65, though 'young-onset' affects many.
 - Females are more likely to develop it and often live longer with it.
 
-### Misconceptions
+### Common myths
 
 - It’s not a natural part of ageing, it’s a brain disease.
 - It’s not just 'forgetfulness', it affects mood and personality too.
@@ -27,7 +31,7 @@
 - Cognitive stimulation therapy keeps the mind active and engaged.
 - Occupational therapy helps adapt the home for safety and ease.
 
-### Support
+### How to help
 
 - Speak clearly in short sentences and avoid asking too many questions.
 - Maintain a consistent routine to help them feel secure.

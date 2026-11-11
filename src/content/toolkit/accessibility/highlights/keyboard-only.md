@@ -1,3 +1,7 @@
+### In short
+
+Not everyone uses a mouse, and some people only use a keyboard. Make sure every button and link works with the keyboard alone. Press Tab to move through the page, and check you can always see where you are.
+
 ### What is it for?
 
 Keyboard only is a method for navigating the web using just a keyboard (not using the mouse at all). Many people with disabilities navigate using only the keyboard, but some users without disabilities also navigate using the keyboard for speed and efficiency.
@@ -16,7 +20,7 @@ Make sure that all interactive elements (buttons, links, and so on) can be navig
 
 To test keyboard accessibility:
 
-1. On page load, don't click anywhere. If you've already clicked, click in the top left corner of the page
+1. On page load, don't click anywhere. If you've already clicked, reload the page so nothing is selected
 2. Press `Tab` to tab through the page
 3. `Shift` + `Tab` will tab backward
 4. Arrow keys move within radio groups, menus and tabs

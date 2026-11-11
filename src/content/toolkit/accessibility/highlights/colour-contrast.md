@@ -1,3 +1,7 @@
+### In short
+
+Low contrast, like light grey text on white, is hard for many people to read. Use an online checker to make sure text has a contrast ratio of at least 4.5:1. Large text needs at least 3:1.
+
 ### What is it for?
 
 Websites, social media images, and out-of-home advertising should have a good colour contrast between text and background colour. That includes links, icons, buttons and any other information. An example of poor colour contrast is light grey text on a white background.
@@ -24,9 +28,7 @@ Choose colours with sufficient contrast. There are lots of colour contrast check
 - [WebAIM's contrast checker](https://webaim.org/resources/contrastchecker/)
 - [Coolors contrast checker](https://coolors.co/contrast-checker)
 
-To use these, enter your background colour and foreground colour. You want to make sure that it gives you a contrast ratio that is 4.5:1 or higher (so 6:1 is good, 2:1 is bad). It may also show you separate results for AA and AAA, for normal and large text (as shown in the image below). Web Content Accessibility Guidelines (WCAG) AA level is the lower of the two requirements and is the usual minimum to meet. If your text can comply at AAA level, even better.
-
-_Picture: An image showing black text on a yellow background, passing at AA and AAA level for both normal and large text_
+To use these, enter your background colour and foreground colour. You want to make sure that it gives you a contrast ratio that is 4.5:1 or higher (so 6:1 is good, 2:1 is bad). It may also show you separate results for AA and AAA, for normal and large text. For example, black text on a yellow background passes at AA and AAA for both normal and large text. Web Content Accessibility Guidelines (WCAG) AA level is the lower of the two requirements and is the usual minimum to meet. If your text can comply at AAA level, even better.
 
 ### Useful links
 

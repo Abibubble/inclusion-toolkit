@@ -1,8 +1,12 @@
+### In short
+
+Check for accessibility at the start of a project, not at the end. Problems found during design are cheap and fast to fix. Everyone on the team can help, from designers to developers and product managers.
+
 ### What is it for?
 
 Imagine baking a cake, pulling it out of the oven, and realising you forgot the sugar. Trying to shove sugar into a fully baked cake is messy, stressful, and ruins the cake! It's much easier to just add the sugar at the beginning.
 
-In technology, the timeline goes from left to right (Plan ➔ Design ➔ Build ➔ Production). Shifting left means moving accessibility checks to the very beginning of the project (the left side), instead of waiting until the end to test it. Finding an accessibility bug during the design phase is incredibly cheap and fast to fix. Finding it right before the website goes live is expensive and frustrating!
+In technology, the timeline goes from left to right (Plan, then Design, then Build, then Production). Shifting left means moving accessibility checks to the very beginning of the project (the left side), instead of waiting until the end to test it. Finding an accessibility bug during the design phase is incredibly cheap and fast to fix. Finding it right before the website goes live is expensive and frustrating!
 
 Shifting left is a team habit, built by teams talking to each other and asking questions early. No special software is needed.
 

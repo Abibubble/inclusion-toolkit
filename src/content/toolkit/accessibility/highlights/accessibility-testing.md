@@ -1,3 +1,7 @@
+### In short
+
+Testing checks that disabled people can use what you make, so you find problems before they do. Automated tools only find about 30% of issues. Use them alongside manual checks and testing with disabled people, which is the best way.
+
 ### What is it for?
 
 Accessibility Testing is the process of checking a digital product to ensure it can be used by people with disabilities. Its purpose is to find and fix barriers before your users do.
@@ -21,7 +25,7 @@ A good strategy combines three types of testing:
    - This is when a human checks the product against accessibility criteria
    - It can be used to find issues that automation misses. Key checks include keyboard-only navigation (can you Tab to everything?) and screen reader testing (does it make sense when read aloud?)
 3. User Testing (with people with disabilities)
-   - This is the gold standard. Observing people with a range of disabilities as they try to complete tasks on your product
+   - This is the best way to test. Observing people with a range of disabilities as they try to complete tasks on your product
    - It can be used to find real-world usability barriers that technical checks miss. It's the only way to know if your product is truly usable
 
 ### Useful links

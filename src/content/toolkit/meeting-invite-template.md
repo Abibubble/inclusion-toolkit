@@ -1,4 +1,4 @@
-### Meeting invite template
+### How to use this template
 
 Anything in square brackets, \[like this\], should be edited to be relevant to your meeting.
 
@@ -6,7 +6,7 @@ Anything in square brackets, \[like this\], should be edited to be relevant to y
 
 If you have any accessibility requirements, please let us know in advance, and we will do our best to accommodate them.
 
-Closed captions and a transcript can be turned on via the Zoom meeting controls (these may be hidden behind the ‘More’ button in the bottom bar of your Zoom window). \[Edit this if you’re not using Zoom\]
+Closed captions and a transcript can be turned on using the Zoom meeting controls (these may be hidden behind the ‘More’ button in the bottom bar of your Zoom window). \[Edit this if you’re not using Zoom\]
 
 #### Meeting topic
 
@@ -32,7 +32,7 @@ Closed captions and a transcript can be turned on via the Zoom meeting controls 
 
 \[Remote / Hybrid / Office\]
 
-#### Information about cameras on/off request
+#### Cameras
 
 \[For example: We’d love to see your faces, but cameras are entirely optional\]
 

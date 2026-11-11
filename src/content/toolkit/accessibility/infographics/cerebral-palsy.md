@@ -1,6 +1,10 @@
+### In short
+
+Cerebral palsy affects muscles and movement for life. It doesn’t get worse over time, and it isn’t a sign of low intelligence. Give extra time for typing and other tasks that need careful hand movements.
+
 ### Symptoms
 
-- Muscles that feel very stiff and tight or, conversely, very floppy.
+- Muscles that feel very stiff and tight or the opposite, very floppy.
 - Tremors or jerky, clumsy movements that are difficult to control.
 - Challenges with balance, coordination, and fine motor skills.
 
@@ -9,7 +13,7 @@
 - It’s a lifelong condition caused by brain damage before, during, or shortly after birth.
 - It's slightly more common in males.
 
-### Misconceptions
+### Common myths
 
 - It’s not a progressive disease, and it doesn't get worse over time.
 - It’s not a sign of low intelligence. Many people have average or high IQs.
@@ -25,7 +29,7 @@
 - Physiotherapy helps to improve strength, gait, and flexibility.
 - Speech therapy assists with communication and any swallowing difficulties.
 
-### Support
+### How to help
 
 - Ensure the environment is physically accessible.
 - Allow extra time for tasks that require fine motor skills or typing.

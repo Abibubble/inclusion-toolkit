@@ -1,3 +1,7 @@
+### In short
+
+Choose words that respect everyone, whatever their disability, race, gender, age, or wealth. Don’t use disability words in a negative way, like ‘lame’ or ‘crazy’. Use neutral words like ‘everyone’ instead of ‘guys’, and write in plain language.
+
 ### What is it for?
 
 Inclusive language means using words that respect everyone. It avoids words that leave out, sideline, or put down groups of people, for example because of disability, race, gender, sexuality, age, or wealth.

@@ -1,3 +1,7 @@
+### In short
+
+Screen readers aren’t the only tools disabled people use. Others include screen magnifiers, switch devices, and voice control. Make sure everything works with a keyboard, use clear labels, and check that zooming in doesn’t break your layout.
+
 ### What is it for?
 
 Assistive Technology (AT) is any tool that helps people with disabilities use a computer. It's not just screen readers! Many users rely on other tools to navigate the web. Examples include:

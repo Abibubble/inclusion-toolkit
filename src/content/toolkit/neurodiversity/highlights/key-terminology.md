@@ -1,4 +1,8 @@
-### Let’s talk about it
+### In short
+
+Neurodiversity, neurodiverse, and neurodivergent sound alike, but they mean different things. Use neurodiverse for a group, and neurodivergent for one person. Using the right word shows respect.
+
+### Overview
 
 You might have heard words like 'neurodiversity', 'neurodiverse', and 'neurodivergent'. They all sound similar, but they mean different things. Using the right word is important. It shows respect and helps us be clear. Using the wrong word can be confusing for everyone.
 
@@ -16,7 +20,7 @@ This is why being mindful of our words is essential for showing respect and buil
 - Do use 'neurodiverse' when describing a group (for example, 'We are proud to have a neurodiverse team')
 - Do use 'neurodivergent' when describing an individual (for example, 'This is a resource for our neurodivergent colleagues')
 - Avoid calling a person 'neurodiverse' (that's for groups)
-- Avoid calling a person 'a neurodivergent' (it's an adjective, not a noun). Instead, say 'a neurodivergent person' or 'they are neurodivergent'
+- Avoid calling a person 'a neurodivergent' (it describes a person, it isn’t a name for one). Instead, say 'a neurodivergent person' or 'they are neurodivergent'
 
 ### Useful links
 

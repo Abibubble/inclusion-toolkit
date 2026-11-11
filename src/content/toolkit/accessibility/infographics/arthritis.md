@@ -1,3 +1,7 @@
+### In short
+
+Arthritis causes pain, stiffness, and swelling in the joints. It doesn’t only affect older people, and the pain can be severe. Flexible breaks and equipment like padded keyboards help.
+
 ### Symptoms
 
 - Persistent joint pain, tenderness, and stiffness.
@@ -9,9 +13,9 @@
 - Most common in people over 40, though it can start at any age.
 - Females are more likely to develop both osteoarthritis and rheumatoid arthritis.
 
-### Misconceptions
+### Common myths
 
-- It's not just 'wear and tear' from getting older.
+- It's not just the body wearing out with age.
 - It's not just a few aches. It can cause severe, debilitating pain.
 - It doesn't only affect the elderly.
 
@@ -25,7 +29,7 @@
 - Painkillers and anti-inflammatory drugs help manage daily symptoms.
 - Physiotherapy improves joint flexibility and strengthens the surrounding muscles.
 
-### Support
+### How to help
 
 - Provide ergonomic equipment like vertical mice or padded keyboards.
 - Allow for flexible breaks if they need to move or rest stiff joints.

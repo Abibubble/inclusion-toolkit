@@ -1,3 +1,7 @@
+### In short
+
+Seizures in epilepsy can mean shaking, or just staring blankly for a short time. Flashing lights cause seizures in only about 3 in 100 people with epilepsy. Learn seizure first aid, never put anything in their mouth, and stay until they’re fully alert.
+
 ### Symptoms
 
 - Seizures involving shaking or jerking.
@@ -9,11 +13,11 @@
 - It can start at any age, but it's most commonly diagnosed in children and people over 65.
 - It affects all genders equally.
 
-### Misconceptions
+### Common myths
 
 - It’s not always a visible fit, as some seizures look like brief daydreaming.
 - It’s rarely triggered by flashing lights, which only affects about 3% of people with epilepsy.
-- Don't put objects in their mouth, as it isn’t possible to swallow your tongue.
+- It’s a myth that people can swallow their tongue during a seizure, so never put anything in their mouth.
 
 ### Diagnosis
 
@@ -25,7 +29,7 @@
 - Anti-epileptic drugs are the most common way to prevent seizures.
 - Emergency medication can be used to stop a seizure that lasts too long.
 
-### Support
+### How to help
 
 - Learn the specific first aid for different types of seizures.
 - Stay with the person until they have fully recovered and are alert.

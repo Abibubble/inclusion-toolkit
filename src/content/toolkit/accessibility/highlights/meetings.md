@@ -1,3 +1,7 @@
+### In short
+
+With a few changes, meetings can work better for neurodivergent people and people with anxiety. Send all the details before the meeting, and ask if anyone has access needs. Make meetings 5 to 10 minutes shorter, and tell people they can turn on captions.
+
 ### What is it for?
 
 Meetings are part of most workdays, and there are many ways to make them fully accessible and inclusive. This helps everyone, but it can be especially impactful for:
@@ -8,7 +12,7 @@ Meetings are part of most workdays, and there are many ways to make them fully a
 
 ### How to support it
 
-Start with an inclusive meeting invite, such as this [inclusive meeting invite template](/meeting-invite-template). Ask attendees whether they have any accessibility requirements, and let them know which accessibility features are available during the meeting. Give all the details about the meeting up front. This gives people time to prepare, read anything they need to, and understand what is being asked of them. Say whether it's a remote, hybrid, or in-person meeting, and whether the meeting will be recorded or not.
+Start with an inclusive meeting invite, such as this [inclusive meeting invite template](/meeting-invite-template). Ask attendees whether they have any accessibility requirements, and let them know which accessibility features are available during the meeting. Give all the details about the meeting before it starts. This gives people time to prepare, read anything they need to, and understand what is being asked of them. Say whether it's a remote, hybrid, or in-person meeting, and whether the meeting will be recorded or not.
 
 Some other things you can consider are:
 

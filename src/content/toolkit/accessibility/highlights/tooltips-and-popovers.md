@@ -1,3 +1,7 @@
+### In short
+
+Extra information that pops up, like a tooltip, often only works with a mouse. Make it show on keyboard focus too, and make sure screen readers announce it. Let people close it with the Escape key.
+
 ### What is it for?
 
 Tooltips and popovers give users extra information on demand (like for an icon button). But they often fail accessibility by being:

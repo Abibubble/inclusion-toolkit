@@ -1,3 +1,7 @@
+### In short
+
+With OCD, unwanted thoughts cause anxiety, and repeated actions or thoughts only ease it for a short time. It’s a serious condition, and people can’t simply choose to stop. Don’t rush or criticise them, and don’t join in with rituals or offer reassurance.
+
 ### Symptoms
 
 - Unwanted, intrusive thoughts causing anxiety.
@@ -10,10 +14,10 @@
 - Affects males and females roughly equally.
 - The average diagnosis occurs 9 to 13 years after initial symptoms start.
 
-### Misconceptions
+### Common myths
 
 - It’s a serious condition, not just liking things neat.
-- People cannot simply 'snap out of it' or choose to stop.
+- People can’t simply choose to stop.
 - People with OCD often know their fears are irrational but still feel the anxiety.
 
 ### Diagnosis
@@ -22,13 +26,13 @@
 - Doctors use medical criteria to identify obsessions and compulsions.
 - Diagnosed when symptoms significantly impact daily life.
 
-### Support options
+### Professional support
 
 - CBT with exposure therapy helps face fears without rituals.
 - Antidepressants called selective serotonin reuptake inhibitors can reduce symptom intensity.
 - Peer support groups help reduce isolation.
 
-### Support
+### How to help
 
 - Do not criticise or rush them during a ritual.
 - Do not join in with their compulsions or offer reassurance.

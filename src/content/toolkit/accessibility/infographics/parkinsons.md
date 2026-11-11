@@ -1,3 +1,7 @@
+### In short
+
+People with Parkinson’s may shake, move slowly, and have stiff muscles, and speech and mood can change too. It’s not a normal part of getting older. Give them time to speak or move, and don’t finish their sentences.
+
 ### Symptoms
 
 - Involuntary shaking of parts of the body (tremors).
@@ -9,7 +13,7 @@
 - Most people develop symptoms after the age of 50.
 - Males are about 1.5 times more likely to have the condition than females.
 
-### Misconceptions
+### Common myths
 
 - It’s not just 'the shakes', it affects speech and mood too.
 - It’s not a normal part of ageing.
@@ -27,7 +31,7 @@
 - Physiotherapy helps with mobility and prevents falls.
 - Speech therapy assists with communication or swallowing issues.
 
-### Support
+### How to help
 
 - Give them plenty of time to speak or move without rushing them.
 - Do not finish their sentences or speak for them.

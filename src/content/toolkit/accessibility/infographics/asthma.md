@@ -1,3 +1,7 @@
+### In short
+
+Asthma makes breathing hard and can cause wheezing and coughing. Attacks can put someone’s life at risk. Keep the workplace free of smoke and strong scents, and let them have their inhaler at all times.
+
 ### Symptoms
 
 - Breathlessness and a tight feeling in the chest.
@@ -9,7 +13,7 @@
 - It can start at any time. Adult-onset asthma is very common.
 - It's more common in males during childhood, but more common in females as adults.
 
-### Misconceptions
+### Common myths
 
 - It's not just a childhood condition. It can develop at any age.
 - It's not 'just a bit of panting'. Attacks can be life-threatening.
@@ -25,7 +29,7 @@
 - Reliever inhalers provide quick relief during an attack or flare-up.
 - Preventer inhalers are used daily to reduce inflammation in the airways.
 
-### Support
+### How to help
 
 - Ensure the workplace is free from strong scents, dust, or smoke.
 - Allow them to keep their inhaler with them at all times.

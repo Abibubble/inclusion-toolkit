@@ -1,6 +1,10 @@
+### In short
+
+Captions show spoken words and sounds in time with a video. Transcripts are the full text of the audio, often for podcasts. Turn on captions in video and meeting tools, and check automatic transcripts before you share them.
+
 ### What is it for?
 
-Captions are timed text that appears with a video to show spoken words, music, and sounds, helping viewers who are deaf or hard of hearing. Transcripts are full-text versions of the audio, not timed, and often used for audio-only content like podcasts. The main difference is that captions are synced to the video, while transcripts are not.
+Captions are timed text that appears with a video to show spoken words, music, and sounds, helping viewers who are deaf or hard of hearing. Transcripts are full-text versions of the audio, not timed, and often used for audio-only content like podcasts. The main difference is that captions are timed to match the video, while transcripts are not.
 
 While subtitles (a form of captions) are now being used widely by younger generations, captions and transcripts are incredibly important for users with accessibility needs. They are most important for:
 

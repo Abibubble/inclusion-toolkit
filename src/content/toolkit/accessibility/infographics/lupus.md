@@ -1,3 +1,7 @@
+### In short
+
+With lupus, people can have extreme tiredness, joint pain, and a rash across the cheeks and nose. It can’t be passed to others, and it can affect organs inside the body. Limit bright lights, which can cause flare-ups, and offer flexible deadlines.
+
 ### Symptoms
 
 - Extreme fatigue that doesn't improve with rest or sleep.
@@ -9,7 +13,7 @@
 - Most commonly diagnosed in females between the ages of 15 and 45.
 - Females are nine times more likely to develop the condition than males.
 
-### Misconceptions
+### Common myths
 
 - It’s not a contagious disease.
 - It’s not just a skin condition, as it can affect internal organs.
@@ -25,7 +29,7 @@
 - Anti-inflammatory drugs and antimalarials help manage pain and skin issues.
 - Immunosuppressants are used in more severe cases to stop self-attack.
 
-### Support
+### How to help
 
 - Limit exposure to bright lights which can trigger flares.
 - Offer flexible deadlines to accommodate sudden, severe fatigue.

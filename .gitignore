@@ -184,3 +184,13 @@ lighthouse-report
 
 # Personal list of future work that's blocked or waiting on something
 /TODO.md
+
+# The toolkit's file scripts. Only the scripts and the 9 source files they're edited in are
+# committed. The scripts make everything else, and the files the site uses are in public/files
+/toolkit-sources/build/
+__pycache__/
+/toolkit-sources/branded/**/*.*
+!/toolkit-sources/branded/*.docx
+!/toolkit-sources/branded/highlights/*/*-highlights.docx
+!/toolkit-sources/branded/highlights/*/*-highlights.pptx
+!/toolkit-sources/branded/infographics/*/*-infographics.pptx

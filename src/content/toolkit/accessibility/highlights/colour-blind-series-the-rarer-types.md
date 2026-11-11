@@ -1,8 +1,12 @@
+### In short
+
+A few people see no colour at all, only shades of grey. This is called achromatopsia, and it’s very rare. Anything shown only through colour will be missed, so always add icons, labels, patterns, or words.
+
 ### What is it for?
 
-Earlier entries in this series covered Protanopia, Deuteranopia, and Tritanopia. These are the full loss of red, green, and blue colour vision. But colour blindness has a range, and there are other forms worth knowing about.
+Earlier entries in this series covered protanopia, deuteranopia, and tritanopia. These are the full loss of red, green, and blue colour vision. But colour blindness has a range, and there are other forms worth knowing about.
 
-Achromatopsia is complete colour blindness, meaning a person sees the world entirely in greyscale. It is very rare. People with it are often sensitive to light and cannot see fine detail clearly.
+Achromatopsia is complete colour blindness, meaning a person sees the world entirely in greyscale. It's very rare. People with it are often sensitive to light and cannot see fine detail clearly.
 
 Achromatopsia is one type of monochromacy. Another type is blue cone monochromacy, where only one type of colour sensing cell works at all. This leaves very little colour vision.
 
@@ -12,7 +16,7 @@ These conditions lead to the same design lesson as the rest of the series. If so
 
 The key principle is that colour should always be paired with another visual cue.
 
-- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour-blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
+- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use a colour blind simulation tool, such as [Web Disability Simulator for Chrome](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla), to check designs before they are built.
 - Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 

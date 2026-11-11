@@ -1,3 +1,7 @@
+### In short
+
+Multiple sclerosis can cause tiredness, numbness, blurred sight, and problems with balance and walking. Most people with it can expect to live a normal length of life. Keep spaces cool, as heat often makes symptoms worse, and be patient with changes in energy.
+
 ### Symptoms
 
 - Fatigue, balance issues, and difficulty walking or moving.
@@ -9,7 +13,7 @@
 - Most commonly diagnosed in people aged 20 to 40.
 - Females are roughly three times more likely to have MS than males.
 
-### Misconceptions
+### Common myths
 
 - Most people with MS have a normal life expectancy.
 - It’s not contagious and cannot be passed to others.
@@ -27,7 +31,7 @@
 - Steroids are used to speed up recovery from sudden attacks.
 - Physiotherapy maintains strength and manages muscle stiffness.
 
-### Support
+### How to help
 
 - Avoid suggesting 'miracle diets' or simple lifestyle cures.
 - Provide a cool environment, as heat often makes symptoms worse.

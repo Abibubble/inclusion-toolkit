@@ -1,3 +1,7 @@
+### In short
+
+With dysgraphia, handwriting is hard to read and holding a pen can hurt. It isn’t just messy writing or laziness, and it doesn’t mean low intelligence. Let them type or use speech-to-text, and give printed notes so they don’t have to copy.
+
 ### Symptoms
 
 - Handwriting is often illegible and poorly spaced.
@@ -9,7 +13,7 @@
 - It is usually identified in early childhood when learning to write.
 - It affects all genders but is historically diagnosed more in males.
 
-### Misconceptions
+### Common myths
 
 - It is a neurological disconnect, not just 'messy handwriting' or laziness.
 - It does not mean a person has low intelligence.
@@ -20,13 +24,13 @@
 - Diagnosed by an Educational Psychologist or Occupational Therapist.
 - Assessments test fine motor skills and compare verbal ability to written output.
 
-### Support options
+### Professional support
 
 - There is no medication for dysgraphia.
 - Occupational therapy improves hand strength and pencil grip.
 - Peer support helps individuals share practical technology workarounds.
 
-### Support
+### How to help
 
 - Allow the use of typing or speech-to-text software.
 - Provide extra time for written tasks or accept verbal submissions.

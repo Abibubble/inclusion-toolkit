@@ -1,3 +1,7 @@
+### In short
+
+Autistic people may find social cues hard, need routine, and feel noise or light strongly. They do feel empathy, but may show it in different ways. Be direct, lower lights and noise, and give extra time to answer.
+
 ### Symptoms
 
 - Difficulty with eye contact, social cues or small talk.
@@ -10,7 +14,7 @@
 - Diagnosed more often in males.
 - Females are frequently missed because they are better at masking symptoms.
 
-### Misconceptions
+### Common myths
 
 - People with autism feel empathy, but may show it differently.
 - It’s a lifelong condition and not just for children.
@@ -21,13 +25,13 @@
 - Diagnosis is based on observing behaviour and developmental history.
 - Usually involves paediatricians, psychologists and speech therapists.
 
-### Support options
+### Professional support
 
 - Speech and Occupational Therapy help with daily living skills.
 - There's no medication for autism itself.
 - Peer support groups are vital for mental health.
 
-### Support
+### How to help
 
 - Be direct and literal. Avoid sarcasm or hints.
 - Lower lights and noise to reduce sensory overwhelm.

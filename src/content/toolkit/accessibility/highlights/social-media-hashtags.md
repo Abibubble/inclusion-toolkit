@@ -1,3 +1,7 @@
+### In short
+
+Start each word in a hashtag with a capital letter, like #SocialMediaMarketing. This helps screen readers say it correctly, and it’s easier for everyone to read. Keep hashtags short and put them at the end of your post.
+
 ### What is it for?
 
 Imagine trying to read a sentence where all the spaces have been removed. It would look like a jumble of letters that takes real effort to decipher. That is exactly what a screen reader encounters when it reads a hashtag written entirely in lowercase.

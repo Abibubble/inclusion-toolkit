@@ -1,3 +1,7 @@
+### In short
+
+Inside a pop-up, a focus trap stops the Tab key moving to the page behind it. People must always be able to leave, for example by pressing Escape. Use a ready-made accessible component, and check your pages with only a keyboard.
+
 ### What is it for?
 
 A focus trap keeps keyboard focus inside one part of the page while it's open, such as a modal. Pressing Tab only moves between the items inside it, so the user doesn't get lost on the page behind it. A good focus trap always lets the user leave, for example by pressing Escape or using a close button.

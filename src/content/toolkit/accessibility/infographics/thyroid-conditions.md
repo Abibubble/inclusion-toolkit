@@ -1,3 +1,7 @@
+### In short
+
+Thyroid conditions change hormone levels, which can cause tiredness, weight changes, and trouble thinking. The lack of energy is real, not laziness. Flexible start times and written instructions help.
+
 ### Symptoms
 
 - Weight changes, extreme fatigue, and sensitivity to cold or heat.
@@ -9,7 +13,7 @@
 - Thyroid issues are much more common in females than in males.
 - They can develop at any age, though risk increases as you get older.
 
-### Misconceptions
+### Common myths
 
 - It’s not just a 'weight issue', as it affects heart rate and mood.
 - It’s not always solved instantly by a single pill.
@@ -25,7 +29,7 @@
 - Daily hormone replacement tablets are used to balance levels.
 - Regular blood tests ensure the dosage remains effective over time.
 
-### Support
+### How to help
 
 - Offer temperature-controlled spaces for heat or cold sensitivity.
 - Allow flexible start times to help with morning fatigue.

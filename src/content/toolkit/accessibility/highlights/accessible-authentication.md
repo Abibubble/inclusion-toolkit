@@ -1,3 +1,7 @@
+### In short
+
+Signing in should never depend on puzzles or remembering lots of details. Let people paste passwords, use password managers, and choose other ways to sign in. This makes signing in safer and easier for everyone.
+
 ### What is it for?
 
 When people can't use a login page, the harm can be serious. It can take away their right to privacy, security, and independence.

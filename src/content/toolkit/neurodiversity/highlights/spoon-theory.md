@@ -1,6 +1,10 @@
-### Let’s talk about it
+### In short
 
-Spoon theory is a way to explain living with limited energy. A writer named [Christine Miserandino](https://lymphoma-action.org.uk/sites/default/files/media/documents/2020-05/Spoon%20theory%20by%20Christine%20Miserandino.pdf) created it to describe chronic illness, but the neurodivergent community uses it a lot now.
+Each day, some people start with less energy than others, and simple tasks can use up more of it. Spoon theory uses spoons to stand for this energy. Respect it when a colleague says they’re ‘low on spoons’, and keep meetings short.
+
+### Overview
+
+Spoon theory is a way to explain living with limited energy. A writer named Christine Miserandino created it to describe chronic illness, in [her essay, The Spoon Theory (PDF)](https://lymphoma-action.org.uk/sites/default/files/media/documents/2020-05/Spoon%20theory%20by%20Christine%20Miserandino.pdf), but the neurodivergent community uses it a lot now.
 
 Imagine you start the day with twelve spoons, but a colleague might start with twenty. Every single task costs spoons, like getting dressed or answering an email. However, a task that takes one spoon for you might take four spoons for someone else. Once you're out of spoons, you've got no energy left for anything else. You can sometimes borrow spoons from tomorrow if you really need to, but that leaves you at serious risk of burnout.
 

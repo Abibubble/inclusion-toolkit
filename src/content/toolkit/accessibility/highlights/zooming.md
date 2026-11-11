@@ -1,3 +1,7 @@
+### In short
+
+People with low vision often need to make text and images bigger. When someone zooms in to 400%, the page should rearrange so they don’t have to scroll sideways. Never block pinch-to-zoom on phones.
+
 ### What is it for?
 
 Some people need to make the text and images on a website bigger to see them clearly. Pages must support this. When a user zooms in, the content should automatically rearrange itself to fit the screen. This is often called 'reflow'. A good page will reflow so that users never have to scroll from side to side to read a single sentence. This is very important for creating a positive experience for people with low vision.

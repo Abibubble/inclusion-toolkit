@@ -1,6 +1,10 @@
+### In short
+
+Some fonts are hard to read, especially for people with dyslexia or low vision. Readers may mix up letters that look alike, like b and d. Choose a font where letters and numbers like I, l, and 1 look clearly different.
+
 ### What is it for?
 
-Fonts are used everywhere, whether that's in a Word document, in a design, in a slide deck, or on a website. Not all fonts are created equal. Many people will have come across Wingdings and similar fonts (Wingdings has an interesting history; for more information, see [an article on Wingdings font history](https://www.vox.com/2015/8/25/9200801/wingdings-font-history)), so we're all aware of fonts that are completely unreadable. However, some fonts may appear to be easy to read to some, but incredibly challenging for others.
+Fonts are used everywhere, whether that's in a Word document, in a design, in a slide deck, or on a website. Some fonts are much easier to read than others. Many people will have come across Wingdings and similar fonts (Wingdings has an interesting history; for more information, see [an article on Wingdings font history](https://www.vox.com/2015/8/25/9200801/wingdings-font-history)), so we're all aware of fonts that are completely unreadable. However, some fonts may appear to be easy to read to some, but incredibly challenging for others.
 
 Fonts are impactful to everyone, but especially for the following people:
 

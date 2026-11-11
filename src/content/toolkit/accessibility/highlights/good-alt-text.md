@@ -1,9 +1,13 @@
+### In short
+
+An image description should explain why the image is there, not only what it shows. Think about what someone would miss if the image didn’t load. Avoid vague words like ‘chart’, and describe the details that matter to the page.
+
 ### What is it for?
 
-While basic alt text just labels an image, good alt text explains its purpose. It bridges the gap between seeing a visual and understanding why it is there.
+While basic alt text just labels an image, good alt text explains its purpose. It helps people understand why an image is there, even if they can’t see it.
 
 - Delivers the exact message, data, or emotion the image is meant to convey
-- Provides an equivalent user experience instead of just ticking a compliance box
+- Provides an equivalent user experience instead of just following a rule
 - Prevents confusion caused by vague descriptions like ‘chart’ or ‘screenshot’
 - Focuses only on the details that matter to the surrounding text
 

@@ -1,3 +1,7 @@
+### In short
+
+In this milder form of colour blindness, all three types of colour cell work, but one is weak. This makes some colours harder to tell apart, most often red and green. Always add icons, labels, patterns, or words so meaning isn’t shown by colour alone.
+
 ### What is it for?
 
 Earlier entries in this series covered full colour blindness, where one type of colour sensing cell is missing. Anomalous trichromacy is different. All three types of colour sensing cells are present, but one of them does not function as strongly as it should. The result is weakened rather than absent colour vision.
@@ -16,7 +20,7 @@ This is milder than full colour blindness, so people with anomalous trichromacy 
 
 The key principle is that colour should always be paired with another visual cue.
 
-- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour-blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
+- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use a colour blind simulation tool, such as [Web Disability Simulator for Chrome](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla), to check designs before they are built.
 - Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 

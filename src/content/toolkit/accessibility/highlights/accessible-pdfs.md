@@ -1,3 +1,7 @@
+### In short
+
+PDFs can be made more accessible by turning on tagging, using good contrast, and testing with a screen reader. But they still don’t fit different screen sizes, so they’re hard to use on phones. Where you can, use a web page or another format instead.
+
 This highlight is about how to make PDFs accessible, and why an alternative is preferred, even after making a PDF accessible.
 
 ### What is it for?

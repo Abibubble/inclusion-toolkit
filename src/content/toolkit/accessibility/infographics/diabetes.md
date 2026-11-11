@@ -1,3 +1,7 @@
+### In short
+
+Diabetes affects sugar levels in the blood, and both types are serious. It isn’t caused just by eating too much sugar. Allow breaks to check blood sugar or eat, and learn the signs of low blood sugar.
+
 ### Symptoms
 
 - Feeling very thirsty and passing urine more often than usual.
@@ -9,7 +13,7 @@
 - Type 1 often appears in childhood, while Type 2 is more common in adults.
 - It affects all genders, though males are at a slightly higher risk for Type 2.
 
-### Misconceptions
+### Common myths
 
 - It’s not caused by just eating too much sugar.
 - It’s not 'the bad kind' or 'the easy kind'. Both types are serious.
@@ -25,7 +29,7 @@
 - Insulin injections or pumps are required for Type 1.
 - Tablets or lifestyle changes often manage Type 2.
 
-### Support
+### How to help
 
 - Provide a private, clean space if they need to inject insulin.
 - Allow breaks for them to check blood sugar or eat a snack.

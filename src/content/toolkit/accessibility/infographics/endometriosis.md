@@ -1,3 +1,7 @@
+### In short
+
+Endometriosis can cause severe pelvic pain, very heavy periods, and tiredness. It’s not just bad period pain, and on average people wait eight years to find out they have it. Easy toilet access, and working from home on painful days, help.
+
 ### Symptoms
 
 - Chronic pelvic pain that is often severe and debilitating.
@@ -7,9 +11,8 @@
 ### Age & Gender
 
 - It can affect any female or person assigned female at birth from puberty to menopause.
-- Most people wait an average of eight years for a correct diagnosis.
 
-### Misconceptions
+### Common myths
 
 - It’s not just 'bad period cramps', but a systemic inflammatory condition.
 - It’s not cured by pregnancy or having a hysterectomy.
@@ -17,6 +20,7 @@
 
 ### Diagnosis
 
+- Most people wait an average of eight years for a correct diagnosis.
 - Laparoscopy (keyhole surgery) is the only way to diagnose it for certain.
 - MRI scans can sometimes identify deep endometriosis or cysts.
 
@@ -25,7 +29,7 @@
 - Hormone treatments or the pill can help to manage pain and bleeding.
 - Keyhole surgery is used to remove or destroy endometrial tissue.
 
-### Support
+### How to help
 
 - Provide easy access to toilets and comfortable, private rest areas.
 - Allow for flexible working or home working during painful flare-ups.

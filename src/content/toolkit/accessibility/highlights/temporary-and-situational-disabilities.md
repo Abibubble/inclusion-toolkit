@@ -1,3 +1,7 @@
+### In short
+
+Disability isn’t always permanent. A broken arm, or bright sun on a phone screen, can cause the same problems. Designing for disabled people helps everyone in these situations too.
+
 ### What is it for?
 
 People often link accessibility with permanent disabilities. For example, someone born without the use of their hands, or someone who lost their sight later in life. But disability exists on a much wider spectrum.
@@ -12,7 +16,7 @@ Temporary and situational disabilities are a key part of the Microsoft Inclusive
 
 ### How to support it
 
-Thinking beyond permanent disability unlocks a much bigger picture. Designing for the extremes means everyone in the middle benefits too.
+Thinking beyond permanent disability helps you design for many more people. Designing for the extremes means everyone in the middle benefits too.
 
 - Designers can ask 'what if someone is doing this in harsh sunlight?' when checking colour contrast. This helps someone with low vision just as much as someone on a sunny day.
 - Developers can add captions to all video content. Essential for someone who is d/Deaf, but also useful for anyone watching without headphones.
@@ -22,5 +26,5 @@ The more teams think this way, the harder it becomes to see accessibility as a n
 
 ### Useful links
 
-- [Microsoft Inclusive Design: Recognizing Exclusion](https://inclusive.microsoft.design/)
+- [Microsoft Inclusive Design](https://inclusive.microsoft.design/)
 - [World Wide Web Consortium (W3C): Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/)

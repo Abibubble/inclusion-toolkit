@@ -1,4 +1,8 @@
-### Let’s talk about it
+### In short
+
+Hiding natural traits to fit in is called masking, and many neurodivergent people do it. It’s very tiring and can lead to burnout. Don’t judge habits like fidgeting, and focus on the quality of someone’s work.
+
+### Overview
 
 Masking is when neurodivergent people hide their natural traits to fit in. It's often a constant performance to meet social expectations. It's like wearing a mask to hide things like stimming or social anxiety. Here are a few reasons why it's a challenge:
 
@@ -17,4 +21,4 @@ You can help to create a more inclusive space where everyone feels safe enough t
 ### Useful links
 
 - [National Autistic Society: Masking](https://www.autism.org.uk/advice-and-guidance/behaviour/masking)
-- [Dropping the mask takes two](https://www.bps.org.uk/research-digest/dropping-mask-takes-two)
+- [British Psychological Society: Dropping the mask takes two](https://www.bps.org.uk/research-digest/dropping-mask-takes-two)

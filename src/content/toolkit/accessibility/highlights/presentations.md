@@ -1,3 +1,7 @@
+### In short
+
+Everyone watching should be able to get the information in your slides. Send the slides before the meeting, and add descriptions to every image. Use a plain font at least 18 point in size, and check your colour contrast.
+
 ### What is it for?
 
 Most people will have to give a presentation at some point. Presentations are used to convey information, so it's incredibly important that everyone can get the information being provided.
@@ -20,4 +24,4 @@ Here are a few suggestions:
 ### Useful links
 
 - [Making presentations more accessible](https://www.reading.ac.uk/digital-accessibility/resources/making-presentations-more-accessible)
-- [NHS England: Making meetings accessible](https://www.england.nhs.uk/learning-disabilities/about/get-involved/involving-people/making-meetings-accessible/#presentations)
+- [NHS England: Making meetings accessible, presentations section](https://www.england.nhs.uk/learning-disabilities/about/get-involved/involving-people/making-meetings-accessible/#presentations)

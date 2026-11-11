@@ -1,8 +1,12 @@
-### Let’s talk about it
+### In short
+
+Bright or flickering lights can cause eye strain, migraines, and stress for some neurodivergent people. Coping with them takes a lot of energy. Let people sit in dimmer areas, use desk lamps, and wear sunglasses or caps indoors.
+
+### Overview
 
 Harsh lighting can completely drain a person's focus without them even realising why. For many neurodivergent individuals, visual environments are often much more intense. Standard office lighting can easily trigger severe eye strain, migraines, or a state of constant anxiety.
 
-Older fluorescent tubes are a frequent culprit because they actually flicker. While most people don't notice it, some neurodivergent brains process this rapid pulsing, which can feel like sitting under a strobe light all day. Bright glare from a window or a screen that's too bright can also become an impossible distraction. It leaves the nervous system working overtime just to cope with the brightness.
+Older fluorescent tubes are a common cause because they actually flicker. While most people don't notice it, some neurodivergent brains process this rapid pulsing, which can feel like sitting under a strobe light all day. Bright glare from a window or a screen that's too bright can also become an impossible distraction. It leaves the nervous system working much harder than usual just to cope with the brightness.
 
 Adjusting the visual environment helps prevent the hidden exhaustion that comes from simply sitting in a brightly lit room.
 

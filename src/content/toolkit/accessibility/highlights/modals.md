@@ -1,3 +1,7 @@
+### In short
+
+A modal is a pop-up that shows extra information when someone chooses to open it. Move keyboard focus into it, and return focus to where it was when it closes. The HTML dialog element does a lot of this for you.
+
 ### What is it for?
 
 Modals are manually triggered pop-ups that provide extra information. For example, a shop might use a modal to explain what each condition grade of a refurbished phone means, opened from a link next to the grades.

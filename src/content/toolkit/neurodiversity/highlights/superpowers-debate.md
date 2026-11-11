@@ -1,4 +1,8 @@
-### Let’s talk about it
+### In short
+
+Calling neurodivergence a ‘superpower’ is meant kindly, but it can hide the support people need. It can also put pressure on people to be amazing. Praise a specific skill instead, and only use the word if the person does.
+
+### Overview
 
 You might hear people say that being neurodivergent is a 'superpower'. While this is usually meant as a compliment, the community has mixed feelings about it.
 
@@ -12,7 +16,7 @@ Recognising strengths is great, but it's also important to acknowledge the barri
 
 - Let the person decide. If someone calls their own neurodivergence a superpower, that's their choice. If they don't, don't use that term with them
 - Be specific about strengths. Instead of using 'superpower', try complimenting a specific skill like great problem-solving or creative thinking
-- Offer support regardless. Make sure people feel valued for who they are, even on days when they aren't feeling super
+- Offer support regardless. Make sure people feel valued for who they are, even on their hard days
 
 ### Useful links
 

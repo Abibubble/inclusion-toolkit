@@ -1,3 +1,7 @@
+### In short
+
+Moving slides are easy to miss and hard to control, especially without a mouse. Most people never look past the first slide anyway. Show the content in a list or grid instead, or never let slides move on their own.
+
 ### What is it for?
 
 A carousel is a sliding banner that automatically cycles through images or messages on a webpage, like a digital billboard. They are very common on websites, but they cause a lot of accessibility problems.
@@ -10,7 +14,7 @@ There is also a simpler problem: research shows that most people ignore carousel
 
 The best solution is often to not use a carousel. Showing content in a simple list or grid means everyone can see it, without any of the accessibility problems.
 
-When a carousel is truly needed, it should never move on its own without the user choosing to advance it. The controls need to be big, clear, and work with a keyboard as well as a mouse. And nothing important should only appear inside a carousel.
+When a carousel is truly needed, it should never move on its own without the user choosing to move it on. The controls need to be big, clear, and work with a keyboard as well as a mouse. And nothing important should only appear inside a carousel.
 
 ### Useful links
 

@@ -1,3 +1,7 @@
+### In short
+
+Migraine causes severe headaches, feeling sick, and strong sensitivity to light, sound, or smells. It’s a condition of the brain and nerves, not just a bad headache. Quiet rooms with dimmable lights and flexible deadlines can help.
+
 ### Symptoms
 
 - Severe, throbbing headaches often with nausea or vomiting.
@@ -9,11 +13,11 @@
 - Most common in people aged 35 to 45, though it affects all age groups.
 - Females are three times more likely to experience migraines than males.
 
-### Misconceptions
+### Common myths
 
 - It’s not just a 'bad headache', but a neurological condition.
 - It’s not caused by stress alone, though stress can be a trigger.
-- It’s not possible to just 'push through' an attack.
+- It’s not possible to just carry on as normal during an attack.
 
 ### Diagnosis
 
@@ -25,7 +29,7 @@
 - Triptans and specific painkillers are taken at the start of an attack.
 - Preventative medications or Botox injections help reduce the frequency of chronic cases.
 
-### Support
+### How to help
 
 - Provide 'quiet rooms' with dimmable lights for use during an attack.
 - Use anti-glare screen filters and avoid strong office fragrances.

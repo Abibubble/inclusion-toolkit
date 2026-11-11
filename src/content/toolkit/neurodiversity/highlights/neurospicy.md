@@ -1,4 +1,8 @@
-### Let’s talk about it
+### In short
+
+Some people use ‘neurospicy’ as a light-hearted word for neurodivergent, but many people don’t like it. It can make real struggles sound small. If someone uses it about themselves, that’s fine, but don’t use it about others.
+
+### Overview
 
 You may have heard this word used as an informal, light-hearted way to say 'neurodivergent'. It's often used with good intentions, and some neurodivergent people use it about themselves. However, many people find the word problematic, and it can get in the way of clear and respectful conversation. For example:
 

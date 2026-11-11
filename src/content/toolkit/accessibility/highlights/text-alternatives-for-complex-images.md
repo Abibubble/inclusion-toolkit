@@ -1,3 +1,7 @@
+### In short
+
+Charts, graphs, and diagrams hold too much information for one short description. Give the image a short description that says what it is. Then put the full information nearby as text, such as a data table under a chart.
+
 ### What is it for?
 
 Standard 'alt text' is great for simple photos, but it often fails for complex data like charts, graphs, flowcharts, or infographics. A single sentence cannot convey all the information provided. People using screen readers (or anyone who struggles to process dense visual data) must be able to access the same information as everyone else.

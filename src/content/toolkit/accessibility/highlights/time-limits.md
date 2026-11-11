@@ -1,3 +1,7 @@
+### In short
+
+A time limit on a form or payment page can cause stress and stop people finishing. Screen reader users and people with cognitive disabilities often need more time. Always let people extend the time, and don’t make warnings scary.
+
 ### What is it for?
 
 Time limits refer to when a page sets a time limit on doing a certain action. This is often seen while filling in forms, or whilst making a purchase. When using time limits, allow sufficient time for users to complete tasks, read content, or interact with digital interfaces.

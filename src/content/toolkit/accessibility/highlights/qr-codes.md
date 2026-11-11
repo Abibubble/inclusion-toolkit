@@ -1,6 +1,10 @@
+### In short
+
+Blind people may not be able to find a QR code, and wheelchair users may not reach it. Always put a short web address and a clear description next to it. Make codes large and high contrast, and avoid them when you can.
+
 ### What is it for?
 
-A QR (Quick Response) code is a type of two-dimensional barcode. It's a machine-scannable image that a smartphone camera can read to bridge the gap between a physical item and a digital resource.
+A QR (Quick Response) code is a type of two-dimensional barcode. It's a machine-scannable image that a smartphone camera can read to link a physical item to a website or app.
 
 QR codes are used to store information for a device to read instantly. Common uses include:
 

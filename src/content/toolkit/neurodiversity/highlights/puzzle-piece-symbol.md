@@ -1,4 +1,8 @@
-### Let’s talk about it
+### In short
+
+Many autistic people find the puzzle piece symbol old-fashioned or hurtful. It suggests they’re a problem to solve, or missing a piece. Most prefer the infinity symbol.
+
+### Overview
 
 You've likely seen the puzzle piece used to represent autism. While common, it is highly controversial. Many in the autistic community view it as outdated or offensive. Understanding why helps you be a better ally.
 

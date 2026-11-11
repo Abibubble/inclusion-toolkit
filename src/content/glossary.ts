@@ -596,7 +596,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Pelvic',
-    definition: 'To do with the lower part of the tummy, between the hips.',
+    definition: 'To do with the lower part of the abdomen, between the hips.',
   },
   {
     term: 'Peripheral vision',

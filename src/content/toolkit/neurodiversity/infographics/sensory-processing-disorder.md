@@ -1,3 +1,7 @@
+### In short
+
+Some people’s brains find sounds, lights, touch, and other senses hard to handle. This can feel overwhelming, and it isn’t bad behaviour. Quiet spaces, fewer triggers, and things like headphones can help.
+
 ### Symptoms
 
 - Over or under-sensitive to sensory stimuli.
@@ -10,11 +14,11 @@
 - Diagnosed more often in males.
 - Females are often missed due to masking.
 
-### Misconceptions
+### Common myths
 
 - It’s not bad behaviour, sensory input is genuinely overwhelming.
 - Not the same as autism, though they often co-occur.
-- Not something people can push through with willpower.
+- Not something people can overcome just by trying harder.
 
 ### Diagnosis
 
@@ -22,13 +26,13 @@
 - Often identified by an occupational therapist.
 - Frequently co-occurs with other conditions.
 
-### Support options
+### Professional support
 
 - Sensory integration therapy with an Occupational Therapist.
 - A personalised 'sensory diet' of daily activities.
 - Environmental adjustments to reduce stimuli.
 
-### Support
+### How to help
 
 - Offer quiet or low-stimulation workspaces.
 - Reduce sensory triggers like flickering lights.

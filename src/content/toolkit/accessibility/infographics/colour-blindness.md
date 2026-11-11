@@ -1,3 +1,7 @@
+### In short
+
+Colour blindness makes it hard to tell some colours apart. It affects about 1 in 12 males and 1 in 200 females. Use patterns or symbols as well as colour, and avoid red and green together on charts.
+
 ### Symptoms
 
 - Difficulty telling the difference between specific colours.
@@ -9,7 +13,7 @@
 - It’s much more common in males, affecting about 1 in 12, compared to 1 in 200 females.
 - The condition is usually present from birth and stays the same throughout life.
 
-### Misconceptions
+### Common myths
 
 - It’s not seeing the world like a black and white film.
 - It’s not just 'mixing up' colours, it's a physical inability to perceive them.
@@ -26,7 +30,7 @@
 - Special lenses or filters can help distinguish between certain shades.
 - Labelling clothes or using apps that identify colours helps with daily tasks.
 
-### Support
+### How to help
 
 - Use patterns or symbols instead of just colours to show information.
 - Avoid using red and green together on charts and maps.

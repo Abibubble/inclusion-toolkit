@@ -1,14 +1,18 @@
-### Let’s talk about it
+### In short
+
+Standard meetings can be hard for many neurodivergent people, because of noise, fast talk, or unclear plans. Send an agenda 24 hours ahead and make cameras optional. Stick to time, add breaks, and end with clear actions.
+
+### Overview
 
 Meetings can be tough, especially if you need accommodations of any kind. For many neurodivergent individuals, a standard meeting format can be a barrier to contributing their best work. For example:
 
 - Sensory overload means that a grid of faces on a video call, poor audio, or a noisy room can all be overwhelming
 - Processing pace issues make it difficult to keep up if the discussion is too fast, topics change suddenly, or information isn't presented clearly
-- Unclear rules like vague agendas, unwritten social rules about turn-taking, and the pressure of being "put on the spot" can create significant anxiety
+- Unclear rules like vague agendas, unwritten social rules about turn-taking, and the pressure of being asked to answer with no warning can create significant anxiety
 - Focus fatigue means that long, unstructured meetings can be particularly draining for those with conditions affecting executive function or attention
 - Cameras being required to be on means that the neurodivergent person may feel like they have to mask for the meeting, which increases exhaustion
 
-This is why creating a more inclusive meeting culture isn't just a 'nice-to-have'. It's essential for collaboration.
+This is why creating a more inclusive meeting culture isn't just an optional extra. It's essential for collaboration.
 
 Simple adjustments can make a huge difference, such as:
 
@@ -26,5 +30,5 @@ There's also a [meeting invite template](/meeting-invite-template), which provid
 
 ### Useful links
 
-- [Inclusion Toolkit](/)
+- [Inclusion Toolkit home page](/)
 - [Meeting Invite Template](/meeting-invite-template)

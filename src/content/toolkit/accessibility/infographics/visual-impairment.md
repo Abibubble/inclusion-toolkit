@@ -1,3 +1,7 @@
+### In short
+
+Sight loss means not seeing clearly even with glasses, but many people still have some vision. Stronger glasses or contact lenses won’t fix it. Say who you are when you come in, say when you leave, and keep walkways clear.
+
 ### Symptoms
 
 - Difficulty seeing clearly even when wearing glasses or contact lenses.
@@ -9,7 +13,7 @@
 - Risk increases with age, particularly for those over the age of 65.
 - Females are slightly more likely to be affected than males.
 
-### Misconceptions
+### Common myths
 
 - It’s not a total lack of sight for everyone. Many have some vision.
 - It’s not fixed by wearing stronger glasses or contacts.
@@ -25,7 +29,7 @@
 - Surgery or injections can treat some specific causes of sight loss.
 - Magnifiers, screen readers, and high-contrast tools help with daily tasks.
 
-### Support
+### How to help
 
 - Introduce yourself when entering a room and say when you're leaving.
 - Keep walkways clear of obstacles and don't move personal items.

@@ -1,3 +1,7 @@
+### In short
+
+Special labels and roles in code can tell screen readers what something is when HTML can’t. Used badly, they can make a site much worse for these users. Use plain HTML first, and only add them when there’s no other way.
+
 ### What is it for?
 
 ARIA stands for 'Accessible Rich Internet Applications'. ARIA is a set of roles and attributes that enable the web to be more accessible for users with disabilities. ARIA adds to HTML. It lets common web app interactions be passed to assistive technologies when there is no other way to do this.
@@ -29,6 +33,8 @@ There are [many different ARIA attributes](https://developer.mozilla.org/en-US/d
 
 - Hides elements from screen readers without removing them visually.
 - This is ideal for decorative or redundant elements.
+
+#### ARIA roles
 
 [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles) add meaning to content. This lets assistive technologies (such as screen readers) present the content in the way users expect. These should be avoided when there is semantic HTML that can provide the same meaning (for example, don't use `role=listitem`, and instead use an `<li>`).
 

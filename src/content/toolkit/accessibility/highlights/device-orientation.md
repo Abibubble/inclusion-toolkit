@@ -1,3 +1,7 @@
+### In short
+
+Not everyone can turn their screen, such as a wheelchair user with a tablet fixed in place. Websites and apps should work whether the screen is tall or wide, so never lock it in one direction.
+
 ### What is it for?
 
 Think about how you hold your phone. Sometimes you hold it tall (portrait) to read, and sometimes you turn it sideways (landscape) to watch a video.

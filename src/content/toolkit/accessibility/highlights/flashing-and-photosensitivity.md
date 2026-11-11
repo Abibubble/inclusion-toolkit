@@ -1,3 +1,7 @@
+### In short
+
+Fast flashing can cause seizures in people with epilepsy, and fast movement can make some people dizzy or sick. Never let anything flash more than 3 times a second. Add warnings, and don’t play videos automatically.
+
 ### What is it for?
 
 High-energy videos with strobing effects or rapid transitions can be physically dangerous. For people with epilepsy, if content flashes more than three times per second, it can trigger seizures. For people with vestibular disorders (inner-ear balance issues), intense motion like fast spinning or "shaky cam" can cause instant dizziness, sickness, and vertigo.

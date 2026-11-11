@@ -1,3 +1,7 @@
+### In short
+
+Screen readers read out the full name of every emoji, such as ‘Clapping hands’. Lots of emojis in a row are too much to listen to. Use one or two, put them at the end, and never use one in place of a word.
+
 ### What is it for?
 
 Emojis add personality and tone to messages, but for a screen reader user, they are read aloud as literal text descriptions. For example, a simple smiley face is read out as 'Smiling face with open mouth'.

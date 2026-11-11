@@ -2,6 +2,10 @@ This section provides the comprehensive details, technical guidelines, and full 
 
 ### Accessible Authentication
 
+#### In short
+
+Signing in should never depend on puzzles or remembering lots of details. Let people paste passwords, use password managers, and choose other ways to sign in. This makes signing in safer and easier for everyone.
+
 #### What is it for?
 
 When people can't use a login page, the harm can be serious. It can take away their right to privacy, security, and independence.
@@ -27,11 +31,15 @@ To make login pages accessible, developers should follow these steps:
 
 ### Accessible Links
 
-Note: Examples of poor link text in this section are shown without a link. The one example link outside the 'Useful Links' section is just for demonstration, so you don't need to follow it.
+#### In short
+
+People using screen readers often hear a list of links with no other words around them. Link text like ‘click here’ or a full web address doesn’t tell them where it goes. Write link text that says where the link takes you.
+
+Note: Examples of poor link text in this section are shown without a link. The one example link outside the 'Useful links' section is just for demonstration, so you don't need to follow it.
 
 #### What is it for?
 
-Everyone has used links. Those wonderful clickable bits of text that take you to magical places (also known as other pages).
+Everyone has used links. Those wonderful bits of text can be selected to go to other pages.
 
 Have you seen 'click here' links? A visual user will be able to set it in context and understand the place where the link will direct. But a person relying on assistive technology may scan links on the page, and they will be presented with a list of 'click here' links. They won't be able to understand where each link will direct them.
 
@@ -39,7 +47,7 @@ Sometimes people use the uniform resource locator (URL) as is, like this - `http
 
 #### How to support it
 
-Link text should make it clear where the link takes you, even without any context. For instance, the link above could direct people to [the Buttons highlight in this toolkit](/accessibility/highlights/buttons). If it's in a sentence, make sure it makes sense, while also being clear where it goes to.
+Link text should make it clear where the link takes you, even without any context. For instance, instead of showing the web address, the link could say [the Buttons highlight in this toolkit](/accessibility/highlights/buttons). If it's in a sentence, make sure it makes sense, while also being clear where it goes to.
 
 You should also avoid non-descriptive link text, like here, click here, read more, and more information.
 
@@ -50,6 +58,10 @@ You should also avoid non-descriptive link text, like here, click here, read mor
 - [University of Reading: Accessible Links](https://www.reading.ac.uk/digital-accessibility/resources/links)
 
 ### Accessible PDFs
+
+#### In short
+
+PDFs can be made more accessible by turning on tagging, using good contrast, and testing with a screen reader. But they still don’t fit different screen sizes, so they’re hard to use on phones. Where you can, use a web page or another format instead.
 
 This highlight is about how to make PDFs accessible, and why an alternative is preferred, even after making a PDF accessible.
 
@@ -92,6 +104,10 @@ Avoid PDFs, even the accessible ones! Yes, PDFs are not at all as accessible as 
 
 ### Accessibility Debt
 
+#### In short
+
+Accessibility problems build up over time when things like alt text, labels, or keyboard support are skipped. The longer they’re left, the harder and more costly they are to fix. Check your work often, track problems like bugs, and fix ones that block people first.
+
 #### What is it for?
 
 Accessibility debt is like technical debt, but for accessibility. It refers to all the accessibility issues that build up over time when inclusive practices aren’t followed from the start. Just like technical debt, the longer it's left unmanaged, the harder (and more expensive) it becomes to fix.
@@ -116,17 +132,21 @@ Here’s how to manage or 'pay it off':
 
 ### Accessibility Overlays
 
+#### In short
+
+Overlays are tools that claim to fix a website’s accessibility with a small piece of added code. They only find a few basic problems, and some add new ones. Don’t use them, and build accessibility into your designs and code instead.
+
 #### What is it for?
 
 Accessibility overlays are automated tools that claim to find and fix accessibility issues on websites. They work by modifying a website with a bit of JavaScript, and usually have an associated toolbar, app, or widget. The aim is that businesses won't have to work on the accessibility of their site, and instead can simply add a pre-built overlay to fix things for them. They can detect some basic issues, such as colour contrast and text size (which isn't enough for a fully accessible site).
 
-They're tempting as a quick-fix solution for accessibility compliance. It sounds appealingly simple - insert a snippet of code, and your website will be 100% accessible. However, these tools are very limited and do not constitute a full compliance solution. Some overlays even add new accessibility issues of their own, such as buttons that can't be used or no screen reader support.
+They're tempting as a quick fix for meeting accessibility rules. It sounds appealingly simple - insert a snippet of code, and your website will be 100% accessible. However, these tools are very limited and do not constitute a full compliance solution. Some overlays even add new accessibility issues of their own, such as buttons that can't be used or no screen reader support.
 
 If you'd like to learn more, the [Overlay fact sheet](https://overlayfactsheet.com/en/) explains it better than any summary could. The Overlay fact sheet explains all the reasons to avoid overlays. It also has quotes from the people overlays are meant to help: people with accessibility requirements.
 
 #### How to support it
 
-Simply - don't! Ensure that you're building accessibility into your designs and into your code, rather than relying on a 3rd party.
+Simply - don't! Ensure that you're building accessibility into your designs and into your code, rather than relying on another company.
 
 #### Useful links
 
@@ -134,6 +154,10 @@ Simply - don't! Ensure that you're building accessibility into your designs and 
 - [Overlay fact sheet](https://overlayfactsheet.com/en/)
 
 ### Accessibility Testing
+
+#### In short
+
+Testing checks that disabled people can use what you make, so you find problems before they do. Automated tools only find about 30% of issues. Use them alongside manual checks and testing with disabled people, which is the best way.
 
 #### What is it for?
 
@@ -158,7 +182,7 @@ A good strategy combines three types of testing:
    - This is when a human checks the product against accessibility criteria
    - It can be used to find issues that automation misses. Key checks include keyboard-only navigation (can you Tab to everything?) and screen reader testing (does it make sense when read aloud?)
 3. User Testing (with people with disabilities)
-   - This is the gold standard. Observing people with a range of disabilities as they try to complete tasks on your product
+   - This is the best way to test. Observing people with a range of disabilities as they try to complete tasks on your product
    - It can be used to find real-world usability barriers that technical checks miss. It's the only way to know if your product is truly usable
 
 #### Useful links
@@ -168,6 +192,10 @@ A good strategy combines three types of testing:
 - [Accessibility Testing: How It Works and Why It’s Important](https://vispero.com/resources/accessibility-testing/)
 
 ### Alt Text
+
+#### In short
+
+Some people can’t see images, such as people who are blind or have slow internet. Alternative text describes what the image means, so everyone gets the same information. Keep it short, and leave it empty for images that are only for decoration.
 
 #### What is it for?
 
@@ -190,6 +218,10 @@ Using alternative text (alt text) ensures that everyone can understand the image
 - [What’s the alternative? How to write good alt text](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/)
 
 ### Accessible Rich Internet Applications (ARIA)
+
+#### In short
+
+Special labels and roles in code can tell screen readers what something is when HTML can’t. Used badly, they can make a site much worse for these users. Use plain HTML first, and only add them when there’s no other way.
 
 #### What is it for?
 
@@ -223,6 +255,8 @@ There are [many different ARIA attributes](https://developer.mozilla.org/en-US/d
 - Hides elements from screen readers without removing them visually.
 - This is ideal for decorative or redundant elements.
 
+##### ARIA roles
+
 [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles) add meaning to content. This lets assistive technologies (such as screen readers) present the content in the way users expect. These should be avoided when there is semantic HTML that can provide the same meaning (for example, don't use `role=listitem`, and instead use an `<li>`).
 
 #### Useful links
@@ -236,9 +270,13 @@ There are [many different ARIA attributes](https://developer.mozilla.org/en-US/d
 
 ### ASCII Art
 
+#### In short
+
+Pictures made from symbols and punctuation look fine to sighted people. A screen reader reads out each symbol by name, which is noisy and hard to skip. Share a screenshot of the picture instead, with alternative text that describes it.
+
 #### What is it for?
 
-ASCII art is the practice of arranging punctuation and symbols to create a picture, like the 'shrug' ¯\\\_(ツ)\_/¯ or drawings of animals.
+ASCII art is the practice of arranging punctuation and symbols to create a picture, like the 'shrug' <span role="img" aria-label="a shrugging face made from symbols">¯\\\_(ツ)\_/¯</span> or drawings of animals.
 
 While sighted users see a picture, a screen reader reads the content linearly. It cannot 'see' the image. Instead, the user hears a chaotic string of punctuation names: "Slash, backslash, underscore, vertical bar, colon..." It is noisy and blocks them from getting to your actual content.
 
@@ -258,6 +296,10 @@ You can still share these visuals, but you should change the format to be inclus
 - [RNIB - Making social media accessible](https://www.rnib.org.uk/living-with-sight-loss/assistive-aids-and-technology/tv-audio-and-gaming/guide-to-accessible-social-media/)
 
 ### Assistive Technology (Beyond Screen Readers)
+
+#### In short
+
+Screen readers aren’t the only tools disabled people use. Others include screen magnifiers, switch devices, and voice control. Make sure everything works with a keyboard, use clear labels, and check that zooming in doesn’t break your layout.
 
 #### What is it for?
 
@@ -284,11 +326,15 @@ Make your designs compatible. It's simpler than you think and mostly means follo
 
 ### Basic Accessibility Testing
 
+#### In short
+
+You don’t need to be an expert to check your site. Try using only your keyboard, and zoom to 200% to check text still fits on the screen. Then run a free scanner, but remember that it only finds about 30% of problems.
+
 #### What is it for?
 
-Testing makes sure that what gets built actually works for everyone. The goal is to never accidentally ship a beautiful page that's completely broken for someone using a screen reader or a keyboard.
+Testing makes sure that what gets built actually works for everyone. The goal is to never accidentally release a beautiful page that's completely broken for someone using a screen reader or a keyboard.
 
-While automated tools are awesome, they aren't magic. They only catch about 30% of accessibility errors. An automated tool can check if a picture has an image description (alt text), but it can't tell you if the description actually makes sense. You still have to use your own judgment to check the rest.
+While automated tools are awesome, they can't find everything. They only catch about 30% of accessibility errors. An automated tool can check if a picture has an image description (alt text), but it can't tell you if the description actually makes sense. You still have to use your own judgement to check the rest.
 
 #### How to support it
 
@@ -296,7 +342,7 @@ You don't need to be an expert to test your site. Try these three quick checks r
 
 - Use 'Tab' to move forward, 'Shift + Tab' to go back, 'Enter' or 'Space' to select, the arrow keys inside menus and radio buttons, and 'Escape' to close pop-ups. Check that you can reach every button without a mouse.
 - Zoom your browser to 200% using 'Ctrl' or 'Cmd' and '+'. Ensure text doesn't overlap or vanish off the screen.
-- Run a free scanner like Lighthouse or [Axe DevTools](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) in Chrome. It'll quickly flag basic bugs like poor colour contrast.
+- Run a free scanner like Lighthouse or [Axe DevTools](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd) in Chrome. It'll quickly point out basic bugs, like poor colour contrast.
 
 #### Useful links
 
@@ -304,6 +350,10 @@ You don't need to be an expert to test your site. Try these three quick checks r
 - [WebAIM - Testing with a Keyboard](https://webaim.org/techniques/keyboard/)
 
 ### Breadcrumbs & Wayfinding
+
+#### In short
+
+Breadcrumbs show where a page sits in a site and link back to the pages above it. Without them, people can get lost and have to start again. Use a navigation element and an ordered list, and don’t link the current page.
 
 #### What is it for?
 
@@ -331,6 +381,10 @@ Hide visual separators (like \> or /) from screen readers by wrapping them in a 
 
 ### Buttons
 
+#### In short
+
+Buttons let people do things, like send a form or open a menu. If a button doesn’t work for everyone, people can get stuck. Use the HTML button element with a clear label and a visible focus state.
+
 #### What is it for?
 
 Buttons let people take an action, such as submitting a form, saving information or opening a menu. They are one of the most common interactive elements, so if a button isn't accessible, people can be completely blocked from finishing a task.
@@ -345,7 +399,7 @@ Accessible buttons help people who use a keyboard, a screen reader, voice contro
 - If a button only shows an icon, give it an accessible name (for example with `aria-label`) and hide the decorative icon from screen readers.
 - Make sure every button has a clear focus state, so keyboard users can see where they are.
 - Text on a button needs a colour contrast ratio of at least 4.5:1 (or 3:1 for large text). If the button's edge is what shows it's a button, the edge needs a contrast ratio of at least 3:1 against the background.
-- Make buttons big enough to tap easily, with space between them (see Tap Targets).
+- Make buttons big enough to tap easily, with space between them (see the [Tap Targets highlight](/accessibility/highlights/tap-targets)).
 - Don't rely on colour alone, for example to show that an action is a warning or can't be undone. Make it clear in the button text.
 - Avoid disabled buttons where you can. They are often hard to see, and they don't tell the user what they need to do.
 - Where you can, reuse a tested button from your design system or component library rather than building a new one.
@@ -358,9 +412,13 @@ Accessible buttons help people who use a keyboard, a screen reader, voice contro
 
 ### Captions & Transcripts
 
+#### In short
+
+Captions show spoken words and sounds in time with a video. Transcripts are the full text of the audio, often for podcasts. Turn on captions in video and meeting tools, and check automatic transcripts before you share them.
+
 #### What is it for?
 
-Captions are timed text that appears with a video to show spoken words, music, and sounds, helping viewers who are deaf or hard of hearing. Transcripts are full-text versions of the audio, not timed, and often used for audio-only content like podcasts. The main difference is that captions are synced to the video, while transcripts are not.
+Captions are timed text that appears with a video to show spoken words, music, and sounds, helping viewers who are deaf or hard of hearing. Transcripts are full-text versions of the audio, not timed, and often used for audio-only content like podcasts. The main difference is that captions are timed to match the video, while transcripts are not.
 
 While subtitles (a form of captions) are now being used widely by younger generations, captions and transcripts are incredibly important for users with accessibility needs. They are most important for:
 
@@ -385,6 +443,10 @@ Creating transcripts can require a bit more work than captions. One straightforw
 
 ### Carousels & Sliders
 
+#### In short
+
+Moving slides are easy to miss and hard to control, especially without a mouse. Most people never look past the first slide anyway. Show the content in a list or grid instead, or never let slides move on their own.
+
 #### What is it for?
 
 A carousel is a sliding banner that automatically cycles through images or messages on a webpage, like a digital billboard. They are very common on websites, but they cause a lot of accessibility problems.
@@ -397,7 +459,7 @@ There is also a simpler problem: research shows that most people ignore carousel
 
 The best solution is often to not use a carousel. Showing content in a simple list or grid means everyone can see it, without any of the accessibility problems.
 
-When a carousel is truly needed, it should never move on its own without the user choosing to advance it. The controls need to be big, clear, and work with a keyboard as well as a mouse. And nothing important should only appear inside a carousel.
+When a carousel is truly needed, it should never move on its own without the user choosing to move it on. The controls need to be big, clear, and work with a keyboard as well as a mouse. And nothing important should only appear inside a carousel.
 
 #### Useful links
 
@@ -406,6 +468,10 @@ When a carousel is truly needed, it should never move on its own without the use
 - [SC 2.2.2: Pause, Stop, Hide (Level A)](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html)
 
 ### Colour Blindness
+
+#### In short
+
+Around 1 in 12 men and 1 in 200 women are colour blind. Red for error and green for success can look the same to some of them. Never rely on colour alone, and add a text label, icon, or pattern.
 
 #### What is it for?
 
@@ -431,19 +497,23 @@ To make your work accessible, never rely on colour alone. Always add a text labe
 
 ### Colour-blind Series: Protanopia
 
+#### In short
+
+With protanopia, red can look very dark or almost black, and it’s hard to tell from green. Red error messages or red and green charts lose their meaning. Always pair colour with something else, like an icon, label, pattern, or words.
+
 #### What is it for?
 
-Protanopia is a form of colour blindness that affects the ability to see red. People with protanopia cannot distinguish between red and green, and red tones can appear very dark or almost black. It's one of two types of colour blindness that fall under the 'red-green colour blind' umbrella. The other, Deuteranopia, affects green-sensitive cells instead. Both cause difficulty telling red from green, but through different mechanisms.
+Protanopia is a form of colour blindness that affects the ability to see red. People with protanopia cannot distinguish between red and green, and red tones can appear very dark or almost black. It's one of two types of colour blindness that belong to the 'red-green colour blind' group. The other, Deuteranopia, affects green-sensitive cells instead. Both cause difficulty telling red from green, but through different mechanisms.
 
 This matters in digital products, because colour is often used to share important information. A form that highlights errors in red, or a chart using red and green bars side by side, becomes very difficult to interpret. For someone with protanopia, that colour information disappears entirely, and the meaning goes with it.
 
-Protanopia is part of a broader family of colour vision deficiencies, and this Colour-blind Series looks at each of the main types, starting with Protanopia. Each type affects a different part of the colour range, but they all teach the same lesson: never rely on colour alone to share something important.
+Protanopia is part of a broader family of colour vision deficiencies, and this Colour-blind Series looks at each of the main types, starting with protanopia. Each type affects a different part of the colour range, but they all teach the same lesson: never rely on colour alone to share something important.
 
 #### How to support it
 
 The key principle is that colour should always be paired with another visual cue.
 
-- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
+- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use a colour blind simulation tool, such as [Web Disability Simulator for Chrome](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla), to check designs before they are built.
 - Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
@@ -455,9 +525,13 @@ The key principle is that colour should always be paired with another visual cue
 
 ### Colour-blind Series: Deuteranopia
 
+#### In short
+
+Deuteranopia makes green hard to see, so red and green can look almost the same. Charts and messages that use only red and green won’t work for people with deuteranopia. Always add icons, labels, patterns, or words, so colour isn’t the only way to show meaning.
+
 #### What is it for?
 
-Deuteranopia is a form of colour blindness that affects the ability to see green. Like Protanopia, it is a type of "red-green colour blindness". Protanopia affects the cells that sense red. Deuteranopia affects the cells that sense green. It is actually the more common of the two, affecting about 1% of men. It is very rare in women.
+Deuteranopia is a form of colour blindness that affects the ability to see green. Like protanopia, it is a type of "red-green colour blindness". Protanopia affects the cells that sense red. Deuteranopia affects the cells that sense green. It is actually the more common of the two, affecting about 1% of men. It's very rare in women.
 
 In practice, the experience is similar. Red and green become very difficult to tell apart, making colour-coded information unreliable. A traffic light style status indicator, a heatmap, or a form validation message relying on red and green will all present the same challenge.
 
@@ -467,7 +541,7 @@ Deuteranopia is part of a broader family of colour vision deficiencies, and this
 
 The key principle is that colour should always be paired with another visual cue.
 
-- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
+- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use a colour blind simulation tool, such as [Web Disability Simulator for Chrome](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla), to check designs before they are built.
 - Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
@@ -479,9 +553,13 @@ The key principle is that colour should always be paired with another visual cue
 
 ### Colour-blind Series: Tritanopia
 
+#### In short
+
+People with tritanopia find it hard to tell blue from green, or yellow from pink or red. It’s rare, but colours that are safe for red-green colour blindness can still cause problems. Never use colour alone, and add icons, labels, patterns, or words.
+
 #### What is it for?
 
-Tritanopia is a form of colour blindness that affects the ability to see blue. Protanopia and Deuteranopia are both types of "red-green colour blindness". Tritanopia is different: it affects blue and yellow. People with Tritanopia struggle to distinguish blue from green, and yellow from pink or red. It is significantly rarer than the red-green types, affecting less than 0.01% of the population.
+Tritanopia is a form of colour blindness that affects the ability to see blue. Protanopia and deuteranopia are both types of "red-green colour blindness". Tritanopia is different: it affects blue and yellow. People with tritanopia struggle to distinguish blue from green, and yellow from pink or red. It is significantly rarer than the red-green types, affecting less than 0.01% of the population.
 
 In practice, this means colour choices that feel safe for red-green colour blindness can still cause problems. A design that uses blue and green to tell groups apart can be very hard to understand. So can yellow text on white, or white text on yellow.
 
@@ -491,7 +569,7 @@ Tritanopia is part of a broader family of colour vision deficiencies, and this C
 
 The key principle is that colour should always be paired with another visual cue.
 
-- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour-blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
+- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use a colour blind simulation tool, such as [Web Disability Simulator for Chrome](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla), to check designs before they are built.
 - Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
@@ -502,6 +580,10 @@ The key principle is that colour should always be paired with another visual cue
 - [Colour and Accessibility (WebAIM)](https://webaim.org/articles/visual/colorblind)
 
 ### Colour-blind Series: Anomalous Trichromacy
+
+#### In short
+
+In this milder form of colour blindness, all three types of colour cell work, but one is weak. This makes some colours harder to tell apart, most often red and green. Always add icons, labels, patterns, or words so meaning isn’t shown by colour alone.
 
 #### What is it for?
 
@@ -521,7 +603,7 @@ This is milder than full colour blindness, so people with anomalous trichromacy 
 
 The key principle is that colour should always be paired with another visual cue.
 
-- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour-blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
+- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use a colour blind simulation tool, such as [Web Disability Simulator for Chrome](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla), to check designs before they are built.
 - Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
@@ -533,11 +615,15 @@ The key principle is that colour should always be paired with another visual cue
 
 ### Colour-blind Series: The Rarer Types
 
+#### In short
+
+A few people see no colour at all, only shades of grey. This is called achromatopsia, and it’s very rare. Anything shown only through colour will be missed, so always add icons, labels, patterns, or words.
+
 #### What is it for?
 
-Earlier entries in this series covered Protanopia, Deuteranopia, and Tritanopia. These are the full loss of red, green, and blue colour vision. But colour blindness has a range, and there are other forms worth knowing about.
+Earlier entries in this series covered protanopia, deuteranopia, and tritanopia. These are the full loss of red, green, and blue colour vision. But colour blindness has a range, and there are other forms worth knowing about.
 
-Achromatopsia is complete colour blindness, meaning a person sees the world entirely in greyscale. It is very rare. People with it are often sensitive to light and cannot see fine detail clearly.
+Achromatopsia is complete colour blindness, meaning a person sees the world entirely in greyscale. It's very rare. People with it are often sensitive to light and cannot see fine detail clearly.
 
 Achromatopsia is one type of monochromacy. Another type is blue cone monochromacy, where only one type of colour sensing cell works at all. This leaves very little colour vision.
 
@@ -547,7 +633,7 @@ These conditions lead to the same design lesson as the rest of the series. If so
 
 The key principle is that colour should always be paired with another visual cue.
 
-- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use [colour-blind simulation tools](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) to check designs before they are built.
+- Designers can add icons, labels, or patterns next to colour to show meaning. They can also use a colour blind simulation tool, such as [Web Disability Simulator for Chrome](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla), to check designs before they are built.
 - Developers can ensure interactive states like errors and warnings are distinguishable by more than just colour (for example, by using icons or supporting text).
 - Content writers can make sure any meaning shown through colour is also stated in words.
 
@@ -558,6 +644,10 @@ The key principle is that colour should always be paired with another visual cue
 - [Colour and Accessibility (WebAIM)](https://webaim.org/articles/visual/colorblind)
 
 ### Colour Contrast
+
+#### In short
+
+Low contrast, like light grey text on white, is hard for many people to read. Use an online checker to make sure text has a contrast ratio of at least 4.5:1. Large text needs at least 3:1.
 
 #### What is it for?
 
@@ -585,9 +675,7 @@ Choose colours with sufficient contrast. There are lots of colour contrast check
 - [WebAIM's contrast checker](https://webaim.org/resources/contrastchecker/)
 - [Coolors contrast checker](https://coolors.co/contrast-checker)
 
-To use these, enter your background colour and foreground colour. You want to make sure that it gives you a contrast ratio that is 4.5:1 or higher (so 6:1 is good, 2:1 is bad). It may also show you separate results for AA and AAA, for normal and large text (as shown in the image below). Web Content Accessibility Guidelines (WCAG) AA level is the lower of the two requirements and is the usual minimum to meet. If your text can comply at AAA level, even better.
-
-_Picture: An image showing black text on a yellow background, passing at AA and AAA level for both normal and large text_
+To use these, enter your background colour and foreground colour. You want to make sure that it gives you a contrast ratio that is 4.5:1 or higher (so 6:1 is good, 2:1 is bad). It may also show you separate results for AA and AAA, for normal and large text. For example, black text on a yellow background passes at AA and AAA for both normal and large text. Web Content Accessibility Guidelines (WCAG) AA level is the lower of the two requirements and is the usual minimum to meet. If your text can comply at AAA level, even better.
 
 #### Useful links
 
@@ -596,6 +684,10 @@ _Picture: An image showing black text on a yellow background, passing at AA and 
 - [WCAG 2.1 - Contrast (minimum)](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
 
 ### Consistency
+
+#### In short
+
+When menus, buttons, and labels stay the same on every page, people know what to expect. Changes can make a product hard to use, especially for people with ADHD, anxiety, or dyslexia. Use the same parts and the same words for the same things.
 
 #### What is it for?
 
@@ -624,6 +716,10 @@ Small inconsistencies that feel trivial to one person can be a significant barri
 
 ### Dark Mode
 
+#### In short
+
+Light text on a dark background helps some people, such as those who are sensitive to light. It can blur text for some people with astigmatism, so it isn’t right for everyone. Follow the device setting and add a switch to change it.
+
 #### What is it for?
 
 Dark mode is a colour option that flips the user's view from the typical dark text on a light background to light text on a dark background. So instead of blinding white screens, things take on a darker hue. It applies a separate, darker colour scheme to websites, apps, operating systems, and devices to tone down the brightness.
@@ -632,14 +728,14 @@ In recent years, the adoption of dark mode has increased, with [many users prefe
 
 However, dark mode isn't the all-encompassing accessibility fix that many people believe it to be. Let's take a look at the pros and cons of incorporating dark mode.
 
-Pros
+##### Pros
 
 1. Many people prefer dark mode (but not all)
 2. On OLED and AMOLED screens, it can be more eco-friendly, as pixels showing pure black are switched off, which saves battery
 3. It can enhance readability and reduce eye strain, especially in low-light conditions
 4. For users with light sensitivity or photophobia, it provides a gentler visual experience, allowing for better focus
 
-Cons
+##### Cons
 
 1. Some visually impaired users can find light mode more comfortable
 2. Some users with astigmatism may have issues with reading white text on a black background, as the edges can become blurred. This is similar to the issue caused by street lights when driving at night, and is called halation
@@ -661,6 +757,10 @@ In emails, it's much more complex, as different email clients will render dark m
 
 ### Device Orientation
 
+#### In short
+
+Not everyone can turn their screen, such as a wheelchair user with a tablet fixed in place. Websites and apps should work whether the screen is tall or wide, so never lock it in one direction.
+
 #### What is it for?
 
 Think about how you hold your phone. Sometimes you hold it tall (portrait) to read, and sometimes you turn it sideways (landscape) to watch a video.
@@ -681,6 +781,10 @@ Build designs that stretch or stack neatly to fit the screen, whether it is tall
 - [A11y Tip: Device Orientation](https://tab-able.co.uk/a11y-tip-device-orientation/)
 
 ### Error Messages & Validation
+
+#### In short
+
+Vague error messages, or fields that only turn red, can stop people finishing a form. Say exactly what’s wrong and how to fix it, and don’t rely on colour. Link each message to its field, and move focus to the first error.
 
 #### What is it for?
 
@@ -709,6 +813,10 @@ Errors need to be clear, visible, and announced.
 
 ### Flashing & Photosensitivity
 
+#### In short
+
+Fast flashing can cause seizures in people with epilepsy, and fast movement can make some people dizzy or sick. Never let anything flash more than 3 times a second. Add warnings, and don’t play videos automatically.
+
 #### What is it for?
 
 High-energy videos with strobing effects or rapid transitions can be physically dangerous. For people with epilepsy, if content flashes more than three times per second, it can trigger seizures. For people with vestibular disorders (inner-ear balance issues), intense motion like fast spinning or "shaky cam" can cause instant dizziness, sickness, and vertigo.
@@ -731,6 +839,10 @@ A lot of this is manual and relies on people adding warnings and making sure tha
 
 ### Focus States
 
+#### In short
+
+Keyboard users need to see which link, button, or field they’ve reached. Make the focus indicator visible, with a contrast of at least 3:1 against nearby colours. Don’t let sticky headers or other content hide it.
+
 #### What is it for?
 
 Focus states occur when an interactive element receives focus. Interactive elements include links, buttons, and input fields. You can focus on an element by clicking it (as long as the click doesn't take you somewhere else). You can also press the Tab key until the element is selected.
@@ -748,6 +860,10 @@ If you're building or designing a new component, make sure its focus state meets
 - [Focusing on focus states](https://iknowdavehouse.medium.com/focusing-on-focus-states-7c64089d805c)
 
 ### Focus Traps
+
+#### In short
+
+Inside a pop-up, a focus trap stops the Tab key moving to the page behind it. People must always be able to leave, for example by pressing Escape. Use a ready-made accessible component, and check your pages with only a keyboard.
 
 #### What is it for?
 
@@ -768,9 +884,13 @@ NOTE: It’s very important to understand that this highlight is about focus tra
 
 ### Fonts
 
+#### In short
+
+Some fonts are hard to read, especially for people with dyslexia or low vision. Readers may mix up letters that look alike, like b and d. Choose a font where letters and numbers like I, l, and 1 look clearly different.
+
 #### What is it for?
 
-Fonts are used everywhere, whether that's in a Word document, in a design, in a slide deck, or on a website. Not all fonts are created equal. Many people will have come across Wingdings and similar fonts (Wingdings has an interesting history; for more information, see [an article on Wingdings font history](https://www.vox.com/2015/8/25/9200801/wingdings-font-history)), so we're all aware of fonts that are completely unreadable. However, some fonts may appear to be easy to read to some, but incredibly challenging for others.
+Fonts are used everywhere, whether that's in a Word document, in a design, in a slide deck, or on a website. Some fonts are much easier to read than others. Many people will have come across Wingdings and similar fonts (Wingdings has an interesting history; for more information, see [an article on Wingdings font history](https://www.vox.com/2015/8/25/9200801/wingdings-font-history)), so we're all aware of fonts that are completely unreadable. However, some fonts may appear to be easy to read to some, but incredibly challenging for others.
 
 Fonts are impactful to everyone, but especially for the following people:
 
@@ -810,6 +930,10 @@ Fonts such as Atkinson Hyperlegible Next have become popular with individuals wh
 
 ### Forms
 
+#### In short
+
+Online forms should work for everyone, including people who use screen readers or only a keyboard. Give every field a proper label, and don’t rely on placeholder text. Error messages should say what’s wrong and how to fix it.
+
 #### What is it for?
 
 An accessible form is an online form that everyone can fill in, including people with vision, movement, or cognitive disabilities. It collects information, such as contact details, sign-ups, feedback, or payments. It does this in a way that is clear and easy for everyone to use, including people who use screen readers or only a keyboard.
@@ -846,12 +970,16 @@ To ensure your form is accessible, you should build it with semantic HTML and cl
 
 ### Good Alt Text
 
+#### In short
+
+An image description should explain why the image is there, not only what it shows. Think about what someone would miss if the image didn’t load. Avoid vague words like ‘chart’, and describe the details that matter to the page.
+
 #### What is it for?
 
-While basic alt text just labels an image, good alt text explains its purpose. It bridges the gap between seeing a visual and understanding why it is there.
+While basic alt text just labels an image, good alt text explains its purpose. It helps people understand why an image is there, even if they can’t see it.
 
 - Delivers the exact message, data, or emotion the image is meant to convey
-- Provides an equivalent user experience instead of just ticking a compliance box
+- Provides an equivalent user experience instead of just following a rule
 - Prevents confusion caused by vague descriptions like ‘chart’ or ‘screenshot’
 - Focuses only on the details that matter to the surrounding text
 
@@ -872,6 +1000,10 @@ Supporting good alt text means moving past basic labels and focusing on the spec
 
 ### Head Pointer
 
+#### In short
+
+Mac computers let you move the pointer with your head instead of your hands. It helps people with tremors or little use of their hands. Turn it on in System Settings, then try working with it for an hour.
+
 #### What is it for?
 
 Head pointer allows users with limited hand function to control a computer cursor using head movements and, in some cases, facial expressions. It's an accessibility feature available on macOS (sorry, Windows and Linux users) and can be enabled through System Settings.
@@ -887,7 +1019,7 @@ While Head Pointer is great fun to play with, it's especially important for the 
 
 As Head Pointer is so customisable, a full breakdown isn't possible here. However, the short version is that it can control your cursor by tracking your head movements, and it can use facial expressions to perform certain actions. Try sticking your tongue out to left-click, or if you can wink, that's a fun option to experiment with!
 
-Take a look at the links below, get it set up to your preferences, and see if you can survive an hour working with it!
+Take a look at the links in the Useful links section, get it set up to your preferences, and try working with it for an hour.
 
 #### Useful links
 
@@ -896,9 +1028,13 @@ Take a look at the links below, get it set up to your preferences, and see if yo
 
 ### Headings
 
+#### In short
+
+A clear heading structure helps screen reader users and search engines understand a page. Use only one main title, and don’t skip levels, like going from Heading 2 to 4. Never use a heading only to make text big or bold.
+
 #### What is it for?
 
-Most people are familiar with headings, whether that's a title in a document or a title sheet on a slide deck. But what some people aren't aware of is that headings are important for more than just making an impact.
+Most people are familiar with headings, whether that's a title in a document or a title sheet on a slide deck. But what some people aren't aware of is that headings are important for more than just making text stand out.
 
 Headings are especially important for the following:
 
@@ -908,7 +1044,7 @@ Headings are especially important for the following:
 
 #### How to support it
 
-Headings are simple to get right, but are often misunderstood. To start with, headings shouldn't be used for styling. Using a 'Heading 2' in your Word document for some large, bold text might give you the right font size and font weight (how bold it is), but it also tells a screen reader that your text is a heading. This meaning may not be accurate. The 'meaning' here is called 'semantics'. Semantics are often referred to as 'building blocks' - without them, everything falls apart!
+Headings are simple to get right, but are often misunderstood. To start with, headings shouldn't be used for styling. Using a 'Heading 2' in your Word document for some large, bold text might give you the right font size and font weight (how bold it is), but it also tells a screen reader that your text is a heading. This meaning may not be accurate. The 'meaning' here is called 'semantics'. Semantics give your content its structure. Without them, people and tools can’t understand how it’s organised.
 
 The examples below refer to the code elements of headings and the heading style names in Word and Google Docs. However, the principle applies to everything.
 
@@ -918,7 +1054,7 @@ After that, headings should follow in a sequential order. So a Heading 1 (`h1`) 
 
 You shouldn't use a heading to get a certain font size or styling. Instead, style it yourself. Headings convey meaning to screen readers and search engines, so you should only use headings for text that is necessary as a heading; other text should have the styling changed to match designs.
 
-Search engines are effectively 'blind'. They don't see visually; instead, they scan through the code of what they are given. If you're using headings incorrectly, search engines will get the wrong information, and search engine optimisation (SEO) can suffer as a result.
+Search engines can't see the page. They don't see visually; instead, they scan through the code of what they are given. If you're using headings incorrectly, search engines will get the wrong information, and search engine optimisation (SEO) can suffer as a result.
 
 #### Useful links
 
@@ -928,6 +1064,10 @@ Search engines are effectively 'blind'. They don't see visually; instead, they s
 - [Home Office Design System: Headings](https://design.homeoffice.gov.uk/accessibility/headings)
 
 ### Hover states
+
+#### In short
+
+When a mouse pointer moves over a link or button, its look can change. If extra content appears, it must stay visible while the pointer moves onto it. People must also be able to close it with the Escape key.
 
 #### What is it for?
 
@@ -941,11 +1081,15 @@ If you're building or designing a new component, make sure it has hover states t
 
 #### Useful links
 
-- [A whole lot of bovver over hover](https://vispero.com/resources/a-whole-lot-of-bovver-over-hover/)
+- [A whole lot of bovver over hover: problems with content that shows on hover](https://vispero.com/resources/a-whole-lot-of-bovver-over-hover/)
 - [Accessible button design](https://www.horlix.com/accessible-button-design/)
 - [Hover Actions and Accessibility: Addressing a Common WCAG Violation](https://www.boia.org/blog/hover-actions-and-accessibility-addressing-a-common-wcag-violation)
 
 ### Inclusive Language
+
+#### In short
+
+Choose words that respect everyone, whatever their disability, race, gender, age, or wealth. Don’t use disability words in a negative way, like ‘lame’ or ‘crazy’. Use neutral words like ‘everyone’ instead of ‘guys’, and write in plain language.
 
 #### What is it for?
 
@@ -980,6 +1124,10 @@ Be specific and clear. Avoid jargon and write in plain language. Clearly describ
 
 ### Keyboard Only
 
+#### In short
+
+Not everyone uses a mouse, and some people only use a keyboard. Make sure every button and link works with the keyboard alone. Press Tab to move through the page, and check you can always see where you are.
+
 #### What is it for?
 
 Keyboard only is a method for navigating the web using just a keyboard (not using the mouse at all). Many people with disabilities navigate using only the keyboard, but some users without disabilities also navigate using the keyboard for speed and efficiency.
@@ -998,7 +1146,7 @@ Make sure that all interactive elements (buttons, links, and so on) can be navig
 
 To test keyboard accessibility:
 
-1. On page load, don't click anywhere. If you've already clicked, click in the top left corner of the page
+1. On page load, don't click anywhere. If you've already clicked, reload the page so nothing is selected
 2. Press `Tab` to tab through the page
 3. `Shift` + `Tab` will tab backward
 4. Arrow keys move within radio groups, menus and tabs
@@ -1015,6 +1163,10 @@ Test keyboard accessibility on mobile devices as well, as users with disabilitie
 
 ### Landmarks & Roles
 
+#### In short
+
+Screen reader users can jump to parts of a page, like the menu, using landmarks. Roles tell them what each item is, such as a button. Use the right HTML tags, and both are added for you.
+
 #### What is it for?
 
 Imagine trying to navigate a city with no street signs, where every building looks exactly the same. That is what a website feels like to a screen reader user without Landmarks and Roles.
@@ -1026,12 +1178,12 @@ It is supported universally. All browsers understand standard HTML tags automati
 
 #### How to support it
 
-The best way is to use semantic HTML (standard HTML tags). When you use the right tag, you get the Landmark or Role for free.
+The best way is to use semantic HTML (standard HTML tags). When you use the right tag, the landmark or role is added for you automatically.
 
 - Landmarks: Use \<nav\> for menus and \<main\> for your main content.
 - Roles: Use \<button\> for buttons and \<a\> for links.
 
-##### The Catch
+##### Making a plain box act like a button
 
 You can use code to force a plain box (`<div>`) to act like a `<button>`, but it is risky, and takes much more work.
 
@@ -1046,9 +1198,13 @@ You can use code to force a plain box (`<div>`) to act like a `<button>`, but it
 
 ### Link Text
 
+#### In short
+
+Many screen reader users listen to a list of only the links on a page. Links that say ‘Click here’ or ‘Read more’ don’t tell them anything. Write link words that say where the link goes.
+
 #### What is it for?
 
-Many screen reader users navigate websites by pulling up a list of only the links on a page. If your links just say 'Click here' or 'Read more', their list will just read out, 'Click here, Click here, Read more'. That doesn't help them find what they are looking for. Good link text makes sense all by itself, even if you hide the rest of the page.
+Many screen reader users navigate websites by opening a list of only the links on a page. If your links just say 'Click here' or 'Read more', their list will just read out, 'Click here, Click here, Read more'. That doesn't help them find what they are looking for. Good link text makes sense all by itself, even if you hide the rest of the page.
 
 Good link text doesn't need any special code. It's all about writing clear, helpful words, and everyone benefits from that, not just screen reader users.
 
@@ -1062,7 +1218,7 @@ Write links that tell the user exactly where they are going, what they're doing,
 - Avoid raw uniform resource locators (URLs). You should never use a long web address as the link text (like `https://www...`). Screen readers will read out the whole address, including slashes and symbols, which is very frustrating to listen to
 - Be clear and brief. You want to keep link text short - tell them the destination without writing a whole paragraph
 
-You might think that the sentence right next to the link explains what it does. The catch is that users jumping from link to link do not hear the surrounding text. They only hear the words that you made clickable
+You might think that the sentence right next to the link explains what it does. The problem is that users jumping from link to link do not hear the surrounding text. They only hear the words that you made clickable
 
 #### Useful links
 
@@ -1071,6 +1227,10 @@ You might think that the sentence right next to the link explains what it does. 
 - [World Wide Web Consortium (W3C): Link Purpose](https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html)
 
 ### Meetings
+
+#### In short
+
+With a few changes, meetings can work better for neurodivergent people and people with anxiety. Send all the details before the meeting, and ask if anyone has access needs. Make meetings 5 to 10 minutes shorter, and tell people they can turn on captions.
 
 #### What is it for?
 
@@ -1082,7 +1242,7 @@ Meetings are part of most workdays, and there are many ways to make them fully a
 
 #### How to support it
 
-Start with an inclusive meeting invite, such as this [inclusive meeting invite template](/meeting-invite-template). Ask attendees whether they have any accessibility requirements, and let them know which accessibility features are available during the meeting. Give all the details about the meeting up front. This gives people time to prepare, read anything they need to, and understand what is being asked of them. Say whether it's a remote, hybrid, or in-person meeting, and whether the meeting will be recorded or not.
+Start with an inclusive meeting invite, such as this [inclusive meeting invite template](/meeting-invite-template). Ask attendees whether they have any accessibility requirements, and let them know which accessibility features are available during the meeting. Give all the details about the meeting before it starts. This gives people time to prepare, read anything they need to, and understand what is being asked of them. Say whether it's a remote, hybrid, or in-person meeting, and whether the meeting will be recorded or not.
 
 Some other things you can consider are:
 
@@ -1100,6 +1260,10 @@ Some other things you can consider are:
 - [Accessibility tips for inclusive Microsoft Teams meetings and live events](https://support.microsoft.com/en-gb/office/accessibility-tips-for-inclusive-microsoft-teams-meetings-and-live-events-fa0cb694-0fcd-4019-b67c-8270ea4e0c54)
 
 ### Modals
+
+#### In short
+
+A modal is a pop-up that shows extra information when someone chooses to open it. Move keyboard focus into it, and return focus to where it was when it closes. The HTML dialog element does a lot of this for you.
 
 #### What is it for?
 
@@ -1133,6 +1297,10 @@ The native HTML `<dialog>` element handles much of this for you, so use it, or a
 
 ### Neurodiversity & Inclusive Design
 
+#### In short
+
+Everyone’s brain works differently, including people with autism, ADHD, or dyslexia. Clear, calm design that works the same way each time helps them. Use plain words, keep layouts the same, and don’t play videos by themselves.
+
 #### What is it for?
 
 Neurodiversity describes the natural variations in how human brains function, process information, learn, and interact. This includes conditions like autism, ADHD, dyslexia, and dyspraxia. Under UK law (the Equality Act 2010), neurodivergence can count as a disability if it has a substantial, long-term effect on someone's day-to-day activities. But not all neurodivergent people see themselves as disabled.
@@ -1165,19 +1333,27 @@ To make an experience better for everyone, focus on making things clear, predict
 
 ### Personas
 
+#### In short
+
+Made-up people, called personas, help you check your work for accessibility. You act as each person and try to complete tasks. Try the personas from His Majesty’s Revenue and Customs, then test your own work the same way.
+
 #### What is it for?
 
 Essentially, Personas are fake people. Their lives, issues, and accessibility requirements allow you to role-play as that person while you test for accessibility. This brings a human side to accessibility testing. They aren't real, but real people live with the same conditions and needs.
 
 #### How to support it
 
-Start by going to the [HMRC Personas website](https://personas-prototype.herokuapp.com/), and run through each of their Personas, attempting the tasks that are set. Once you've done that, take the learnings and the methods that you've used, and use them to test your own work for good accessibility practices.
+Start by going to the [HMRC Personas website](https://personas-prototype.herokuapp.com/), and run through each of their Personas, attempting the tasks that are set. Once you've done that, take what you've learnt and the methods that you've used, and use them to test your own work for good accessibility practices.
 
 #### Useful links
 
 - [HMRC Personas](https://personas-prototype.herokuapp.com/)
 
 ### Prefers-reduced-motion
+
+#### In short
+
+Moving parts on a website can be hard for people with ADHD, motion sickness, or balance problems. People can turn on a setting to reduce motion on their device. Use the prefers-reduced-motion CSS feature so motion only plays when they haven’t asked for less.
 
 #### What is it for?
 
@@ -1238,6 +1414,10 @@ This is the recommended way, because browsers that don't support the prefers-red
 
 ### Presentations
 
+#### In short
+
+Everyone watching should be able to get the information in your slides. Send the slides before the meeting, and add descriptions to every image. Use a plain font at least 18 point in size, and check your colour contrast.
+
 #### What is it for?
 
 Most people will have to give a presentation at some point. Presentations are used to convey information, so it's incredibly important that everyone can get the information being provided.
@@ -1260,13 +1440,17 @@ Here are a few suggestions:
 #### Useful links
 
 - [Making presentations more accessible](https://www.reading.ac.uk/digital-accessibility/resources/making-presentations-more-accessible)
-- [NHS England: Making meetings accessible](https://www.england.nhs.uk/learning-disabilities/about/get-involved/involving-people/making-meetings-accessible/#presentations)
+- [NHS England: Making meetings accessible, presentations section](https://www.england.nhs.uk/learning-disabilities/about/get-involved/involving-people/making-meetings-accessible/#presentations)
 
 ### QR Codes
 
+#### In short
+
+Blind people may not be able to find a QR code, and wheelchair users may not reach it. Always put a short web address and a clear description next to it. Make codes large and high contrast, and avoid them when you can.
+
 #### What is it for?
 
-A QR (Quick Response) code is a type of two-dimensional barcode. It's a machine-scannable image that a smartphone camera can read to bridge the gap between a physical item and a digital resource.
+A QR (Quick Response) code is a type of two-dimensional barcode. It's a machine-scannable image that a smartphone camera can read to link a physical item to a website or app.
 
 QR codes are used to store information for a device to read instantly. Common uses include:
 
@@ -1305,6 +1489,10 @@ If you can avoid using a QR code, you should. Here are a few alternatives:
 
 ### Screen reader only styling
 
+#### In short
+
+Some text should be hidden on screen but still read out by screen readers. For example, ‘Read more’ links can include hidden words saying which article they’re for. Use a special CSS class to hide text this way.
+
 #### What is it for?
 
 Screen reader only styling ensures that everyone who uses a website can access the important information it contains. In most cases, this is achieved with semantics, alt text and aria labels. However, in some cases, something should only be 'seen' by screen readers.
@@ -1315,22 +1503,19 @@ For instance, a blog page might have several 'Read more' links. Sighted users ca
 
 You can add the following to your CSS, LESS, SASS, or any other CSS-based styling:
 
-`.sr-only {`
-
-```
-   border: 0;
-   clip: rect(0 0 0 0);
-   height: 0.0625rem;
-   margin: -0.0625rem;
-   overflow: hidden;
-   padding: 0;
-   position: absolute;
-   width: 0.0625rem;
-   white-space: nowrap;
+```css
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0.0625rem;
+  margin: -0.0625rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0.0625rem;
+  white-space: nowrap;
 }
 ```
-
-
 
 When you're using things like display: none; consider whether a screen reader user would benefit from the thing you're hiding. That's a great time to use this styling!
 
@@ -1340,6 +1525,10 @@ When you're using things like display: none; consider whether a screen reader us
 - [CSS Tricks - Inclusively Hidden](https://css-tricks.com/inclusively-hidden/)
 
 ### Screen Readers
+
+#### In short
+
+Software called a screen reader reads content out loud for people who can’t see well. Most phones and computers have one built in, so you can test your own pages. Check the page order makes sense and every image is described well.
 
 #### What is it for?
 
@@ -1372,11 +1561,15 @@ When testing, check that:
 
 ### Shifting Left
 
+#### In short
+
+Check for accessibility at the start of a project, not at the end. Problems found during design are cheap and fast to fix. Everyone on the team can help, from designers to developers and product managers.
+
 #### What is it for?
 
 Imagine baking a cake, pulling it out of the oven, and realising you forgot the sugar. Trying to shove sugar into a fully baked cake is messy, stressful, and ruins the cake! It's much easier to just add the sugar at the beginning.
 
-In technology, the timeline goes from left to right (Plan ➔ Design ➔ Build ➔ Production). Shifting left means moving accessibility checks to the very beginning of the project (the left side), instead of waiting until the end to test it. Finding an accessibility bug during the design phase is incredibly cheap and fast to fix. Finding it right before the website goes live is expensive and frustrating!
+In technology, the timeline goes from left to right (Plan, then Design, then Build, then Production). Shifting left means moving accessibility checks to the very beginning of the project (the left side), instead of waiting until the end to test it. Finding an accessibility bug during the design phase is incredibly cheap and fast to fix. Finding it right before the website goes live is expensive and frustrating!
 
 Shifting left is a team habit, built by teams talking to each other and asking questions early. No special software is needed.
 
@@ -1397,6 +1590,10 @@ Shifting left can sometimes feel like it slows a project down at the very beginn
 
 ### Social Media: Alt Text
 
+#### In short
+
+Images on social media are often the main point of a post. Add a text description so screen reader users don’t miss it. Most apps, like LinkedIn, Facebook, and Slack, let you add one when you upload an image.
+
 #### What is it for?
 
 On social media, images often hold the core message or punchline. Alt text ensures that context isn't lost for anyone by serving a few vital purposes:
@@ -1410,7 +1607,7 @@ On social media, images often hold the core message or punchline. Alt text ensur
 
 On LinkedIn, add the image and click ‘ALT’ at the bottom right.
 
-On Facebook, add the image, click the three dots in the top right, and select ‘Edit alt text’.
+On Facebook, add the image, open its menu (the button with three dots), and select ‘Edit alt text’.
 
 On X (Twitter), add the image and click the ‘ALT’ box at the bottom.
 
@@ -1424,11 +1621,15 @@ In workplace chat tools like Slack, upload the image, click ‘Edit file details
 
 ### Social Media: Custom Fonts
 
+#### In short
+
+Fancy text from font generator websites isn’t a real font. Screen readers read out each letter as a maths symbol, so the message makes no sense. Use the app’s normal font for your name, profile, and captions.
+
 #### What is it for?
 
-People often use generator websites to make their text look unique (for example, 𝓬𝓾𝓻𝓼𝓲𝓿𝓮 or 𝕓𝕠𝕝𝕕). However, these are not real fonts. They are mathematical symbols from the Unicode standard designed for equations, not language.
+People often use generator websites to make their text look unique (for example, <span role="img" aria-label="the word cursive, in fancy script letters">𝓬𝓾𝓻𝓼𝓲𝓿𝓮</span> or <span role="img" aria-label="the word bold, in outlined letters">𝕓𝕠𝕝𝕕</span>). However, these are not real fonts. They are mathematical symbols from the Unicode standard designed for equations, not language.
 
-When a screen reader encounters this text, it does not read the word. It reads the mathematical description of every single character. 𝓗𝓮𝓵𝓵𝓸 ("Hello") becomes "Mathematical script capital H, mathematical script small e..." which renders the message completely unintelligible.
+When a screen reader encounters this text, it does not read the word. It reads the mathematical description of every single character. <span role="img" aria-label="the word Hello, in fancy script letters">𝓗𝓮𝓵𝓵𝓸</span> ("Hello") becomes "Mathematical script capital H, mathematical script small e..." which makes the message impossible to understand.
 
 #### How to support it
 
@@ -1439,9 +1640,13 @@ The kindest thing you can do is avoid these generators entirely for your display
 
 #### Useful links
 
-- [Accessible Social - Just Not My Type](https://www.accessible-social.com/post/just-not-my-type)
+- [Accessible Social: Just Not My Type, on why fancy text generators cause problems](https://www.accessible-social.com/post/just-not-my-type)
 
 ### Social Media: Emojis
+
+#### In short
+
+Screen readers read out the full name of every emoji, such as ‘Clapping hands’. Lots of emojis in a row are too much to listen to. Use one or two, put them at the end, and never use one in place of a word.
 
 #### What is it for?
 
@@ -1465,6 +1670,10 @@ To keep your content fun but readable, follow these best practices:
 - [The Good, The Bad, And The Ugly: Emojis and Accessibility](https://aaardvarkaccessibility.com/the-good-the-bad-and-the-ugly-emojis-and-accessibility/)
 
 ### Social Media: Hashtags
+
+#### In short
+
+Start each word in a hashtag with a capital letter, like #SocialMediaMarketing. This helps screen readers say it correctly, and it’s easier for everyone to read. Keep hashtags short and put them at the end of your post.
 
 #### What is it for?
 
@@ -1492,6 +1701,10 @@ Additionally, placing hashtags in the middle of a sentence can disrupt the readi
 - [Hootsuite - Inclusive Design for Social Media](https://blog.hootsuite.com/social-media-accessibility/)
 
 ### Tap Targets
+
+#### In short
+
+Buttons and links need to be big enough to press without touching something else by mistake. This helps people with shaky hands, or using a phone on a bus or train. Aim for at least 48 by 48 pixels, with a gap of 8 pixels between them.
 
 #### What is it for?
 
@@ -1547,6 +1760,10 @@ a {
 
 ### Temporary & Situational Disabilities
 
+#### In short
+
+Disability isn’t always permanent. A broken arm, or bright sun on a phone screen, can cause the same problems. Designing for disabled people helps everyone in these situations too.
+
 #### What is it for?
 
 People often link accessibility with permanent disabilities. For example, someone born without the use of their hands, or someone who lost their sight later in life. But disability exists on a much wider spectrum.
@@ -1561,7 +1778,7 @@ Temporary and situational disabilities are a key part of the Microsoft Inclusive
 
 #### How to support it
 
-Thinking beyond permanent disability unlocks a much bigger picture. Designing for the extremes means everyone in the middle benefits too.
+Thinking beyond permanent disability helps you design for many more people. Designing for the extremes means everyone in the middle benefits too.
 
 - Designers can ask 'what if someone is doing this in harsh sunlight?' when checking colour contrast. This helps someone with low vision just as much as someone on a sunny day.
 - Developers can add captions to all video content. Essential for someone who is d/Deaf, but also useful for anyone watching without headphones.
@@ -1571,10 +1788,14 @@ The more teams think this way, the harder it becomes to see accessibility as a n
 
 #### Useful links
 
-- [Microsoft Inclusive Design: Recognizing Exclusion](https://inclusive.microsoft.design/)
+- [Microsoft Inclusive Design](https://inclusive.microsoft.design/)
 - [World Wide Web Consortium (W3C): Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/)
 
 ### Text Alternatives for Complex Images
+
+#### In short
+
+Charts, graphs, and diagrams hold too much information for one short description. Give the image a short description that says what it is. Then put the full information nearby as text, such as a data table under a chart.
 
 #### What is it for?
 
@@ -1597,6 +1818,10 @@ For diagrams, write a structured list or description that walks the user through
 - [WebAIM - Accessible Images](https://webaim.org/techniques/images/)
 
 ### Time Limits
+
+#### In short
+
+A time limit on a form or payment page can cause stress and stop people finishing. Screen reader users and people with cognitive disabilities often need more time. Always let people extend the time, and don’t make warnings scary.
 
 #### What is it for?
 
@@ -1623,6 +1848,10 @@ Ensure that any time limits you use can be manually extended. Also ensure that t
 - [Web Accessibility Tips: Give People Enough Time](https://www.boia.org/blog/web-accessibility-tips-give-people-enough-time)
 
 ### Tooltips & Popovers
+
+#### In short
+
+Extra information that pops up, like a tooltip, often only works with a mouse. Make it show on keyboard focus too, and make sure screen readers announce it. Let people close it with the Escape key.
 
 #### What is it for?
 
@@ -1653,15 +1882,19 @@ They must work for keyboard, mouse, and screen reader users.
 
 ### Touch Gestures
 
+#### In short
+
+Pinching or swiping with several fingers can be very hard for people with shaky hands. Always give a one-finger tap option too, like plus and minus buttons on a map. You can keep gestures, but they shouldn’t be the only way.
+
 #### What is it for?
 
-Imagine trying to open a heavy door, but the rule is you can only use your pinky fingers. For someone with shaky hands, or someone who uses a special typing wand held in their mouth, doing a pinch-to-zoom or a three-finger swipe on a screen is just as hard. If a map app only lets you zoom in by pinching, those users are completely stuck.
+Imagine trying to open a heavy door, but the rule is you can only use your little fingers. For someone with shaky hands, or someone who uses a special typing wand held in their mouth, doing a pinch-to-zoom or a three-finger swipe on a screen is just as hard. If a map app only lets you zoom in by pinching, those users are completely stuck.
 
 #### How to support it
 
 Always give users a simple one-finger tap way to do things.
 
-- If there's a map you can pinch to zoom, also add simple buttons that can be tapped (like + and -)
+- If there's a map you can pinch to zoom, also add simple buttons that can be tapped (like plus and minus buttons)
 - If there's a side panel you have to swipe to open, also add a visible Menu button to tap
 - Make sure no important action requires twisting, pinching, or using multiple fingers at the same time
 
@@ -1673,6 +1906,10 @@ You don't have to get rid of fun swipes and pinches completely. Those complex ge
 - [WebAIM - Motor Disabilities](https://webaim.org/articles/motor/)
 
 ### Zooming
+
+#### In short
+
+People with low vision often need to make text and images bigger. When someone zooms in to 400%, the page should rearrange so they don’t have to scroll sideways. Never block pinch-to-zoom on phones.
 
 #### What is it for?
 

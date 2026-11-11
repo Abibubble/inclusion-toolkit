@@ -1,3 +1,7 @@
+### In short
+
+Images on social media are often the main point of a post. Add a text description so screen reader users don’t miss it. Most apps, like LinkedIn, Facebook, and Slack, let you add one when you upload an image.
+
 ### What is it for?
 
 On social media, images often hold the core message or punchline. Alt text ensures that context isn't lost for anyone by serving a few vital purposes:
@@ -11,7 +15,7 @@ On social media, images often hold the core message or punchline. Alt text ensur
 
 On LinkedIn, add the image and click ‘ALT’ at the bottom right.
 
-On Facebook, add the image, click the three dots in the top right, and select ‘Edit alt text’.
+On Facebook, add the image, open its menu (the button with three dots), and select ‘Edit alt text’.
 
 On X (Twitter), add the image and click the ‘ALT’ box at the bottom.
 

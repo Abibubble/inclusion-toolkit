@@ -1,3 +1,7 @@
+### In short
+
+Accessibility problems build up over time when things like alt text, labels, or keyboard support are skipped. The longer they’re left, the harder and more costly they are to fix. Check your work often, track problems like bugs, and fix ones that block people first.
+
 ### What is it for?
 
 Accessibility debt is like technical debt, but for accessibility. It refers to all the accessibility issues that build up over time when inclusive practices aren’t followed from the start. Just like technical debt, the longer it's left unmanaged, the harder (and more expensive) it becomes to fix.

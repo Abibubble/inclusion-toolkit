@@ -1,3 +1,7 @@
+### In short
+
+Buttons let people do things, like send a form or open a menu. If a button doesn’t work for everyone, people can get stuck. Use the HTML button element with a clear label and a visible focus state.
+
 ### What is it for?
 
 Buttons let people take an action, such as submitting a form, saving information or opening a menu. They are one of the most common interactive elements, so if a button isn't accessible, people can be completely blocked from finishing a task.
@@ -12,7 +16,7 @@ Accessible buttons help people who use a keyboard, a screen reader, voice contro
 - If a button only shows an icon, give it an accessible name (for example with `aria-label`) and hide the decorative icon from screen readers.
 - Make sure every button has a clear focus state, so keyboard users can see where they are.
 - Text on a button needs a colour contrast ratio of at least 4.5:1 (or 3:1 for large text). If the button's edge is what shows it's a button, the edge needs a contrast ratio of at least 3:1 against the background.
-- Make buttons big enough to tap easily, with space between them (see Tap Targets).
+- Make buttons big enough to tap easily, with space between them (see the [Tap Targets highlight](/accessibility/highlights/tap-targets)).
 - Don't rely on colour alone, for example to show that an action is a warning or can't be undone. Make it clear in the button text.
 - Avoid disabled buttons where you can. They are often hard to see, and they don't tell the user what they need to do.
 - Where you can, reuse a tested button from your design system or component library rather than building a new one.

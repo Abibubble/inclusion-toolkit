@@ -8,9 +8,9 @@ A checklist of steps to take before, during, and after meetings to make them mor
 - Add the [Meeting Invite Template](/meeting-invite-template) to your meeting invite, updating the fields to match your meeting
 - Offer a virtual option for in-person meetings
 - Include ways for people to give input before (or after) the meeting, not just during
-- Avoid last-minute or ad hoc meetings. Give others time to prepare and process
+- Avoid last-minute or unplanned meetings. Give others time to prepare and process
 - Where possible, organise morning meetings so people aren’t waiting all day for them
-- Avoid back-to-back meetings. Allow people 5–10 minutes between each one
+- Leave a break between meetings. Allow people 5–10 minutes between each one
 
 ### During the Meeting
 

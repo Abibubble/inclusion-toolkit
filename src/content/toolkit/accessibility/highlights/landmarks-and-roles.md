@@ -1,3 +1,7 @@
+### In short
+
+Screen reader users can jump to parts of a page, like the menu, using landmarks. Roles tell them what each item is, such as a button. Use the right HTML tags, and both are added for you.
+
 ### What is it for?
 
 Imagine trying to navigate a city with no street signs, where every building looks exactly the same. That is what a website feels like to a screen reader user without Landmarks and Roles.
@@ -9,12 +13,12 @@ It is supported universally. All browsers understand standard HTML tags automati
 
 ### How to support it
 
-The best way is to use semantic HTML (standard HTML tags). When you use the right tag, you get the Landmark or Role for free.
+The best way is to use semantic HTML (standard HTML tags). When you use the right tag, the landmark or role is added for you automatically.
 
 - Landmarks: Use \<nav\> for menus and \<main\> for your main content.
 - Roles: Use \<button\> for buttons and \<a\> for links.
 
-#### The Catch
+#### Making a plain box act like a button
 
 You can use code to force a plain box (`<div>`) to act like a `<button>`, but it is risky, and takes much more work.
 

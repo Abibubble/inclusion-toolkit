@@ -1,3 +1,7 @@
+### In short
+
+Light text on a dark background helps some people, such as those who are sensitive to light. It can blur text for some people with astigmatism, so it isn’t right for everyone. Follow the device setting and add a switch to change it.
+
 ### What is it for?
 
 Dark mode is a colour option that flips the user's view from the typical dark text on a light background to light text on a dark background. So instead of blinding white screens, things take on a darker hue. It applies a separate, darker colour scheme to websites, apps, operating systems, and devices to tone down the brightness.
@@ -6,14 +10,14 @@ In recent years, the adoption of dark mode has increased, with [many users prefe
 
 However, dark mode isn't the all-encompassing accessibility fix that many people believe it to be. Let's take a look at the pros and cons of incorporating dark mode.
 
-Pros
+#### Pros
 
 1. Many people prefer dark mode (but not all)
 2. On OLED and AMOLED screens, it can be more eco-friendly, as pixels showing pure black are switched off, which saves battery
 3. It can enhance readability and reduce eye strain, especially in low-light conditions
 4. For users with light sensitivity or photophobia, it provides a gentler visual experience, allowing for better focus
 
-Cons
+#### Cons
 
 1. Some visually impaired users can find light mode more comfortable
 2. Some users with astigmatism may have issues with reading white text on a black background, as the edges can become blurred. This is similar to the issue caused by street lights when driving at night, and is called halation

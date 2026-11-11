@@ -1,3 +1,7 @@
+### In short
+
+Around 1 in 12 men and 1 in 200 women are colour blind. Red for error and green for success can look the same to some of them. Never rely on colour alone, and add a text label, icon, or pattern.
+
 ### What is it for?
 
 Colour blindness (or Colour Vision Deficiency) is about more than just seeing in black and white. It affects roughly 1 in 12 men and 1 in 200 women. It changes how people perceive the world, which is a huge issue if colour is the only way information is conveyed. For example, a 'red for error' and 'green for success' status light might look the same to someone with red-green colour blindness.

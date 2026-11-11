@@ -1,3 +1,7 @@
+### In short
+
+With auditory processing disorder, the brain finds it hard to make sense of speech, mostly in noisy places. The ears work fine, and it’s not a sign of low intelligence. Face the person, cut background noise, and write down spoken instructions too.
+
 ### Symptoms
 
 - Difficulty understanding speech in noisy environments.
@@ -10,7 +14,7 @@
 - Diagnosed more often in males.
 - Females are often missed due to masking.
 
-### Misconceptions
+### Common myths
 
 - It’s not a problem with the ears.
 - It’s not the same as ADHD, though they often co-occur.
@@ -22,13 +26,13 @@
 - Tests measure how the brain processes sound.
 - Often identified alongside dyslexia or ADHD.
 
-### Support options
+### Professional support
 
 - Auditory training exercises to improve processing.
 - Environmental changes to reduce background noise.
 - Assistive technology such as live captions or remote microphones.
 
-### Support
+### How to help
 
 - Face the person when speaking, and speak clearly and slowly.
 - Reduce background noise in meetings where possible.

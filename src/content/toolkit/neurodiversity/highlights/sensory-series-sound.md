@@ -1,12 +1,16 @@
-### Let’s talk about it
+### In short
+
+Everyday office noise can be overwhelming for some neurodivergent people. Blocking it out takes a lot of energy. Keeping noise down, using meeting rooms for long chats, and respecting headphones all help.
+
+### Overview
 
 Sound affects people in completely different ways. For many neurodivergent individuals, everyday workplace noises aren't just distracting; they can be physically overwhelming. This is often due to sensory processing differences, where the brain can't easily filter out background noise.
 
-An open-plan office can quickly become a wall of sound. Things like keyboards clicking, loud chats, or a humming air conditioner take up a huge amount of mental energy. Some people might experience 'misophonia', where specific sounds trigger a strong stress reaction. Others might have trouble understanding speech when there's background noise, which makes collaboration extra challenging.
+An open-plan office can quickly fill with noise from every side. Things like keyboards clicking, loud chats, or a humming air conditioner take up a huge amount of mental energy. Some people might experience 'misophonia', where specific sounds trigger a strong stress reaction. Others might have trouble understanding speech when there's background noise, which makes collaboration extra challenging.
 
 Creating a workspace that's comfortable for everyone's sensory needs is essential for a productive team.
 
-Colleagues can support each other by being mindful of volume in shared spaces. It's always best to move long conversations to a meeting room or a breakout area. Respecting when someone is wearing headphones is also important, as it's often their way of creating a quiet bubble so they can focus.
+Colleagues can support each other by being mindful of volume in shared spaces. It's always best to move long conversations to a meeting room or a breakout area. Respecting when someone is wearing headphones is also important, as it's often their way of creating a quiet space of their own so they can focus.
 
 ### Useful links
 

@@ -1,3 +1,7 @@
+### In short
+
+Everyone’s brain works differently, including people with autism, ADHD, or dyslexia. Clear, calm design that works the same way each time helps them. Use plain words, keep layouts the same, and don’t play videos by themselves.
+
 ### What is it for?
 
 Neurodiversity describes the natural variations in how human brains function, process information, learn, and interact. This includes conditions like autism, ADHD, dyslexia, and dyspraxia. Under UK law (the Equality Act 2010), neurodivergence can count as a disability if it has a substantial, long-term effect on someone's day-to-day activities. But not all neurodivergent people see themselves as disabled.

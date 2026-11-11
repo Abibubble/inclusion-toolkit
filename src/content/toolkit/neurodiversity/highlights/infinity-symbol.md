@@ -1,6 +1,10 @@
-### Let’s talk about it
+### In short
 
-If you've read the Puzzle Piece Symbol highlight, you might be wondering what symbol is preferred. The answer is (usually) the Infinity Symbol. It represents a spectrum of possibilities, rather than a linear scale.
+Many neurodivergent people prefer the infinity symbol to the puzzle piece. A rainbow one stands for neurodiversity, and a gold one for autism. It has no start or end, which shows that no one is missing a piece.
+
+### Overview
+
+If you've read the Puzzle Piece Symbol highlight, you might be wondering what symbol is preferred. The answer is (usually) the Infinity Symbol. It represents a spectrum of possibilities, rather than a line from less to more.
 
 Here is a quick guide to the variations you might see:
 

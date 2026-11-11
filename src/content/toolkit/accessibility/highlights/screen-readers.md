@@ -1,3 +1,7 @@
+### In short
+
+Software called a screen reader reads content out loud for people who can’t see well. Most phones and computers have one built in, so you can test your own pages. Check the page order makes sense and every image is described well.
+
 ### What is it for?
 
 Screen readers are pieces of software that announce content audibly. This allows a computer to read text, images, icons, and much more. Some screen readers are available for free, either pre-installed as part of your operating system or available for download from websites. Screen readers are used if someone does not have enough vision to be able to view content from a screen.

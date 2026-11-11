@@ -16,6 +16,8 @@ export default defineConfig([
     'playwright-report',
     'test-results',
     '.react-router',
+    // The scripts that build the Word, PowerPoint and PDF files, which aren't part of the site
+    'toolkit-sources',
     '.pages-preview',
     '.lighthouseci',
     'lighthouse-report',

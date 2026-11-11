@@ -1,3 +1,7 @@
+### In short
+
+ADHD affects focus, memory, time, and sitting still. It isn’t bad behaviour, and many adults have it. Clear written instructions and movement breaks help.
+
 ### Symptoms
 
 - Easily distracted, forgetful, or difficulty managing time, focus, and tasks.
@@ -10,7 +14,7 @@
 - Diagnosed more often in males.
 - Females are often missed as they tend to have inattentive type ADHD, rather than hyperactive-impulsive type.
 
-### Misconceptions
+### Common myths
 
 - It’s not 'bad behaviour' or lack of willpower.
 - It’s not just a childhood phase. Many adults live with undiagnosed ADHD.
@@ -21,12 +25,12 @@
 - Requires a referral from a GP to a specialist (usually a psychiatrist).
 - The assessment involves interviews, questionnaires, and reviewing childhood history to see if symptoms impact daily life.
 
-### Support options
+### Professional support
 
 - Medication can help improve focus and reduce impulsivity.
 - Cognitive Behavioural Therapy (CBT) or ADHD coaching helps with organisation and emotional regulation.
 
-### Support
+### How to help
 
 - Give clear, written instructions rather than long verbal lists.
 - Allow headphones or fidget tools to support those with sensory needs.

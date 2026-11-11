@@ -1,3 +1,7 @@
+### In short
+
+Pain all over the body and tiredness that sleep doesn’t fix are the main signs of fibromyalgia. It’s a physical condition, not something people imagine. Believe them when they say they’re in pain, even if they look well.
+
 ### Symptoms
 
 - Widespread pain and tenderness lasting three months or more.
@@ -9,16 +13,16 @@
 - Most common in people aged between 30 and 50, but can affect any age.
 - Diagnosed much more frequently in females than in males.
 
-### Misconceptions
+### Common myths
 
-- It’s a physical condition, not something that’s 'all in the mind'.
+- It’s a physical condition, not something people imagine.
 - It’s not a form of arthritis, as it affects soft tissues rather than joints.
 - People with fibromyalgia aren’t 'just lazy'. The fatigue and pain are often debilitating.
 
 ### Diagnosis
 
 - There is no specific scan or blood test for Fibromyalgia.
-- Diagnosed by a GP or Rheumatologist by ruling out other conditions.
+- Diagnosed by a GP or Rheumatologist after checking it isn’t another condition.
 - Based on widespread pain in specific areas of the body for a long period.
 
 ### Treatment
@@ -27,7 +31,7 @@
 - Gentle movement like swimming helps maintain mobility.
 - CBT helps manage the mental impact of chronic pain.
 
-### Support
+### How to help
 
 - Be flexible with plans as symptoms can 'flare up' without warning.
 - Offer practical help with physical tasks like shopping or cleaning.

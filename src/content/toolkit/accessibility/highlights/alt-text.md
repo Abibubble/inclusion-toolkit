@@ -1,3 +1,7 @@
+### In short
+
+Some people can’t see images, such as people who are blind or have slow internet. Alternative text describes what the image means, so everyone gets the same information. Keep it short, and leave it empty for images that are only for decoration.
+
 ### What is it for?
 
 Some people cannot see the images we display. This includes people who are blind or have low vision. It also includes people with slow internet, little data, or low battery.

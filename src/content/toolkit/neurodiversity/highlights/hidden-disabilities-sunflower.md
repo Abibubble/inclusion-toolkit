@@ -1,4 +1,8 @@
-### Let’s talk about it
+### In short
+
+A green lanyard with yellow sunflowers shows that someone may have a disability you can’t see. They might need more time, patience, or help. You don’t need to ask what their disability is.
+
+### Overview
 
 You've probably seen green lanyards with yellow sunflowers in airports, shops, or even at the office. This is the Hidden Disabilities Sunflower. While not exclusive to neurodiversity, it's widely used by the community.
 

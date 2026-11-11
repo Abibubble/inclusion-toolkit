@@ -1,3 +1,7 @@
+### In short
+
+Keyboard users need to see which link, button, or field they’ve reached. Make the focus indicator visible, with a contrast of at least 3:1 against nearby colours. Don’t let sticky headers or other content hide it.
+
 ### What is it for?
 
 Focus states occur when an interactive element receives focus. Interactive elements include links, buttons, and input fields. You can focus on an element by clicking it (as long as the click doesn't take you somewhere else). You can also press the Tab key until the element is selected.

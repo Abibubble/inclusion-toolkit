@@ -1,3 +1,7 @@
+### In short
+
+Crohn’s disease is serious and lifelong, causing stomach pain, diarrhoea, and severe tiredness. It isn’t caused by a poor diet, and people can look well while in pain. Quick toilet access, with no need to explain, and flexible plans help.
+
 ### Symptoms
 
 - Extreme stomach pain and frequent, urgent diarrhoea.
@@ -9,7 +13,7 @@
 - Most often diagnosed in teenagers and young adults aged 16 to 30.
 - It affects all genders equally.
 
-### Misconceptions
+### Common myths
 
 - It’s not just a bad stomach ache, but a serious lifelong inflammatory condition.
 - It’s not caused by a poor diet, though food can trigger flares.
@@ -25,7 +29,7 @@
 - Steroids and immunosuppressants help to reduce internal inflammation.
 - Surgery may be needed to remove damaged parts of the digestive system.
 
-### Support
+### How to help
 
 - Ensure they have easy, quick access to a toilet without explanation.
 - Be flexible with schedules, as flare-ups can be sudden and exhausting.

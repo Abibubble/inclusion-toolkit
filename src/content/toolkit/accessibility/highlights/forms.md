@@ -1,3 +1,7 @@
+### In short
+
+Online forms should work for everyone, including people who use screen readers or only a keyboard. Give every field a proper label, and don’t rely on placeholder text. Error messages should say what’s wrong and how to fix it.
+
 ### What is it for?
 
 An accessible form is an online form that everyone can fill in, including people with vision, movement, or cognitive disabilities. It collects information, such as contact details, sign-ups, feedback, or payments. It does this in a way that is clear and easy for everyone to use, including people who use screen readers or only a keyboard.

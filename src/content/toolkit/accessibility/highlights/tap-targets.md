@@ -1,3 +1,7 @@
+### In short
+
+Buttons and links need to be big enough to press without touching something else by mistake. This helps people with shaky hands, or using a phone on a bus or train. Aim for at least 48 by 48 pixels, with a gap of 8 pixels between them.
+
 ### What is it for?
 
 You should ensure that interactive elements like buttons or links are large enough and have enough space around them, to make them easy to press without accidentally overlapping onto other elements.
