@@ -1,49 +1,169 @@
-.definitions {
+/* Search needs JavaScript, so without it the box is hidden and every word shows */
+.search {
   display: flex;
   flex-direction: column;
-  gap: var(--spacer-16);
+  gap: var(--spacer-8);
   max-width: var(--size-measure);
-  margin: 0;
 }
 
-.definitions dt {
+:global(:root:not([data-js])) .search {
+  display: none;
+}
+
+.label {
   font-weight: var(--font-weight-emphasis);
   letter-spacing: var(--letter-spacing-emphasis);
 }
 
-.definitions dd {
+.searchRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-8) var(--spacer-16);
+  align-items: center;
+}
+
+.input {
+  flex: 1 1 var(--size-input-max);
+  width: 100%;
+  max-width: var(--size-input-max);
+  min-height: var(--size-target-min);
+  padding: var(--spacer-8) var(--spacer-16);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-small);
+
+  /* The Clear search button does this, so the browser's own small cross would be a second way */
+  &::-webkit-search-cancel-button {
+    appearance: none;
+  }
+}
+
+.status {
   margin: 0;
+
+  &:empty {
+    display: none;
+  }
 }
 
-/* Short, so each abbreviation sits beside what it stands for, in two columns */
-.abbreviations {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: var(--spacer-8) var(--spacer-24);
-  max-width: var(--size-measure);
-  margin: 0;
-}
+/*
+ * On wider screens, each section is a table: the word or abbreviation on the left, and what it
+ * means on the right. The columns keep their widths, and a word only breaks if it can't fit on its
+ * own line, so the table never makes the page scroll sideways (WCAG 1.4.10)
+ */
+.table {
+  width: 100%;
+  max-width: calc(var(--spacer-96) * 8);
+  table-layout: fixed;
+  border-collapse: collapse;
 
-.abbreviations > div {
-  display: contents;
-}
-
-.abbreviations dt {
-  font-weight: var(--font-weight-emphasis);
-  letter-spacing: var(--letter-spacing-emphasis);
-}
-
-.abbreviations dd {
-  margin: 0;
-}
-
-@media (width < 30em) {
-  .abbreviations {
-    grid-template-columns: 1fr;
-    gap: 0;
+  th,
+  td {
+    padding: var(--spacer-8) var(--spacer-16);
+    text-align: start;
+    overflow-wrap: break-word;
+    vertical-align: top;
+    border-block-end: var(--border-width) solid var(--color-border-decorative);
   }
 
-  .abbreviations dd {
-    margin-block-end: var(--spacer-16);
+  th {
+    font-weight: var(--font-weight-emphasis);
+    letter-spacing: var(--letter-spacing-emphasis);
+  }
+
+  thead th {
+    background: var(--color-surface);
+    border-block-end-color: var(--color-card-accent);
+  }
+
+  thead th:first-child {
+    width: 35%;
+  }
+
+  /* Less padding on the narrowest screens, so more of each word fits */
+  @media (width < 30rem) {
+    th,
+    td {
+      padding-inline: var(--spacer-8);
+    }
+
+    thead th:first-child {
+      width: 45%;
+    }
+  }
+
+  /* Every other row is shaded, so it's easy to follow a row across */
+  tbody tr:nth-child(even) {
+    background: var(--color-surface);
+  }
+
+  /* The word someone followed a link to is highlighted */
+  tbody tr:has(:target) {
+    background: var(--color-summary);
+  }
+}
+
+/* On small screens, each word is a line that opens to show what it means */
+.terms {
+  max-width: var(--size-measure);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-block-start: var(--border-width) solid var(--color-border-decorative);
+
+  > li {
+    border-block-end: var(--border-width) solid var(--color-border-decorative);
+  }
+}
+
+.term {
+  /* A block, not flex, so a long word such as "Electroencephalogram" can break to fit a narrow
+     screen with large text (WCAG 1.4.10) */
+  > summary {
+    display: block;
+    align-content: center;
+    min-height: var(--size-target-min);
+
+    /* The arrow hangs to the left, so a term that wraps lines up under its first word */
+    padding-inline: calc(var(--spacer-8) + var(--spacer-24)) var(--spacer-8);
+    text-indent: calc(-1 * var(--spacer-24));
+    font-weight: var(--font-weight-emphasis);
+    letter-spacing: var(--letter-spacing-emphasis);
+    overflow-wrap: break-word;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    /* An arrow that points right, and down when it's open. It's drawn with lines, not a
+       character, so screen readers don't read it out */
+    &::before {
+      display: inline-block;
+      inline-size: var(--spacer-8);
+      block-size: var(--spacer-8);
+      margin-inline: var(--spacer-4) calc(var(--spacer-8) + var(--spacer-4));
+      vertical-align: 0.15em;
+      content: '';
+      border-block-end: var(--border-width) solid currentcolor;
+      border-inline-end: var(--border-width) solid currentcolor;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &[open] > summary::before {
+    transform: rotate(45deg);
+  }
+
+  > p {
+    padding-inline: calc(var(--spacer-8) + var(--spacer-16));
+    margin: 0 0 var(--spacer-16);
+  }
+
+  /* The word someone followed a link to is highlighted */
+  &:target {
+    background: var(--color-summary);
   }
 }
