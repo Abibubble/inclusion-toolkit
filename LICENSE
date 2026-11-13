@@ -1,0 +1,50 @@
+The Inclusion Toolkit has two licences: one for its content, and one for its code.
+
+
+CONTENT: CREATIVE COMMONS ATTRIBUTION 4.0 INTERNATIONAL (CC BY 4.0)
+
+The toolkit's content is shared under the Creative Commons Attribution 4.0 International licence:
+https://creativecommons.org/licenses/by/4.0/
+
+The content is:
+
+- the text of each resource, in src/content/toolkit
+- the glossary and abbreviations, in src/content/glossary.ts and src/content/abbreviations.ts
+- the Word, PowerPoint and PDF files, in public/files and toolkit-sources/branded
+
+You can share and change the content, for any purpose, as long as you give credit, link to the
+licence, and say if you made changes. Please credit it like this:
+
+  Abi Harrison-Nye first made the Inclusion Toolkit for giffgaff and HAND (Home of Accessibility
+  and NeuroDiversity), with Bim Williams and Pranay Gandhi, and it has been updated and added to
+  since. Shared under CC BY 4.0.
+
+The fonts inside the Word, PowerPoint and PDF files, Atkinson Hyperlegible Next and Atkinson
+Hyperlegible Mono, have their own licence, the SIL Open Font License, version 1.1.
+
+
+CODE: MIT
+
+Everything else in this repository is shared under the MIT License:
+
+MIT License
+
+Copyright (c) 2026 Abi Harrison-Nye
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

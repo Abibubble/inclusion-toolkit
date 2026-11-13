@@ -91,3 +91,9 @@ Long pages would send their text twice: once as HTML, and again in the page data
 so the browser can take over the page. After the build, `src/build/repeatedHtml.ts` swaps the copy in
 the data for a short marker, and the `RichText` component reads the HTML back from the page. This
 roughly halves the size of the longest pages.
+
+## Licence
+
+The toolkit's content, its text and its Word, PowerPoint and PDF files, is shared under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The code is under the MIT License. See
+[LICENSE](LICENSE) for which is which, and how to credit the content.

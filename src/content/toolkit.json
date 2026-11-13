@@ -13,7 +13,7 @@
           "items": [
             {
               "slug": "accessibility-highlights",
-              "title": "Accessibility Highlights",
+              "title": "All Accessibility Highlights",
               "description": "Every accessibility highlight in one file, each with what it’s for, how to support it and useful links, plus a glossary of terms.",
               "updated": "2026-11-11",
               "slides": true,
@@ -570,7 +570,7 @@
           "items": [
             {
               "slug": "accessibility-infographics",
-              "title": "Accessibility Infographics",
+              "title": "All Accessibility Infographics",
               "description": "Every accessibility infographic in one file, each covering a condition’s symptoms, myths, diagnosis, treatment and support.",
               "updated": "2026-11-11",
               "slides": false,
@@ -776,7 +776,7 @@
           "items": [
             {
               "slug": "neurodiversity-highlights",
-              "title": "Neurodiversity Highlights",
+              "title": "All Neurodiversity Highlights",
               "description": "Every neurodiversity highlight in one file, each explaining a topic and how to support people, with useful links.",
               "updated": "2026-11-11",
               "slides": true,
@@ -928,7 +928,7 @@
           "items": [
             {
               "slug": "neurodiversity-infographics",
-              "title": "Neurodiversity Infographics",
+              "title": "All Neurodiversity Infographics",
               "description": "Every neurodiversity infographic in one file, each covering a condition’s signs, myths, diagnosis and support.",
               "updated": "2026-11-11",
               "slides": false,

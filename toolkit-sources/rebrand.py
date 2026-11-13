@@ -80,12 +80,12 @@ EDITED_FILES = [
     (
         'AccessibilityHighlights (updated).docx',
         'highlights/accessibility/accessibility-highlights.docx',
-        'Accessibility Highlights',
+        'All Accessibility Highlights',
     ),
     (
         'NeurodiversityHighlights.docx',
         'highlights/neurodiversity/neurodiversity-highlights.docx',
-        'Neurodiversity Highlights',
+        'All Neurodiversity Highlights',
     ),
 ]
 # Each set of highlights: its full Word file, which is cut into one Word file for each highlight,
@@ -95,13 +95,13 @@ HIGHLIGHT_SETS = [
         'highlights/accessibility/accessibility-highlights.docx',
         'AccessibilityHighlights (updated).pptx',
         'highlights/accessibility/accessibility-highlights.pptx',
-        'Accessibility Highlights',
+        'All Accessibility Highlights',
     ),
     (
         'highlights/neurodiversity/neurodiversity-highlights.docx',
         'NeurodiversityHighlights.pptx',
         'highlights/neurodiversity/neurodiversity-highlights.pptx',
-        'Neurodiversity Highlights',
+        'All Neurodiversity Highlights',
     ),
 ]
 # Each set of infographics: the original, its branded copy and its title. Each is cut into one
@@ -110,12 +110,12 @@ INFOGRAPHIC_SETS = [
     (
         'Accessibility Infographics.pptx',
         'infographics/accessibility/accessibility-infographics.pptx',
-        'Accessibility Infographics',
+        'All Accessibility Infographics',
     ),
     (
         'NeurodiversityInfographics.pptx',
         'infographics/neurodiversity/neurodiversity-infographics.pptx',
-        'Neurodiversity Infographics',
+        'All Neurodiversity Infographics',
     ),
 ]
 
@@ -1634,24 +1634,33 @@ def source(name: str) -> Path:
     return path
 
 
+def set_title(path: Path, title: str) -> None:
+    """Sets a file's title, author and language, which PDFs and screen readers use"""
+    pkg = Package(path)
+    set_core_properties(pkg, title)
+    check_and_save(pkg, path)
+
+
 def main() -> None:
     for _, out_name, title in EDITED_FILES:
         finish_edited(source(out_name), title)
 
     for highlights, _, out_name, title in HIGHLIGHT_SETS:
         made = split_highlights(Package(source(highlights)), (BRANDED / highlights).parent)
-        print(f'Made {len(made)} files, one for each of the {title}')
+        print(f'Made {len(made)} files, one for each resource in {title}')
 
         same_corners(source(out_name))
+        set_title(source(out_name), title)
         slides = split_slides(BRANDED / out_name, (BRANDED / out_name).parent, made)
-        print(f'Made {len(slides)} slides files, one for each of the {title}')
+        print(f'Made {len(slides)} slides files, one for each resource in {title}')
         if len(slides) != len(made):
             sys.exit(f'No slide found for: {", ".join(sorted(set(made) - set(slides)))}')
 
     for _, out_name, title in INFOGRAPHIC_SETS:
         same_corners(source(out_name))
+        set_title(source(out_name), title)
         made = split_slides(BRANDED / out_name, (BRANDED / out_name).parent, None)
-        print(f'Made {len(made)} files, one for each of the {title}')
+        print(f'Made {len(made)} files, one for each resource in {title}')
 
 
 if __name__ == '__main__':
