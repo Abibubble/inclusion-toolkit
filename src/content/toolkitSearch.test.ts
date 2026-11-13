@@ -99,6 +99,12 @@ describe('searchToolkit', () => {
     entry('Meetings', 'Making meetings inclusive.'),
   ];
 
+  it('finds nothing for a single character, as it would match nearly everything', () => {
+    expect(searchToolkit(ENTRIES, 'd')).toEqual([]);
+    expect(searchToolkit(ENTRIES, ' d ')).toEqual([]);
+    expect(searchToolkit(ENTRIES, 'da').length).toBeGreaterThan(0);
+  });
+
   it('finds entries with every word in their title or description, in any order', () => {
     expect(titles(searchToolkit(ENTRIES, 'MODE dark'))).toEqual(['Dark mode']);
   });

@@ -201,11 +201,23 @@ function usage(words: string, searched: readonly string[]): number {
  * the title come first, then the description, then the full text, where those that use the words
  * most come first
  */
+/**
+ * A search needs at least this many characters, as one letter matches nearly everything. The
+ * toolkit search and the glossary search both use it
+ */
+export const MIN_SEARCH_LENGTH = 2;
+
+/** Whether a search box's text is long enough to search for */
+export function isLongEnough(query: string): boolean {
+  return query.trim().length >= MIN_SEARCH_LENGTH;
+}
+
 export function searchToolkit(
   entries: readonly ToolkitSearchEntry[],
   query: string,
   index: ToolkitSearchIndex = {},
 ): ToolkitSearchEntry[] {
+  if (!isLongEnough(query)) return [];
   const words = searchableWords(query);
   if (words.length === 0) return [];
 

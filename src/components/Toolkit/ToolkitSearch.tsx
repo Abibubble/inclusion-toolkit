@@ -1,9 +1,11 @@
 import { useId, useRef, useState } from 'react';
 
 import {
+  MIN_SEARCH_LENGTH,
   SEARCH_INDEX_PATH,
   type ToolkitSearchEntry,
   type ToolkitSearchIndex,
+  isLongEnough,
   searchToolkit,
   searchableWords,
 } from '../../content/toolkitSearch';
@@ -41,6 +43,8 @@ function useSearchIndex(): [ToolkitSearchIndex | undefined, () => void] {
 
 function resultsMessage(query: string, count: number): string {
   if (query.trim() === '') return '';
+  if (!isLongEnough(query))
+    return `Type at least ${String(MIN_SEARCH_LENGTH)} characters to search.`;
   if (searchableWords(query).length === 0) {
     return `“${query.trim()}” is too common to search for. Try a more specific word.`;
   }

@@ -9,6 +9,7 @@ import { Stack } from '../components/Stack';
 import { ABBREVIATIONS, type Abbreviation } from '../content/abbreviations';
 import { GLOSSARY, glossaryId } from '../content/glossary';
 import { GLOSSARY_PATH } from '../content/navigation';
+import { MIN_SEARCH_LENGTH, isLongEnough } from '../content/toolkitSearch';
 import { focusById } from '../hooks/useFocusOnNavigation';
 import { pageTitle } from '../content/site';
 import { pageMeta } from '../seo/pageMeta';
@@ -60,11 +61,8 @@ function normalise(text: string): string {
   return text.toLowerCase().replace(/[‘’]/g, "'").trim();
 }
 
-/** A search needs at least this many characters, as one letter matches nearly everything */
-const MIN_SEARCH_LENGTH = 2;
-
 function isSearch(query: string): boolean {
-  return normalise(query).length >= MIN_SEARCH_LENGTH;
+  return isLongEnough(normalise(query));
 }
 
 function matches(query: string, ...texts: string[]): boolean {

@@ -101,6 +101,16 @@ describe('ToolkitPage', () => {
     expect(screen.getByText('Resources are coming here soon.')).toBeInTheDocument();
   });
 
+  it('asks for at least 2 characters before searching', async () => {
+    const user = userEvent.setup();
+    renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search: SEARCH }} />);
+
+    await user.type(screen.getByRole('searchbox', { name: 'Search resources' }), 'h');
+
+    expect(screen.getByRole('status')).toHaveTextContent('Type at least 2 characters to search.');
+    expect(screen.queryByRole('list', { name: 'Search results' })).not.toBeInTheDocument();
+  });
+
   it('shows results as you type, says how many there are, and can be cleared', async () => {
     const user = userEvent.setup();
     renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search: SEARCH }} />);
