@@ -6,9 +6,9 @@ Autistic people may find social cues hard, need routine, and feel noise or light
 
 #### Symptoms
 
-- Difficulty with eye contact, social cues or small talk.
+- Difficulty with eye contact, social cues, or small talk.
 - Strong need for routine or repetitive movements (stimming).
-- Over or under-sensitive to noise, light or textures.
+- Over or under-sensitive to noise, light, or textures.
 
 #### Age & Gender
 
@@ -25,7 +25,7 @@ Autistic people may find social cues hard, need routine, and feel noise or light
 #### Diagnosis
 
 - Diagnosis is based on observing behaviour and developmental history.
-- Usually involves paediatricians, psychologists and speech therapists.
+- Usually involves paediatricians, psychologists, and speech therapists.
 
 #### Professional support
 
@@ -129,8 +129,8 @@ Dyslexia makes reading, spelling, and working with the sounds in words harder. I
 
 #### Symptoms
 
-- Difficulty learning to read, spelling, and decoding text.
-- Trouble hearing or manipulating sounds in words.
+- Difficulty learning to read, spelling, and working out what written words say.
+- Trouble hearing or changing the sounds in words.
 - Challenges with sequencing, directions, and memory.
 
 #### Age & Gender
@@ -150,8 +150,8 @@ Dyslexia makes reading, spelling, and working with the sounds in words harder. I
 
 #### Professional support
 
-- Assistive technology like text-to-speech software, screen readers, or coloured overlays.
-- Structured, multisensory teaching methods help improve literacy skills.
+- Assistive technology like text-to-speech software, screen readers, or coloured overlays (see-through coloured sheets placed over text).
+- Structured teaching that uses several senses at once, like sight, sound, and touch, helps improve reading and writing skills.
 
 #### How to help
 
@@ -167,7 +167,7 @@ Dyspraxia makes balance, coordination, and planning movements hard. Children don
 
 #### Symptoms
 
-- Poor balance, coordination and general clumsiness.
+- Poor balance, coordination, and general clumsiness.
 - Difficulty with fine motor skills like handwriting or tying shoelaces.
 - Trouble planning and organising physical movements.
 
@@ -181,12 +181,12 @@ Dyspraxia makes balance, coordination, and planning movements hard. Children don
 
 - It’s not just being 'clumsy' or lazy.
 - Children will not simply grow out of it.
-- It doesn’t only affect movement, it often impacts organisation and memory too.
+- It doesn’t only affect movement. It often affects organisation and memory too.
 
 #### Diagnosis
 
 - Assessment by a paediatrician, occupational therapist, or physiotherapist.
-- Tests measure motor skills compared to age norms.
+- Tests compare motor skills with what’s usual for the person’s age.
 
 #### Professional support
 
@@ -209,7 +209,7 @@ Dyscalculia makes numbers, sums, telling the time, and counting money harder. It
 #### Symptoms
 
 - Difficulty understanding number concepts and arithmetic.
-- Trouble telling time, counting change or estimating quantities.
+- Trouble telling time, counting change, or estimating quantities.
 - High anxiety when faced with mathematical tasks.
 
 #### Age & Gender
@@ -226,11 +226,11 @@ Dyscalculia makes numbers, sums, telling the time, and counting money harder. It
 #### Diagnosis
 
 - Assessment by a specialist teacher or Educational Psychologist.
-- Standardised tests measure number sense and calculation ability against age norms.
+- Standardised tests compare how well the person understands and works with numbers with what’s usual for their age.
 
 #### Professional support
 
-- Multisensory teaching using physical objects like counters.
+- Teaching that uses several senses at once, with physical objects like counters.
 - Technological aids like calculators or voice-activated apps.
 - Focus on practical maths needed for daily life (for example, money, time).
 
@@ -248,8 +248,8 @@ Tics are movements or sounds that people with Tourette’s syndrome can’t cont
 
 #### Symptoms
 
-- Involuntary movements like blinking, shrugging or head jerking (motor tics).
-- Involuntary sounds like grunting, throat clearing or words (vocal tics).
+- Involuntary movements like blinking, shrugging, or head jerking (motor tics).
+- Involuntary sounds like grunting, throat clearing, or words (vocal tics).
 - An uncomfortable physical urge or sensation before the tic happens.
 
 #### Age & Gender
@@ -288,8 +288,8 @@ Anxiety can cause dread, racing thoughts, and a pounding heart, and it’s a med
 
 #### Symptoms
 
-- Constant feeling of dread, racing thoughts or feeling tense and unable to relax.
-- Heart palpitations, sweating, shaking or shortness of breath.
+- Constant feeling of dread, racing thoughts, or feeling tense and unable to relax.
+- Heart palpitations, sweating, shaking, or shortness of breath.
 - Avoiding situations or places to escape the worry.
 
 #### Age & Gender
@@ -339,7 +339,7 @@ With dysgraphia, handwriting is hard to read and holding a pen can hurt. It isn�
 
 #### Common myths
 
-- It is a neurological disconnect, not just 'messy handwriting' or laziness.
+- It is a neurological difference in how the brain controls writing, not just 'messy handwriting' or laziness.
 - It does not mean a person has low intelligence.
 - They can have excellent physical coordination for everything else.
 
@@ -368,7 +368,7 @@ Some people’s brains find sounds, lights, touch, and other senses hard to hand
 
 #### Symptoms
 
-- Over or under-sensitive to sensory stimuli.
+- Over or under-sensitive to things like sounds, lights, touch, and smells.
 - Difficulty filtering background noise.
 - Emotional dysregulation when overwhelmed.
 
@@ -380,7 +380,7 @@ Some people’s brains find sounds, lights, touch, and other senses hard to hand
 
 #### Common myths
 
-- It’s not bad behaviour, sensory input is genuinely overwhelming.
+- It’s not bad behaviour. Sensory input is genuinely overwhelming.
 - Not the same as autism, though they often co-occur.
 - Not something people can overcome just by trying harder.
 
@@ -394,7 +394,7 @@ Some people’s brains find sounds, lights, touch, and other senses hard to hand
 
 - Sensory integration therapy with an Occupational Therapist.
 - A personalised 'sensory diet' of daily activities.
-- Environmental adjustments to reduce stimuli.
+- Changes to the surroundings to reduce things like noise and bright light.
 
 #### How to help
 

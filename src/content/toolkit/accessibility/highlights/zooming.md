@@ -14,7 +14,7 @@ You can easily test if your page is zoomable, using the following steps:
 
 #### On a computer:
 
-1. Hold the Ctrl key (or Cmd on a Mac) and press the + key.
+1. Hold the Ctrl key, or the Cmd key on a Mac, and press the + key.
 2. Zoom to 200% (twice the normal size) and check everything is readable and usable.
 3. Then zoom to 400%. Can you read everything without scrolling left and right? All information and buttons should still be visible and easy to use. Do all navigation menus and search bars work correctly?
 
@@ -24,7 +24,7 @@ You can easily test if your page is zoomable, using the following steps:
 2. Spread your fingers apart, keeping them touching the screen
 3. Release at your desired zoom level
 
-**NOTE**: This is especially important on mobile devices. The 'pinch-to-zoom' feature must never be blocked. Disabling zoom creates a major barrier for accessibility and prevents people from using a tool they may rely on.
+Note: This is especially important on mobile devices. The 'pinch-to-zoom' feature must never be blocked. Disabling zoom creates a major barrier for accessibility and prevents people from using a tool they may rely on.
 
 ### Useful links
 

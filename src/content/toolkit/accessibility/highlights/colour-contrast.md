@@ -4,7 +4,7 @@ Low contrast, like light grey text on white, is hard for many people to read. Us
 
 ### What is it for?
 
-Websites, social media images, and out-of-home advertising should have a good colour contrast between text and background colour. That includes links, icons, buttons and any other information. An example of poor colour contrast is light grey text on a white background.
+Websites, social media images, posters, billboards, and other outdoor advertising should have a good colour contrast between text and background colour. That includes links, icons, buttons, and any other information. An example of poor colour contrast is light grey text on a white background.
 
 It is useful for, but not limited to, the following people:
 
@@ -14,11 +14,11 @@ It is useful for, but not limited to, the following people:
 - People with cataracts
 - People in different lighting situations (for example, sun glare on a phone screen)
 
-It's also worth noting that anything that is indicated by colour also needs to have a secondary way for it to be distinguished. For example, it's no good saying "use the green button if you agree or the red button if you don’t” by itself, as some people may not be able to distinguish between those two colours.
+It's also worth noting that anything that is indicated by colour also needs to have a secondary way for it to be distinguished. For example, don't only say “use the green button if you agree or the red button if you don’t”. Some people may not be able to distinguish between those two colours.
 
 The science behind checking if colours are contrasting enough is complex, but you don't need to understand how contrast is calculated in order to use sufficient colour contrast. Colour contrast refers to the difference in luminance (brightness) between the foreground (text) and background colours. Contrast ratios go from 1:1 (no contrast, such as white on white) to 21:1 (black on white). The higher the number, the bigger the difference.
 
-The general rule is that text and images of text must have a contrast ratio of at least 4.5:1. Large text (18 point / 24px or larger, or 14 point / about 18.66px or larger if bold) can have a contrast ratio of 3:1, although it's generally better to aim for a higher contrast.
+The general rule is that text and images of text must have a contrast ratio of at least 4.5:1. Large text can have a contrast ratio of 3:1, although it's generally better to aim for a higher contrast. Large text means 18 point (24px) or larger, or 14 point (about 18.66px) or larger if it's bold.
 
 ### How to support it
 

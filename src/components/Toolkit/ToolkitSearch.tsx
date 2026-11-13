@@ -97,12 +97,15 @@ export function ToolkitSearch({ entries }: { entries: readonly ToolkitSearchEntr
         {resultsMessage(query, results.length)}
       </p>
       {results.length > 0 && (
-        <ul className={styles.results} aria-label="Search results">
+        // role="list" keeps the list's role in Safari, which drops it from lists with no bullets
+        <ul role="list" className={styles.results} aria-label="Search results">
           {results.map((result) => (
             <li key={result.path}>
               <Link to={result.path}>
+                {/* The folder tells apart resources that share a title, such as Meetings, so
+                    every link makes sense on its own (WCAG 2.4.9) */}
                 {result.title}
-                {result.kind === 'folder' && ' (folder)'}
+                {result.kind === 'folder' ? ' (folder)' : result.folder && ` (${result.folder})`}
               </Link>
               <p>{result.description}</p>
             </li>

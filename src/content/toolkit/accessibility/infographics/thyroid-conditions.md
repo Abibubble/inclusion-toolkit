@@ -22,7 +22,7 @@ Thyroid conditions change hormone levels, which can cause tiredness, weight chan
 ### Diagnosis
 
 - Blood tests measure levels of thyroid-stimulating hormone and thyroid hormones like thyroxine.
-- Physical exams check for swelling in the neck, known as a goitre.
+- Physical examinations check for swelling in the neck, known as a goitre.
 
 ### Treatment
 

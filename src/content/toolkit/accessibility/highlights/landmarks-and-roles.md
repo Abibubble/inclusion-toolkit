@@ -15,8 +15,8 @@ It is supported universally. All browsers understand standard HTML tags automati
 
 The best way is to use semantic HTML (standard HTML tags). When you use the right tag, the landmark or role is added for you automatically.
 
-- Landmarks: Use \<nav\> for menus and \<main\> for your main content.
-- Roles: Use \<button\> for buttons and \<a\> for links.
+- Landmarks: Use `<nav>` for menus and `<main>` for your main content.
+- Roles: Use `<button>` for buttons and `<a>` for links.
 
 #### Making a plain box act like a button
 

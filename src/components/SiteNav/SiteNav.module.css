@@ -68,7 +68,7 @@
     text-decoration-line: underline;
   }
 
-  &[aria-current='page'] {
+  &[aria-current] {
     font-weight: var(--font-weight-emphasis);
     letter-spacing: var(--letter-spacing-emphasis);
 
@@ -83,7 +83,7 @@
 }
 
 @media (forced-colors: active) {
-  .link[aria-current='page']::after {
+  .link[aria-current]::after {
     forced-color-adjust: none;
     background: CanvasText;
   }
@@ -137,7 +137,7 @@
     }
   }
 
-  .link[aria-current='page']::after {
+  .link[aria-current]::after {
     inset: auto var(--spacer-16) 0;
     width: auto;
     height: var(--spacer-4);

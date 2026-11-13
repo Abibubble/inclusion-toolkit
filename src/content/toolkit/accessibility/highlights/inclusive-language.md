@@ -19,13 +19,13 @@ This is a communication practice, not a technical feature. It is fully supported
 
 To ensure your language is inclusive, you must be conscious, precise, and empathetic in your word choices.
 
-Use person-first language (for example, 'a person with vision loss') unless a group or individual expresses a preference for identity-first language (for example, 'an autistic person'). When in doubt, person-first is often a safer starting point. The Deaf community generally prefers identity-first language (for example, 'Deaf people').
+Use person-first language (for example, 'a person with vision loss') unless a group or individual expresses a preference for identity-first language (for example, 'an autistic person'). If you're not sure, person-first is often a safer starting point. The Deaf community generally prefers identity-first language (for example, 'Deaf people').
 
 Avoid ableist metaphors. Instead of 'that idea is lame', say 'that idea is underdeveloped'. Instead of 'fell on deaf ears', say 'the feedback was ignored'.
 
-Use neutral terms. Opt for 'everyone', 'team', or 'you all' instead of 'guys'. Use 'parent' instead of 'mother/father', and 'partner' instead of 'husband/wife/boyfriend/girlfriend' if you don't know.
+Use neutral terms. Opt for 'everyone', 'team', or 'you all' instead of 'guys'. Use 'parent' instead of 'mother' or 'father', and 'partner' instead of 'husband', 'wife', 'boyfriend', or 'girlfriend' if you don't know.
 
-Be specific and clear. Avoid jargon and write in plain language. Clearly describe functionality without assuming ability (for example, instead of 'Click here', use 'Select the 'Submit' button').
+Be specific and clear. Avoid jargon and write in plain language. Clearly describe functionality without assuming ability (for example, instead of 'Click here', use 'Select the Submit button').
 
 ### Useful links
 

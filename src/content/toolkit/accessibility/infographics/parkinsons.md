@@ -15,14 +15,14 @@ People with Parkinson’s may shake, move slowly, and have stiff muscles, and sp
 
 ### Common myths
 
-- It’s not just 'the shakes', it affects speech and mood too.
+- It’s not just 'the shakes'. It affects speech and mood too.
 - It’s not a normal part of ageing.
 - It’s not always obvious, and some people have no tremors at all.
 
 ### Diagnosis
 
 - No single test exists, so a specialist makes a clinical judgement.
-- Physical exams check for balance, stiffness, and walking speed.
+- Physical examinations check for balance, stiffness, and walking speed.
 - Doctors monitor how well the person responds to Parkinson's medication.
 
 ### Treatment

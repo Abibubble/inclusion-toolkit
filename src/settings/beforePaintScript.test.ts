@@ -1,6 +1,6 @@
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { BEFORE_PAINT_SCRIPT } from './beforePaintScript';
+import { BEFORE_PAINT_SCRIPT, HYDRATION_WAIT_MS } from './beforePaintScript';
 import { SETTINGS, SETTING_NAMES, STORAGE_KEY } from './displaySettings';
 
 const root = document.documentElement;
@@ -12,7 +12,9 @@ function runScript() {
 }
 
 afterEach(() => {
+  vi.useRealTimers();
   root.removeAttribute('data-js');
+  root.removeAttribute('data-hydrated');
   for (const name of SETTING_NAMES) root.removeAttribute(SETTINGS[name].attribute);
   localStorage.clear();
 });
@@ -20,6 +22,27 @@ afterEach(() => {
 describe('the before paint script', () => {
   it('marks that JavaScript is running', () => {
     runScript();
+
+    expect(root).toHaveAttribute('data-js', '');
+  });
+
+  it('shows the page as it is without JavaScript if React never takes over', () => {
+    vi.useFakeTimers();
+    runScript();
+
+    window.dispatchEvent(new Event('load'));
+    vi.advanceTimersByTime(HYDRATION_WAIT_MS);
+
+    expect(root).not.toHaveAttribute('data-js');
+  });
+
+  it('keeps the JavaScript layout once React has taken over', () => {
+    vi.useFakeTimers();
+    runScript();
+
+    root.setAttribute('data-hydrated', '');
+    window.dispatchEvent(new Event('load'));
+    vi.advanceTimersByTime(HYDRATION_WAIT_MS);
 
     expect(root).toHaveAttribute('data-js', '');
   });

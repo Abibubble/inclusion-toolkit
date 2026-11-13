@@ -48,6 +48,18 @@ describe('Abbr', () => {
     expect(screen.getByText('United Kingdom')).toBeInTheDocument();
   });
 
+  it('keeps the full form while focused, even when the pointer leaves (WCAG 1.4.13)', async () => {
+    const user = userEvent.setup();
+    render(<Abbr name="UK" />);
+
+    await user.click(screen.getByRole('button', { name: 'UK' }));
+    await user.unhover(screen.getByRole('button', { name: 'UK' }));
+    expect(screen.getByText('United Kingdom')).toBeInTheDocument();
+
+    await user.tab();
+    expect(screen.queryByText('United Kingdom')).not.toBeInTheDocument();
+  });
+
   it('stays a plain abbreviation inside a link, as a button can’t go in a link', () => {
     renderWithRouter(
       <Link to="/files">

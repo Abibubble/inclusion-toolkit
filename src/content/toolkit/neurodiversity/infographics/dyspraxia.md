@@ -4,7 +4,7 @@ Dyspraxia makes balance, coordination, and planning movements hard. Children don
 
 ### Symptoms
 
-- Poor balance, coordination and general clumsiness.
+- Poor balance, coordination, and general clumsiness.
 - Difficulty with fine motor skills like handwriting or tying shoelaces.
 - Trouble planning and organising physical movements.
 
@@ -18,12 +18,12 @@ Dyspraxia makes balance, coordination, and planning movements hard. Children don
 
 - It’s not just being 'clumsy' or lazy.
 - Children will not simply grow out of it.
-- It doesn’t only affect movement, it often impacts organisation and memory too.
+- It doesn’t only affect movement. It often affects organisation and memory too.
 
 ### Diagnosis
 
 - Assessment by a paediatrician, occupational therapist, or physiotherapist.
-- Tests measure motor skills compared to age norms.
+- Tests compare motor skills with what’s usual for the person’s age.
 
 ### Professional support
 

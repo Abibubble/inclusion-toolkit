@@ -49,7 +49,7 @@ describe('Privacy page', () => {
     const questions = region('Questions');
 
     expect(
-      questions.getByRole('link', { name: 'ask it on GitHub (external site)' }),
+      questions.getByRole('link', { name: 'ask a question on GitHub (external site)' }),
     ).toHaveAttribute('href', NEW_ISSUE_URL);
     expect(questions.getByText(/what you write there is public/)).toBeInTheDocument();
   });
@@ -67,7 +67,7 @@ describe('Privacy page', () => {
       pageMeta({
         title: 'Privacy, Inclusion Toolkit',
         description:
-          'What information this site collects, and what happens to it. There’s no tracking, analytics or advertising.',
+          'What information this site collects, and what happens to it. There’s no tracking, analytics, or advertising.',
         path: '/privacy',
       }),
     );

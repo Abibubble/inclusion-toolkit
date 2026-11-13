@@ -1,6 +1,6 @@
 ### In short
 
-Moving parts on a website can be hard for people with ADHD, motion sickness, or balance problems. People can turn on a setting to reduce motion on their device. Use the prefers-reduced-motion CSS feature so motion only plays when they haven’t asked for less.
+Moving parts on a website can be hard for people with ADHD, motion sickness, or balance problems. People can turn on a setting to reduce motion on their device. Use the `prefers-reduced-motion` CSS feature so motion only plays when they haven’t asked for less.
 
 ### What is it for?
 
@@ -10,17 +10,17 @@ Some people struggle with motion on websites. This can be due to a number of rea
 - Motion sickness
 - Vestibular disorders
 
-While it's best not to use any motion that autoplays, sometimes it's unavoidable. So that this doesn't create barriers for users, you can use the prefers-reduced-motion media query to stop the motion from happening for those who choose not to see it.
+While it's best not to use any motion that autoplays, sometimes it's unavoidable. To stop this creating barriers, use the `prefers-reduced-motion` media query. It stops the motion for people who have chosen to see less of it.
 
 Reducing motion can have other benefits too, such as saving battery life and data on mobile devices.
 
-Many new operating systems allow you to choose to reduce the motion that you see on websites (at least, on websites where they've used the prefers-reduced-motion media query).
+Many new operating systems allow you to choose to reduce the motion that you see on websites (at least, on websites where they've used the `prefers-reduced-motion` media query).
 
-If you're on a Mac, you can toggle it on or off in your settings here - `System Settings` -\> `Accessibility` -\> `Display` -\> `Reduce motion`
+If you're on a Mac, go to System Settings, then Accessibility, then Display, and turn Reduce motion on or off.
 
-If you're on Windows, you can toggle it on or off in your settings here - `Settings` -\> `Accessibility` -\> `Visual effects` -\> `Animation effects`
+If you're on Windows, go to Settings, then Accessibility, then Visual effects, and turn Animation effects on or off.
 
-Take a look at [Can I use... prefers-reduced-motion](https://caniuse.com/?search=prefers-reduced-motion) for information about which browsers support this feature
+See [browser support for prefers-reduced-motion (Can I use)](https://caniuse.com/?search=prefers-reduced-motion).
 
 ### How to support it
 
@@ -51,7 +51,7 @@ Or you can set the motion to happen if the user hasn't set a preference. Here's 
 }
 ```
 
-This is the recommended way, because browsers that don't support the prefers-reduced-motion media query will ignore this code, so your element will have no motion as standard. It's also less code. People who haven't turned on the setting will still see the motion, in the same way as the first method.
+This is the recommended way, because browsers that don't support the `prefers-reduced-motion` media query will ignore this code, so your element will have no motion as standard. It's also less code. People who haven't turned on the setting will still see the motion, in the same way as the first method.
 
 ### Useful links
 

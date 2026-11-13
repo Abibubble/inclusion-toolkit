@@ -12,7 +12,7 @@ Only use a focus trap where it's needed, such as in a modal. Unwanted traps can 
 
 If you really do want a focus trap, use a ready-made accessible component like a Modal. It handles the focus trap for you.
 
-NOTE: It’s very important to understand that this highlight is about focus traps, NOT keyboard traps. A keyboard trap fails SC 2.1.2: No Keyboard Trap (Level A). That’s when you end up stuck somewhere, such as a modal, and you can’t get out of it without using a mouse!
+Note: It’s very important to understand that this highlight is about focus traps, not keyboard traps. A keyboard trap fails SC 2.1.2: No Keyboard Trap (Level A). That’s when you end up stuck somewhere, such as a modal, and you can’t get out of it without using a mouse!
 
 ### Useful links
 

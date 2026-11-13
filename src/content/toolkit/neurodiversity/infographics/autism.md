@@ -4,9 +4,9 @@ Autistic people may find social cues hard, need routine, and feel noise or light
 
 ### Symptoms
 
-- Difficulty with eye contact, social cues or small talk.
+- Difficulty with eye contact, social cues, or small talk.
 - Strong need for routine or repetitive movements (stimming).
-- Over or under-sensitive to noise, light or textures.
+- Over or under-sensitive to noise, light, or textures.
 
 ### Age & Gender
 
@@ -23,7 +23,7 @@ Autistic people may find social cues hard, need routine, and feel noise or light
 ### Diagnosis
 
 - Diagnosis is based on observing behaviour and developmental history.
-- Usually involves paediatricians, psychologists and speech therapists.
+- Usually involves paediatricians, psychologists, and speech therapists.
 
 ### Professional support
 

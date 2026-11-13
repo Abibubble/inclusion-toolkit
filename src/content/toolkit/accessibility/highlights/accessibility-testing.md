@@ -20,7 +20,7 @@ A good strategy combines three types of testing:
 1. Automated Testing
    - This is software that scans code for common, machine-detectable issues
    - It can be used to quickly find problems like low colour contrast or missing form labels
-   - However, it only finds approximately 30% of issues. It can't check if the user experience is logical, for instance
+   - However, it only finds approximately 30% of issues. It can't check if the user experience is logical, for instance.
 2. Manual Testing
    - This is when a human checks the product against accessibility criteria
    - It can be used to find issues that automation misses. Key checks include keyboard-only navigation (can you Tab to everything?) and screen reader testing (does it make sense when read aloud?)

@@ -17,8 +17,12 @@
   /* Interactive elements are at least 48px. AAA 2.5.5 asks for 44px, which isn't on the scale */
   --size-target-min: var(--spacer-48);
 
-  /* WCAG 1.4.8 limits lines to 80 characters. 70 is more comfortable to read */
-  --size-measure: 70ch;
+  /*
+   * WCAG 1.4.8 limits lines to 80 characters. In Atkinson Hyperlegible Next, 1ch is wider than an
+   * average letter, so 47ch gives about 65 characters a line. Text with many narrow letters fits
+   * more in, and the longest line measured is about 77 characters
+   */
+  --size-measure: 47ch;
 
   /* Content width for page layouts: 1152px, which is 12 steps of 96px */
   --size-content-max: calc(var(--spacer-96) * 12);

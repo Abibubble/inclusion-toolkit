@@ -9,6 +9,7 @@ import { Stack } from '../components/Stack';
 import { ABBREVIATIONS, type Abbreviation } from '../content/abbreviations';
 import { GLOSSARY, glossaryId } from '../content/glossary';
 import { GLOSSARY_PATH } from '../content/navigation';
+import { focusById } from '../hooks/useFocusOnNavigation';
 import { pageTitle } from '../content/site';
 import { pageMeta } from '../seo/pageMeta';
 import type { Route } from './+types/glossary';
@@ -94,14 +95,18 @@ export default function Glossary() {
     matches(query, name, ABBREVIATIONS[name]),
   );
 
-  // A link from a toolkit page to a word opens that word, on small screens where it's closed
+  // A link from a toolkit page to a word opens that word, on small screens where it's closed, and
+  // moves focus to it. Links in the toolkit text load this page afresh, so the site's focus
+  // handling for moving between pages doesn't do this. It runs again if the layout changes
   useEffect(() => {
-    if (!smallScreen || hash === '') return;
-    const target = document.getElementById(decodeURIComponent(hash.slice(1)));
-    if (target instanceof HTMLDetailsElement) {
+    if (hash === '') return;
+    const id = decodeURIComponent(hash.slice(1));
+    const target = document.getElementById(id);
+    if (smallScreen && target instanceof HTMLDetailsElement) {
       target.open = true;
       target.scrollIntoView();
     }
+    focusById(id);
   }, [hash, smallScreen]);
 
   return (

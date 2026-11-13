@@ -6,6 +6,7 @@ import {
   type ToolkitVersion,
   fileType,
 } from '../../content/toolkit';
+import { Abbr, PlainAbbreviations } from '../Abbr';
 import { Card } from '../Card';
 import { type HeadingLevel, Heading } from '../Heading';
 import { Link } from '../Link';
@@ -80,11 +81,30 @@ interface VersionFilesProps {
   named?: boolean;
 }
 
+/**
+ * A file's size, such as 42KB, with KB or MB marked up as an abbreviation, which the Glossary page
+ * also lists (WCAG 3.1.4). It's a plain abbreviation rather than a button, so the many file sizes
+ * don't each add a stop when tabbing through the page
+ */
+function FileSize({ size }: { size: string }) {
+  const match = /^([\d.]+)(KB|MB)$/.exec(size);
+  if (!match) return size;
+  return (
+    <>
+      {match[1]}
+      <PlainAbbreviations>
+        <Abbr name={match[2] === 'MB' ? 'MB' : 'KB'} />
+      </PlainAbbreviations>
+    </>
+  );
+}
+
 function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProps) {
   const about = named ? `${title}, ${version.name.toLowerCase()}` : title;
 
   return (
-    <ul className={styles.files}>
+    // role="list" keeps the list's role in Safari, which drops it from lists with no bullets
+    <ul role="list" className={styles.files}>
       {version.files.map((file) => {
         const type = fileType(file) ?? 'File';
 
@@ -92,7 +112,11 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
         // stay when it's copied or shown in a reader view
         return (
           <li key={file.path} className={styles.file}>
-            {type} <span className={styles.meta}>({file.size})</span>:{' '}
+            {type}{' '}
+            <span className={styles.meta}>
+              (<FileSize size={file.size} />)
+            </span>
+            :{' '}
             {type === 'PDF' && (
               <>
                 {/* It opens in the same tab, so people aren't moved somewhere they didn't

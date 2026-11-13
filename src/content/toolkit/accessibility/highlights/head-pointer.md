@@ -4,9 +4,9 @@ Mac computers let you move the pointer with your head instead of your hands. It 
 
 ### What is it for?
 
-Head pointer allows users with limited hand function to control a computer cursor using head movements and, in some cases, facial expressions. It's an accessibility feature available on macOS (sorry, Windows and Linux users) and can be enabled through System Settings.
+Head pointer allows users with limited hand function to control a computer cursor using head movements and, in some cases, facial expressions. It's an accessibility feature available on macOS and can be enabled through System Settings.
 
-While Head Pointer is great fun to play with, it's especially important for the following people:
+Head Pointer is especially important for the following people:
 
 - People with motor skills disabilities
 - People who struggle with fine motor control
@@ -15,7 +15,7 @@ While Head Pointer is great fun to play with, it's especially important for the 
 
 ### How to use it
 
-As Head Pointer is so customisable, a full breakdown isn't possible here. However, the short version is that it can control your cursor by tracking your head movements, and it can use facial expressions to perform certain actions. Try sticking your tongue out to left-click, or if you can wink, that's a fun option to experiment with!
+As Head Pointer is so customisable, a full breakdown isn't possible here. However, the short version is that it can control your cursor by tracking your head movements, and it can use facial expressions to perform certain actions. For example, you can set it up to left-click when you stick your tongue out, or when you wink.
 
 Take a look at the links in the Useful links section, get it set up to your preferences, and try working with it for an hour.
 

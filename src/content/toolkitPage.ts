@@ -116,12 +116,15 @@ export function loadToolkitPage(
     return {
       kind: 'home',
       toolkit: folderWithSizes(toolkit, sizeOf),
-      search: toolkitEntries(toolkit).map(({ kind, slugs: entrySlugs, title, description }) => ({
-        kind,
-        title,
-        description,
-        path: toolkitPath(entrySlugs),
-      })),
+      search: toolkitEntries(toolkit).map(
+        ({ kind, slugs: entrySlugs, title, description, folder }) => ({
+          kind,
+          title,
+          description,
+          path: toolkitPath(entrySlugs),
+          ...(folder && { folder }),
+        }),
+      ),
     };
   }
 

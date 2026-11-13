@@ -5,9 +5,11 @@ import {
   Meta,
   Outlet,
   Scripts,
+  NavigationType,
   ScrollRestoration,
   isRouteErrorResponse,
   useLocation,
+  useNavigationType,
 } from 'react-router';
 
 import type { Route } from './+types/root';
@@ -15,7 +17,9 @@ import { withoutTrailingSlashScript } from './build/trailingSlash';
 import { AbbreviationScope } from './components/Abbr';
 import { ErrorPage } from './components/ErrorPage';
 import { NotFoundPage } from './components/NotFoundPage';
+import { PAGE_HEADING_ID } from './components/PageHeading';
 import { SiteShell } from './components/SiteShell';
+import { pageTitle } from './content/site';
 import { BEFORE_PAINT_SCRIPT } from './settings/beforePaintScript';
 import stylesheetUrl from './styles/index.css?url';
 
@@ -81,8 +85,25 @@ export default function App() {
   );
 }
 
+// Pages set their own titles, so this is only for the error page, which replaces them (WCAG 2.4.2)
+export function meta({ error }: Route.MetaArgs): Route.MetaDescriptors {
+  if (!error) return [];
+  const notFound = isRouteErrorResponse(error) && error.status === 404;
+  return [
+    { title: pageTitle(notFound ? 'Page not found' : 'Sorry, there’s a problem with this page') },
+  ];
+}
+
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   const notFound = isRouteErrorResponse(error) && error.status === 404;
+  const navigationType = useNavigationType();
+
+  // The error page brings its own shell, so the shell's focus handling starts again and doesn't
+  // move focus. After a link or button, focus goes to the heading, so screen reader users hear that
+  // the page changed (WCAG 2.4.3). Not on Back or Forward, or when the page first loads
+  useEffect(() => {
+    if (navigationType !== NavigationType.Pop) document.getElementById(PAGE_HEADING_ID)?.focus();
+  }, [navigationType]);
 
   return <SiteShell>{notFound ? <NotFoundPage /> : <ErrorPage />}</SiteShell>;
 }

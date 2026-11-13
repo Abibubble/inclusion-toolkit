@@ -15,6 +15,14 @@
     padding-block: 0;
     border-image: none;
   }
+
+  /* High contrast modes don't replace a border image's colours, so the band uses a plain line in
+     the person's own text colour instead (WCAG 1.4.8) */
+  @media (forced-colors: active) {
+    padding-block-end: var(--spacer-32);
+    border-image: none;
+    border-block-end: var(--spacer-4) solid CanvasText;
+  }
 }
 
 /* Pulled up over the main area's top padding, so there's no gap above it. The class is repeated so

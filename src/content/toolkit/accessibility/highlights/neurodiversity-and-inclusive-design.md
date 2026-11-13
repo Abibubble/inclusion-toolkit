@@ -20,10 +20,10 @@ This is a way of designing, not a single feature. Key web standards support this
 
 To make an experience better for everyone, focus on making things clear, predictable, and flexible.
 
-- Keep it simple and clear, use plain English and short sentences
+- Keep it simple and clear. Use plain English and short sentences
 - Choose simple, easy-to-read fonts
-- Make it predictable, use headings and lists to organise content. Keep your layout the same on every page, and make sure buttons clearly say what they do (for example, "Submit your form")
-- Reduce distractions, letting the user be in control. Avoid auto-playing videos or flashing animations
+- Make it predictable. Use headings and lists to organise content. Keep your layout the same on every page, and make sure buttons clearly say what they do (for example, "Submit your form")
+- Reduce distractions. Let the user be in control. Avoid auto-playing videos or flashing animations
 - Be forgiving. Write error messages that clearly explain what is wrong and how to fix it
 - Make content easy to read by breaking up long text with headings, lists, and empty space
 

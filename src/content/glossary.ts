@@ -84,12 +84,12 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Arthritis',
-    definition: 'Pain, swelling and stiffness in one or more joints.',
+    definition: 'Pain, swelling, and stiffness in one or more joints.',
   },
   {
     term: 'Assistive technology',
     definition:
-      'Tools that help disabled people use a device, such as screen readers, magnifiers, switches and voice control.',
+      'Tools that help disabled people use a device, such as screen readers, magnifiers, switches, and voice control.',
   },
   {
     term: 'Astigmatism',
@@ -137,7 +137,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Brain fog',
-    definition: 'Feeling slow, confused or unable to think clearly.',
+    definition: 'Feeling slow, confused, or unable to think clearly.',
   },
   {
     term: 'Breadcrumbs',
@@ -159,7 +159,8 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Captions',
-    definition: 'Text on screen showing the speech and important sounds in a video.',
+    definition:
+      'Text on screen showing the speech and important sounds in a video, a meeting, or a live event.',
   },
   {
     term: 'Carousel',
@@ -172,7 +173,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Cerebral palsy',
     definition:
-      'A condition that affects movement and coordination, caused by damage to the brain before, during or soon after birth.',
+      'A condition that affects movement and coordination, caused by damage to the brain before, during, or soon after birth.',
   },
   {
     term: 'Chemotherapy',
@@ -197,7 +198,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Cognitive',
-    definition: 'To do with thinking, memory, attention and understanding.',
+    definition: 'To do with thinking, memory, attention, and understanding.',
   },
   {
     term: 'Colonoscopy / colonoscopies',
@@ -228,7 +229,11 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Crohn’s disease',
     definition:
-      'A long-term illness where parts of the gut become swollen and sore, which can cause pain, diarrhoea and tiredness.',
+      'A long-term illness where parts of the gut become swollen and sore, which can cause pain, diarrhoea, and tiredness.',
+  },
+  {
+    term: 'CSS pixel',
+    definition: 'A unit of size in page code, which stays about the same size on every screen.',
   },
   {
     term: 'Cursor',
@@ -258,7 +263,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Dopamine',
     definition:
-      'A chemical messenger in the brain that helps control movement, attention and motivation.',
+      'A chemical messenger in the brain that helps control movement, attention, and motivation.',
   },
   {
     term: 'Dyscalculia',
@@ -303,7 +308,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Executive function',
     definition:
-      'The brain skills used to plan, organise, start tasks, remember instructions and manage time.',
+      'The brain skills used to plan, organise, start tasks, remember instructions, and manage time.',
   },
   {
     term: 'Exposure therapy',
@@ -350,7 +355,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Gesture',
-    definition: 'A touch action, such as a swipe, pinch or multi-finger tap.',
+    definition: 'A touch action, such as a swipe, pinch, or multi-finger tap.',
   },
   {
     term: 'Glucose',
@@ -358,7 +363,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Greyscale',
-    definition: 'Showing only black, white and shades of grey.',
+    definition: 'Showing only black, white, and shades of grey.',
   },
   {
     term: 'Hatching',
@@ -393,7 +398,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Hypo',
     definition:
-      'Short for hypoglycaemia, when blood sugar drops too low, which can cause shaking, sweating and confusion.',
+      'Short for hypoglycaemia, when blood sugar drops too low, which can cause shaking, sweating, and confusion.',
   },
   {
     term: 'Hysterectomy',
@@ -421,13 +426,14 @@ export const GLOSSARY: GlossaryTerm[] = [
       'A kind of attention deficit hyperactivity disorder where people mainly find it hard to focus, without feeling restless.',
   },
   {
-    term: 'Inflammation',
+    term: 'Inflammation / inflammatory',
     definition:
-      'When part of the body becomes red, swollen, hot or painful as it reacts to an injury or illness.',
+      'When part of the body becomes red, swollen, hot, or painful as it reacts to an injury or illness.',
   },
   {
     term: 'Infographic',
-    definition: 'An image that uses pictures, charts and short text together to share information.',
+    definition:
+      'An image that uses pictures, charts, and short text together to share information.',
   },
   {
     term: 'Insulin',
@@ -435,7 +441,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Interactive element',
-    definition: 'Anything you can click, tap or type into, such as a link, button or form field.',
+    definition: 'Anything you can click, tap, or type into, such as a link, button, or form field.',
   },
   {
     term: 'Intrusive thoughts',
@@ -479,7 +485,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Lupus',
-    definition: 'An autoimmune illness that can affect the skin, joints and organs.',
+    definition: 'An autoimmune illness that can affect the skin, joints, and organs.',
   },
   {
     term: 'Magic link',
@@ -518,7 +524,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Multiple sclerosis',
     definition:
-      'A condition where the immune system damages the coating around the nerves in the brain and spine, which can affect movement, sight and balance.',
+      'A condition where the immune system damages the coating around the nerves in the brain and spine, which can affect movement, sight, and balance.',
   },
   {
     term: 'Neurodivergent',
@@ -533,7 +539,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Neurodiversity',
     definition:
-      'The natural differences in how people’s brains work, including autism, attention deficit hyperactivity disorder, dyslexia and dyspraxia.',
+      'The natural differences in how people’s brains work, including autism, attention deficit hyperactivity disorder, dyslexia, and dyspraxia.',
   },
   {
     term: 'Neuroinclusive',
@@ -549,7 +555,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Neurotype',
-    definition: 'A type of brain, such as autistic, dyslexic or neurotypical.',
+    definition: 'A type of brain, such as autistic, dyslexic, or neurotypical.',
   },
   {
     term: 'Neurotypical',
@@ -558,11 +564,11 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Obsessions',
-    definition: 'Unwanted thoughts, worries or images that keep coming back.',
+    definition: 'Unwanted thoughts, worries, or images that keep coming back.',
   },
   {
     term: 'Occupational therapy',
-    definition: 'Help to make everyday tasks easier at home, at school or at work.',
+    definition: 'Help to make everyday tasks easier at home, at school, or at work.',
   },
   {
     term: 'One-time code',
@@ -587,12 +593,12 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Palpitations',
-    definition: 'Feeling your heart beat fast, hard or unevenly.',
+    definition: 'Feeling your heart beat fast, hard, or unevenly.',
   },
   {
     term: 'Parkinson’s',
     definition:
-      'A condition where nerve cells in the brain stop working over time, causing shaking, stiffness and slow movement.',
+      'A condition where nerve cells in the brain stop working over time, causing shaking, stiffness, and slow movement.',
   },
   {
     term: 'Pelvic',
@@ -642,7 +648,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Pronouns',
     definition:
-      'The words used to talk about someone without using their name, such as she, he or they.',
+      'The words used to talk about someone without using their name, such as she, he, or they.',
   },
   {
     term: 'Psychiatrist',
@@ -702,7 +708,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Seizure',
     definition:
-      'A sudden burst of electrical activity in the brain, which can cause shaking, staring or loss of awareness.',
+      'A sudden burst of electrical activity in the brain, which can cause shaking, staring, or loss of awareness.',
   },
   {
     term: 'Selective serotonin reuptake inhibitors',
@@ -726,12 +732,12 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Sensory overload / sensory overwhelm',
     definition:
-      'When there’s more noise, light or other input than the brain can handle, so it feels overwhelming.',
+      'When there’s more noise, light, or other input than the brain can handle, so it feels overwhelming.',
   },
   {
     term: 'Sensory processing disorder',
     definition:
-      'When the brain finds it hard to handle information from the senses, such as sound, light or touch.',
+      'When the brain finds it hard to handle information from the senses, such as sound, light, or touch.',
   },
   {
     term: 'Shifting left',
@@ -772,7 +778,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     term: 'Stimming',
     definition:
-      'Repeated movements or sounds, such as rocking, tapping or humming, that help someone feel calm or focus.',
+      'Repeated movements or sounds, such as rocking, tapping, or humming, that help someone feel calm or focus.',
   },
   {
     term: 'Strobe light / strobing',
@@ -788,9 +794,9 @@ export const GLOSSARY: GlossaryTerm[] = [
     definition: 'Affecting the whole body, not just one part.',
   },
   {
-    term: 'Tagged PDF',
+    term: 'Tagged PDF / tagging',
     definition:
-      'A document file with hidden structure, such as headings, lists and reading order, that screen readers can use.',
+      'A document file with hidden structure, such as headings, lists, and reading order, that screen readers can use.',
   },
   {
     term: 'Tap target',
@@ -848,7 +854,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     term: 'Unicode',
-    definition: 'The worldwide standard that gives every letter, number and symbol its own code.',
+    definition: 'The worldwide standard that gives every letter, number, and symbol its own code.',
   },
   {
     term: 'Usability',

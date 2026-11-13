@@ -4,9 +4,9 @@ Some fonts are hard to read, especially for people with dyslexia or low vision. 
 
 ### What is it for?
 
-Fonts are used everywhere, whether that's in a Word document, in a design, in a slide deck, or on a website. Some fonts are much easier to read than others. Many people will have come across Wingdings and similar fonts (Wingdings has an interesting history; for more information, see [an article on Wingdings font history](https://www.vox.com/2015/8/25/9200801/wingdings-font-history)), so we're all aware of fonts that are completely unreadable. However, some fonts may appear to be easy to read to some, but incredibly challenging for others.
+Fonts are used everywhere, whether that's in a Word document, in a design, in a slide deck, or on a website. Some fonts are much easier to read than others. Many people will have come across Wingdings and similar fonts, so we're all aware of fonts that are completely unreadable. Wingdings has an interesting history, which you can read about in [an article on Wingdings font history](https://www.vox.com/2015/8/25/9200801/wingdings-font-history). However, some fonts may appear to be easy to read to some, but very challenging for others.
 
-Fonts are impactful to everyone, but especially for the following people:
+Fonts matter to everyone, but especially to the following people:
 
 - People with reading difficulties (like dyslexia)
 - People with visual impairments
@@ -32,7 +32,7 @@ To help with mirroring and transposition, choose a font where characters like th
 - `6` `g` `9`
 - `rn` `m`
 
-When choosing a font, especially a [sans serif (Google Fonts glossary)](https://fonts.google.com/knowledge/glossary/sans_serif), compare the uppercase `I`, lowercase `l` and number `1`. In many fonts, all three are a single straight line, so they're easy to mix up. Look for a font that makes them different, for example a flat base on the `1` or a tail on the `l`. Small differences in height or line thickness also help.
+When choosing a font, especially a [sans serif (Google Fonts glossary)](https://fonts.google.com/knowledge/glossary/sans_serif), compare the uppercase `I`, lowercase `l`, and number `1`. In many fonts, all three are a single straight line, so they're easy to mix up. Look for a font that makes them different, for example a flat base on the `1` or a tail on the `l`. Small differences in height or line thickness also help.
 
 Fonts such as Atkinson Hyperlegible Next have become popular with individuals who have visual or cognitive disabilities.
 

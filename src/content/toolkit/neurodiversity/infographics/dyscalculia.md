@@ -5,7 +5,7 @@ Dyscalculia makes numbers, sums, telling the time, and counting money harder. It
 ### Symptoms
 
 - Difficulty understanding number concepts and arithmetic.
-- Trouble telling time, counting change or estimating quantities.
+- Trouble telling time, counting change, or estimating quantities.
 - High anxiety when faced with mathematical tasks.
 
 ### Age & Gender
@@ -22,11 +22,11 @@ Dyscalculia makes numbers, sums, telling the time, and counting money harder. It
 ### Diagnosis
 
 - Assessment by a specialist teacher or Educational Psychologist.
-- Standardised tests measure number sense and calculation ability against age norms.
+- Standardised tests compare how well the person understands and works with numbers with what’s usual for their age.
 
 ### Professional support
 
-- Multisensory teaching using physical objects like counters.
+- Teaching that uses several senses at once, with physical objects like counters.
 - Technological aids like calculators or voice-activated apps.
 - Focus on practical maths needed for daily life (for example, money, time).
 

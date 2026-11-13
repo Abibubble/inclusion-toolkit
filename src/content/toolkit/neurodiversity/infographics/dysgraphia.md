@@ -15,7 +15,7 @@ With dysgraphia, handwriting is hard to read and holding a pen can hurt. It isnâ
 
 ### Common myths
 
-- It is a neurological disconnect, not just 'messy handwriting' or laziness.
+- It is a neurological difference in how the brain controls writing, not just 'messy handwriting' or laziness.
 - It does not mean a person has low intelligence.
 - They can have excellent physical coordination for everything else.
 

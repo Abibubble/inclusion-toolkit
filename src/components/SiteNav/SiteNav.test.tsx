@@ -34,6 +34,24 @@ describe('SiteNav', () => {
     );
   });
 
+  it('marks the section, but not as the current page, on a page inside it (WCAG 2.4.8)', () => {
+    renderWithRouter(<SiteNav />, { path: '/neurodiversity/highlights' });
+
+    expect(within(mainNav()).getByRole('link', { name: 'Neurodiversity' })).toHaveAttribute(
+      'aria-current',
+      'true',
+    );
+  });
+
+  it('marks the current page when its path ends with a slash, as when prerendered', () => {
+    renderWithRouter(<SiteNav />, { path: '/neurodiversity/' });
+
+    expect(within(mainNav()).getByRole('link', { name: 'Neurodiversity' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+  });
+
   it('only marks Home as current on the home page itself', () => {
     renderWithRouter(<SiteNav />, { path: '/' });
 

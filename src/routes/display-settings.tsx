@@ -12,7 +12,7 @@ export function meta(): Route.MetaDescriptors {
   return pageMeta({
     title: pageTitle('Display settings'),
     description:
-      'Change the theme, text size, spacing and font, to make this site easier for you to use.',
+      'Change the theme, text size, spacing, and font, to make this site easier for you to use.',
     path: DISPLAY_SETTINGS_PATH,
   });
 }

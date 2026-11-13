@@ -4,7 +4,7 @@ Working next to someone else can make it easier to focus and start a task. They 
 
 ### Overview
 
-Body doubling is when you work alongside another person to help you focus. The other person doesn't need to be working on the same task as you. Their presence simply acts as an anchor to keep your mind from wandering and keeps you on track. It's a popular strategy used by many neurodivergent people to tackle boring or difficult jobs, such as cleaning.
+Body doubling is when you work alongside another person to help you focus. The other person doesn't need to be working on the same task as you. Having them there helps you keep your attention on your task. It's a popular strategy used by many neurodivergent people to do boring or difficult jobs, such as cleaning.
 
 Body doubling makes it easier to get started on a task. Having someone else in the room or on a video call creates a sense of accountability, stopping the feeling of isolation and reducing the urge to procrastinate.
 

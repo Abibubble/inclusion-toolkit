@@ -1,33 +1,52 @@
-/* One class per step of the spacing scale, shared by layout components such as Stack and Cluster */
+/*
+ * One class per step of the spacing scale, shared by layout components such as Stack and Cluster.
+ * --gap lets Stack keep paragraphs far enough apart when its gap is small
+ */
 .gap1 {
-  gap: var(--spacer-4);
+  --gap: var(--spacer-4);
+
+  gap: var(--gap);
 }
 
 .gap2 {
-  gap: var(--spacer-8);
+  --gap: var(--spacer-8);
+
+  gap: var(--gap);
 }
 
 .gap3 {
-  gap: var(--spacer-16);
+  --gap: var(--spacer-16);
+
+  gap: var(--gap);
 }
 
 .gap4 {
-  gap: var(--spacer-24);
+  --gap: var(--spacer-24);
+
+  gap: var(--gap);
 }
 
 .gap5 {
-  gap: var(--spacer-32);
+  --gap: var(--spacer-32);
+
+  gap: var(--gap);
 }
 
 .gap6 {
-  gap: var(--spacer-48);
+  --gap: var(--spacer-48);
+
+  gap: var(--gap);
 }
 
 .gap7 {
-  gap: var(--spacer-96);
+  --gap: var(--spacer-96);
+
+  gap: var(--gap);
 
   /* Narrow screens show less at once, so the largest gap is halved to keep sections close */
   @media (width < 48rem) {
-    gap: var(--spacer-48);
+    --gap: var(--spacer-48);
+
+    gap: var(--gap);
   }
 }

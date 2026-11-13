@@ -10,7 +10,7 @@ Older fluorescent tubes are a common cause because they actually flicker. While 
 
 Adjusting the visual environment helps prevent the hidden exhaustion that comes from simply sitting in a brightly lit room.
 
-Simple shifts in how workspaces are set up can offer huge relief. Letting people sit in dimmer areas or turning off overhead lights in favour of soft desk lamps makes a massive difference. It's also helpful to support colleagues who wear sunglasses, tinted lenses, or baseball caps indoors to block out the glare.
+Simple shifts in how workspaces are set up can offer huge relief. Letting people sit in dimmer areas or turning off overhead lights in favour of soft desk lamps makes a big difference. It's also helpful to support colleagues who wear sunglasses, tinted lenses, or baseball caps indoors to block out the glare.
 
 ### Useful links
 

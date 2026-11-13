@@ -6,7 +6,7 @@ Having a spiky profile means being brilliant at some things but finding simple t
 
 A spiky profile is when someone is really brilliant at some things but finds other things very hard. This includes things that might seem simple to other people. For example, someone might be amazing at solving tricky problems at work but find it hard to reply to a basic email.
 
-This is not about being lazy or not trying hard enough. Neurodivergent brains are wired in a different way. Some skills, like creativity, focus, and spotting patterns, can be super strong. But other skills, like planning, switching between tasks, or doing routine jobs, can take a lot more effort.
+This is not about being lazy or not trying hard enough. Neurodivergent brains work in a different way. Some skills, like creativity, focus, and spotting patterns, can be very strong. But other skills, like planning, switching between tasks, or doing routine jobs, can take a lot more effort.
 
 Knowing about spiky profiles can help us be better allies. If someone seems to be struggling with something easy, it might just be that their brain works differently. Small changes can make a big difference. Try working with people who are good at the things you find hard, or think about how you share out work in your team.
 

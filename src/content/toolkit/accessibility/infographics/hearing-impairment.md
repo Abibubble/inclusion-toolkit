@@ -22,7 +22,7 @@ When someone has hearing loss, it’s hard to hear people clearly, especially in
 ### Diagnosis
 
 - Audiologists measure the quietest sounds you can hear.
-- Physical exams check for earwax, fluid, or eardrum damage.
+- Physical examinations check for earwax, fluid, or eardrum damage.
 
 ### Treatment
 

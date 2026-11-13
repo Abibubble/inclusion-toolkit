@@ -18,11 +18,13 @@ import shutil
 import subprocess
 import sys
 import zipfile
+import zlib
 import xml.etree.ElementTree as ET
 from base64 import b64encode
 from html import escape, unescape
 from pathlib import Path
 from posixpath import normpath
+from urllib.parse import urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parent
@@ -468,19 +470,20 @@ def style_attr(css: str) -> str:
     return f' style="{css}"' if css else ''
 
 
+# The page's side margins, so a line of text on A4 is under 80 characters (WCAG 1.4.8). The same as
+# the Word files' margins, which rebrand.py sets
+SIDE_MARGIN = '1.45in'
+
+
 def footer_template(site_link: bool) -> str:
     """
     Like the Word file's footer: the site's name on the left, then its address if the Word file has
     it, and the page number on the right. The browser can't make links in footers, so the address
-    is written out in full
+    is written out in full, in the footer's colour, so it doesn't look like a link
     """
-    site = (
-        f' · <span style="color: {LINK}; text-decoration: underline">{SITE_DISPLAY}</span>'
-        if site_link
-        else ''
-    )
+    site = f' · {SITE_DISPLAY}' if site_link else ''
     return (
-        f'<div style="width: 100%; margin: 0 1in 0.45in; display: flex; justify-content: space-between; '
+        f'<div style="width: 100%; margin: 0 {SIDE_MARGIN} 0.45in; display: flex; justify-content: space-between; '
         f"font-family: '{FONT}', sans-serif; font-size: 10pt; color: {FOOTER};\">"
         f'<span>Inclusion Toolkit{site}</span>'
         '<span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span></div>'
@@ -742,7 +745,7 @@ def text_html(shape, context: SlideContext, heading: int | None) -> str:
             items = []
         if paragraph is None:
             break
-        inner = ''.join(run_html(r, context) for r in runs)
+        inner = merge_links(''.join(run_html(r, context) for r in runs))
         css = paragraph_css(paragraph)
         if char is not None:
             props = paragraph.find(a('pPr'))
@@ -802,15 +805,24 @@ def picture_html(picture, context: SlideContext) -> str:
     return f'<div class="shape" style="{css_text({**box_css(picture), "overflow": "hidden"})}">{image}</div>'
 
 
+def has_alt_text(picture) -> bool:
+    props = picture.find(f'.//{p("cNvPr")}')
+    return not any(e.get('val') == '1' for e in props.iter(DECORATIVE)) and bool(props.get('descr'))
+
+
 def shapes_html(shapes, context: SlideContext, title_level: int) -> tuple[str, str]:
     """
     The shapes, in the order they're drawn. The text is given in reading order: the title first,
-    then each box's heading and text. Shapes with no text are only drawn
+    then each box's heading and text, and pictures with alt text where they are among them (WCAG
+    1.3.2). Shapes with no text, and decorative pictures, are only drawn
     """
-    drawn, text = '', ''
+    drawn, title, text = '', '', ''
     for shape in shapes:
         if shape.tag == p('pic'):
-            drawn += picture_html(shape, context)
+            if has_alt_text(shape):
+                text += picture_html(shape, context)
+            else:
+                drawn += picture_html(shape, context)
             continue
         if shape.tag != p('sp'):
             continue
@@ -819,11 +831,13 @@ def shapes_html(shapes, context: SlideContext, title_level: int) -> tuple[str, s
         heading = title_level if is_title else (title_level + 1 if shape_name(shape).endswith(' heading') else None)
         inner = text_html(shape, context, heading)
         css = {**shape_css(shape, context), **body_css(shape)}
-        if inner:
+        if inner and is_title:
+            title += f'<div class="shape" style="{css_text(css)}">{inner}</div>'
+        elif inner:
             text += f'<div class="shape" style="{css_text(css)}">{inner}</div>'
         else:
             drawn += f'<div class="shape" aria-hidden="true" style="{css_text(css)}"></div>'
-    return drawn, text
+    return drawn, title + text
 
 
 def slides_html(path: Path, title: str) -> str:
@@ -960,12 +974,237 @@ def heading_texts(html: str) -> list[str]:
     ]
 
 
+# Whether the PDFs say they meet PDF/UA, the standard for accessible PDFs. Only turn this on once a
+# few of them pass a PDF/UA checker, such as PAC
+CLAIM_PDF_UA = False
+
+# Tokens in a page's drawing instructions: brackets for dictionaries and arrays, strings, names,
+# numbers and operators. Strings in brackets can nest, which is handled in content_tokens
+TOKEN = re.compile(rb'<<|>>|<[0-9A-Fa-f\s]*>|\[|\]|/[^\s/<>\[\]()%{}]*|[^\s/<>\[\]()%{}]+|%[^\r\n]*|\(')
+TEXT_SHOWING = {b'Tj', b'TJ', b"'", b'"'}
+PATH_BUILDING = {b'm', b'l', b'c', b'v', b'y', b'h', b're'}
+PAINTING = {b'S', b's', b'f', b'F', b'f*', b'B', b'B*', b'b', b'b*'}
+OPERATOR = re.compile(rb"[A-Za-z'\"][A-Za-z*'\"]*")
+
+
+def content_operations(stream: bytes) -> list[tuple[int, int, bytes]]:
+    """Each drawing instruction in a page: where its operands start, where it ends, and its operator"""
+    operations = []
+    start = None
+    position = 0
+    while True:
+        match = TOKEN.search(stream, position)
+        if not match:
+            break
+        token = match.group(0)
+        if token.startswith(b'%'):
+            position = match.end()
+            continue
+        if start is None:
+            start = match.start()
+        if token == b'(':
+            # A string, which can have brackets inside it, escaped or in pairs
+            depth, i = 1, match.end()
+            while depth:
+                char = stream[i : i + 1]
+                if char == b'\\':
+                    i += 1
+                elif char == b'(':
+                    depth += 1
+                elif char == b')':
+                    depth -= 1
+                elif not char:
+                    raise ValueError('A string never ends')
+                i += 1
+            position = i
+            continue
+        position = match.end()
+        if OPERATOR.fullmatch(token) and token not in (b'true', b'false', b'null'):
+            if token == b'BI':
+                raise ValueError('It has an inline picture, which this can\'t mark')
+            operations.append((start, position, token))
+            start = None
+    return operations
+
+
+def mark_artifacts(stream: bytes) -> tuple[bytes, int]:
+    """
+    Marks everything a page draws outside its tags, such as the footer and decorative shapes, as an
+    artifact, which screen readers skip. Untagged content isn't allowed in an accessible PDF, and
+    some screen readers read it out of order. Each piece of text, shape and picture is marked on its
+    own, so the marks never cross the page's other instructions (PDF/UA 7.1)
+    """
+    wraps: list[tuple[int, int]] = []
+    depth = 0
+    path_start = None
+    # A text object outside the tags is marked as a whole, unless part of it is tagged
+    text_start = None
+    text_wraps: list[tuple[int, int]] = []
+    text_tagged = False
+    for start, end, operator in content_operations(stream):
+        if operator == b'BT':
+            text_start, text_wraps, text_tagged = (start if depth == 0 else None), [], False
+        elif operator == b'ET' and text_start is not None:
+            wraps.extend([(text_start, end)] if text_wraps and not text_tagged else text_wraps)
+            text_start = None
+        if operator in (b'BDC', b'BMC'):
+            depth += 1
+            text_tagged = True
+        elif operator == b'EMC':
+            depth -= 1
+        elif depth:
+            path_start = None
+        elif operator in PATH_BUILDING:
+            path_start = start if path_start is None else path_start
+        elif operator in PAINTING and path_start is not None:
+            wraps.append((path_start, end))
+            path_start = None
+        elif operator == b'n':
+            path_start = None
+        elif operator in TEXT_SHOWING and text_start is not None:
+            text_wraps.append((start, end))
+        elif operator in TEXT_SHOWING or operator in (b'Do', b'sh'):
+            wraps.append((start, end))
+    out = b''
+    position = 0
+    for start, end in wraps:
+        out += stream[position:start] + b'/Artifact BMC\n' + stream[start:end] + b'\nEMC'
+        position = end
+    return out + stream[position:], len(wraps)
+
+
+def page_contents(data: bytes) -> list[int]:
+    """The object numbers of every page's drawing instructions"""
+    numbers = []
+    for match in re.finditer(rb'\n\d+ 0 obj\s*(<<(?:(?!\bstream\r?\n|\bendobj\b).)*>>)\s*endobj', data, re.S):
+        body = match.group(1)
+        if not re.search(rb'/Type /Page\b', body):
+            continue
+        contents = re.search(rb'/Contents (?:(\d+) 0 R|\[([^\]]*)\])', body)
+        if contents and contents.group(1):
+            numbers.append(int(contents.group(1)))
+        elif contents:
+            numbers += [int(n) for n in re.findall(rb'(\d+) 0 R', contents.group(2))]
+    return numbers
+
+
+def stream_object(data: bytes, number: int) -> bytes:
+    # The last copy, as an update to the file replaces any before it
+    match = list(re.finditer(rb'\n%d 0 obj\s*<<(.*?)>>\s*stream\r?\n' % number, data, re.S))[-1]
+    length = int(re.search(rb'/Length (\d+)', match.group(1)).group(1))
+    raw = data[match.end() : match.end() + length]
+    return zlib.decompress(raw) if b'/FlateDecode' in match.group(1) else raw
+
+
+def new_stream(content: bytes, extra: bytes = b'', compress: bool = True) -> bytes:
+    body = zlib.compress(content, 9) if compress else content
+    filter_ = b' /Filter /FlateDecode' if compress else b''
+    return b'<<%s%s /Length %d>>\nstream\n' % (extra, filter_, len(body)) + body + b'\nendstream'
+
+
+def same_address(url: str) -> str:
+    """An address as the browser writes it in a PDF, which adds a / to a site's address"""
+    parts = urlsplit(url)
+    return urlunsplit(parts._replace(path=parts.path or '/')) if parts.netloc else url
+
+
+def link_texts(html: str) -> dict[str, list[str]]:
+    """Each link's text, by its address, in the order they're on the page"""
+    found: dict[str, list[str]] = {}
+    for href, inner in re.findall(r'<a href="([^"]*)">(.*?)</a>', html, re.S):
+        text = ' '.join(unescape(re.sub(r'<[^>]+>', '', inner)).split())
+        if text:
+            found.setdefault(same_address(unescape(href)), []).append(text)
+    return found
+
+
+def list_bodies(data: bytes, first_number: int) -> list[tuple[int, bytes]]:
+    """
+    PDF/UA asks for each list item's content to be in an LBody tag, after its Lbl. The browser puts
+    the content straight in the list item, so this adds an LBody to each one, around everything
+    after the label, and makes it the parent of those tags. Returns the changed and new objects,
+    numbered from first_number
+    """
+    objects = {
+        int(m.group(1)): m.group(2)
+        for m in re.finditer(rb'\n(\d+) 0 obj\s*(<<.*?>>)\s*endobj', data, re.S)
+    }
+    changed: list[tuple[int, bytes]] = []
+    number = first_number
+    for item_number, item in objects.items():
+        if not re.search(rb'/Type /StructElem\s*/S /LI\b', item):
+            continue
+        kids = re.search(rb'/K \[([^\]]*)\]', item)
+        refs = [int(n) for n in re.findall(rb'(\d+) 0 R', kids.group(1))] if kids else []
+        if len(refs) < 2 or not re.search(rb'/S /Lbl\b', objects.get(refs[0], b'')):
+            continue
+        content = refs[1:]
+        if any(re.search(rb'/S /LBody\b', objects.get(n, b'')) for n in content):
+            continue
+        changed.append((
+            number,
+            b'<</Type /StructElem\n/S /LBody\n/P %d 0 R\n/K [%s]>>'
+            % (item_number, b' '.join(b'%d 0 R' % n for n in content)),
+        ))
+        changed.append((item_number, item.replace(kids.group(0), b'/K [%d 0 R %d 0 R]' % (refs[0], number))))
+        for n in content:
+            changed.append((n, re.sub(rb'/P \d+ 0 R', b'/P %d 0 R' % number, objects[n], count=1)))
+        number += 1
+    return changed
+
+
+def link_tags(data: bytes) -> dict[int, int]:
+    """
+    The tag each annotation belongs to, by the annotation's /StructParent, from the structure tree's
+    ParentTree. Empty if the tree is split into parts, which only happens in very large files
+    """
+    root = re.search(rb'/StructTreeRoot (\d+) 0 R', data)
+    if not root:
+        return {}
+    tree_root = re.findall(rb'\n%d 0 obj\s*(<<.*?>>)\s*endobj' % int(root.group(1)), data, re.S)[-1]
+    parent_tree = re.search(rb'/ParentTree (\d+) 0 R', tree_root)
+    if not parent_tree:
+        return {}
+    tree = re.findall(rb'\n%d 0 obj\s*(<<.*?>>)\s*endobj' % int(parent_tree.group(1)), data, re.S)[-1]
+    nums = re.search(rb'/Nums \[([^\]]*)\]', tree)
+    if not nums or b'/Kids' in tree:
+        return {}
+    return {int(key): int(ref) for key, ref in re.findall(rb'(\d+) (\d+) 0 R', nums.group(1))}
+
+
+def xmp(title: str) -> bytes:
+    """
+    The file's details in XMP, the form PDF/UA asks for, matching the details the browser's own
+    dictionary has: the title, author and subject
+    """
+    ua = (
+        '<rdf:Description rdf:about="" xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/">'
+        '<pdfuaid:part>1</pdfuaid:part></rdf:Description>'
+        if CLAIM_PDF_UA
+        else ''
+    )
+    return (
+        '<?xpacket begin="\ufeff" id="W5M0MpCehiHzreSzNTczkc9d"?>'
+        '<x:xmpmeta xmlns:x="adobe:ns:meta/"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">'
+        '<rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/">'
+        f'<dc:title><rdf:Alt><rdf:li xml:lang="x-default">{escape(title)}</rdf:li></rdf:Alt></dc:title>'
+        f'<dc:creator><rdf:Seq><rdf:li>{escape(NAME)}</rdf:li></rdf:Seq></dc:creator>'
+        '<dc:description><rdf:Alt><rdf:li xml:lang="x-default">Inclusion Toolkit</rdf:li></rdf:Alt></dc:description>'
+        '<dc:language><rdf:Bag><rdf:li>en-GB</rdf:li></rdf:Bag></dc:language>'
+        f'</rdf:Description>{ua}</rdf:RDF></x:xmpmeta><?xpacket end="w"?>'
+    ).encode('utf-8')
+
+
 def finish_pdf(path: Path, title: str, html: str = '') -> None:
     """
-    Adds what the browser leaves out: showing the title, rather than the file name, in the
-    window, and the author. It also puts back the spaces the browser drops from a bookmark when
-    its heading wraps onto 2 lines, such as "What is itfor?". It's added as an update at the
-    end, so nothing else in the file moves
+    Adds what the browser leaves out, as an update at the end, so nothing else in the file moves:
+    - showing the title, rather than the file name, in the window, and the author
+    - the same details in XMP, which PDF checkers and some screen readers read
+    - the spaces the browser drops from a bookmark when its heading wraps onto 2 lines, such as
+      "What is itfor?", and a heading it repeats when it breaks across a page
+    - a description of each link, from its text, which screen readers read out
+    - marking the footer and decorative shapes, which aren't tagged, as artifacts
+    - an LBody tag around each list item's content, after its label
     """
     data = path.read_bytes()
     trailer = data[data.rindex(b'trailer') :]
@@ -977,12 +1216,20 @@ def finish_pdf(path: Path, title: str, html: str = '') -> None:
         sys.exit(f'{path.name} has no language set. Has the browser changed?')
     if b'/StructTreeRoot' not in catalog:
         sys.exit(f'{path.name} is not tagged. Has the browser changed?')
+    if b'/Metadata' in catalog:
+        sys.exit(f'{path.name} already has XMP details. Has the browser changed, or is it finished already?')
+    info_number, metadata_number = size, size + 1
     changed: list[tuple[int, bytes]] = []
+    additions = b' /Metadata %d 0 R' % metadata_number
     # Newer versions of the browser add this themselves
     if b'/DisplayDocTitle' not in catalog:
-        changed.append((root, catalog[:-2] + b' /ViewerPreferences << /DisplayDocTitle true >> >>'))
+        additions += b' /ViewerPreferences << /DisplayDocTitle true >>'
+    changed.append((root, catalog[:-2] + additions + b' >>'))
 
-    headings = {heading.replace(' ', ''): heading for heading in heading_texts(html)}
+    headings = {}
+    for heading in heading_texts(html):
+        headings[heading.replace(' ', '')] = heading
+        headings[heading.replace(' ', '') * 2] = heading
     for match in re.finditer(rb'\n(\d+) 0 obj\s*(<</Title \(((?:\\.|[^\\)])*)\)(.*?)>>)\s*endobj', data, re.S):
         if b'/Parent' not in match.group(4):
             continue
@@ -991,11 +1238,48 @@ def finish_pdf(path: Path, title: str, html: str = '') -> None:
         if heading and heading != shown:
             changed.append((int(match.group(1)), b'<</Title ' + pdf_text(heading) + match.group(4) + b'>>'))
 
-    info = (
+    texts = link_texts(html)
+    # The browser makes a link annotation for each line a link is on, all tied to the same Link tag,
+    # so the text is chosen once for each tag
+    tags = link_tags(data)
+    chosen: dict[int, str] = {}
+    for match in re.finditer(rb'\n(\d+) 0 obj\s*(<</Type /Annot\s*/Subtype /Link.*?>>)\s*endobj', data, re.S):
+        body = match.group(2)
+        uri = re.search(rb'/URI \(((?:\\.|[^\\)])*)\)', body)
+        if b'/Contents' in body or not uri:
+            continue
+        parent = re.search(rb'/StructParent (\d+)', body)
+        tag = tags.get(int(parent.group(1))) if parent else None
+        if tag is not None and tag in chosen:
+            text = chosen[tag]
+        else:
+            options = texts.get(same_address(literal_text(uri.group(1))))
+            if not options:
+                sys.exit(f'{path.name} has a link to {literal_text(uri.group(1))} that isn\'t in its page.')
+            text = options.pop(0) if len(options) > 1 else options[0]
+            if tag is not None:
+                chosen[tag] = text
+        changed.append((int(match.group(1)), body[:-2] + b'\n/Contents ' + pdf_text(text) + b'>>'))
+
+    lists = list_bodies(data, metadata_number + 1)
+    changed += lists
+    next_number = max([metadata_number + 1, *(n + 1 for n, _ in lists)])
+
+    for number in page_contents(data):
+        try:
+            marked, count = mark_artifacts(stream_object(data, number))
+        except ValueError as error:
+            sys.exit(f'{path.name}: {error}')
+        if count:
+            changed.append((number, new_stream(marked)))
+
+    changed.append((
+        info_number,
         b'<< /Title ' + pdf_text(title) + b' /Author ' + pdf_text(NAME)
-        + b' /Subject ' + pdf_text('Inclusion Toolkit') + b' >>'
-    )
-    changed.append((size, info))
+        + b' /Subject ' + pdf_text('Inclusion Toolkit') + b' >>',
+    ))
+    # Not compressed, so tools that read the details without opening the whole file can find them
+    changed.append((metadata_number, new_stream(xmp(title), b' /Type /Metadata /Subtype /XML', compress=False)))
     update = b'\n'
     offsets = {}
     for number, body in changed:
@@ -1007,7 +1291,7 @@ def finish_pdf(path: Path, title: str, html: str = '') -> None:
         update += b'%d 1\n%010d 00000 n \n' % (number, offsets[number])
     update += (
         b'trailer\n<< /Size %d /Root %d 0 R /Info %d 0 R /Prev %d >>\nstartxref\n%d\n%%%%EOF\n'
-        % (size + 1, root, size, previous, xref)
+        % (next_number, root, info_number, previous, xref)
     )
     path.write_bytes(data + update)
 
@@ -1158,6 +1442,7 @@ def main() -> None:
                 'html': str(html_path),
                 'pdf': str(source.with_suffix('.pdf')),
                 'footer': footer_template(docx.footer_has_site),
+                'sideMargin': SIDE_MARGIN,
             }
         )
         finishing.append((source.with_suffix('.pdf'), docx.title, html_path))

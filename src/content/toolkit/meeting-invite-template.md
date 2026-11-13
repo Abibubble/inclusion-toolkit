@@ -6,7 +6,7 @@ Anything in square brackets, \[like this\], should be edited to be relevant to y
 
 If you have any accessibility requirements, please let us know in advance, and we will do our best to accommodate them.
 
-Closed captions and a transcript can be turned on using the Zoom meeting controls (these may be hidden behind the ‘More’ button in the bottom bar of your Zoom window). \[Edit this if you’re not using Zoom\]
+Closed captions and a transcript can be turned on using the Zoom meeting controls. These may be hidden behind the ‘More’ button in the bottom bar of your Zoom window. \[Edit this if you’re not using Zoom\]
 
 #### Meeting topic
 
@@ -30,7 +30,7 @@ Closed captions and a transcript can be turned on using the Zoom meeting control
 
 #### Location
 
-\[Remote / Hybrid / Office\]
+\[Remote, Hybrid, or Office\]
 
 #### Cameras
 
@@ -38,8 +38,8 @@ Closed captions and a transcript can be turned on using the Zoom meeting control
 
 #### Will it be recorded?
 
-\[Yes. The recording will be shared on Slack after the event / No. This meeting is a fully safe space\]
+\[Either 'Yes. The recording will be shared on Slack after the event' or 'No. Everyone can speak freely in this meeting'\]
 
 #### How much participation?
 
-\[None required / Optional / Discussion / Fully interactive\]
+\[None required, Optional, Discussion, or Fully interactive\]

@@ -26,7 +26,7 @@ export default function About() {
         <Stack gap={4}>
           <PageHeading>About</PageHeading>
           <p>
-            The Inclusion Toolkit is a free set of guides, slides and infographics about
+            The Inclusion Toolkit is a free set of guides, slides, and infographics about
             accessibility and neurodiversity. Anyone can use it.
           </p>
         </Stack>
@@ -34,7 +34,7 @@ export default function About() {
       <Stack as="section" gap={4} aria-labelledby="who-made-it">
         <h2 id="who-made-it">Who made it</h2>
         <p>
-          I’m Abi Harrison-Nye. I wrote the toolkit’s text, made its guides, slides and
+          I’m Abi Harrison-Nye. I wrote the toolkit’s text, made its guides, slides, and
           infographics, and built this site.
         </p>
         <p>
@@ -58,8 +58,8 @@ export default function About() {
       <Stack as="section" gap={4} aria-labelledby="what-its-for">
         <h2 id="what-its-for">What it’s for</h2>
         <p>
-          It’s for anyone who wants to make their workplace, meetings or website more inclusive. You
-          don’t need to be an expert to use it.
+          It’s for anyone who wants to make their workplace, meetings, or website more inclusive.
+          You don’t need to be an expert to use it.
         </p>
       </Stack>
       <Stack as="section" gap={4} aria-labelledby="what-i-hope-it-does">

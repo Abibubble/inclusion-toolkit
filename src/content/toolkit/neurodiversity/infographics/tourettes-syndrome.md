@@ -4,8 +4,8 @@ Tics are movements or sounds that people with Tourette’s syndrome can’t cont
 
 ### Symptoms
 
-- Involuntary movements like blinking, shrugging or head jerking (motor tics).
-- Involuntary sounds like grunting, throat clearing or words (vocal tics).
+- Involuntary movements like blinking, shrugging, or head jerking (motor tics).
+- Involuntary sounds like grunting, throat clearing, or words (vocal tics).
 - An uncomfortable physical urge or sensation before the tic happens.
 
 ### Age & Gender

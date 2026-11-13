@@ -114,6 +114,46 @@ test.describe('Moving between pages', () => {
   }
 });
 
+test.describe('Following a link to a glossary term', () => {
+  const PAGE = '/accessibility/highlights/accessible-pdfs';
+  const termLink = (page: Page) =>
+    page
+      .getByRole('main')
+      .getByRole('link', { name: /, in the glossary$/ })
+      .first();
+
+  test('moves focus to the term in the table on wide screens (WCAG 2.4.3)', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(PAGE);
+    await termLink(page).click();
+
+    const id = decodeURIComponent(new URL(page.url()).hash.slice(1));
+    await expect(page.locator(`[id="${id}"]`)).toBeFocused();
+  });
+
+  test('moves focus to the term’s summary on narrow screens (WCAG 2.4.3)', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 800 });
+    await page.goto(PAGE);
+    await termLink(page).click();
+
+    const id = decodeURIComponent(new URL(page.url()).hash.slice(1));
+    await expect(page.locator(`[id="${id}"] > summary`)).toBeFocused();
+  });
+});
+
+test.describe('A page that fails to load', () => {
+  test('moves focus to the error page’s heading (WCAG 2.4.3)', async ({ page }) => {
+    await page.goto('/');
+    await page.route('**/*.data*', (route) => route.fulfill({ status: 500, body: 'Error' }));
+    await mainNav(page).getByRole('link', { name: 'Accessibility', exact: true }).click();
+
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Sorry, there’s a problem with this page' }),
+    ).toBeFocused();
+    await expect(page).toHaveTitle('Sorry, there’s a problem with this page, Inclusion Toolkit');
+  });
+});
+
 test.describe('Navigation on wide screens', () => {
   test('shows every link, with no Menu button', async ({ page }) => {
     await page.goto('/');
@@ -135,6 +175,21 @@ test.describe('Navigation on wide screens', () => {
 
 test.describe('Navigation on narrow screens', () => {
   test.use({ viewport: { width: 320, height: 640 } });
+
+  test.describe('if the page’s script never loads', () => {
+    test.use({ waitForReact: false });
+
+    test('shows every link, with no Menu button', async ({ page }) => {
+      // Only the inline scripts run, as when the main script fails to download
+      await page.route('**/*.js', (route) => route.abort());
+      await page.goto('/');
+
+      await expect(
+        mainNav(page).getByRole('link', { name: 'Accessibility', exact: true }),
+      ).toBeVisible({ timeout: 10_000 });
+      await expect(menuButton(page)).toBeHidden();
+    });
+  });
 
   test('hides the links behind a Menu button', async ({ page }) => {
     await page.goto('/');

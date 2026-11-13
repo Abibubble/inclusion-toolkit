@@ -16,7 +16,7 @@ Sight loss means not seeing clearly even with glasses, but many people still hav
 ### Common myths
 
 - It’s not a total lack of sight for everyone. Many have some vision.
-- It’s not fixed by wearing stronger glasses or contacts.
+- It’s not fixed by wearing stronger glasses or contact lenses.
 - People don't always use a cane or a guide dog.
 
 ### Diagnosis

@@ -27,12 +27,12 @@ Endometriosis can cause severe pelvic pain, very heavy periods, and tiredness. I
 ### Treatment
 
 - Hormone treatments or the pill can help to manage pain and bleeding.
-- Keyhole surgery is used to remove or destroy endometrial tissue.
+- Keyhole surgery is used to remove or destroy the tissue growing outside the womb.
 
 ### How to help
 
 - Provide easy access to toilets and comfortable, private rest areas.
 - Allow for flexible working or home working during painful flare-ups.
-- Offer heat pads or ergonomic seating to help manage pelvic pain.
+- Offer heat pads or supportive seating designed for comfort to help manage pelvic pain.
 
 This information isn't a diagnostic tool. If you recognise these symptoms in yourself or others, please contact a doctor.

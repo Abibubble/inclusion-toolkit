@@ -17,8 +17,8 @@ Supporting good alt text means moving past basic labels and focusing on the spec
 
 - Think about what information a user misses if the image fails to load
 - Tailor the text to match the specific context of the surrounding page
-- Avoid bad examples like ‘image.png’ or ‘graph’, which give the user zero useful context
-- Use good examples like ‘Line graph showing a twenty percent increase in app sign-ups this quarter’ to provide immediate value
+- Avoid bad examples like ‘image.png’ or ‘graph’, which give the user no useful context
+- Use good examples like ‘Line graph showing a 20 per cent increase in app sign-ups this quarter’ to provide immediate value
 
 ### Useful links
 

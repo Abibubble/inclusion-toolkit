@@ -9,3 +9,9 @@
 .stack > * {
   margin-block: 0;
 }
+
+/* Paragraphs and lists in a row are as far apart as in the main text, even when the gap is smaller
+   (WCAG 1.4.8). This also follows the text spacing setting */
+.stack > :is(p, ul, ol, dl, blockquote) + :is(p, ul, ol, dl, blockquote) {
+  margin-block-start: max(0px, var(--space-paragraph) - var(--gap, 0px));
+}

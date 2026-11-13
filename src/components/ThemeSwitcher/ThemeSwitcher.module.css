@@ -78,6 +78,15 @@
   color: var(--color-action-hover);
 }
 
+/* High contrast modes don't change an icon's own colour, so the arrow uses the person's text
+   colour. It's the only sign this is a dropdown (WCAG 1.4.11) */
+@media (forced-colors: active) {
+  .chevron,
+  .selectWrap:hover .chevron {
+    color: CanvasText;
+  }
+}
+
 .stacked .selectWrap,
 .stacked .select {
   width: 100%;

@@ -16,10 +16,13 @@ They were rebranded again on 11 November 2026, from my personal site's purple to
 Toolkit's own blue, logo and address.
 
 It never remakes a branded file, so edits to them are kept. Each run only:
-- sets each Word file's footer, with the site's name, its address and the page number
+- sets each Word file's page margins, paragraph spacing, title heading and footer, with the site's
+  name, its address and the page number
+- takes link formatting off any text that isn't a link
 - puts the fonts inside each Word file, so they look the same for people who don't have them
 - sets the file details, which Word can change when I save
-- cuts the full highlights into one Word file for each highlight
+- cuts the full highlights into one Word file for each highlight, each with a list of the
+  abbreviations it uses
 
 Run it from the repo root, with Python 3.10 or newer and no extra packages:
 
@@ -66,6 +69,19 @@ LIGHT_BLUE = 'BCD6F5'  # Slide backgrounds and decoration only, never text
 SLATE = '3A4A5E'  # Footer text on white: 9.1:1
 
 TOOLKIT_URL = SITE_URL
+
+# Side margins of 1.45 inches, so a line of text on A4 is under 80 characters (WCAG 1.4.8)
+SIDE_MARGIN = 2088
+# Space after each paragraph, as in the full highlights. Between paragraphs, there's then more
+# space than between lines (WCAG 1.4.8)
+PARAGRAPH_AFTER = 280
+
+# The site's list of abbreviations, which each highlight's own file lists the ones it uses from
+ABBREVIATIONS_FILE = ROOT.parent / 'src' / 'content' / 'abbreviations.ts'
+
+# Resources in different folders that share a title, such as Meetings. Their files' titles have
+# the folder's name added, so two open files, or two downloads, can be told apart (WCAG 2.4.2)
+SHARED_TITLES = {'Meetings', 'Colour Blindness', "Tourette's Syndrome"}
 
 # Each original, where its branded copy goes (the same path as in public/inclusion-toolkit/files),
 # and its title. The branded copy is only made from the original if it isn't there
@@ -773,11 +789,63 @@ SHORT_SLUGS = {
 PROMOTE = {'Heading2': 'Heading1', 'Heading3': 'Heading2', 'Heading4': 'Heading3', 'Heading5': 'Heading4'}
 
 
-def split_highlights(full: Package, folder: Path) -> list[str]:
+def site_abbreviations() -> dict[str, str]:
+    """Each abbreviation in the site's list, with its full form, such as HTML: HyperText Markup Language"""
+    found = re.findall(
+        r"^  '?([A-Za-z0-9]+)'?: '((?:[^'\\]|\\.)*)',$",
+        ABBREVIATIONS_FILE.read_text(encoding='utf-8'),
+        re.M,
+    )
+    if not found:
+        sys.exit(f'No abbreviations found in {ABBREVIATIONS_FILE}. Has its layout changed?')
+    return {name: full.replace("\\'", "'") for name, full in found}
+
+
+def abbreviations_section(text: str, abbreviations: dict[str, str]) -> str:
+    """
+    A section listing each abbreviation the text uses, with its full form, for a highlight's own
+    file. The full file's glossary isn't in it, so this is how people find out what they mean (WCAG
+    3.1.4). It's empty if the text uses none
+    """
+    used = [
+        name
+        for name in sorted(abbreviations, key=str.lower)
+        if re.search(rf'(?<![A-Za-z]){re.escape(name)}s?(?![A-Za-z])', text)
+    ]
+    if not used:
+        return ''
+
+    def paragraph(runs: str, style: str = '') -> str:
+        ppr = f'<w:pPr><w:pStyle w:val="{style}"/></w:pPr>' if style else ''
+        return f'<w:p>{ppr}{runs}</w:p>'
+
+    def run(text: str, bold: bool = False) -> str:
+        rpr = '<w:rPr><w:b/></w:rPr>' if bold else ''
+        return f'<w:r>{rpr}<w:t xml:space="preserve">{escape(text)}</w:t></w:r>'
+
+    entries = ''.join(
+        paragraph(run(name, bold=True) + run(f': {abbreviations[name][0].upper()}{abbreviations[name][1:]}'))
+        for name in used
+    )
+    return (
+        paragraph(run('Abbreviations'), 'Heading2')
+        + paragraph(run('The full form of each abbreviation used in this document.'))
+        + entries
+    )
+
+
+def file_title(title: str, folder_title: str) -> str:
+    """A file's title, with its folder's name added if another folder has a resource with the same title"""
+    plain = title.replace('’', "'")
+    return f'{title} ({folder_title})' if plain in SHARED_TITLES else title
+
+
+def split_highlights(full: Package, folder: Path, folder_title: str) -> list[str]:
     """
     Makes a Word file for each highlight, from the full file, with the same formatting. The two
-    glossaries stay in the full file only
+    glossaries stay in the full file only, so each highlight's file lists its own abbreviations
     """
+    abbreviations = site_abbreviations()
     xml = full.text('word/document.xml')
     body = re.search(r'<w:body>(.*)</w:body>', xml, re.S)
     sect = re.findall(r'<w:sectPr[ >].*?</w:sectPr>', body.group(1), re.S)[-1]
@@ -808,13 +876,22 @@ def split_highlights(full: Package, folder: Path) -> list[str]:
         pkg = Package.__new__(Package)
         pkg.names = list(full.names)
         pkg.parts = dict(full.parts)
+        # A line break between paragraphs, so an abbreviation at the start or end of one isn't
+        # joined to the next paragraph's first word
+        section_text = unescape(
+            '\n'.join(''.join(re.findall(r'<w:t[^>]*>([^<]*)</w:t>', p)) for p in section)
+        )
         pkg.set_text(
             'word/document.xml',
-            xml[: body.start(1)] + ''.join(promoted) + sect + xml[body.end(1) :],
+            xml[: body.start(1)]
+            + ''.join(promoted)
+            + abbreviations_section(section_text, abbreviations)
+            + sect
+            + xml[body.end(1) :],
         )
         remove_unused_parts(pkg)
         docx_embed_fonts(pkg)
-        set_core_properties(pkg, title)
+        set_core_properties(pkg, file_title(title, folder_title))
         slug = SHORT_SLUGS.get(title, slugify(title))
         if slug in made:
             sys.exit(f'Two highlights would share the file name {slug}.docx')
@@ -866,7 +943,7 @@ def remove_unreachable(pkg: Package) -> None:
     pkg.set_text('[Content_Types].xml', types)
 
 
-def split_slides(deck: Path, folder: Path, slugs: list[str] | None) -> list[str]:
+def split_slides(deck: Path, folder: Path, slugs: list[str] | None, folder_title: str) -> list[str]:
     """
     Makes a PowerPoint file for each highlight, with just its slide, from the full deck. Slides are
     matched to highlights by their titles. The glossary slides stay in the full deck only
@@ -912,7 +989,7 @@ def split_slides(deck: Path, folder: Path, slugs: list[str] | None) -> list[str]
                 re.sub(r'<Override [^>]*PartName="/docProps/app\.xml"[^>]*/>', '', pkg.text('[Content_Types].xml')),
             )
         remove_unreachable(pkg)
-        set_core_properties(pkg, title)
+        set_core_properties(pkg, file_title(title, folder_title))
         check_and_save(pkg, folder / f'{slug}.pptx')
         made.append(slug)
     return made
@@ -1587,6 +1664,13 @@ def check_and_save(pkg: Package, out: Path) -> None:
     ]
     if left:
         sys.exit(f'{out.name} still mentions giffgaff, an old font or the old author in: {", ".join(left)}')
+    # Markdown copied in from the page text, such as _Note:_ or `code`, which screen readers would
+    # read out as underscores or other symbols
+    for name in pkg.xml_names():
+        text = ' '.join(re.findall(r'<(?:w|a):t(?: [^>]*)?>([^<]*)</(?:w|a):t>', pkg.text(name)))
+        markdown = re.search(r'(?<!\w)_[A-Za-z][^_]*_(?!\w)|`|\*\*', text)
+        if markdown:
+            sys.exit(f'{out.name} has Markdown in its text, in {name}: {markdown.group(0)}')
     pkg.save(out)
     print(f'Made {out.relative_to(ROOT.parent)}')
 
@@ -1610,9 +1694,76 @@ def docx_theme_fonts(pkg: Package) -> None:
     pkg.set_text('word/theme/theme1.xml', theme)
 
 
+def docx_margins(pkg: Package) -> None:
+    """Wider side margins, so lines are under 80 characters long (WCAG 1.4.8)"""
+    xml = pkg.text('word/document.xml')
+    xml = re.sub(
+        r'<w:pgMar [^>]*/>',
+        lambda m: re.sub(r'w:(left|right)="\d+"', rf'w:\1="{SIDE_MARGIN}"', m.group(0)),
+        xml,
+    )
+    pkg.set_text('word/document.xml', xml)
+
+
+def docx_paragraph_spacing(pkg: Package) -> None:
+    """
+    Space after each paragraph, unless the file sets it already, so there's more space between
+    paragraphs than between lines (WCAG 1.4.8)
+    """
+    styles = pkg.text('word/styles.xml')
+    default = re.search(r'<w:pPrDefault>.*?</w:pPrDefault>', styles, re.S).group(0)
+    spacing = re.search(r'<w:spacing [^>]*/>', default)
+    if spacing and 'w:after=' in spacing.group(0):
+        return
+    new = (
+        default.replace('<w:spacing ', f'<w:spacing w:after="{PARAGRAPH_AFTER}" ', 1)
+        if spacing
+        else default.replace('<w:pPr>', f'<w:pPr><w:spacing w:after="{PARAGRAPH_AFTER}"/>', 1)
+    )
+    pkg.set_text('word/styles.xml', styles.replace(default, new))
+
+
+def docx_title_heading(pkg: Package) -> None:
+    """
+    Makes the Title style a level 1 heading, so screen readers and Word's Navigation Pane list it
+    as the main heading, rather than starting at level 2 (WCAG 1.3.1)
+    """
+    styles = pkg.text('word/styles.xml')
+    match = re.search(r'<w:style [^>]*w:styleId="Title".*?</w:style>', styles, re.S)
+    if not match or '<w:outlineLvl ' in match.group(0):
+        return
+    style = match.group(0)
+    new = re.sub(r'(<w:pPr>.*?)(</w:pPr>)', r'\1<w:outlineLvl w:val="0"/>\2', style, count=1, flags=re.S)
+    pkg.set_text('word/styles.xml', styles.replace(style, new))
+
+
+def docx_no_fake_links(pkg: Package) -> None:
+    """
+    Takes the link colour and underline off text that isn't a link, so only real links look like
+    links (WCAG 1.3.1)
+    """
+    xml = pkg.text('word/document.xml')
+    pieces = re.split(r'(<w:hyperlink[ >].*?</w:hyperlink>)', xml, flags=re.S)
+    for i in range(0, len(pieces), 2):
+        pieces[i] = re.sub(
+            r'<w:rPr>(?:(?!</w:rPr>).)*<w:u w:val="(?!none)[^"]*"/>(?:(?!</w:rPr>).)*</w:rPr>',
+            lambda m: m.group(0)
+            .replace(f'<w:color w:val="{BLUE}"/>', '')
+            .replace(re.search(r'<w:u w:val="[^"]*"/>', m.group(0)).group(0), ''),
+            pieces[i],
+            flags=re.S,
+        ).replace('<w:rPr></w:rPr>', '')
+    pkg.set_text('word/document.xml', ''.join(pieces))
+
+
 def finish_edited(path: Path, title: str) -> None:
     """Updates a file I've edited by hand, keeping everything I wrote"""
     pkg = Package(path)
+    docx_margins(pkg)
+    docx_paragraph_spacing(pkg)
+    docx_title_heading(pkg)
+    docx_no_fake_links(pkg)
+    # After the margins, as the page number lines up with the right margin
     docx_footer_text(pkg, site_link=True)
     if path.name == 'accessible-meeting-checklist.docx':
         docx_link_text(pkg, 'Meeting Invite Template', f'{TOOLKIT_URL}/meeting-invite-template')
@@ -1646,12 +1797,13 @@ def main() -> None:
         finish_edited(source(out_name), title)
 
     for highlights, _, out_name, title in HIGHLIGHT_SETS:
-        made = split_highlights(Package(source(highlights)), (BRANDED / highlights).parent)
+        folder_title = title.removeprefix('All ')
+        made = split_highlights(Package(source(highlights)), (BRANDED / highlights).parent, folder_title)
         print(f'Made {len(made)} files, one for each resource in {title}')
 
         same_corners(source(out_name))
         set_title(source(out_name), title)
-        slides = split_slides(BRANDED / out_name, (BRANDED / out_name).parent, made)
+        slides = split_slides(BRANDED / out_name, (BRANDED / out_name).parent, made, folder_title)
         print(f'Made {len(slides)} slides files, one for each resource in {title}')
         if len(slides) != len(made):
             sys.exit(f'No slide found for: {", ".join(sorted(set(made) - set(slides)))}')
@@ -1659,7 +1811,9 @@ def main() -> None:
     for _, out_name, title in INFOGRAPHIC_SETS:
         same_corners(source(out_name))
         set_title(source(out_name), title)
-        made = split_slides(BRANDED / out_name, (BRANDED / out_name).parent, None)
+        made = split_slides(
+            BRANDED / out_name, (BRANDED / out_name).parent, None, title.removeprefix('All ')
+        )
         print(f'Made {len(made)} files, one for each resource in {title}')
 
 

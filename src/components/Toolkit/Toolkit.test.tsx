@@ -160,6 +160,59 @@ describe('ToolkitPage', () => {
     expect(screen.getByRole('link', { name: 'Highlights (folder)' })).toBeInTheDocument();
   });
 
+  it('names each resource’s folder, so resources with the same title differ (WCAG 2.4.9)', async () => {
+    const user = userEvent.setup();
+    const search = [
+      {
+        kind: 'item' as const,
+        title: 'Meetings',
+        description: 'A.',
+        path: '/a/meetings',
+        folder: 'Accessibility Highlights',
+      },
+      {
+        kind: 'item' as const,
+        title: 'Meetings',
+        description: 'N.',
+        path: '/n/meetings',
+        folder: 'Neurodiversity Highlights',
+      },
+    ];
+    renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search }} />);
+
+    await user.type(screen.getByRole('searchbox'), 'meetings');
+
+    expect(
+      screen.getByRole('link', { name: 'Meetings (Accessibility Highlights)' }),
+    ).toHaveAttribute('href', '/a/meetings');
+    expect(
+      screen.getByRole('link', { name: 'Meetings (Neurodiversity Highlights)' }),
+    ).toHaveAttribute('href', '/n/meetings');
+  });
+
+  it('marks file sizes as abbreviations, without adding a stop for each one (WCAG 3.1.4)', () => {
+    const { container } = renderWithRouter(
+      <ToolkitPage
+        data={{
+          kind: 'item',
+          item: ITEM,
+          slugs: ['highlights', 'dark-mode'],
+          trail: TRAIL,
+          textHtml: '<p>Text.</p>',
+        }}
+      />,
+    );
+
+    const sizes = [...container.querySelectorAll('abbr')].filter((abbr) =>
+      ['KB', 'MB'].includes(abbr.textContent),
+    );
+    expect(sizes.length).toBeGreaterThan(0);
+    for (const size of sizes) {
+      expect(size).toHaveAttribute('title', size.textContent === 'KB' ? 'kilobytes' : 'megabytes');
+      expect(size.closest('button')).toBeNull();
+    }
+  });
+
   it('shows a folder with breadcrumbs, and each resource’s links saying what they are', () => {
     renderWithRouter(
       <ToolkitPage

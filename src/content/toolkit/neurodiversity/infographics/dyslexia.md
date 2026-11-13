@@ -4,8 +4,8 @@ Dyslexia makes reading, spelling, and working with the sounds in words harder. I
 
 ### Symptoms
 
-- Difficulty learning to read, spelling, and decoding text.
-- Trouble hearing or manipulating sounds in words.
+- Difficulty learning to read, spelling, and working out what written words say.
+- Trouble hearing or changing the sounds in words.
 - Challenges with sequencing, directions, and memory.
 
 ### Age & Gender
@@ -25,8 +25,8 @@ Dyslexia makes reading, spelling, and working with the sounds in words harder. I
 
 ### Professional support
 
-- Assistive technology like text-to-speech software, screen readers, or coloured overlays.
-- Structured, multisensory teaching methods help improve literacy skills.
+- Assistive technology like text-to-speech software, screen readers, or coloured overlays (see-through coloured sheets placed over text).
+- Structured teaching that uses several senses at once, like sight, sound, and touch, helps improve reading and writing skills.
 
 ### How to help
 

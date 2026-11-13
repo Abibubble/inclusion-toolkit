@@ -89,7 +89,7 @@ export default function Accessibility() {
 
       <PageContentsSection section={SECTIONS.displaySettings}>
         <p>
-          You can change the theme, text size, spacing and font, to make the site easier for you to
+          You can change the theme, text size, spacing, and font, to make the site easier for you to
           use. Your choices are saved in this browser only.
         </p>
         <p className={styles.standalone}>
@@ -113,13 +113,13 @@ export default function Accessibility() {
         <ul className={styles.list}>
           <li>
             Every resource has its own page with everything in it as text, including a description
-            of each picture, chart and diagram. So you never need the files to use a resource.
+            of each picture, chart, and diagram. So you never need the files to use a resource.
           </li>
           <li>
             Text has a contrast ratio of at least 7 to 1 against its background, in every theme.
           </li>
           <li>
-            You can change the theme, text size, spacing and font in the{' '}
+            You can change the theme, text size, spacing, and font in the{' '}
             <Link to={DISPLAY_SETTINGS_PATH}>display settings</Link>.
           </li>
           <li>The font is Atkinson Hyperlegible, which is designed to be easy to read.</li>
@@ -130,7 +130,7 @@ export default function Accessibility() {
             Pages fit screens as narrow as 320 pixels without scrolling sideways, so you can zoom in
             up to 400%.
           </li>
-          <li>Nothing flashes, moves on its own or has a time limit.</li>
+          <li>Nothing flashes, moves on its own, or has a time limit.</li>
           <li>
             Every abbreviation is listed with what it stands for in the{' '}
             <Link to={`${GLOSSARY_PATH}#abbreviations`}>list of abbreviations</Link>.
@@ -150,7 +150,7 @@ export default function Accessibility() {
             '1.3.1 Info and Relationships, Level A',
             '1.4.6 Contrast (Enhanced), Level AAA',
           ]}
-          affects="People who use a screen reader or other assistive technology with the Word, PowerPoint and PDF files, and people who need high contrast."
+          affects="People who use a screen reader or other assistive technology with the Word, PowerPoint, and PDF files, and people who need high contrast."
           workaround="Each resource’s page on this site has everything in the files as text, including a description of each picture. Use the page instead of the files."
           plan="The files are being checked with an accessibility checker and a screen reader, and fixed where needed."
         />
@@ -168,7 +168,7 @@ export default function Accessibility() {
         <p>
           Every page and component is checked automatically with axe, an accessibility testing tool,
           each time the site changes. Pages are checked in the browser engines behind Chrome,
-          Firefox and Safari, on wide and narrow screens, and with the largest text and widest
+          Firefox, and Safari, on wide and narrow screens, and with the largest text and widest
           spacing in the display settings.
         </p>
         {MANUAL_TESTING.length > 0 ? (
@@ -196,8 +196,8 @@ export default function Accessibility() {
       <PageContentsSection section={SECTIONS.reportAProblem}>
         <p>
           If something on this site doesn’t work for you, or you need something in a different
-          format, please <Link href={NEW_ISSUE_URL}>report it on GitHub</Link>. You need a free
-          GitHub account to do this.
+          format, please <Link href={NEW_ISSUE_URL}>report a problem on GitHub</Link>. You need a
+          free GitHub account to do this.
         </p>
         <p>
           You don’t need to say anything about a disability. It helps to know which page you were on

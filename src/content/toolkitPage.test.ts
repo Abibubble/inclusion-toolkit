@@ -77,6 +77,7 @@ describe('loadToolkitPage', () => {
           title: 'Dark mode',
           description: 'About dark mode.',
           path: '/highlights/dark-mode',
+          folder: 'Highlights',
         },
       ],
     });

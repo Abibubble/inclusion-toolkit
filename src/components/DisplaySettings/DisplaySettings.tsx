@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { SETTINGS, SETTING_NAMES } from '../../settings/displaySettings';
 import { useDisplaySettings } from '../../settings/useDisplaySettings';
@@ -10,6 +10,25 @@ import styles from './DisplaySettings.module.css';
 export function DisplaySettings() {
   const { settings, update, reset } = useDisplaySettings();
   const [announcement, setAnnouncement] = useState('');
+  const announceTimer = useRef<number>(undefined);
+
+  /** Empties the message first, so pressing Reset again still changes it, and it's announced */
+  function announce(message: string) {
+    window.clearTimeout(announceTimer.current);
+    setAnnouncement('');
+    if (message) {
+      announceTimer.current = window.setTimeout(() => {
+        setAnnouncement(message);
+      }, 100);
+    }
+  }
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(announceTimer.current);
+    },
+    [],
+  );
 
   return (
     <div className={styles.section}>
@@ -34,7 +53,7 @@ export function DisplaySettings() {
                 inline={SETTINGS[name].options.every((option) => !('hint' in option))}
                 onChange={(value) => {
                   update({ [name]: value });
-                  setAnnouncement('');
+                  announce('');
                 }}
               />
             </div>
@@ -45,7 +64,7 @@ export function DisplaySettings() {
             variant="secondary"
             onClick={() => {
               reset();
-              setAnnouncement('Display settings are back to their defaults.');
+              announce('Display settings are back to their defaults.');
             }}
           >
             Reset to defaults

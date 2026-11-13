@@ -28,12 +28,12 @@ Arthritis causes pain, stiffness, and swelling in the joints. It doesn’t only 
 
 #### Treatment
 
-- Painkillers and anti-inflammatory drugs help manage daily symptoms.
+- Painkillers and medicines that reduce inflammation help manage daily symptoms.
 - Physiotherapy improves joint flexibility and strengthens the surrounding muscles.
 
 #### How to help
 
-- Provide ergonomic equipment like vertical mice or padded keyboards.
+- Provide equipment that reduces strain, like padded keyboards or upright mice held like a handshake.
 - Allow for flexible breaks if they need to move or rest stiff joints.
 - Be mindful that their mobility and pain levels can change daily.
 
@@ -97,7 +97,7 @@ Cancer and its treatment can cause deep tiredness and problems with memory and f
 
 - It doesn’t always mean someone will die from it. Many cancers are now treatable or manageable.
 - It's not over once treatment ends, as side effects can last years.
-- It's not always visible, for instance, someone can have cancer without losing hair.
+- It's not always visible. Someone can have cancer without losing hair.
 
 #### Diagnosis
 
@@ -174,7 +174,7 @@ Colour blindness makes it hard to tell some colours apart. It affects about 1 in
 #### Common myths
 
 - It’s not seeing the world like a black and white film.
-- It’s not just 'mixing up' colours, it's a physical inability to perceive them.
+- It’s not just 'mixing up' colours. It's a physical inability to perceive them.
 - It’s not something that can be cured with simple 'colour-correcting' glasses.
 
 #### Diagnosis
@@ -252,9 +252,9 @@ Dementia is a brain disease that affects memory, mood, and personality. It isn�
 
 #### Common myths
 
-- It’s not a natural part of ageing, it’s a brain disease.
-- It’s not just 'forgetfulness', it affects mood and personality too.
-- It’s not the same for everyone, there are over 100 different types.
+- It’s not a natural part of ageing. It’s a brain disease.
+- It’s not just 'forgetfulness'. It affects mood and personality too.
+- It’s not the same for everyone. There are over 100 different types.
 
 #### Diagnosis
 
@@ -344,13 +344,13 @@ Endometriosis can cause severe pelvic pain, very heavy periods, and tiredness. I
 #### Treatment
 
 - Hormone treatments or the pill can help to manage pain and bleeding.
-- Keyhole surgery is used to remove or destroy endometrial tissue.
+- Keyhole surgery is used to remove or destroy the tissue growing outside the womb.
 
 #### How to help
 
 - Provide easy access to toilets and comfortable, private rest areas.
 - Allow for flexible working or home working during painful flare-ups.
-- Offer heat pads or ergonomic seating to help manage pelvic pain.
+- Offer heat pads or supportive seating designed for comfort to help manage pelvic pain.
 
 ### Epilepsy
 
@@ -458,7 +458,7 @@ When someone has hearing loss, it’s hard to hear people clearly, especially in
 #### Diagnosis
 
 - Audiologists measure the quietest sounds you can hear.
-- Physical exams check for earwax, fluid, or eardrum damage.
+- Physical examinations check for earwax, fluid, or eardrum damage.
 
 #### Treatment
 
@@ -501,7 +501,7 @@ With lupus, people can have extreme tiredness, joint pain, and a rash across the
 
 #### Treatment
 
-- Anti-inflammatory drugs and antimalarials help manage pain and skin issues.
+- Medicines that reduce inflammation, and antimalarials, help manage pain and skin issues.
 - Immunosuppressants are used in more severe cases to stop self-attack.
 
 #### How to help
@@ -580,7 +580,7 @@ Multiple sclerosis can cause tiredness, numbness, blurred sight, and problems wi
 
 #### Treatment
 
-- Disease-modifying therapies help reduce the number of relapses.
+- Disease-modifying therapies, which change how the condition develops, help reduce the number of relapses.
 - Steroids are used to speed up recovery from sudden attacks.
 - Physiotherapy maintains strength and manages muscle stiffness.
 
@@ -609,14 +609,14 @@ People with Parkinson’s may shake, move slowly, and have stiff muscles, and sp
 
 #### Common myths
 
-- It’s not just 'the shakes', it affects speech and mood too.
+- It’s not just 'the shakes'. It affects speech and mood too.
 - It’s not a normal part of ageing.
 - It’s not always obvious, and some people have no tremors at all.
 
 #### Diagnosis
 
 - No single test exists, so a specialist makes a clinical judgement.
-- Physical exams check for balance, stiffness, and walking speed.
+- Physical examinations check for balance, stiffness, and walking speed.
 - Doctors monitor how well the person responds to Parkinson's medication.
 
 #### Treatment
@@ -657,7 +657,7 @@ Thyroid conditions change hormone levels, which can cause tiredness, weight chan
 #### Diagnosis
 
 - Blood tests measure levels of thyroid-stimulating hormone and thyroid hormones like thyroxine.
-- Physical exams check for swelling in the neck, known as a goitre.
+- Physical examinations check for swelling in the neck, known as a goitre.
 
 #### Treatment
 
@@ -690,7 +690,7 @@ Sight loss means not seeing clearly even with glasses, but many people still hav
 #### Common myths
 
 - It’s not a total lack of sight for everyone. Many have some vision.
-- It’s not fixed by wearing stronger glasses or contacts.
+- It’s not fixed by wearing stronger glasses or contact lenses.
 - People don't always use a cane or a guide dog.
 
 #### Diagnosis

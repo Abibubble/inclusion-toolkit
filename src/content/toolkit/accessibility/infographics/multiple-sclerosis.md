@@ -27,7 +27,7 @@ Multiple sclerosis can cause tiredness, numbness, blurred sight, and problems wi
 
 ### Treatment
 
-- Disease-modifying therapies help reduce the number of relapses.
+- Disease-modifying therapies, which change how the condition develops, help reduce the number of relapses.
 - Steroids are used to speed up recovery from sudden attacks.
 - Physiotherapy maintains strength and manages muscle stiffness.
 

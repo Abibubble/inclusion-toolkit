@@ -73,7 +73,7 @@ export function ToolkitPage({ data }: { data: ToolkitPageData }) {
           <Stack gap={4}>
             <PageHeading>{data.toolkit.title}</PageHeading>
             <p>
-              These resources help make workplaces, meetings and the web more accessible and
+              These resources help make workplaces, meetings, and the web more accessible and
               inclusive, covering accessibility and neurodiversity.
             </p>
             <p>

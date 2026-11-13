@@ -4,7 +4,7 @@ Some people’s brains find sounds, lights, touch, and other senses hard to hand
 
 ### Symptoms
 
-- Over or under-sensitive to sensory stimuli.
+- Over or under-sensitive to things like sounds, lights, touch, and smells.
 - Difficulty filtering background noise.
 - Emotional dysregulation when overwhelmed.
 
@@ -16,7 +16,7 @@ Some people’s brains find sounds, lights, touch, and other senses hard to hand
 
 ### Common myths
 
-- It’s not bad behaviour, sensory input is genuinely overwhelming.
+- It’s not bad behaviour. Sensory input is genuinely overwhelming.
 - Not the same as autism, though they often co-occur.
 - Not something people can overcome just by trying harder.
 
@@ -30,7 +30,7 @@ Some people’s brains find sounds, lights, touch, and other senses hard to hand
 
 - Sensory integration therapy with an Occupational Therapist.
 - A personalised 'sensory diet' of daily activities.
-- Environmental adjustments to reduce stimuli.
+- Changes to the surroundings to reduce things like noise and bright light.
 
 ### How to help
 

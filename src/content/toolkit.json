@@ -3,7 +3,7 @@
     {
       "slug": "accessibility",
       "title": "Accessibility",
-      "description": "Resources about accessibility, disabilities and health conditions.",
+      "description": "Resources about accessibility, disabilities, and health conditions.",
       "folders": [
         {
           "slug": "highlights",
@@ -14,7 +14,7 @@
             {
               "slug": "accessibility-highlights",
               "title": "All Accessibility Highlights",
-              "description": "Every accessibility highlight in one file, each with what it’s for, how to support it and useful links, plus a glossary of terms.",
+              "description": "Every accessibility highlight in one file, each with what it’s for, how to support it, and useful links, plus a glossary of terms.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -50,7 +50,7 @@
             {
               "slug": "accessible-authentication",
               "title": "Accessible Authentication",
-              "description": "When people can't use a login page, the harm can be serious.",
+              "description": "Signing in should never depend on puzzles or memory tests, so let people paste passwords, use password managers, and choose other ways to sign in.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -68,7 +68,7 @@
             {
               "slug": "accessible-pdfs",
               "title": "Accessible PDFs",
-              "description": "We use PDF (Portable Document Format) to present all kinds of documents like guidelines, contractual agreements, data-heavy reports and even site maps.",
+              "description": "PDF (Portable Document Format) files can be made more accessible, but they’re hard to use on phones, so use a web page or another format where you can.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -77,7 +77,7 @@
             {
               "slug": "alt-text",
               "title": "Alt Text",
-              "description": "Some people cannot see the images we display.",
+              "description": "Alt text describes what an image means, for people who can’t see it.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -86,7 +86,7 @@
             {
               "slug": "aria",
               "title": "Accessible Rich Internet Applications (ARIA)",
-              "description": "ARIA stands for 'Accessible Rich Internet Applications'.",
+              "description": "ARIA is a set of roles and attributes that tell assistive technology what something is, when HTML can’t.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -95,7 +95,7 @@
             {
               "slug": "ascii-art",
               "title": "ASCII Art",
-              "description": "ASCII art is the practice of arranging punctuation and symbols to create a picture, like the ‘shrug’ ¯\\_(ツ)_/¯ or drawings of animals.",
+              "description": "ASCII art is the practice of arranging punctuation and symbols to create a picture, such as a shrugging face or drawings of animals.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -113,7 +113,7 @@
             {
               "slug": "basic-accessibility-testing",
               "title": "Basic Accessibility Testing",
-              "description": "Testing makes sure that what gets built actually works for everyone.",
+              "description": "Simple checks anyone can do, such as using only a keyboard, zooming to 200%, and running a free scanner.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -131,7 +131,7 @@
             {
               "slug": "buttons",
               "title": "Buttons",
-              "description": "Buttons let people take an action, such as submitting a form, saving information or opening a menu.",
+              "description": "Buttons let people take an action, such as submitting a form, saving information, or opening a menu.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -185,7 +185,7 @@
             {
               "slug": "colour-blind-series-the-rarer-types",
               "title": "Colour-blind Series: The Rarer Types",
-              "description": "Earlier entries in this series covered Protanopia, Deuteranopia, and Tritanopia.",
+              "description": "Achromatopsia and other rare types of colour blindness, where people see little or no colour.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -203,7 +203,7 @@
             {
               "slug": "colour-blindness",
               "title": "Colour Blindness",
-              "description": "Colour blindness (or Colour Vision Deficiency) is about more than just seeing in black and white.",
+              "description": "The main types of colour blindness, and why you should never rely on colour alone to show meaning.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -212,7 +212,7 @@
             {
               "slug": "colour-contrast",
               "title": "Colour Contrast",
-              "description": "Websites, social media images, and out-of-home advertising should have a good colour contrast between text and background colour.",
+              "description": "Websites, social media images, posters, billboards, and other outdoor advertising should have a good colour contrast between text and background colour.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -221,7 +221,7 @@
             {
               "slug": "consistency",
               "title": "Consistency",
-              "description": "Navigation, buttons and labels that look and work the same on every page help people find their way around.",
+              "description": "Navigation, buttons, and labels that look and work the same on every page help people find their way around.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -284,7 +284,7 @@
             {
               "slug": "fonts",
               "title": "Fonts",
-              "description": "Fonts are used everywhere, whether that's in a Word document, in a design, in a slide deck, or on a website.",
+              "description": "How to choose fonts that are easy to read, including for people with dyslexia or low vision.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -320,7 +320,7 @@
             {
               "slug": "headings",
               "title": "Headings",
-              "description": "Most people are familiar with headings, whether that's a title in a document or a title sheet on a slide deck.",
+              "description": "A clear heading structure helps screen reader users and search engines understand a page.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -356,7 +356,7 @@
             {
               "slug": "landmarks-and-roles",
               "title": "Landmarks & Roles",
-              "description": "Imagine trying to navigate a city with no street signs, where every building looks exactly the same.",
+              "description": "Landmarks let screen reader users jump to parts of a page, and roles tell them what each item is.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -365,7 +365,7 @@
             {
               "slug": "link-text",
               "title": "Link Text",
-              "description": "Many screen reader users navigate websites by pulling up a list of only the links on a page.",
+              "description": "Write link text that says where the link goes, instead of ‘Click here’ or ‘Read more’.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -410,7 +410,7 @@
             {
               "slug": "prefers-reduced-motion",
               "title": "Prefers-reduced-motion",
-              "description": "Some people struggle with motion on websites.",
+              "description": "Moving parts on a website can be hard for some people, so stop them when someone’s device is set to reduce motion.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -419,7 +419,7 @@
             {
               "slug": "presentations",
               "title": "Presentations",
-              "description": "Most people will have to give a presentation at some point.",
+              "description": "How to make sure everyone watching can get the information in your slides.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -428,7 +428,7 @@
             {
               "slug": "qr-codes",
               "title": "QR Codes",
-              "description": "A QR (Quick Response) code is a type of two-dimensional barcode.",
+              "description": "QR (Quick Response) codes can be hard for some people to find and use, so always put a short web address and a clear description next to them.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -455,7 +455,7 @@
             {
               "slug": "shifting-left",
               "title": "Shifting Left",
-              "description": "Imagine baking a cake, pulling it out of the oven, and realising you forgot the sugar.",
+              "description": "Shifting left means checking for accessibility at the start of a project, when problems are cheaper and faster to fix.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -464,7 +464,7 @@
             {
               "slug": "social-media-alt-text",
               "title": "Social Media: Alt Text",
-              "description": "On social media, images often hold the core message or punchline.",
+              "description": "Add a text description to images on social media, so screen reader users don’t miss the main point of a post.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -473,7 +473,7 @@
             {
               "slug": "social-media-custom-fonts",
               "title": "Social Media: Custom Fonts",
-              "description": "People often use generator websites to make their text look unique.",
+              "description": "Fancy text from font generator websites makes no sense to screen readers, so use the app’s normal font.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -491,7 +491,7 @@
             {
               "slug": "social-media-hashtags",
               "title": "Social Media: Hashtags",
-              "description": "Imagine trying to read a sentence where all the spaces have been removed.",
+              "description": "Start each word in a hashtag with a capital letter, so screen readers say it correctly and it’s easier for everyone to read.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -500,7 +500,7 @@
             {
               "slug": "tap-targets",
               "title": "Tap Targets",
-              "description": "Buttons and links should be big enough, with enough space around them, to press without hitting something else by mistake.",
+              "description": "Buttons and links should be big enough, with enough space around them, to press without touching something else by mistake.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -509,7 +509,7 @@
             {
               "slug": "temporary-and-situational-disabilities",
               "title": "Temporary & Situational Disabilities",
-              "description": "People often link accessibility with permanent disabilities.",
+              "description": "Disability isn’t always permanent, and designing for disabled people also helps people with an injury, or in a situation like bright sun on a screen.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -527,7 +527,7 @@
             {
               "slug": "time-limits",
               "title": "Time Limits",
-              "description": "Time limits refer to when a page sets a time limit on doing a certain action.",
+              "description": "Time limits on forms and payments can stop people finishing, so let people turn them off or extend them.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -536,7 +536,7 @@
             {
               "slug": "tooltips-and-popovers",
               "title": "Tooltips & Popovers",
-              "description": "Tooltips and popovers give users extra info on demand (like for an icon button).",
+              "description": "Tooltips and popovers give users extra information when they need it (like for an icon button).",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -545,7 +545,7 @@
             {
               "slug": "touch-gestures",
               "title": "Touch Gestures",
-              "description": "Imagine trying to open a heavy door, but the rule is you can only use your pinky fingers.",
+              "description": "Pinching or swiping with several fingers can be hard for some people, so always give a one-finger tap option too.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -571,7 +571,7 @@
             {
               "slug": "accessibility-infographics",
               "title": "All Accessibility Infographics",
-              "description": "Every accessibility infographic in one file, each covering a condition’s symptoms, myths, diagnosis, treatment and support.",
+              "description": "Every accessibility infographic in one file, each covering a condition’s symptoms, myths, diagnosis, treatment, and support.",
               "updated": "2026-11-11",
               "slides": false,
               "infographic": true,
@@ -813,7 +813,7 @@
             {
               "slug": "key-terminology",
               "title": "Key Terminology",
-              "description": "The difference between neurodiversity, neurodivergent, neurodiverse, neurotypical and neurotypes, and when to use each.",
+              "description": "The difference between neurodiversity, neurodivergent, neurodiverse, neurotypical, and neurotypes, and when to use each.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -876,7 +876,7 @@
             {
               "slug": "sensory-series-touch",
               "title": "Sensory Series: Touch",
-              "description": "How textures, temperature and touch can affect neurodivergent people at work, and how to help.",
+              "description": "How textures, temperature, and touch can affect neurodivergent people at work, and how to help.",
               "updated": "2026-11-11",
               "slides": true,
               "text": "checked",
@@ -929,7 +929,7 @@
             {
               "slug": "neurodiversity-infographics",
               "title": "All Neurodiversity Infographics",
-              "description": "Every neurodiversity infographic in one file, each covering a condition’s signs, myths, diagnosis and support.",
+              "description": "Every neurodiversity infographic in one file, each covering a condition’s signs, myths, diagnosis, and support.",
               "updated": "2026-11-11",
               "slides": false,
               "infographic": true,

@@ -6,7 +6,13 @@ A time limit on a form or payment page can cause stress and stop people finishin
 
 Time limits refer to when a page sets a time limit on doing a certain action. This is often seen while filling in forms, or whilst making a purchase. When using time limits, allow sufficient time for users to complete tasks, read content, or interact with digital interfaces.
 
-To make time limits accessible, Web Content Accessibility Guidelines (WCAG) 2.2 has a Level A requirement (SC 2.2.1 Timing Adjustable). Users must be able to do at least one of these things: turn the time limit off, change it to at least 10 times its length, or get a warning before it runs out and extend it with a simple action, such as pressing a button. They must have at least 20 seconds to respond to the warning, and be able to extend the time at least 10 times. There are a few exceptions, such as live auctions.
+To make time limits accessible, Web Content Accessibility Guidelines (WCAG) 2.2 has a Level A requirement. This is SC 2.2.1 Timing Adjustable. Users must be able to do at least one of these things:
+
+- Turn the time limit off
+- Change it to at least 10 times its length
+- Get a warning before it runs out, and extend it with a simple action, such as pressing a button
+
+They must have at least 20 seconds to respond to the warning, and be able to extend the time at least 10 times. There are a few exceptions, such as live auctions.
 
 People with cognitive disabilities, and people who use screen readers, often need more time to take in information and finish tasks. A fixed time limit can cause pressure and anxiety. This can break people's concentration and stop them finishing, whether or not they have a disability.
 

@@ -26,12 +26,12 @@ Arthritis causes pain, stiffness, and swelling in the joints. It doesn’t only 
 
 ### Treatment
 
-- Painkillers and anti-inflammatory drugs help manage daily symptoms.
+- Painkillers and medicines that reduce inflammation help manage daily symptoms.
 - Physiotherapy improves joint flexibility and strengthens the surrounding muscles.
 
 ### How to help
 
-- Provide ergonomic equipment like vertical mice or padded keyboards.
+- Provide equipment that reduces strain, like padded keyboards or upright mice held like a handshake.
 - Allow for flexible breaks if they need to move or rest stiff joints.
 - Be mindful that their mobility and pain levels can change daily.
 

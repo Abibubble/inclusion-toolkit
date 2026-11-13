@@ -6,7 +6,7 @@ Hiding natural traits to fit in is called masking, and many neurodivergent peopl
 
 Masking is when neurodivergent people hide their natural traits to fit in. It's often a constant performance to meet social expectations. It's like wearing a mask to hide things like stimming or social anxiety. Here are a few reasons why it's a challenge:
 
-- It's incredibly draining to do this all day
+- It's very draining to do this all day
 - It'll often lead to burnout and exhaustion
 - It's hard for others to see when someone's struggling
 - It stops people from being their true selves

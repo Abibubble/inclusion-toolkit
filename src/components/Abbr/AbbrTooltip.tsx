@@ -49,13 +49,20 @@ interface AbbrTooltipProps {
 export function AbbrTooltip({ fullForm, children }: AbbrTooltipProps) {
   const running = useJavaScriptRunning();
   const insideLink = use(InsideLinkContext);
-  const [open, setOpen] = useState(false);
+  // The full form stays while the abbreviation is hovered or focused, so moving the pointer away
+  // doesn't hide it while focus is still there (WCAG 1.4.13). Escape hides it until both have ended
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+  const open = (hovered || focused) && !dismissed;
   const tooltip = useRef<HTMLSpanElement>(null);
+
+  if (dismissed && !hovered && !focused) setDismissed(false);
 
   useEffect(() => {
     if (!open) return;
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false);
+      if (event.key === 'Escape') setDismissed(true);
     };
     document.addEventListener('keydown', closeOnEscape);
     return () => {
@@ -81,10 +88,10 @@ export function AbbrTooltip({ fullForm, children }: AbbrTooltipProps) {
     <span
       className={styles.wrapper}
       onMouseEnter={() => {
-        setOpen(true);
+        setHovered(true);
       }}
       onMouseLeave={() => {
-        setOpen(false);
+        setHovered(false);
       }}
     >
       {/* aria-description is from ARIA 1.3, which the lint rule doesn't know yet. It gives the full
@@ -96,13 +103,16 @@ export function AbbrTooltip({ fullForm, children }: AbbrTooltipProps) {
         aria-description={fullForm}
         data-abbr
         onFocus={() => {
-          setOpen(true);
+          setFocused(true);
         }}
         onBlur={() => {
-          setOpen(false);
+          setFocused(false);
         }}
-        onClick={() => {
-          setOpen(true);
+        onClick={(event) => {
+          // Safari doesn't focus buttons when they're clicked, so this does, and the full form
+          // stays until focus moves away
+          event.currentTarget.focus();
+          setDismissed(false);
         }}
       >
         <abbr>{children}</abbr>

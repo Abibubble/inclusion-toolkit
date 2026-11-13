@@ -6,7 +6,7 @@ Tics are sounds or movements that someone with Tourette’s Syndrome can’t eas
 
 Tourette's Syndrome (or Tourette Syndrome, in more medical settings) is a condition that's often misunderstood. Many people think that it's just about swearing, but that's actually quite rare (it's called coprolalia). It's mostly about tics, which are sounds or movements that someone can't easily stop.
 
-It's important to remember that managing tics all day can be exhausting. Tics can increase when someone is stressed or tired, and trying to hide those tics can make it more difficult to focus. On top of this, other people can be judgemental about Tourette's, especially when they don't understand that it's not voluntary.
+It's important to remember that managing tics all day can be exhausting. Tics can increase when someone is stressed or tired, and trying to hide those tics can make it more difficult to focus. As well as this, other people can be judgemental about Tourette's, especially when they don't understand that it's not voluntary.
 
 So how can you be a good ally to someone who has Tourette's Syndrome?
 

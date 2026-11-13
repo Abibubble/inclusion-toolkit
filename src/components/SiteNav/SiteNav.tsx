@@ -5,6 +5,15 @@ import { MAIN_NAV } from '../../content/navigation';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import styles from './SiteNav.module.css';
 
+/**
+ * Whether 2 paths are the same page. Prerendering gives paths a slash at the end, such as
+ * /neurodiversity/, and React keeps the prerendered attributes when the page loads
+ */
+function samePath(a: string, b: string): boolean {
+  const trimmed = (path: string) => path.replace(/(.)\/$/, '$1');
+  return trimmed(a) === trimmed(b);
+}
+
 export function SiteNav() {
   const { pathname } = useLocation();
   const panelId = useId();
@@ -65,7 +74,14 @@ export function SiteNav() {
           <ul role="list" className={styles.list}>
             {MAIN_NAV.map((item) => (
               <li key={item.to}>
-                <NavLink to={item.to} end={item.to === '/'} className={styles.link}>
+                {/* On a page inside a section, the section's link is current, but isn't the page
+                    itself (WCAG 2.4.8) */}
+                <NavLink
+                  to={item.to}
+                  end={item.to === '/'}
+                  aria-current={samePath(pathname, item.to) ? 'page' : 'true'}
+                  className={styles.link}
+                >
                   {item.label}
                 </NavLink>
               </li>

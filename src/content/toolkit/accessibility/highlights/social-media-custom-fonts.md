@@ -1,6 +1,6 @@
 ### In short
 
-Fancy text from font generator websites isn’t a real font. Screen readers read out each letter as a maths symbol, so the message makes no sense. Use the app’s normal font for your name, profile, and captions.
+Fancy text from font generator websites isn’t a real font. Screen readers read out each letter as a maths symbol, so the message makes no sense. Use the app’s normal font for your name, profile, and posts.
 
 ### What is it for?
 
@@ -10,7 +10,7 @@ When a screen reader encounters this text, it does not read the word. It reads t
 
 ### How to support it
 
-The kindest thing you can do is avoid these generators entirely for your display name, profile description, and captions.
+The kindest thing you can do is avoid these generators entirely for your display name, profile description, and post text.
 
 - Use the default keyboard font provided by the platform. This ensures your text is readable and searchable.
 - Since you cannot use bold or italics on most apps, highlight key words by capitalising only the first letter (for example, 'this is Really important') instead. Avoid writing whole words in capital letters, as they're harder to read.

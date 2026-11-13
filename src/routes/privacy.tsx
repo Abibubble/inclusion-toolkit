@@ -14,7 +14,7 @@ export function meta(): Route.MetaDescriptors {
   return pageMeta({
     title: pageTitle('Privacy'),
     description:
-      'What information this site collects, and what happens to it. There’s no tracking, analytics or advertising.',
+      'What information this site collects, and what happens to it. There’s no tracking, analytics, or advertising.',
     path: PRIVACY_PATH,
   });
 }
@@ -38,7 +38,7 @@ export default function Privacy() {
           <p>This notice explains what information this site collects, and what happens to it.</p>
           <p>
             In short, this site doesn’t collect any personal information. There’s no tracking,
-            analytics or advertising, and no cookies.
+            analytics, or advertising, and no cookies.
           </p>
         </Stack>
       </TitleBand>
@@ -46,7 +46,7 @@ export default function Privacy() {
 
       <PageContentsSection section={SECTIONS.whatsCollected}>
         <p>
-          Nothing. There are no forms, no accounts and no sign-up. You can use every page and
+          Nothing. There are no forms, no accounts, and no sign-up. You can use every page and
           download every file without telling anyone who you are.
         </p>
       </PageContentsSection>
@@ -66,8 +66,8 @@ export default function Privacy() {
 
       <PageContentsSection section={SECTIONS.noTracking}>
         <p>
-          This site doesn’t use cookies, analytics or advertising. It doesn’t record which pages you
-          visit, which files you download, or what you search for, and doesn’t track you across
+          This site doesn’t use cookies, analytics, or advertising. It doesn’t record which pages
+          you visit, which files you download, or what you search for, and doesn’t track you across
           other sites. Search works entirely in your browser.
         </p>
       </PageContentsSection>
@@ -94,8 +94,8 @@ export default function Privacy() {
       <PageContentsSection section={SECTIONS.questions}>
         <p>
           If you have a question about this notice, you can{' '}
-          <Link href={NEW_ISSUE_URL}>ask it on GitHub</Link>. You need a free GitHub account to do
-          this, and what you write there is public.
+          <Link href={NEW_ISSUE_URL}>ask a question on GitHub</Link>. You need a free GitHub account
+          to do this, and what you write there is public.
         </p>
       </PageContentsSection>
 

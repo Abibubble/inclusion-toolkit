@@ -181,6 +181,8 @@ export interface ToolkitEntry {
   slugs: string[];
   title: string;
   description: string;
+  /** The title of the folder a resource is in, as some resources in different folders share a title */
+  folder?: string;
 }
 
 /** Every folder and resource under a folder, with the slugs leading to each, in page order */
@@ -194,6 +196,7 @@ export function toolkitEntries(folder: ToolkitFolder, slugs: string[] = []): Too
       kind: 'item' as const,
       slugs: [...slugs, item.slug],
       ...describe(item),
+      ...(slugs.length > 0 && { folder: folder.title }),
     })),
   ];
 }

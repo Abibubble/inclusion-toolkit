@@ -6,7 +6,7 @@ Some people can’t see images, such as people who are blind or have slow intern
 
 Some people cannot see the images we display. This includes people who are blind or have low vision. It also includes people with slow internet, little data, or low battery.
 
-Using alternative text (alt text) ensures that everyone can understand the image content, even if they cannot see it. However, if an image is purely decorative and adds no extra information, give it an empty alt attribute (alt="") so screen readers skip it.
+Using alternative text (alt text) ensures that everyone can understand the image content, even if they cannot see it. However, if an image is purely decorative and adds no extra information, give it an empty alt attribute (`alt=""`) so screen readers skip it.
 
 ### How to support it
 

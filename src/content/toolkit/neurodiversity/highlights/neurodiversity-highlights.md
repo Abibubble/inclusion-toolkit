@@ -8,7 +8,7 @@ Working next to someone else can make it easier to focus and start a task. They 
 
 #### Overview
 
-Body doubling is when you work alongside another person to help you focus. The other person doesn't need to be working on the same task as you. Their presence simply acts as an anchor to keep your mind from wandering and keeps you on track. It's a popular strategy used by many neurodivergent people to tackle boring or difficult jobs, such as cleaning.
+Body doubling is when you work alongside another person to help you focus. The other person doesn't need to be working on the same task as you. Having them there helps you keep your attention on your task. It's a popular strategy used by many neurodivergent people to do boring or difficult jobs, such as cleaning.
 
 Body doubling makes it easier to get started on a task. Having someone else in the room or on a video call creates a sense of accountability, stopping the feeling of isolation and reducing the urge to procrastinate.
 
@@ -107,7 +107,7 @@ Hiding natural traits to fit in is called masking, and many neurodivergent peopl
 
 Masking is when neurodivergent people hide their natural traits to fit in. It's often a constant performance to meet social expectations. It's like wearing a mask to hide things like stimming or social anxiety. Here are a few reasons why it's a challenge:
 
-- It's incredibly draining to do this all day
+- It's very draining to do this all day
 - It'll often lead to burnout and exhaustion
 - It's hard for others to see when someone's struggling
 - It stops people from being their true selves
@@ -225,7 +225,7 @@ Older fluorescent tubes are a common cause because they actually flicker. While 
 
 Adjusting the visual environment helps prevent the hidden exhaustion that comes from simply sitting in a brightly lit room.
 
-Simple shifts in how workspaces are set up can offer huge relief. Letting people sit in dimmer areas or turning off overhead lights in favour of soft desk lamps makes a massive difference. It's also helpful to support colleagues who wear sunglasses, tinted lenses, or baseball caps indoors to block out the glare.
+Simple shifts in how workspaces are set up can offer huge relief. Letting people sit in dimmer areas or turning off overhead lights in favour of soft desk lamps makes a big difference. It's also helpful to support colleagues who wear sunglasses, tinted lenses, or baseball caps indoors to block out the glare.
 
 #### Useful links
 
@@ -287,7 +287,7 @@ Having a spiky profile means being brilliant at some things but finding simple t
 
 A spiky profile is when someone is really brilliant at some things but finds other things very hard. This includes things that might seem simple to other people. For example, someone might be amazing at solving tricky problems at work but find it hard to reply to a basic email.
 
-This is not about being lazy or not trying hard enough. Neurodivergent brains are wired in a different way. Some skills, like creativity, focus, and spotting patterns, can be super strong. But other skills, like planning, switching between tasks, or doing routine jobs, can take a lot more effort.
+This is not about being lazy or not trying hard enough. Neurodivergent brains work in a different way. Some skills, like creativity, focus, and spotting patterns, can be very strong. But other skills, like planning, switching between tasks, or doing routine jobs, can take a lot more effort.
 
 Knowing about spiky profiles can help us be better allies. If someone seems to be struggling with something easy, it might just be that their brain works differently. Small changes can make a big difference. Try working with people who are good at the things you find hard, or think about how you share out work in your team.
 
@@ -357,7 +357,7 @@ Tics are sounds or movements that someone with Tourette’s Syndrome can’t eas
 
 Tourette's Syndrome (or Tourette Syndrome, in more medical settings) is a condition that's often misunderstood. Many people think that it's just about swearing, but that's actually quite rare (it's called coprolalia). It's mostly about tics, which are sounds or movements that someone can't easily stop.
 
-It's important to remember that managing tics all day can be exhausting. Tics can increase when someone is stressed or tired, and trying to hide those tics can make it more difficult to focus. On top of this, other people can be judgemental about Tourette's, especially when they don't understand that it's not voluntary.
+It's important to remember that managing tics all day can be exhausting. Tics can increase when someone is stressed or tired, and trying to hide those tics can make it more difficult to focus. As well as this, other people can be judgemental about Tourette's, especially when they don't understand that it's not voluntary.
 
 So how can you be a good ally to someone who has Tourette's Syndrome?
 

@@ -4,8 +4,8 @@ Anxiety can cause dread, racing thoughts, and a pounding heart, and it’s a med
 
 ### Symptoms
 
-- Constant feeling of dread, racing thoughts or feeling tense and unable to relax.
-- Heart palpitations, sweating, shaking or shortness of breath.
+- Constant feeling of dread, racing thoughts, or feeling tense and unable to relax.
+- Heart palpitations, sweating, shaking, or shortness of breath.
 - Avoiding situations or places to escape the worry.
 
 ### Age & Gender

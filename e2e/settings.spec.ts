@@ -97,7 +97,7 @@ test.describe('Display settings page', () => {
 
   test('increases text spacing to at least the WCAG 1.4.12 values', async ({ page }) => {
     await page
-      .getByRole('radio', { name: 'Increased (more space between lines, words and letters)' })
+      .getByRole('radio', { name: 'Increased (more space between lines, words, and letters)' })
       .check();
 
     const spacing = await page.evaluate(() => {

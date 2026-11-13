@@ -45,7 +45,7 @@ describe('DisplaySettings', () => {
     ['Text size', 'Largest (50% bigger)', 'data-text-size', 'larger'],
     [
       'Text spacing',
-      'Increased (more space between lines, words and letters)',
+      'Increased (more space between lines, words, and letters)',
       'data-text-spacing',
       'increased',
     ],
@@ -72,8 +72,22 @@ describe('DisplaySettings', () => {
     expect(root).not.toHaveAttribute('data-text-size');
     expect(within(group('Theme')).getByRole('radio', { name: 'Match my device' })).toBeChecked();
     expect(within(group('Text size')).getByRole('radio', { name: 'Default' })).toBeChecked();
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Display settings are back to their defaults.',
+    expect(await screen.findByText('Display settings are back to their defaults.')).toHaveRole(
+      'status',
+    );
+  });
+
+  it('announces the reset again when it’s pressed a second time (WCAG 4.1.3)', async () => {
+    const user = userEvent.setup();
+    render(<DisplaySettings />);
+    await user.click(screen.getByRole('button', { name: 'Reset to defaults' }));
+    await screen.findByText('Display settings are back to their defaults.');
+
+    await user.click(screen.getByRole('button', { name: 'Reset to defaults' }));
+
+    expect(screen.getByRole('status')).toBeEmptyDOMElement();
+    expect(await screen.findByText('Display settings are back to their defaults.')).toHaveRole(
+      'status',
     );
   });
 

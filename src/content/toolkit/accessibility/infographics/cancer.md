@@ -17,7 +17,7 @@ Cancer and its treatment can cause deep tiredness and problems with memory and f
 
 - It doesn’t always mean someone will die from it. Many cancers are now treatable or manageable.
 - It's not over once treatment ends, as side effects can last years.
-- It's not always visible, for instance, someone can have cancer without losing hair.
+- It's not always visible. Someone can have cancer without losing hair.
 
 ### Diagnosis
 

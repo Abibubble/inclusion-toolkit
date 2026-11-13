@@ -42,7 +42,7 @@ export const SETTINGS = {
     default: 'default',
     options: [
       { value: 'default', label: 'Default' },
-      { value: 'increased', label: 'Increased (more space between lines, words and letters)' },
+      { value: 'increased', label: 'Increased (more space between lines, words, and letters)' },
     ],
   },
   font: {

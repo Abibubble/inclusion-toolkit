@@ -58,7 +58,7 @@ describe('Accessibility statement', () => {
     const report = region('Report a problem');
 
     expect(
-      report.getByRole('link', { name: 'report it on GitHub (external site)' }),
+      report.getByRole('link', { name: 'report a problem on GitHub (external site)' }),
     ).toHaveAttribute('href', NEW_ISSUE_URL);
     expect(report.getByText(/You need a free GitHub account/)).toBeInTheDocument();
   });

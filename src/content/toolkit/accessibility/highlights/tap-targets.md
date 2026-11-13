@@ -4,13 +4,13 @@ Buttons and links need to be big enough to press without touching something else
 
 ### What is it for?
 
-You should ensure that interactive elements like buttons or links are large enough and have enough space around them, to make them easy to press without accidentally overlapping onto other elements.
+Make sure interactive elements, like buttons or links, are large enough and have enough space around them. This makes them easy to press without touching other elements by mistake.
 
 Small tap targets can cause rage clicks, where the user has to try to click on an interactive element more than once. Larger tap targets can remove barriers for a number of users, including (but not limited to):
 
 - Users who use a mobile device where a touchscreen is the primary mode of interaction
 - Users with mobility impairments, such as hand tremors
-- Users who use a mobile device in environments where they are exposed to shaking, such as public transportation
+- Users who use a mobile device in environments where they are exposed to shaking, such as public transport
 - Users who find fine motor movements difficult
 - Users who access a device using one hand
 - Users with large fingers, or who are operating the device with only a part of their finger or knuckle
@@ -20,15 +20,15 @@ You don't need any special code for this. Just make sure your tap targets are la
 
 ### How to support it
 
-Web Content Accessibility Guidelines (WCAG) 2.2 requires tap targets to be at least 24px x 24px at Level AA (SC 2.5.8 Target Size (Minimum)), unless there's enough space around them. At Level AAA, they must be at least 44px x 44px (SC 2.5.5 Target Size (Enhanced)). This is so that a user's finger pressing on one tap target does not inadvertently touch another tap target.
+Web Content Accessibility Guidelines (WCAG) 2.2 requires tap targets to be at least 24 by 24 CSS pixels at Level AA, unless there's enough space around them. This is SC 2.5.8 Target Size (Minimum). At Level AAA, they must be at least 44 by 44 CSS pixels. This is SC 2.5.5 Target Size (Enhanced). These sizes mean that a user's finger pressing on one tap target does not touch another tap target by mistake.
 
 _Note:_ `px` _means_ `pixels`
 
-Google's Material Design recommends a minimum tap target size of 48px x 48px, with a gap of at least 8px between tap targets. This is larger than the minimum required by WCAG.
+Google's Material Design recommends a minimum tap target size of 48 by 48 pixels, with a gap of at least 8 pixels between tap targets. This is larger than the minimum required by WCAG.
 
-The 48px x 48px area corresponds to around 9mm, which is about the size of a person's finger pad area.
+An area of 48 by 48 pixels is about 9 millimetres across, which is about the size of the pad of a person's finger.
 
-Any interactive element (unless it's text links within a paragraph) should be designed and built to be a minimum size of 48px x 48px, with a gap of 8px between any tap targets.
+Design and build every interactive element to be at least 48 by 48 pixels, with a gap of 8 pixels between tap targets. The only exception is text links within a paragraph.
 
 ```
 button {
@@ -38,7 +38,7 @@ button {
 }
 ```
 
-While an icon contained by a link may only have a width and height of 24px, you can add padding to the link to bring the tap target size up to 48px.
+An icon inside a link may only be 24 by 24 pixels. You can add padding to the link to bring the tap target size up to 48 by 48 pixels.
 
 ```
 a {

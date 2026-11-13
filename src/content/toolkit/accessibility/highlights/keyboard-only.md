@@ -23,7 +23,7 @@ To test keyboard accessibility:
 1. On page load, don't click anywhere. If you've already clicked, reload the page so nothing is selected
 2. Press `Tab` to tab through the page
 3. `Shift` + `Tab` will tab backward
-4. Arrow keys move within radio groups, menus and tabs
+4. Arrow keys move within radio groups, menus, and tabs
 5. `Enter` activates links and buttons
 6. By default, `Space` activates buttons and checkboxes. When nothing that takes Space input is focused, it scrolls the page
 

@@ -25,13 +25,13 @@ While QR codes can help users with motor or cognitive disabilities by removing t
 To ensure your QR code is accessible, you must provide alternatives and context.
 
 - Always include a short, readable URL (for example, [InclusionToolkit.org/accessibility](/accessibility)) and a clear description of the link's purpose next to the code
-- Use high-contrast colours (dark on light), a large size (at least 1 inch x 1 inch), and place it at a height reachable by all users
+- Use high-contrast colours (dark on light), a large size (at least 2.5 by 2.5 centimetres), and place it at a height reachable by all users
 
 If you can avoid using a QR code, you should. Here are a few alternatives:
 
-- Short URLs - A simple, memorable link is often the most inclusive option
-- NFC Tags - These allow users to tap their phone instead of aiming a camera, which is far easier
-- Accessible QR (AQR) codes - A new technology that uses special patterns to help apps guide visually impaired users to the code
+- Short URLs: a simple, memorable link is often the most inclusive option
+- NFC Tags: these allow users to tap their phone instead of aiming a camera, which is far easier
+- Accessible QR (AQR) codes: a new technology that uses special patterns to help apps guide visually impaired users to the code
 
 ### Useful links
 

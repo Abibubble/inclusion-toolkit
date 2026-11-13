@@ -16,7 +16,7 @@ Colour blindness makes it hard to tell some colours apart. It affects about 1 in
 ### Common myths
 
 - It’s not seeing the world like a black and white film.
-- It’s not just 'mixing up' colours, it's a physical inability to perceive them.
+- It’s not just 'mixing up' colours. It's a physical inability to perceive them.
 - It’s not something that can be cured with simple 'colour-correcting' glasses.
 
 ### Diagnosis

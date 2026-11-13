@@ -26,7 +26,7 @@ With lupus, people can have extreme tiredness, joint pain, and a rash across the
 
 ### Treatment
 
-- Anti-inflammatory drugs and antimalarials help manage pain and skin issues.
+- Medicines that reduce inflammation, and antimalarials, help manage pain and skin issues.
 - Immunosuppressants are used in more severe cases to stop self-attack.
 
 ### How to help

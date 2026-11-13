@@ -11,6 +11,8 @@ export interface ToolkitSearchEntry {
   title: string;
   description: string;
   path: string;
+  /** The title of the folder a resource is in */
+  folder?: string;
 }
 
 /**

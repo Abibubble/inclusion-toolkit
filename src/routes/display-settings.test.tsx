@@ -23,7 +23,7 @@ describe('Display settings page', () => {
       pageMeta({
         title: 'Display settings, Inclusion Toolkit',
         description:
-          'Change the theme, text size, spacing and font, to make this site easier for you to use.',
+          'Change the theme, text size, spacing, and font, to make this site easier for you to use.',
         path: '/display-settings',
       }),
     );

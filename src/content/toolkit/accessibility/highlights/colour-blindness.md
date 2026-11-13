@@ -11,8 +11,8 @@ Colour blindness (or Colour Vision Deficiency) is about more than just seeing in
 Design content to accommodate the various ways that people see. Here are the main types:
 
 - Red-Green is the most common, and it has two main types:
-  - Protanopia - Red light looks dark. Crucially, purple often looks just like blue to these users.
-  - Deuteranopia - Green light is hard to detect. This means red and green can look almost identical (often a muddy yellow-brown).
+  - Protanopia: red light looks dark. Crucially, purple often looks just like blue to these users.
+  - Deuteranopia: green light is hard to detect. This means red and green can look almost identical (often a muddy yellow-brown).
 - Blue-Yellow (Tritanopia) is much rarer. It makes it hard to distinguish between blue and green, or yellow and red.
 - Monochromacy is very rare. This is seeing no colour at all, only shades of grey.
 

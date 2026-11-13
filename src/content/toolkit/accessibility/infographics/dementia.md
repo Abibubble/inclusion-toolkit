@@ -15,9 +15,9 @@ Dementia is a brain disease that affects memory, mood, and personality. It isn�
 
 ### Common myths
 
-- It’s not a natural part of ageing, it’s a brain disease.
-- It’s not just 'forgetfulness', it affects mood and personality too.
-- It’s not the same for everyone, there are over 100 different types.
+- It’s not a natural part of ageing. It’s a brain disease.
+- It’s not just 'forgetfulness'. It affects mood and personality too.
+- It’s not the same for everyone. There are over 100 different types.
 
 ### Diagnosis
 
