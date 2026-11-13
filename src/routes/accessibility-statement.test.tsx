@@ -1,7 +1,7 @@
 import { screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { NEW_ISSUE_URL } from '../content/statements';
+import { MANUAL_TESTING, NEW_ISSUE_URL } from '../content/statements';
 import { pageMeta } from '../seo/pageMeta';
 import { expectNoAxeViolations } from '../test/axe';
 import { renderWithRouter } from '../test/render';
@@ -67,8 +67,18 @@ describe('Accessibility statement', () => {
     renderWithRouter(<Accessibility />);
 
     expect(region('How this site is tested').getByText(/last checked on/)).toHaveTextContent(
-      'This statement was last checked on 10 November 2026.',
+      'This statement was last checked on 13 November 2026.',
     );
+  });
+
+  it('lists how the site has been tested by hand', () => {
+    renderWithRouter(<Accessibility />);
+    const tested = region('How this site is tested');
+
+    expect(tested.getByText(/also tested by hand/)).toBeInTheDocument();
+    for (const item of MANUAL_TESTING) {
+      expect(tested.getByText(item).tagName).toBe('LI');
+    }
   });
 
   it('has its own page title and description, at its own address', () => {
