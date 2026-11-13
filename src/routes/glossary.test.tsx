@@ -27,6 +27,21 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
+/**
+ * The text of a table's column headers, row headers, and other cells. Read straight from the
+ * markup, as finding hundreds of cells by their roles is slow enough to time out on a busy
+ * computer. The axe test below checks the table's structure
+ */
+function tableText(section: HTMLElement) {
+  const text = (selector: string) =>
+    [...section.querySelectorAll(selector)].map((cell) => cell.textContent);
+  return {
+    columns: text('thead th[scope="col"]'),
+    rows: text('tbody th[scope="row"]'),
+    cells: text('tbody td'),
+  };
+}
+
 describe('Glossary page', () => {
   it('has the page heading, and lists its sections at the top', () => {
     renderWithRouter(<Glossary />);
@@ -41,34 +56,20 @@ describe('Glossary page', () => {
 
   it('explains every technical word (WCAG 3.1.3)', () => {
     renderWithRouter(<Glossary />);
-    const words = region('Technical words');
+    const words = tableText(screen.getByRole('region', { name: 'Technical words' }));
 
-    expect(words.getAllByRole('columnheader').map((cell) => cell.textContent)).toEqual([
-      'Word',
-      'What it means',
-    ]);
-    expect(words.getAllByRole('rowheader').map((cell) => cell.textContent)).toEqual(
-      GLOSSARY.map((entry) => entry.term),
-    );
-    expect(words.getAllByRole('cell').map((cell) => cell.textContent)).toEqual(
-      GLOSSARY.map((entry) => entry.definition),
-    );
+    expect(words.columns).toEqual(['Word', 'What it means']);
+    expect(words.rows).toEqual(GLOSSARY.map((entry) => entry.term));
+    expect(words.cells).toEqual(GLOSSARY.map((entry) => entry.definition));
   });
 
   it('lists every abbreviation used on the site, with what it stands for (WCAG 3.1.4)', () => {
     renderWithRouter(<Glossary />);
-    const abbreviations = region('Abbreviations');
+    const abbreviations = tableText(screen.getByRole('region', { name: 'Abbreviations' }));
 
-    expect(abbreviations.getAllByRole('columnheader').map((cell) => cell.textContent)).toEqual([
-      'Abbreviation',
-      'What it stands for',
-    ]);
-    expect(abbreviations.getAllByRole('rowheader').map((cell) => cell.textContent)).toEqual(
-      Object.keys(ABBREVIATIONS),
-    );
-    expect(abbreviations.getAllByRole('cell').map((cell) => cell.textContent)).toEqual(
-      Object.values(ABBREVIATIONS),
-    );
+    expect(abbreviations.columns).toEqual(['Abbreviation', 'What it stands for']);
+    expect(abbreviations.rows).toEqual(Object.keys(ABBREVIATIONS));
+    expect(abbreviations.cells).toEqual(Object.values(ABBREVIATIONS));
   });
 
   it('on small screens, shows each word closed, opening to show what it means', async () => {
@@ -124,7 +125,9 @@ describe('Glossary page', () => {
     await user.type(screen.getByRole('searchbox', { name: 'Search the glossary' }), 'z');
 
     expect(screen.getByRole('status')).toHaveTextContent('Type at least 2 characters to search.');
-    expect(region('Technical words').getAllByRole('rowheader')).toHaveLength(GLOSSARY.length);
+    expect(tableText(screen.getByRole('region', { name: 'Technical words' })).rows).toHaveLength(
+      GLOSSARY.length,
+    );
   });
 
   it('on small screens, shows each abbreviation closed, opening to show what it stands for', async () => {
@@ -159,7 +162,9 @@ describe('Glossary page', () => {
 
     expect(search).toHaveValue('');
     expect(search).toHaveFocus();
-    expect(region('Technical words').getAllByRole('rowheader')).toHaveLength(GLOSSARY.length);
+    expect(tableText(screen.getByRole('region', { name: 'Technical words' })).rows).toHaveLength(
+      GLOSSARY.length,
+    );
   });
 
   it('has its own page title and description, at its own address', () => {

@@ -99,7 +99,7 @@ describe('AbbrText', () => {
     const { container } = render(<AbbrText>The UK</AbbrText>);
 
     expect(container.textContent).toBe('The UK');
-    expect(container.querySelector('button')).toHaveAttribute('aria-description', 'United Kingdom');
+    expect(container.querySelector('abbr')).toHaveAttribute('title', 'United Kingdom');
   });
 });
 
@@ -120,10 +120,7 @@ describe('Abbr', () => {
     const { container } = renderInScope(<AbbrText>A PDF, in the UK.</AbbrText>);
 
     expect(container.textContent).toBe('A PDF, in the UK.');
-    expect(container.querySelector('button')).toHaveAttribute(
-      'aria-description',
-      'Portable Document Format',
-    );
+    expect(container.querySelector('abbr')).toHaveAttribute('title', 'Portable Document Format');
   });
 
   it('can still write out one most people know, on purpose', () => {

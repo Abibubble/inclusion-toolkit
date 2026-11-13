@@ -6,7 +6,7 @@ import {
   type ToolkitVersion,
   fileType,
 } from '../../content/toolkit';
-import { Abbr, PlainAbbreviations } from '../Abbr';
+import { Abbr } from '../Abbr';
 import { Card } from '../Card';
 import { type HeadingLevel, Heading } from '../Heading';
 import { Link } from '../Link';
@@ -83,8 +83,7 @@ interface VersionFilesProps {
 
 /**
  * A file's size, such as 42KB, with KB or MB marked up as an abbreviation, which the Glossary page
- * also lists (WCAG 3.1.4). It's a plain abbreviation rather than a button, so the many file sizes
- * don't each add a stop when tabbing through the page
+ * also lists (WCAG 3.1.4)
  */
 function FileSize({ size }: { size: string }) {
   const match = /^([\d.]+)(KB|MB)$/.exec(size);
@@ -92,9 +91,7 @@ function FileSize({ size }: { size: string }) {
   return (
     <>
       {match[1]}
-      <PlainAbbreviations>
-        <Abbr name={match[2] === 'MB' ? 'MB' : 'KB'} />
-      </PlainAbbreviations>
+      <Abbr name={match[2] === 'MB' ? 'MB' : 'KB'} />
     </>
   );
 }

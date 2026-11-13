@@ -1,8 +1,6 @@
 import { useId } from 'react';
 
 import { ABBREVIATIONS, ALWAYS_SHORT, type Abbreviation } from '../../content/abbreviations';
-import { AbbrTooltip } from './AbbrTooltip';
-import styles from './AbbrTooltip.module.css';
 import { useFirstUses } from './AbbreviationScope';
 
 interface AbbrProps {
@@ -12,6 +10,12 @@ interface AbbrProps {
   plural?: boolean;
 }
 
+/**
+ * An abbreviation, marked up with its full form as a title, the same as abbreviations in the
+ * toolkit text (WCAG 3.1.4). The browser shows the title as its own tooltip. Everyone also gets the
+ * full form written out the first time it's used on a page, and in the list on the Glossary page,
+ * which works with a keyboard and screen readers too
+ */
 export function Abbr({ name, expand, spelledOut = false, plural = false }: AbbrProps) {
   const id = useId();
   const firstUses = useFirstUses();
@@ -20,20 +24,18 @@ export function Abbr({ name, expand, spelledOut = false, plural = false }: AbbrP
   const ending = plural ? 's' : '';
   const fullForm = ABBREVIATIONS[name];
   const abbr = (
-    <AbbrTooltip fullForm={fullForm}>
+    <abbr title={fullForm}>
       {name}
       {ending}
-    </AbbrTooltip>
+    </abbr>
   );
 
   if (!(expand ?? (isFirst && !spelledOut))) return abbr;
 
-  // The brackets and the abbreviation stay on one line. The abbreviation is a button, which a line
-  // could otherwise break before, leaving the opening bracket on its own
   return (
     <>
       {fullForm}
-      {ending} <span className={styles.together}>({abbr})</span>
+      {ending} ({abbr})
     </>
   );
 }
