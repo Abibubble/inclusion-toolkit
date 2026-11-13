@@ -1,4 +1,5 @@
 import { readFile, readdir, rename, rm, rmdir, stat, writeFile } from 'node:fs/promises';
+import { setDefaultAutoSelectFamily } from 'node:net';
 import { join } from 'node:path';
 
 import type { Config } from '@react-router/dev/config';
@@ -10,6 +11,12 @@ import { withContentSecurityPolicy } from './src/security/contentSecurityPolicy.
 import { pagePaths, robotsTxt, sitemapXml } from './src/seo/sitemap.ts';
 
 const NOT_FOUND_PATH = '/404';
+
+// Prerendering asks a local server for each page, in this same process. Node gives each connection
+// 250ms to open ("happy eyeballs"), and a big page can keep Node busy for longer than that, so the
+// connection timed out now and then ("connect ETIMEDOUT"). The server is always local, so there's
+// nothing to choose between, and this only affects the build
+setDefaultAutoSelectFamily(false);
 
 async function isFolder(path: string): Promise<boolean> {
   return (await stat(path).catch(() => undefined))?.isDirectory() ?? false;

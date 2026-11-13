@@ -28,6 +28,9 @@ describe('About page', () => {
       'Credit and licence',
     ]);
     expect(screen.getByText(/I’m Abi Harrison-Nye/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Bim Williams and Pranay Gandhi also helped create the content/),
+    ).toBeInTheDocument();
   });
 
   it('asks for suggestions on GitHub', () => {
@@ -43,7 +46,7 @@ describe('About page', () => {
     const credit = screen.getByText(/first made the Inclusion Toolkit/);
 
     expect(credit.textContent).toBe(
-      'Abi Harrison-Nye first made the Inclusion Toolkit for giffgaff and HAND (Home of Accessibility and NeuroDiversity), and it has been updated and added to since. Shared under CC BY 4.0 licence (external site).',
+      'Abi Harrison-Nye first made the Inclusion Toolkit for giffgaff and HAND (Home of Accessibility and NeuroDiversity), with Bim Williams and Pranay Gandhi, and it has been updated and added to since. Shared under CC BY 4.0 licence (external site).',
     );
   });
 

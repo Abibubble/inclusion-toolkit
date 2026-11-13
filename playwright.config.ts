@@ -25,8 +25,9 @@ export default defineConfig({
   ],
   // Tests run against the production build, so they see exactly what visitors get.
   webServer: {
-    // The tests build the site themselves, so `pnpm commit:check` doesn't build it as well
-    command: 'pnpm build && pnpm preview',
+    // The tests build the site themselves, so `pnpm commit:check` doesn't build it as well. If the
+    // build fails, it tries once more, so a one-off prerender timeout doesn't stop the tests
+    command: '(pnpm build || pnpm build) && pnpm preview',
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !isCI,
     timeout: 120_000,

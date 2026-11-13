@@ -38,6 +38,10 @@ export default function About() {
           infographics, and built this site.
         </p>
         <p>
+          Bim Williams and Pranay Gandhi also helped create the content, and the toolkit wouldn’t be
+          what it is without them.
+        </p>
+        <p>
           I’m still learning too, so if something could be clearer or better, please{' '}
           <Link href={NEW_ISSUE_URL}>suggest a change on GitHub</Link>.
         </p>
