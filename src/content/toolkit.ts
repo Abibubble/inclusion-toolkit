@@ -166,6 +166,45 @@ function hasContent(folder: ToolkitFolder): boolean {
 /** The toolkit as the site shows it */
 export const TOOLKIT: ToolkitFolder = publicToolkit(TOOLKIT_RECORD);
 
+function fileName(path: string): string {
+  return path.split('/').pop() ?? path;
+}
+
+function allFiles(folder: ToolkitFolder): ToolkitFile[] {
+  return [
+    ...folder.items.flatMap((item) => item.versions.flatMap((version) => version.files)),
+    ...folder.folders.flatMap(allFiles),
+  ];
+}
+
+/** File names used in more than one folder, such as meetings.docx */
+export function sharedFileNames(folder: ToolkitFolder): Set<string> {
+  const counts = new Map<string, number>();
+  for (const { path } of allFiles(folder)) {
+    counts.set(fileName(path), (counts.get(fileName(path)) ?? 0) + 1);
+  }
+  return new Set([...counts].filter(([, count]) => count > 1).map(([name]) => name));
+}
+
+const SHARED_FILE_NAMES = sharedFileNames(TOOLKIT);
+
+/**
+ * The name a file is saved as when it's downloaded. A name used in more than one folder gets its
+ * folders added, such as meetings-neurodiversity-highlights.docx, so 2 downloads can be told apart
+ * and one doesn't become "meetings (1).docx". Its address stays the same
+ */
+export function downloadName(
+  path: string,
+  shared: ReadonlySet<string> = SHARED_FILE_NAMES,
+): string {
+  const name = fileName(path);
+  if (!shared.has(name)) return name;
+  // Leaves out files/ at the start, and the name at the end
+  const folders = path.split('/').slice(1, -1);
+  const dot = name.lastIndexOf('.');
+  return `${name.slice(0, dot)}-${folders.join('-')}${name.slice(dot)}`;
+}
+
 /** The address of a folder or resource, from the slugs leading to it */
 export function toolkitPath(slugs: readonly string[]): string {
   return `${TOOLKIT_PATH}${slugs.join('/')}`;

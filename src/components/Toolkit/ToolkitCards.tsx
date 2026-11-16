@@ -4,6 +4,7 @@ import {
   type ToolkitFolder,
   type ToolkitItem,
   type ToolkitVersion,
+  downloadName,
   fileType,
 } from '../../content/toolkit';
 import { Abbr } from '../Abbr';
@@ -124,7 +125,7 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
                 or{' '}
               </>
             )}
-            <a href={`${BASE_URL}${file.path}`} download>
+            <a href={`${BASE_URL}${file.path}`} download={downloadName(file.path)}>
               Download
               {/* The size is read just before the link, so the name only says what the file is */}
               <ScreenReaderOnly>

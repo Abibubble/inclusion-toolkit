@@ -6,6 +6,8 @@ import { formatDate } from '../components/Time';
 import { ABOUT_PATH, MAIN_NAV } from './navigation';
 import {
   TOOLKIT,
+  downloadName,
+  sharedFileNames,
   TOOLKIT_RECORD,
   type ToolkitFolderRecord,
   type ToolkitItemRecord,
@@ -289,3 +291,39 @@ describe('the toolkit’s addresses', () => {
     }
   });
 });
+
+describe('downloadName', () => {
+  it('keeps a file’s own name when no other folder uses it', () => {
+    expect(downloadName('files/accessibility/highlights/dark-mode.pdf', new Set())).toBe(
+      'dark-mode.pdf',
+    );
+  });
+
+  it('adds the folders to a name used in more than one folder, so downloads can be told apart', () => {
+    const shared = new Set(['meetings.docx', 'meetings-visual-summary.pdf']);
+
+    expect(downloadName('files/neurodiversity/highlights/meetings.docx', shared)).toBe(
+      'meetings-neurodiversity-highlights.docx',
+    );
+    expect(downloadName('files/accessibility/highlights/meetings-visual-summary.pdf', shared)).toBe(
+      'meetings-visual-summary-accessibility-highlights.pdf',
+    );
+  });
+
+  it('gives every file in the toolkit a different download name', () => {
+    const shared = sharedFileNames(TOOLKIT);
+    const names = toolkitFiles(TOOLKIT).map((path) => downloadName(path, shared));
+
+    expect(shared.size).toBeGreaterThan(0);
+    expect(new Set(names).size).toBe(names.length);
+  });
+});
+
+function toolkitFiles(folder: typeof TOOLKIT): string[] {
+  return [
+    ...folder.items.flatMap((item) =>
+      item.versions.flatMap((version) => version.files.map((file) => file.path)),
+    ),
+    ...folder.folders.flatMap(toolkitFiles),
+  ];
+}
