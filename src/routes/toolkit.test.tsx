@@ -65,6 +65,7 @@ describe('Inclusion Toolkit pages', () => {
         slugs: ['highlights', 'dark-mode'],
         trail: [],
         textHtml: '',
+        readNext: [],
       }),
     ).toEqual(
       pageMeta({
@@ -89,6 +90,7 @@ describe('Inclusion Toolkit pages', () => {
         slugs: [],
         trail,
         textHtml: '',
+        readNext: [],
       }),
     ).toContainEqual({ title: 'Meetings, Neurodiversity Highlights, Inclusion Toolkit' });
   });

@@ -33,7 +33,8 @@ test.describe('Filtering a section’s resources', () => {
     const shown = await resources(page).count();
 
     await resources(page).first().getByRole('link').click();
-    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    // The section page has a main heading too, so wait for the resource's address
+    await expect(page).toHaveURL(/^[^?]*\/accessibility\/[^?]+$/);
     await page.goBack();
 
     await expect(page).toHaveURL('/accessibility?topic=meetings');

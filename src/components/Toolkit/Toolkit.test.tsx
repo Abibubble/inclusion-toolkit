@@ -333,6 +333,7 @@ describe('ToolkitPage', () => {
           slugs: ['highlights', 'dark-mode'],
           trail: TRAIL,
           textHtml: '<p>Text.</p>',
+          readNext: [],
         }}
       />,
     );
@@ -386,6 +387,7 @@ describe('ToolkitPage', () => {
           slugs: ['highlights', 'dark-mode'],
           trail: TRAIL,
           textHtml: '<p>Text.</p>',
+          readNext: [],
         }}
       />,
     );
@@ -423,6 +425,7 @@ describe('ToolkitPage', () => {
           slugs: ['highlights', 'dark-mode'],
           trail: TRAIL,
           textHtml: '<p>Text.</p>',
+          readNext: [],
         }}
       />,
     );
@@ -442,6 +445,7 @@ describe('ToolkitPage', () => {
           slugs: ['highlights', 'dark-mode'],
           trail: TRAIL,
           textHtml: '<p>Text.</p>',
+          readNext: [],
         }}
       />,
     );
@@ -479,11 +483,57 @@ describe('ToolkitPage', () => {
           slugs: ['infographics', 'adhd'],
           trail: TRAIL,
           textHtml: '<p>Text.</p>',
+          readNext: [],
         }}
       />,
     );
 
     expect(screen.getByRole('img', { name: 'The Dark mode infographic.' })).toBeInTheDocument();
+  });
+
+  it('suggests what to read next, naming each one’s folder (WCAG 2.4.9)', () => {
+    renderWithRouter(
+      <ToolkitPage
+        data={{
+          kind: 'item',
+          item: ITEM,
+          slugs: ['highlights', 'dark-mode'],
+          trail: TRAIL,
+          textHtml: '<p>Text.</p>',
+          readNext: [
+            {
+              item: INFOGRAPHIC,
+              path: '/neurodiversity/infographics/adhd',
+              type: { slug: 'infographics', title: 'Neurodiversity Infographics' },
+            },
+          ],
+        }}
+      />,
+    );
+
+    const next = within(screen.getByRole('region', { name: 'Read next' }));
+    expect(next.getByRole('link', { name: 'ADHD, Neurodiversity Infographics' })).toHaveAttribute(
+      'href',
+      '/neurodiversity/infographics/adhd',
+    );
+    expect(next.getByText('Type: Neurodiversity Infographics')).toBeInTheDocument();
+  });
+
+  it('leaves out Read next when there’s nothing to suggest', () => {
+    renderWithRouter(
+      <ToolkitPage
+        data={{
+          kind: 'item',
+          item: ITEM,
+          slugs: ['highlights', 'dark-mode'],
+          trail: TRAIL,
+          textHtml: '<p>Text.</p>',
+          readNext: [],
+        }}
+      />,
+    );
+
+    expect(screen.queryByRole('region', { name: 'Read next' })).not.toBeInTheDocument();
   });
 
   it('shows no picture for a resource without slides', () => {
@@ -495,6 +545,7 @@ describe('ToolkitPage', () => {
           slugs: ['highlights', 'dark-mode'],
           trail: TRAIL,
           textHtml: '<p>Text.</p>',
+          readNext: [],
         }}
       />,
     );
@@ -511,6 +562,7 @@ describe('ToolkitPage', () => {
           slugs: ['highlights', 'dark-mode'],
           trail: TRAIL,
           textHtml: '<p>Text.</p>',
+          readNext: [],
         }}
       />,
     );
@@ -529,6 +581,7 @@ describe('ToolkitPage', () => {
           slugs: ['highlights', 'dark-mode'],
           trail: TRAIL,
           textHtml: '<p>Text.</p>',
+          readNext: [],
         }}
       />,
     );
@@ -548,6 +601,7 @@ describe('ToolkitPage', () => {
           slugs: ['highlights', 'dark-mode'],
           trail: TRAIL,
           textHtml: '<h3>Contrast</h3><p>Light text on a dark background.</p>',
+          readNext: [],
         }}
       />,
     );
@@ -653,6 +707,7 @@ describe('ToolkitPage', () => {
             slugs: ['highlights', 'dark-mode'],
             trail: TRAIL,
             textHtml: '<p>Text.</p>',
+            readNext: [],
           }}
         />,
       ),

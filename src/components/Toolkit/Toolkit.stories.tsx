@@ -94,6 +94,7 @@ export const Resource: Story = {
       trail: [...TRAIL, { title: 'Highlights', path: '/highlights' }],
       textHtml:
         '<h3>What dark mode is</h3><p>Light text on a dark background.</p><h3>Pros and cons</h3><ul><li>Less glare for some people</li><li>Harder to read for people with astigmatism</li></ul>',
+      readNext: [],
     },
   },
 };

@@ -114,3 +114,87 @@ export function usedTags(resources: readonly SectionResource[]): {
     audiences: (Object.keys(AUDIENCES) as Audience[]).filter((audience) => audiences.has(audience)),
   };
 }
+
+/** The home page's heading for the resources at the top level, such as checklists */
+export const TEMPLATES_TITLE = 'Templates and checklists';
+
+/** Every resource apart from the all-in-ones, with its folder's full title as its type */
+function everyResource(folder: ToolkitFolder, slugs: string[] = []): SectionResource[] {
+  return [
+    ...folder.items
+      .filter((item) => !isAllInOne([...slugs, item.slug]))
+      .map((item) => ({
+        item,
+        path: toolkitPath([...slugs, item.slug]),
+        type:
+          slugs.length === 0
+            ? { slug: '', title: TEMPLATES_TITLE }
+            : { slug: folder.slug, title: folder.title },
+      })),
+    ...folder.folders.flatMap((child) => everyResource(child, [...slugs, child.slug])),
+  ];
+}
+
+/**
+ * How much 2 lists of tags overlap, from 0 for nothing shared to 1 for the same. Rarer tags count
+ * for more, so sharing Colour and vision counts for more than sharing Design
+ */
+function overlap<Tag>(
+  a: readonly Tag[],
+  b: readonly Tag[],
+  uses: ReadonlyMap<Tag, number>,
+): number {
+  const weight = (tags: Iterable<Tag>) =>
+    [...tags].reduce((total, tag) => total + 1 / (uses.get(tag) ?? 1), 0);
+  const all = weight(new Set([...a, ...b]));
+  return all === 0 ? 0 : weight(a.filter((tag) => b.includes(tag))) / all;
+}
+
+function tagCounts<Tag>(lists: readonly (readonly Tag[])[]): Map<Tag, number> {
+  const uses = new Map<Tag, number>();
+  for (const tag of lists.flat()) uses.set(tag, (uses.get(tag) ?? 0) + 1);
+  return uses;
+}
+
+/**
+ * Resources to read after one, sharing at least one topic. A resource with the same title, such as
+ * the 2 Meetings highlights, comes first. Then those with the closest topics and audiences. Ties go to the next ones along by title, so each page gets
+ * different ones
+ */
+export function readNext(
+  slugs: readonly string[],
+  toolkit: ToolkitFolder,
+  count = 3,
+): SectionResource[] {
+  const resources = everyResource(toolkit).toSorted((a, b) =>
+    a.item.title.localeCompare(b.item.title, 'en-GB'),
+  );
+  const path = toolkitPath(slugs);
+  const index = resources.findIndex((resource) => resource.path === path);
+  const current = resources[index];
+  if (!current) return [];
+  const { item } = current;
+  const topicUses = tagCounts(resources.map((resource) => resource.item.topics));
+  const audienceUses = tagCounts(resources.map((resource) => resource.item.audiences));
+
+  const ranked = resources.flatMap((other, position) => {
+    if (other === current || !other.item.topics.some((topic) => item.topics.includes(topic))) {
+      return [];
+    }
+    return [
+      {
+        other,
+        sameTitle: other.item.title === item.title ? 1 : 0,
+        closeness:
+          overlap(item.topics, other.item.topics, topicUses) +
+          overlap(item.audiences, other.item.audiences, audienceUses) / 2,
+        along: (position - index + resources.length) % resources.length,
+      },
+    ];
+  });
+
+  return ranked
+    .toSorted((a, b) => b.sameTitle - a.sameTitle || b.closeness - a.closeness || a.along - b.along)
+    .slice(0, count)
+    .map(({ other }) => other);
+}

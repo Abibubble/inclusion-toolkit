@@ -15,6 +15,7 @@ import {
 } from './toolkit';
 import { type ToolkitSearchEntry, type ToolkitSearchIndex, searchIndex } from './toolkitSearch';
 import { renderMarkdown } from './markdown';
+import { type SectionResource, readNext } from './toolkitFilters';
 
 /** A size as computers show it, with 1000 bytes to a kilobyte, such as 307KB or 1.2MB */
 export function formatFileSize(bytes: number): string {
@@ -136,6 +137,7 @@ export type ToolkitPageData =
       slugs: string[];
       trail: ToolkitCrumb[];
       textHtml: string;
+      readNext: SectionResource[];
     };
 
 function notFound(): never {
@@ -174,5 +176,6 @@ export function loadToolkitPage(
     ...location,
     item: itemWithSizes(location.item, sizeOf),
     textHtml: renderMarkdown(markdown),
+    readNext: readNext(slugs, toolkit),
   };
 }

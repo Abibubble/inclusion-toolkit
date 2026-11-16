@@ -8,6 +8,7 @@ import {
   filtersSearch,
   matchesFilters,
   readFilters,
+  readNext,
   sectionResources,
   usedTags,
 } from './toolkitFilters';
@@ -136,5 +137,88 @@ describe('usedTags', () => {
       topics: ['design', 'colour-and-vision', 'health-conditions'],
       audiences: ['everyone', 'designers', 'managers'],
     });
+  });
+});
+
+describe('readNext', () => {
+  const highlights: ToolkitFolder = {
+    slug: 'highlights',
+    title: 'A Highlights',
+    description: '',
+    folders: [],
+    items: [
+      item('a-highlights'),
+      item('meetings', ['meetings'], ['everyone']),
+      item('buttons', ['design', 'development'], ['designers', 'developers']),
+      item('contrast', ['design', 'colour-and-vision'], ['designers', 'developers']),
+      item(
+        'dark-mode',
+        ['design', 'colour-and-vision', 'development'],
+        ['designers', 'developers'],
+      ),
+      item('forms', ['design', 'development'], ['designers', 'developers']),
+      item('colour-blindness', ['health-conditions'], ['everyone']),
+    ],
+  };
+  const TOOLKIT: ToolkitFolder = {
+    slug: '',
+    title: 'Inclusion Toolkit',
+    description: '',
+    items: [item('meeting-checklist', ['meetings'], ['everyone'])],
+    folders: [
+      {
+        slug: 'a',
+        title: 'A',
+        description: '',
+        items: [],
+        folders: [
+          highlights,
+          {
+            slug: 'infographics',
+            title: 'A Infographics',
+            description: '',
+            folders: [],
+            items: [item('colour-blindness', ['health-conditions'], ['everyone'])],
+          },
+        ],
+      },
+    ],
+  };
+  const paths = (slugs: string[], count?: number) =>
+    readNext(slugs, TOOLKIT, count).map(({ path }) => path);
+
+  it('puts a resource with the same title first, such as the infographic for a highlight', () => {
+    expect(paths(['a', 'highlights', 'colour-blindness'])).toEqual([
+      '/a/infographics/colour-blindness',
+    ]);
+  });
+
+  it('puts those sharing rarer topics first, then the next ones along by title', () => {
+    expect(paths(['a', 'highlights', 'dark-mode'])).toEqual([
+      '/a/highlights/contrast',
+      '/a/highlights/forms',
+      '/a/highlights/buttons',
+    ]);
+  });
+
+  it('only suggests other resources sharing a topic, leaving out the all-in-ones', () => {
+    expect(paths(['a', 'highlights', 'buttons'], 10)).toEqual([
+      '/a/highlights/forms',
+      '/a/highlights/dark-mode',
+      '/a/highlights/contrast',
+    ]);
+  });
+
+  it('names a top level resource’s type as a template or checklist', () => {
+    expect(readNext(['a', 'highlights', 'meetings'], TOOLKIT)).toEqual([
+      expect.objectContaining({
+        path: '/meeting-checklist',
+        type: { slug: '', title: 'Templates and checklists' },
+      }),
+    ]);
+  });
+
+  it('suggests nothing for an all-in-one resource', () => {
+    expect(paths(['a', 'highlights', 'a-highlights'])).toEqual([]);
   });
 });

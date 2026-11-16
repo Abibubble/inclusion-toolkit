@@ -8,7 +8,7 @@ import {
   picturePath,
   toolkitPath,
 } from '../../content/toolkit';
-import { sectionResources } from '../../content/toolkitFilters';
+import { TEMPLATES_TITLE, sectionResources } from '../../content/toolkitFilters';
 import { cx } from '../../utils/cx';
 import type { ToolkitPageData } from '../../content/toolkitPage';
 import { Breadcrumbs } from '../Breadcrumbs';
@@ -101,7 +101,7 @@ function ToolkitHome({ data }: { data: PageData<'home'> }) {
         </CardSection>
       )}
       {toolkit.items.length > 0 && (
-        <CardSection title="Templates and checklists" intro="Ready to use, for any team.">
+        <CardSection title={TEMPLATES_TITLE} intro="Ready to use, for any team.">
           <FileCards items={toolkit.items} slugs={[]} />
         </CardSection>
       )}
@@ -211,6 +211,15 @@ function ToolkitItemPage({ data }: { data: PageData<'item'> }) {
         </Heading>
         <RichText html={data.textHtml} />
       </Stack>
+      {data.readNext.length > 0 && (
+        <CardSection title="Read next">
+          {data.readNext.map(({ item: next, path, type }) => (
+            <li key={path}>
+              <ToolkitFileCard item={next} path={path} type={type.title} />
+            </li>
+          ))}
+        </CardSection>
+      )}
     </Stack>
   );
 }
