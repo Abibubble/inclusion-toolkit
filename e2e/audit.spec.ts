@@ -186,7 +186,11 @@ async function invisibleHighContrastControls(page: Page): Promise<string[]> {
 
         return style.borderStyle === 'none' || parseFloat(style.borderWidth) === 0;
       })
-      .filter((element) => !(element instanceof HTMLInputElement && element.type === 'radio'))
+      // High contrast mode draws native radio buttons and tick boxes itself, with their edges
+      .filter(
+        (element) =>
+          !(element instanceof HTMLInputElement && ['radio', 'checkbox'].includes(element.type)),
+      )
       .map((element) => `${element.tagName.toLowerCase()} “${element.textContent.trim()}”`),
   );
 }

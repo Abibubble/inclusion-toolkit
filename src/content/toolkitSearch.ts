@@ -186,8 +186,8 @@ export function isLongEnough(query: string): boolean {
 
 /**
  * The folders and resources with every word searched for, in any order, in their title,
- * description or full text. Those with every word in the title come first, then the description,
- * then the full text, where those that use the words most come first
+ * description, tags or full text. Those with every word in the title come first, then the
+ * description and tags, then the full text, where those that use the words most come first
  */
 export function searchToolkit(
   entries: readonly ToolkitSearchEntry[],
@@ -200,7 +200,9 @@ export function searchToolkit(
 
   const ranked = entries.flatMap((entry) => {
     const title = searchWords(entry.title).join(' ');
-    const summary = `${title} ${searchWords(entry.description).join(' ')}`;
+    const summary = searchWords(`${entry.title} ${entry.description} ${entry.tags ?? ''}`).join(
+      ' ',
+    );
     const fullText = `${summary} ${index[entry.path] ?? ''}`;
     const has = (text: string) => words.every((word) => hasWord(text, word));
 

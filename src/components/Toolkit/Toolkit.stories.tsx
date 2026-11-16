@@ -7,6 +7,8 @@ const ITEM: ToolkitItem = {
   slug: 'dark-mode',
   title: 'Dark mode',
   description: 'A highlight about dark mode, exploring its accessibility pros and cons.',
+  topics: ['design', 'colour-and-vision'],
+  audiences: ['designers', 'developers'],
   updated: '2026-06-01',
   versions: [
     {

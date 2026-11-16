@@ -16,6 +16,8 @@ const ITEM: ToolkitItem = {
   slug: 'dark-mode',
   title: 'Dark mode',
   description: 'A highlight about dark mode.',
+  topics: ['design', 'colour-and-vision'],
+  audiences: ['designers', 'developers'],
   updated: '2026-06-01',
   versions: [
     {
@@ -50,6 +52,70 @@ const TOOLKIT: ToolkitFolder = {
   folders: [HIGHLIGHTS],
   items: [],
 };
+
+const INFOGRAPHIC: ToolkitItem = {
+  ...ITEM,
+  slug: 'adhd',
+  title: 'ADHD',
+  description: 'An infographic about ADHD.',
+  topics: ['neurodivergent-conditions'],
+  audiences: ['everyone'],
+};
+
+const SECTION: ToolkitFolder = {
+  slug: 'neurodiversity',
+  title: 'Neurodiversity',
+  description: 'Resources about neurodiversity.',
+  items: [],
+  folders: [
+    {
+      ...HIGHLIGHTS,
+      title: 'Neurodiversity Highlights',
+      items: [
+        {
+          ...ITEM,
+          slug: 'neurodiversity-highlights',
+          title: 'All highlights',
+          topics: [],
+          audiences: [],
+        },
+        ITEM,
+        { ...INFOGRAPHIC, description: 'A highlight about ADHD.' },
+      ],
+    },
+    {
+      slug: 'infographics',
+      title: 'Neurodiversity Infographics',
+      description: 'One page about each condition.',
+      folders: [],
+      items: [INFOGRAPHIC],
+    },
+  ],
+};
+
+function renderSection(path = '/neurodiversity') {
+  window.history.replaceState(null, '', path);
+  return renderWithRouter(
+    <ToolkitPage
+      data={{
+        kind: 'folder',
+        folder: SECTION,
+        slugs: ['neurodiversity'],
+        trail: TRAIL.slice(0, 1),
+      }}
+    />,
+    { path },
+  );
+}
+
+function resourceLinks(): string[] {
+  const list = within(screen.getByRole('region', { name: 'All resources' })).queryByRole('list');
+  return list
+    ? within(list)
+        .getAllByRole('link')
+        .map((link) => link.getAttribute('href') ?? '')
+    : [];
+}
 
 const SEARCH: ToolkitSearchEntry[] = [
   {
@@ -244,8 +310,12 @@ describe('ToolkitPage', () => {
       'href',
       '/highlights/dark-mode',
     );
-    expect(files.getByText(/Last updated/)).toHaveTextContent('Last updated 1 June 2026');
-    // The files are on the resource's own page, so the cards stay short
+    expect(files.getByText(/^Topics:/)).toHaveTextContent('Topics: Design, Colour and vision');
+    expect(files.getByText(/^Who it’s for:/)).toHaveTextContent(
+      'Who it’s for: Designers, Developers',
+    );
+    // The date and files are on the resource's own page, so the cards stay short
+    expect(files.queryByText(/Last updated/)).not.toBeInTheDocument();
     expect(files.queryByRole('link', { name: /^Download/ })).not.toBeInTheDocument();
   });
 
@@ -305,6 +375,23 @@ describe('ToolkitPage', () => {
     expect(pdf?.textContent).toMatch(/^PDF \(120KB\): View.* or Download/);
   });
 
+  it('shows no tags for an all-in-one resource, as it covers its whole folder', () => {
+    renderWithRouter(
+      <ToolkitPage
+        data={{
+          kind: 'item',
+          item: { ...ITEM, topics: [], audiences: [] },
+          slugs: ['highlights', 'dark-mode'],
+          trail: TRAIL,
+          textHtml: '<p>Text.</p>',
+        }}
+      />,
+    );
+
+    expect(screen.queryByText(/^Topics:/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/^Who it’s for:/)).not.toBeInTheDocument();
+  });
+
   it('doesn’t name the version when a resource only has one', () => {
     const fullGuideOnly = { ...ITEM, versions: ITEM.versions.slice(0, 1) };
     renderWithRouter(
@@ -347,8 +434,80 @@ describe('ToolkitPage', () => {
     expect(
       screen.getByRole('link', { name: 'Download: Dark mode, full guide, PDF' }),
     ).toBeInTheDocument();
+    expect(screen.getByText(/Last updated/)).toHaveTextContent('Last updated 1 June 2026');
+    expect(screen.getByText(/^Topics:/)).toHaveTextContent('Topics: Design, Colour and vision');
     const text = within(screen.getByRole('region', { name: 'What’s in it' }));
     expect(text.getByRole('heading', { level: 3, name: 'Contrast' })).toBeInTheDocument();
+  });
+
+  it('lists a section’s resources from all its folders, with the all-in-ones apart', () => {
+    renderSection();
+
+    const allInOne = within(screen.getByRole('region', { name: 'Everything in one file' }));
+    expect(allInOne.getByRole('link', { name: 'All highlights' })).toHaveAttribute(
+      'href',
+      '/neurodiversity/highlights/neurodiversity-highlights',
+    );
+    expect(resourceLinks()).toEqual([
+      '/neurodiversity/highlights/adhd',
+      '/neurodiversity/infographics/adhd',
+      '/neurodiversity/highlights/dark-mode',
+    ]);
+    expect(screen.getByRole('status')).toHaveTextContent('Showing all 3 resources.');
+  });
+
+  it('names each resource’s type, so resources with the same title differ (WCAG 2.4.9)', () => {
+    renderSection();
+
+    expect(screen.getByRole('link', { name: 'ADHD, Highlights' })).toBeInTheDocument();
+    const infographic = screen.getByRole('link', { name: 'ADHD, Infographics' });
+    expect(
+      within(infographic.closest('article') ?? document.body).getByText('Type: Infographics'),
+    ).toBeInTheDocument();
+  });
+
+  it('filters the resources as boxes are ticked, says how many show, and puts them in the address', async () => {
+    const user = userEvent.setup();
+    renderSection();
+
+    await user.click(screen.getByText(/^Filter by type, topic, or who it’s for/));
+    expect(
+      within(screen.getByRole('group', { name: 'Topic' }))
+        .getAllByRole('checkbox')
+        .map((box) => box.parentElement?.textContent),
+    ).toEqual(['Design', 'Colour and vision', 'Neurodivergent conditions']);
+
+    await user.click(screen.getByRole('checkbox', { name: 'Neurodivergent conditions' }));
+    expect(resourceLinks()).toEqual([
+      '/neurodiversity/highlights/adhd',
+      '/neurodiversity/infographics/adhd',
+    ]);
+    expect(screen.getByRole('status')).toHaveTextContent('Showing 2 of 3 resources.');
+
+    await user.click(screen.getByRole('checkbox', { name: 'Infographics' }));
+    expect(resourceLinks()).toEqual(['/neurodiversity/infographics/adhd']);
+    expect(window.location.search).toBe('?type=infographics&topic=neurodivergent-conditions');
+    expect(screen.getByText(/^Filter by/)).toHaveTextContent('(2 ticked)');
+
+    await user.click(screen.getByRole('checkbox', { name: 'Designers' }));
+    expect(resourceLinks()).toEqual([]);
+    expect(screen.getByRole('status')).toHaveTextContent(
+      'No resources match these filters. Untick some to see more.',
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Clear filters' }));
+    expect(resourceLinks()).toHaveLength(3);
+    expect(window.location.search).toBe('');
+    expect(screen.getByRole('button', { name: 'Clear filters' })).toHaveFocus();
+  });
+
+  it('starts with the filters in the address, open so they can be seen', () => {
+    const { container } = renderSection('/neurodiversity?for=designers&topic=cats');
+
+    expect(container.querySelector('details')).toHaveAttribute('open');
+    expect(screen.getByRole('checkbox', { name: 'Designers' })).toBeChecked();
+    expect(resourceLinks()).toEqual(['/neurodiversity/highlights/dark-mode']);
+    expect(screen.getByRole('status')).toHaveTextContent('Showing 1 of 3 resources.');
   });
 
   it('has no detectable accessibility issues on any kind of page', async () => {
@@ -370,6 +529,7 @@ describe('ToolkitPage', () => {
           }}
         />,
       ),
+      renderSection('/neurodiversity?topic=design'),
     ];
 
     for (const { container } of pages) await expectNoAxeViolations(container);

@@ -1,6 +1,7 @@
 import { type ReactNode, useId } from 'react';
 
 import { type ToolkitFolder, toolkitPath } from '../../content/toolkit';
+import { sectionResources } from '../../content/toolkitFilters';
 import type { ToolkitPageData } from '../../content/toolkitPage';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { Heading } from '../Heading';
@@ -10,7 +11,8 @@ import { Stack } from '../Stack';
 import { Time } from '../Time';
 import { RichText } from '../RichText';
 import styles from './Toolkit.module.css';
-import { ToolkitFileCard, ToolkitFileLinks, ToolkitFolderCard } from './ToolkitCards';
+import { ToolkitFileCard, ToolkitFileLinks, ToolkitFolderCard, ToolkitTags } from './ToolkitCards';
+import { ToolkitFilters } from './ToolkitFilters';
 import { ToolkitSearch } from './ToolkitSearch';
 
 type PageData<Kind extends ToolkitPageData['kind']> = Extract<ToolkitPageData, { kind: Kind }>;
@@ -81,7 +83,29 @@ function ToolkitHome({ data }: { data: PageData<'home'> }) {
   );
 }
 
+/** A section, such as Accessibility, lists all its resources in one list that can be filtered */
+function ToolkitSectionContents({ section, slugs }: { section: ToolkitFolder; slugs: string[] }) {
+  const { resources, allInOne } = sectionResources(section, slugs);
+
+  return (
+    <>
+      {allInOne.length > 0 && (
+        <CardSection title="Everything in one file">
+          {allInOne.map(({ item, path }) => (
+            <li key={path}>
+              <ToolkitFileCard item={item} path={path} />
+            </li>
+          ))}
+        </CardSection>
+      )}
+      <ToolkitFilters section={section} resources={resources} />
+    </>
+  );
+}
+
 function ToolkitFolderPage({ data }: { data: PageData<'folder'> }) {
+  const isSection = data.folder.folders.length > 0;
+
   return (
     <Stack gap={6}>
       <TitleBand>
@@ -91,7 +115,11 @@ function ToolkitFolderPage({ data }: { data: PageData<'folder'> }) {
           <p>{data.folder.description}</p>
         </Stack>
       </TitleBand>
-      <ToolkitContents folder={data.folder} slugs={data.slugs} />
+      {isSection ? (
+        <ToolkitSectionContents section={data.folder} slugs={data.slugs} />
+      ) : (
+        <ToolkitContents folder={data.folder} slugs={data.slugs} />
+      )}
     </Stack>
   );
 }
@@ -111,6 +139,7 @@ function ToolkitItemPage({ data }: { data: PageData<'item'> }) {
             </p>
           </Stack>
           <p>{item.description}</p>
+          <ToolkitTags item={item} />
         </Stack>
       </TitleBand>
       <Stack as="section" gap={4} aria-labelledby="files">

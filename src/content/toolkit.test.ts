@@ -21,6 +21,7 @@ import {
   toolkitVersions,
   unpublishedToolkitFiles,
 } from './toolkit';
+import { AUDIENCES, TOPICS } from './tags';
 import { TOOLKIT_TEXT } from './toolkitPage';
 
 /** A top level resource's full guide, as the site lists it before the build adds the sizes */
@@ -36,6 +37,8 @@ const item = (slug: string, overrides: Partial<ToolkitItemRecord> = {}): Toolkit
   slug,
   title: slug,
   description: `About ${slug}.`,
+  topics: ['design'],
+  audiences: ['designers'],
   updated: '2026-06-01',
   slides: false,
   text: 'checked',
@@ -83,6 +86,8 @@ describe('publicToolkit', () => {
         slug: 'checklist',
         title: 'checklist',
         description: 'About checklist.',
+        topics: ['design'],
+        audiences: ['designers'],
         updated: '2026-06-01',
         versions: [fullGuide('checklist')],
       },
@@ -209,6 +214,42 @@ describe('toolkit.json', () => {
     for (const entry of [...realFolders(), ...realItems().map(({ item: record }) => record)]) {
       expect(entry.title, entry.slug).not.toBe('');
       expect(entry.description, entry.slug).toMatch(/\.$/);
+    }
+  });
+
+  it('gives every ready resource topics and audiences from the lists, apart from the all-in-one files', () => {
+    for (const { slugs, item: record } of realItems()) {
+      if (record.text !== 'checked') continue;
+      const [section, folder, slug] = slugs;
+      const allInOne = slugs.length === 3 && slug === `${section}-${folder}`;
+
+      for (const [tags, list] of [
+        [record.topics, TOPICS],
+        [record.audiences, AUDIENCES],
+      ] as const) {
+        expect(tags.length > 0, record.slug).toBe(!allInOne);
+        expect(new Set(tags).size, record.slug).toBe(tags.length);
+        for (const tag of tags) expect(Object.keys(list), record.slug).toContain(tag);
+      }
+    }
+  });
+
+  it('uses every topic and audience for at least 2 ready resources, so each filter finds something', () => {
+    const ready = realItems()
+      .map(({ item: record }) => record)
+      .filter((record) => record.text === 'checked');
+
+    for (const topic of Object.keys(TOPICS)) {
+      expect(
+        ready.filter((record) => record.topics.includes(topic as never)).length,
+        topic,
+      ).toBeGreaterThanOrEqual(2);
+    }
+    for (const audience of Object.keys(AUDIENCES)) {
+      expect(
+        ready.filter((record) => record.audiences.includes(audience as never)).length,
+        audience,
+      ).toBeGreaterThanOrEqual(2);
     }
   });
 

@@ -15,6 +15,9 @@ then by kind of resource, so a new topic is one new folder at the top.
 Each resource in a folder's `items` has:
 
 - `slug`, `title` and `description`, ending in a full stop
+- `topics` and `audiences`: what it's about and who it's for, from the lists in
+  `src/content/tags.ts`. The site shows them on its card and page, and uses them for the filters
+  and search. The all-in-one resources have none, as they cover everything in their folder
 - `updated`, the date it was last updated, as YYYY-MM-DD
 - `slides`: `true` if it has slides, which are its visual summary
 - `infographic`: `true` if it's an infographic, which has a PowerPoint file and PDF, but no Word

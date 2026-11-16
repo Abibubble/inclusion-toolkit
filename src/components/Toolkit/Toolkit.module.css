@@ -112,3 +112,71 @@
     margin: 0;
   }
 }
+
+.tags > p {
+  margin: 0;
+}
+
+.filters {
+  padding: var(--spacer-8) var(--spacer-16);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-medium);
+}
+
+/* Filters need JavaScript, so without it they're hidden and every resource shows */
+:global(:root:not([data-js])) .filters {
+  display: none;
+}
+
+.filtersSummary {
+  align-content: center;
+  min-height: var(--size-target-min);
+  font-weight: var(--font-weight-emphasis);
+  letter-spacing: var(--letter-spacing-emphasis);
+  cursor: pointer;
+}
+
+.filtersBody {
+  padding-block: var(--spacer-8) var(--spacer-16);
+}
+
+.filterGroup {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.filterLegend {
+  padding: 0;
+  margin-block-end: var(--spacer-8);
+  font-weight: var(--font-weight-emphasis);
+  letter-spacing: var(--letter-spacing-emphasis);
+}
+
+.filterOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, calc(var(--spacer-96) * 2.5)), 1fr));
+  gap: 0 var(--spacer-24);
+}
+
+.filterOption {
+  display: inline-flex;
+  gap: var(--spacer-16);
+  align-items: center;
+  min-height: var(--size-target-min);
+  cursor: pointer;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  width: var(--spacer-24);
+  height: var(--spacer-24);
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-action);
+}
+
+.filterStatus {
+  margin: 0;
+}

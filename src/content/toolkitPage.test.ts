@@ -18,6 +18,8 @@ const TOOLKIT: ToolkitFolder = {
           slug: 'dark-mode',
           title: 'Dark mode',
           description: 'About dark mode.',
+          topics: ['design'],
+          audiences: ['designers'],
           updated: '2026-06-01',
           versions: [
             {
@@ -78,6 +80,7 @@ describe('loadToolkitPage', () => {
           description: 'About dark mode.',
           path: '/highlights/dark-mode',
           folder: 'Highlights',
+          tags: 'Design, Designers',
         },
       ],
     });

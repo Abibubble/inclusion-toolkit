@@ -1,4 +1,5 @@
 import { SITE_NAME } from './site';
+import { type Audience, type Topic, audienceNames, topicNames } from './tags';
 import RECORD from './toolkit.json' with { type: 'json' };
 
 /** Folders and resources sit under the home page, such as /accessibility */
@@ -30,6 +31,9 @@ export interface ToolkitItem {
   slug: string;
   title: string;
   description: string;
+  /** Empty for the all-in-one resources, which cover everything in their folder */
+  topics: Topic[];
+  audiences: Audience[];
   /** YYYY-MM-DD */
   updated: string;
   /** The full guide, then the visual summary if it has slides */
@@ -133,13 +137,26 @@ export function publicToolkit(record: ToolkitFolderRecord, slugs: string[] = [])
       .filter(hasContent),
     items: record.items
       .filter(isReady)
-      .map(({ slug: itemSlug, title, description, updated, slides, infographic }) => ({
-        slug: itemSlug,
-        title,
-        description,
-        updated,
-        versions: toolkitVersions([...slugs, itemSlug], { slides, infographic }),
-      })),
+      .map(
+        ({
+          slug: itemSlug,
+          title,
+          description,
+          topics,
+          audiences,
+          updated,
+          slides,
+          infographic,
+        }) => ({
+          slug: itemSlug,
+          title,
+          description,
+          topics,
+          audiences,
+          updated,
+          versions: toolkitVersions([...slugs, itemSlug], { slides, infographic }),
+        }),
+      ),
   };
 }
 
@@ -206,6 +223,8 @@ export interface ToolkitEntry {
   description: string;
   /** Its folder's title, as resources in different folders can share a title */
   folder?: string;
+  /** Its topics and who it's for, such as "Design, Designers", so they can be searched for */
+  tags?: string;
 }
 
 /** Every folder and resource under a folder, with the slugs leading to each, in page order */
@@ -226,6 +245,9 @@ export function toolkitEntries(folder: ToolkitFolder, slugs: string[] = []): Too
       title: item.title,
       description: item.description,
       ...(slugs.length > 0 && { folder: folder.title }),
+      ...(item.topics.length > 0 && {
+        tags: [...topicNames(item.topics), ...audienceNames(item.audiences)].join(', '),
+      }),
     })),
   ];
 }

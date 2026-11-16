@@ -110,6 +110,16 @@ describe('searchToolkit', () => {
     expect(titles(searchToolkit(ENTRIES, 'highlight'))).toEqual(['Highlights', 'Dark mode']);
   });
 
+  it('finds entries by their topics and who they’re for, after those with the words in the title', () => {
+    const entries = [
+      { ...entry('Dark mode'), tags: 'Design, Colour and vision, Designers, Developers' },
+      entry('Design tokens'),
+    ];
+
+    expect(titles(searchToolkit(entries, 'design'))).toEqual(['Design tokens', 'Dark mode']);
+    expect(titles(searchToolkit(entries, 'developers'))).toEqual(['Dark mode']);
+  });
+
   it('finds colour-blind however it’s spelt or written', () => {
     for (const query of [
       'colourblind',

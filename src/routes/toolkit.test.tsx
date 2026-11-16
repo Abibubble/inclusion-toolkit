@@ -9,6 +9,8 @@ const ITEM = {
   slug: 'dark-mode',
   title: 'Dark mode',
   description: 'About dark mode.',
+  topics: [],
+  audiences: [],
   updated: '2026-06-01',
   versions: [],
 };

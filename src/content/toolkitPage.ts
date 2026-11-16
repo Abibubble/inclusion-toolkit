@@ -87,8 +87,16 @@ function toSearchEntry({
   title,
   description,
   folder,
+  tags,
 }: ToolkitEntry): ToolkitSearchEntry {
-  return { kind, title, description, path: toolkitPath(slugs), ...(folder && { folder }) };
+  return {
+    kind,
+    title,
+    description,
+    path: toolkitPath(slugs),
+    ...(folder && { folder }),
+    ...(tags && { tags }),
+  };
 }
 
 export type ToolkitPageData =

@@ -7,13 +7,14 @@ import {
   downloadName,
   fileType,
 } from '../../content/toolkit';
+import { audienceNames, topicNames } from '../../content/tags';
+import { cx } from '../../utils/cx';
 import { Abbr } from '../Abbr';
 import { Card } from '../Card';
 import { Heading } from '../Heading';
 import { Link } from '../Link';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { Stack } from '../Stack';
-import { Time } from '../Time';
 import styles from './Toolkit.module.css';
 
 const { BASE_URL } = import.meta.env;
@@ -147,23 +148,42 @@ export function ToolkitFolderCard({ folder, path }: FolderCardProps) {
 interface FileCardProps {
   item: ToolkitItem;
   path: string;
+  /** Its folder, such as Highlights, for lists with more than one folder in them */
+  type?: string | undefined;
 }
 
 /** Its files are on its own page, so the cards stay short */
-export function ToolkitFileCard({ item, path }: FileCardProps) {
+export function ToolkitFileCard({ item, path, type }: FileCardProps) {
   return (
     <Card as="article" className={styles.linkCard}>
       <Stack gap={2}>
         <Heading level={3} className={styles.title}>
           <Link to={path} className={styles.cardLink}>
             {item.title}
+            {/* Tells apart resources that share a title, such as the 2 ADHD ones (WCAG 2.4.9) */}
+            {type && <ScreenReaderOnly>, {type}</ScreenReaderOnly>}
           </Link>
         </Heading>
-        <p className={styles.meta}>
-          Last updated <Time date={item.updated} />
-        </p>
         <p>{item.description}</p>
+        <ToolkitTags item={item} type={type} />
       </Stack>
     </Card>
+  );
+}
+
+/** The all-in-one resources have no topics, as they cover everything in their folder */
+export function ToolkitTags({ item, type }: { item: ToolkitItem; type?: string | undefined }) {
+  if (!type && item.topics.length === 0) return null;
+
+  return (
+    <div className={cx(styles.meta, styles.tags)}>
+      {type && <p>Type: {type}</p>}
+      {item.topics.length > 0 && (
+        <>
+          <p>Topics: {topicNames(item.topics).join(', ')}</p>
+          <p>Who it’s for: {audienceNames(item.audiences).join(', ')}</p>
+        </>
+      )}
+    </div>
   );
 }
