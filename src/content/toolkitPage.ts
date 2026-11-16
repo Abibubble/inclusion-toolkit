@@ -26,7 +26,7 @@ export function formatFileSize(bytes: number): string {
  * The size of a file in public/. If a ready resource is missing a file, this stops the build, so
  * it can't go live without it
  */
-export function publicFileSize(path: string): string {
+function publicFileSize(path: string): string {
   return formatFileSize(statSync(`public/${path}`).size);
 }
 
@@ -65,8 +65,6 @@ export const TOOLKIT_TEXT: Record<string, string> = Object.fromEntries(
     markdown,
   ]),
 );
-
-export type { ToolkitSearchEntry };
 
 /**
  * The words of every resource's full text, by its address, so search can find words that aren't

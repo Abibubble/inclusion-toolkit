@@ -5,13 +5,13 @@ import RECORD from './toolkit.json' with { type: 'json' };
 export const TOOLKIT_PATH = '/';
 
 /** What the first step of the breadcrumbs is called. The same as the home page's name in the menu */
-export const TOOLKIT_HOME_TITLE = 'Home';
+const TOOLKIT_HOME_TITLE = 'Home';
 
 /** Where the toolkit's files are, in public/ */
-export const TOOLKIT_FILES_FOLDER = 'files';
+const TOOLKIT_FILES_FOLDER = 'files';
 
 /** One format of a resource, such as its PDF, in public/ */
-export interface ToolkitFile {
+interface ToolkitFile {
   /** Always under files/, such as files/infographics/neurodiversity/adhd.pdf */
   path: string;
   /**
@@ -21,7 +21,7 @@ export interface ToolkitFile {
   size: string;
 }
 
-export type ToolkitVersionName = 'Full guide' | 'Visual summary' | 'Infographic';
+type ToolkitVersionName = 'Full guide' | 'Visual summary' | 'Infographic';
 
 /**
  * A version of a resource, in each format it comes in. The full guide is the Word file and a PDF
@@ -44,7 +44,7 @@ export interface ToolkitItem {
   versions: ToolkitVersion[];
 }
 
-export type ToolkitFileType = 'PDF' | 'Word document' | 'PowerPoint';
+type ToolkitFileType = 'PDF' | 'Word document' | 'PowerPoint';
 
 const FILE_TYPES: Record<string, ToolkitFileType> = {
   pdf: 'PDF',
@@ -93,7 +93,7 @@ export const TOOLKIT_RECORD: ToolkitFolderRecord = {
 };
 
 /** What a resource comes as, from toolkit.json */
-export type ToolkitFormats = Pick<ToolkitItemRecord, 'slides' | 'infographic'>;
+type ToolkitFormats = Pick<ToolkitItemRecord, 'slides' | 'infographic'>;
 
 /**
  * Each version of a resource, with where its files go in public/, named after the slugs leading to
@@ -215,7 +215,7 @@ export function toolkitTextKey(slugs: readonly string[]): string {
   return slugs.join('/');
 }
 
-export interface ToolkitEntry {
+interface ToolkitEntry {
   kind: 'folder' | 'item';
   slugs: string[];
   title: string;
@@ -250,7 +250,7 @@ export interface ToolkitCrumb {
   path: string;
 }
 
-export type ToolkitLocation =
+type ToolkitLocation =
   | { kind: 'folder'; folder: ToolkitFolder; slugs: string[]; trail: ToolkitCrumb[] }
   | { kind: 'item'; item: ToolkitItem; slugs: string[]; trail: ToolkitCrumb[] };
 

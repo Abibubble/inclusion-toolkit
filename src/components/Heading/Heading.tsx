@@ -19,7 +19,3 @@ export function Heading({ level, children, id, className, tabIndex }: HeadingPro
     </Element>
   );
 }
-
-export function nextLevel(level: HeadingLevel): HeadingLevel {
-  return Math.min(level + 1, 6) as HeadingLevel;
-}

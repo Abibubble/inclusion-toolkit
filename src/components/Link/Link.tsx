@@ -17,7 +17,6 @@ interface InternalLinkProps extends BaseProps {
 interface ExternalLinkProps extends BaseProps {
   href: string;
   to?: never;
-  showsAddress?: boolean;
 }
 
 export type LinkProps = InternalLinkProps | ExternalLinkProps;
@@ -32,11 +31,7 @@ export function Link({ children, className, ...destination }: LinkProps) {
   }
 
   return (
-    <a
-      href={destination.href}
-      className={className}
-      data-print-url={destination.showsAddress ? 'hide' : undefined}
-    >
+    <a href={destination.href} className={className}>
       {children}
       {/* A real space rather than a margin, so every browser keeps it in the link's name */}{' '}
       <svg

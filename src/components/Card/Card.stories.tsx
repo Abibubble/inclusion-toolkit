@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Link } from '../Link';
 import { Stack } from '../Stack';
-import { TagList } from '../Tag';
 import { Time } from '../Time';
 import { Card } from './Card';
 
@@ -18,7 +17,6 @@ const meta = {
           Updated <Time date="2026-11-06" />
         </p>
         <p>Why dark mode helps some people, and how to design it well.</p>
-        <TagList tags={['Slides', 'Word', 'PDF']} label="Formats" />
         <p>
           <Link to="/accessibility/highlights/dark-mode">Read the dark mode highlight</Link>
         </p>

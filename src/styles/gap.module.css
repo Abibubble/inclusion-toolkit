@@ -1,5 +1,5 @@
 /*
- * One class per step of the spacing scale, shared by layout components such as Stack and Cluster.
+ * One class per step of the spacing scale, used by Stack.
  * --gap lets Stack keep paragraphs far enough apart when its gap is small
  */
 .gap1 {
@@ -46,7 +46,5 @@
   /* Narrow screens show less at once, so the largest gap is halved to keep sections close */
   @media (width < 48rem) {
     --gap: var(--spacer-48);
-
-    gap: var(--gap);
   }
 }

@@ -16,7 +16,7 @@ interface BreadcrumbsProps {
 /** Where the page sits, with a link to each page above it (WCAG 2.4.8) */
 export function Breadcrumbs({ trail, current }: BreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumbs" className={styles.breadcrumbs} data-print="hide">
+    <nav aria-label="Breadcrumbs" data-print="hide">
       <ol className={styles.list}>
         {trail.map((crumb) => (
           <li key={crumb.path} className={styles.item}>

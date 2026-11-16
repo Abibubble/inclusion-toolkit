@@ -1,1 +1,1 @@
-export { type HeadingLevel, Heading, nextLevel } from './Heading';
+export { type HeadingLevel, Heading } from './Heading';

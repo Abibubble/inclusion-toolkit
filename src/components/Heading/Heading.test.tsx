@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { type HeadingLevel, Heading, nextLevel } from './Heading';
+import { type HeadingLevel, Heading } from './Heading';
 
 describe('Heading', () => {
   it.each<HeadingLevel>([2, 3, 4, 5, 6])('renders a level %i heading', (level) => {
@@ -18,15 +18,5 @@ describe('Heading', () => {
     );
 
     expect(screen.getByRole('heading')).toHaveAttribute('id', 'experience');
-  });
-});
-
-describe('nextLevel', () => {
-  it('gives the level below', () => {
-    expect(nextLevel(2)).toBe(3);
-  });
-
-  it('never goes past level 6', () => {
-    expect(nextLevel(6)).toBe(6);
   });
 });

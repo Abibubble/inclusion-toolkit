@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { formatDate } from './formatDate';
-import { DateRange, Time } from './Time';
+import { Time } from './Time';
 
 describe('formatDate', () => {
   it.each([
@@ -37,20 +37,5 @@ describe('Time', () => {
 
     expect(time).toHaveTextContent('June 2026');
     expect(time).toHaveAttribute('datetime', '2026-06');
-  });
-});
-
-describe('DateRange', () => {
-  it('joins two dates with "to"', () => {
-    const { container } = render(<DateRange from="2019-06" to="2021-07" />);
-
-    expect(container).toHaveTextContent('June 2019 to July 2021');
-    expect(container.querySelectorAll('time')).toHaveLength(2);
-  });
-
-  it('ends with "present" for something still going on', () => {
-    const { container } = render(<DateRange from="2021-08" />);
-
-    expect(container).toHaveTextContent('August 2021 to present');
   });
 });

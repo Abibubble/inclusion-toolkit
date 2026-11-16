@@ -67,7 +67,7 @@ export const SETTINGS = {
   { legend: string; attribute: string; default: string; options: readonly SettingOption<string>[] }
 >;
 
-export type SettingName = keyof typeof SETTINGS;
+type SettingName = keyof typeof SETTINGS;
 export type DisplaySettings = {
   -readonly [Name in SettingName]: (typeof SETTINGS)[Name]['options'][number]['value'];
 };
@@ -114,7 +114,7 @@ export function applySettings(settings: DisplaySettings, root = document.documen
 
 type Listener = () => void;
 
-export interface DisplaySettingsStore {
+interface DisplaySettingsStore {
   getSnapshot: () => DisplaySettings;
   getServerSnapshot: () => DisplaySettings;
   subscribe: (listener: Listener) => () => void;

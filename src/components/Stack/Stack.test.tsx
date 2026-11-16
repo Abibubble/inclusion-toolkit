@@ -24,18 +24,6 @@ describe('Stack', () => {
     expect(container.firstElementChild?.className).toMatch(/gap6/);
   });
 
-  it('keeps list semantics when rendered as a list', () => {
-    render(
-      <Stack as="ul">
-        <li>One</li>
-        <li>Two</li>
-      </Stack>,
-    );
-
-    expect(screen.getByRole('list')).toBeInTheDocument();
-    expect(screen.getAllByRole('listitem')).toHaveLength(2);
-  });
-
   it('can be another element, such as a section', () => {
     const { container } = render(<Stack as="section">Content</Stack>);
 

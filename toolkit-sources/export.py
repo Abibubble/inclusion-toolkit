@@ -21,6 +21,7 @@ import zipfile
 import zlib
 import xml.etree.ElementTree as ET
 from base64 import b64encode
+from datetime import date
 from html import escape, unescape
 from pathlib import Path
 from posixpath import normpath
@@ -72,50 +73,6 @@ def w(tag: str) -> str:
 def on(element) -> bool:
     """Whether a setting such as <w:b/> is on. <w:b w:val="0"/> turns it off"""
     return element is not None and element.get(w('val'), '1') not in ('0', 'false')
-
-
-# What I already know about resources, for adding them to toolkit.json the first time. Anything
-# else gets a drafted description and a to-do to check it
-DETAILS = {
-    'email-signature-additions': {
-        'description': 'Some template examples that can be added to an email signature to share '
-        'information about accessibility, neurodiversity, and working differences.',
-        'updated': '2026-06-01',
-    },
-    'meeting-invite-template': {
-        'description': 'A meeting invite template, created so that no information gets missed when '
-        'setting up meetings.',
-        'updated': '2026-06-01',
-    },
-    'accessible-meeting-checklist': {
-        'description': 'A checklist of things to ensure meetings are accessible to all attendees.',
-        'updated': '2026-06-16',
-    },
-    # A draft, so it still gets a to-do to check it
-    'accessibility-highlights': {
-        'draft_description': 'Every accessibility highlight in one file, each with what it’s for, how '
-        'to support it and useful links, plus a glossary of terms.',
-        'first': True,
-    },
-    'neurodiversity-highlights': {
-        'draft_description': 'Every neurodiversity highlight in one file, each explaining a topic '
-        'and how to support people, with useful links.',
-        'first': True,
-    },
-    'accessibility-infographics': {
-        'draft_description': 'Every accessibility infographic in one file, each covering the '
-        'symptoms, diagnosis, treatment and support for a condition.',
-        'first': True,
-    },
-    'neurodiversity-infographics': {
-        'draft_description': 'Every neurodiversity infographic in one file, each covering the '
-        'symptoms, diagnosis, treatment and support for a condition.',
-        'first': True,
-    },
-}
-# The date for new highlights and infographics, when they're added to toolkit.json for the first time
-HIGHLIGHTS_UPDATED = '2026-11-06'
-INFOGRAPHICS_UPDATED = '2026-11-06'
 
 
 # Reading Word files
@@ -1422,7 +1379,6 @@ def same_content(new: Path, old: Path) -> bool:
 
 def main() -> None:
     sources = sorted(BRANDED.glob('**/*.docx'))
-    sources = [s for s in sources if 'test' not in s.relative_to(BRANDED).parts]
     if not sources:
         sys.exit('There are no Word files in toolkit-sources/branded/. Run rebrand.py first.')
 
@@ -1503,27 +1459,20 @@ def main() -> None:
         folder = find_folder(record, folders)
         item = next((i for i in folder['items'] if i['slug'] == slug), None)
         if item is None:
-            known = DETAILS.get(slug, {})
-            todo = [
-                'Check the text drafted for its page',
-                'Check the Word file, PDF and slides' if slides else 'Check the Word file and PDF',
-            ]
-            if 'description' not in known:
-                todo.insert(0, 'Check the description')
-            if 'updated' not in known:
-                todo.insert(0, 'Check the last updated date')
             item = {
                 'slug': slug,
                 'title': docx.title,
-                'description': known.get('description')
-                or known.get('draft_description')
-                or first_sentence(docx),
-                'updated': known.get('updated', HIGHLIGHTS_UPDATED),
+                'description': first_sentence(docx),
+                'updated': date.today().isoformat(),
                 'slides': slides,
                 'text': 'draft',
-                'todo': todo,
+                'todo': [
+                    'Check the description',
+                    'Check the text drafted for its page',
+                    'Check the Word file, PDF and slides' if slides else 'Check the Word file and PDF',
+                ],
             }
-            folder['items'].insert(0 if known.get('first') else len(folder['items']), item)
+            folder['items'].append(item)
         item['slides'] = slides
         print(f'Exported {relative.as_posix()}: {", ".join(Path(n).name for n in files.values())}')
 
@@ -1545,12 +1494,11 @@ def main() -> None:
         folder = find_folder(record, folders)
         item = next((i for i in folder['items'] if i['slug'] == slug), None)
         if item is None:
-            known = DETAILS.get(slug, {})
             item = {
                 'slug': slug,
                 'title': title,
-                'description': known.get('draft_description') or f'An infographic about {title}.',
-                'updated': INFOGRAPHICS_UPDATED,
+                'description': f'An infographic about {title}.',
+                'updated': date.today().isoformat(),
                 'slides': False,
                 'infographic': True,
                 'text': 'draft',
@@ -1560,7 +1508,7 @@ def main() -> None:
                     'Check the PowerPoint file and PDF',
                 ],
             }
-            folder['items'].insert(0 if known.get('first') else len(folder['items']), item)
+            folder['items'].append(item)
         print(f'Exported {relative.as_posix()}: {slug}.pptx, {slug}.pdf')
 
     RECORD.write_text(json.dumps(record, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')

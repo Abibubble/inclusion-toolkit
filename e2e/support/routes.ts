@@ -17,7 +17,7 @@ export const SITE_PAGES = [
  * highlight, all share one design, so Firefox, WebKit and `pnpm commit:check` test the sample
  * below, which keeps the runs short as the toolkit grows. lighthouserc.cjs uses the same sample
  */
-export const EVERY_PAGE = '@every-page';
+const EVERY_PAGE = '@every-page';
 
 const TOOLKIT_SAMPLE = [
   // The biggest page, a typical one with code in it, and a typical infographic

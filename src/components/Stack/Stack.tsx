@@ -7,7 +7,7 @@ import styles from './Stack.module.css';
 interface StackProps {
   children: ReactNode;
   gap?: SpaceStep;
-  as?: 'div' | 'section' | 'article' | 'ul' | 'ol';
+  as?: 'div' | 'section';
   className?: string | undefined;
   'aria-labelledby'?: string | undefined;
 }
@@ -19,15 +19,8 @@ export function Stack({
   className,
   'aria-labelledby': labelledBy,
 }: StackProps) {
-  const isList = Element === 'ul' || Element === 'ol';
-
   return (
-    // Lists keep their role, which Safari drops once list bullets are removed
-    <Element
-      role={isList ? 'list' : undefined}
-      aria-labelledby={labelledBy}
-      className={cx(styles.stack, gapClass(gap), className)}
-    >
+    <Element aria-labelledby={labelledBy} className={cx(styles.stack, gapClass(gap), className)}>
       {children}
     </Element>
   );

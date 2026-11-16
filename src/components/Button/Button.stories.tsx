@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect } from 'storybook/test';
 
-import { Cluster } from '../Cluster';
+import { Stack } from '../Stack';
 import { Button } from './Button';
 
 const meta = {
@@ -21,10 +21,10 @@ export const Secondary: Story = {
 
 const BothVariants: Story = {
   render: () => (
-    <Cluster gap={3}>
+    <Stack gap={3}>
       <Button>Send message</Button>
       <Button variant="secondary">Change your message</Button>
-    </Cluster>
+    </Stack>
   ),
 };
 

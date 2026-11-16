@@ -1,2 +1,2 @@
 export { formatDate } from './formatDate';
-export { DateRange, Time } from './Time';
+export { Time } from './Time';

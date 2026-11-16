@@ -5,7 +5,7 @@ import styles from './Card.module.css';
 
 interface CardProps {
   children: ReactNode;
-  as?: 'div' | 'article' | 'section' | 'li';
+  as?: 'div' | 'article';
   className?: string | undefined;
 }
 

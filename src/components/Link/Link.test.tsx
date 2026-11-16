@@ -48,25 +48,6 @@ describe('Link', () => {
       expect(container.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
     });
 
-    it('prints its web address after it, unless it already shows the address', () => {
-      renderWithRouter(
-        <>
-          <Link href="https://www.w3.org/WAI/">W3C Web Accessibility Initiative</Link>
-          <Link href="https://example.com" showsAddress>
-            example.com
-          </Link>
-        </>,
-      );
-
-      expect(
-        screen.getByRole('link', { name: /Web Accessibility Initiative/ }),
-      ).not.toHaveAttribute('data-print-url');
-      expect(screen.getByRole('link', { name: /example\.com/ })).toHaveAttribute(
-        'data-print-url',
-        'hide',
-      );
-    });
-
     it('has no detectable accessibility issues', async () => {
       const { container } = renderWithRouter(<Link href="https://example.com">Example</Link>);
 

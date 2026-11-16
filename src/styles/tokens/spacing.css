@@ -31,7 +31,6 @@
   --size-input-max: calc(var(--spacer-96) * 5);
   --radius-small: var(--spacer-4);
   --radius-medium: var(--spacer-8);
-  --radius-round: 50%;
 
   /* The other agreed size off the scale: 4px borders are too heavy for form fields and cards */
   --border-width: 0.125rem; /* 2px */

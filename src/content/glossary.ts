@@ -1,4 +1,4 @@
-export interface GlossaryTerm {
+interface GlossaryTerm {
   /** The word or phrase. Other names for the same thing are split by a slash, such as "Tooltip / popover" */
   term: string;
   definition: string;

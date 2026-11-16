@@ -1,7 +1,7 @@
 // The site's mark: a toolbox on a blue square, for a kit of practical resources. It has a light blue
 // band and an amber catch. Run `pnpm brand-images` after changing it, to redraw the icons
 
-export interface MarkShape {
+interface MarkShape {
   x: number;
   y: number;
   width: number;
