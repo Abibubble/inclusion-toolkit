@@ -62,11 +62,25 @@ files, each set of highlights as one Word file and one PowerPoint file, and each
 infographics as one PowerPoint file. Edit those, never the files in `public/files`. The scripts cut
 them into one file for each resource, and make every PDF.
 
-To update the files:
+Run the scripts from the repo root, with Python 3.10 or newer and the Node version from `.nvmrc`.
+
+To change the text, starting from the pages:
+
+1. Change the page's text in this folder. If it's a highlight or infographic, change it in its
+   all-in-one page too, word for word.
+2. Copy the changes into the source files. Without `--write`, it shows what it would change, and
+   lists anything to do by hand:
+
+   ```sh
+   /opt/homebrew/bin/python3 -I toolkit-sources/sync_text.py --write
+   ```
+
+3. Make the files, as below.
+
+To change the files, starting from Word or PowerPoint:
 
 1. Edit the source file in Word or PowerPoint, and save it.
-2. Run the scripts from the repo root, with Python 3.10 or newer and the Node version from
-   `.nvmrc`:
+2. Make the files:
 
    ```sh
    /opt/homebrew/bin/python3 -I toolkit-sources/rebrand.py
