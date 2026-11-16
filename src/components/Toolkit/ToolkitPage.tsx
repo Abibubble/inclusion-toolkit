@@ -1,11 +1,19 @@
 import { type ReactNode, useId } from 'react';
 
-import { type ToolkitFolder, type ToolkitItem, toolkitPath } from '../../content/toolkit';
+import {
+  PICTURE_SIZE,
+  PICTURE_WIDTHS,
+  type ToolkitFolder,
+  type ToolkitItem,
+  picturePath,
+  toolkitPath,
+} from '../../content/toolkit';
 import { sectionResources } from '../../content/toolkitFilters';
 import { cx } from '../../utils/cx';
 import type { ToolkitPageData } from '../../content/toolkitPage';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { Heading } from '../Heading';
+import { Link } from '../Link';
 import { PageHeading } from '../PageHeading';
 import { TitleBand } from '../TitleBand';
 import { Stack } from '../Stack';
@@ -15,6 +23,8 @@ import styles from './Toolkit.module.css';
 import { ToolkitFileCard, ToolkitFileLinks, ToolkitSectionCard, ToolkitTags } from './ToolkitCards';
 import { ToolkitFilters } from './ToolkitFilters';
 import { ToolkitSearch } from './ToolkitSearch';
+
+const { BASE_URL } = import.meta.env;
 
 type PageData<Kind extends ToolkitPageData['kind']> = Extract<ToolkitPageData, { kind: Kind }>;
 
@@ -142,6 +152,34 @@ function ToolkitFolderPage({ data }: { data: PageData<'folder'> }) {
   );
 }
 
+/**
+ * Shows what the file looks like. Everything in it is also in the page's text, so the picture's
+ * own text is only there as a preview of the file (WCAG 1.4.9)
+ */
+function ToolkitPicture({ item, picture }: { item: ToolkitItem; picture: string }) {
+  const kind = item.versions.some(({ name }) => name === 'Infographic')
+    ? 'infographic'
+    : 'visual summary';
+  const url = (width: number) => `${BASE_URL}${picturePath(picture, width)}`;
+
+  return (
+    <figure className={styles.picture}>
+      <img
+        src={url(PICTURE_SIZE.width)}
+        srcSet={PICTURE_WIDTHS.map((width) => `${url(width)} ${String(width)}w`).join(', ')}
+        sizes={`(min-width: ${String(PICTURE_SIZE.width)}px) ${String(PICTURE_SIZE.width)}px, 100vw`}
+        width={PICTURE_SIZE.width}
+        height={PICTURE_SIZE.height}
+        alt={`The ${item.title} ${kind}.`}
+      />
+      <figcaption className={styles.meta}>
+        A preview of the {kind}. Everything in it is also in the section{' '}
+        <Link to="#whats-in-it">What’s in it</Link>.
+      </figcaption>
+    </figure>
+  );
+}
+
 function ToolkitItemPage({ data }: { data: PageData<'item'> }) {
   const { item } = data;
 
@@ -160,6 +198,7 @@ function ToolkitItemPage({ data }: { data: PageData<'item'> }) {
           <ToolkitTags item={item} />
         </Stack>
       </TitleBand>
+      {item.picture && <ToolkitPicture item={item} picture={item.picture} />}
       <Stack as="section" gap={4} aria-labelledby="files">
         <Heading level={2} id="files">
           Files

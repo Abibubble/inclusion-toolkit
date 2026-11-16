@@ -2,6 +2,7 @@
 Makes everything else each Inclusion Toolkit resource needs, from its branded Word file:
 - a tagged PDF that looks like the Word file
 - if it has slides, a tagged PDF of them too
+- a picture of its visual summary or infographic slide, for its page
 - a draft of its text for the site, in src/content/toolkit/, if it doesn't have one yet
 Then it copies the files into public/files/, and adds any new resource to
 src/content/toolkit.json. It never changes text, descriptions or to-dos already there, so
@@ -54,6 +55,21 @@ RECORD = REPO / 'src' / 'content' / 'toolkit.json'
 # The slides' version of each resource, and what's added to its files' names
 SUMMARY = 'visual summary'
 SUMMARY_SUFFIX = '-visual-summary'
+
+
+def has_one_slide(html: str) -> bool:
+    """Only single slides get a picture, so not the all-in-ones"""
+    return html.count('<section class="slide"') == 1
+
+
+def pictures(built: Path, site: str) -> dict[Path, str]:
+    """The pictures pdf.mjs saved of a slide, such as adhd-960.png, with their names in public/files"""
+    pattern = re.compile(rf'{re.escape(built.name)}(-\d+\.png)')
+    return {
+        png: f'{site}{match[1]}'
+        for png in sorted(built.parent.glob('*.png'))
+        if (match := pattern.fullmatch(png.name))
+    }
 
 
 def site_path(relative: Path) -> Path:
@@ -153,9 +169,13 @@ def main() -> None:
         if slides.exists():
             summary_title = f'{docx.title}: {SUMMARY.capitalize()}'
             slides_html_path = BUILD / f'{relative}{SUMMARY_SUFFIX}.html'
-            slides_html_path.write_text(slides_html(slides, summary_title), encoding='utf-8')
+            summary_html = slides_html(slides, summary_title)
+            slides_html_path.write_text(summary_html, encoding='utf-8')
             slides_pdf = BRANDED / f'{relative}{SUMMARY_SUFFIX}.pdf'
-            jobs.append({'html': str(slides_html_path), 'pdf': str(slides_pdf), 'slides': True})
+            job = {'html': str(slides_html_path), 'pdf': str(slides_pdf), 'slides': True}
+            if has_one_slide(summary_html):
+                job['picture'] = str(BUILD / f'{relative}{SUMMARY_SUFFIX}')
+            jobs.append(job)
             finishing.append((slides_pdf, summary_title, slides_html_path))
 
     # Infographics have no Word file, so their PDF and page text come from the PowerPoint file
@@ -166,8 +186,12 @@ def main() -> None:
         infographics[relative] = (source, title)
         html_path = BUILD / relative.with_suffix('.html')
         html_path.parent.mkdir(parents=True, exist_ok=True)
-        html_path.write_text(slides_html(source, title), encoding='utf-8')
-        jobs.append({'html': str(html_path), 'pdf': str(source.with_suffix('.pdf')), 'slides': True})
+        html = slides_html(source, title)
+        html_path.write_text(html, encoding='utf-8')
+        job = {'html': str(html_path), 'pdf': str(source.with_suffix('.pdf')), 'slides': True}
+        if has_one_slide(html):
+            job['picture'] = str(BUILD / relative)
+        jobs.append(job)
         finishing.append((source.with_suffix('.pdf'), title, html_path))
 
     jobs_file = BUILD / 'jobs.json'
@@ -189,6 +213,7 @@ def main() -> None:
             BRANDED / f'{relative}{SUMMARY_SUFFIX}.pdf': f'{site}{SUMMARY_SUFFIX}.pdf',
         }
         files = {source: name for source, name in files.items() if source.exists()}
+        files |= pictures(BUILD / f'{relative}{SUMMARY_SUFFIX}', f'{site}{SUMMARY_SUFFIX}')
         for file, name in files.items():
             copy_if_changed(file, PUBLIC / FILES / name)
         slides = BRANDED / relative.with_suffix('.pptx') in files
@@ -223,6 +248,8 @@ def main() -> None:
         *folders, slug = site.parts
         for suffix in ('.pptx', '.pdf'):
             copy_if_changed(source.with_suffix(suffix), PUBLIC / FILES / site.with_suffix(suffix))
+        for png, name in pictures(BUILD / relative, str(site)).items():
+            copy_if_changed(png, PUBLIC / FILES / name)
 
         draft_text(TEXT / site.with_suffix('.md'), lambda: infographic_markdown(source))
 

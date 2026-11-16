@@ -1,10 +1,12 @@
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 
 import { describe, expect, it } from 'vitest';
 
 import { formatDate } from '../components/Time';
 import { ABOUT_PATH, MAIN_NAV } from './navigation';
 import {
+  PICTURE_SIZE,
+  PICTURE_WIDTHS,
   TOOLKIT,
   downloadName,
   sharedFileNames,
@@ -13,11 +15,14 @@ import {
   type ToolkitItemRecord,
   fileType,
   findInToolkit,
+  isAllInOne,
+  picturePath,
   publicToolkit,
   toolkitEntries,
   toolkitFilePaths,
   toolkitItemRecords,
   toolkitPath,
+  toolkitPicture,
   toolkitVersions,
   unpublishedToolkitFiles,
 } from './toolkit';
@@ -129,7 +134,20 @@ describe('publicToolkit', () => {
       'files/highlights/dark-mode.pdf',
       'files/highlights/dark-mode-visual-summary.pptx',
       'files/highlights/dark-mode-visual-summary.pdf',
+      'files/highlights/dark-mode-visual-summary-960.png',
+      'files/highlights/dark-mode-visual-summary-1920.png',
     ]);
+  });
+
+  it('has a picture of each infographic and visual summary, but not the all-in-ones', () => {
+    expect(
+      toolkitPicture(['a', 'infographics', 'asthma'], { slides: false, infographic: true }),
+    ).toBe('files/a/infographics/asthma');
+    expect(toolkitPicture(['a', 'highlights', 'dark-mode'], { slides: true })).toBe(
+      'files/a/highlights/dark-mode-visual-summary',
+    );
+    expect(toolkitPicture(['checklist'], { slides: false })).toBeUndefined();
+    expect(toolkitPicture(['a', 'highlights', 'a-highlights'], { slides: true })).toBeUndefined();
   });
 
   it('leaves out folders with nothing to show', () => {
@@ -220,8 +238,7 @@ describe('toolkit.json', () => {
   it('gives every ready resource topics and audiences from the lists, apart from the all-in-one files', () => {
     for (const { slugs, item: record } of realItems()) {
       if (record.text !== 'checked') continue;
-      const [section, folder, slug] = slugs;
-      const allInOne = slugs.length === 3 && slug === `${section}-${folder}`;
+      const allInOne = isAllInOne(slugs);
 
       for (const [tags, list] of [
         [record.topics, TOPICS],
@@ -265,6 +282,21 @@ describe('toolkit.json', () => {
       if (record.text !== 'checked') continue;
       for (const path of toolkitFilePaths(slugs, record)) {
         expect(existsSync(`public/${path}`), path).toBe(true);
+      }
+    }
+  });
+
+  it('has pictures the size the pages say they are, so the pages don’t jump as they load', () => {
+    for (const { slugs, item: record } of realItems()) {
+      const picture = toolkitPicture(slugs, record);
+      if (record.text !== 'checked' || !picture) continue;
+      for (const width of PICTURE_WIDTHS) {
+        const png = readFileSync(`public/${picturePath(picture, width)}`);
+        // A PNG's width and height are at bytes 16 and 20
+        expect([png.readUInt32BE(16), png.readUInt32BE(20)], picture).toEqual([
+          width,
+          (width / PICTURE_SIZE.width) * PICTURE_SIZE.height,
+        ]);
       }
     }
   });

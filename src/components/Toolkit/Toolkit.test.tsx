@@ -433,6 +433,75 @@ describe('ToolkitPage', () => {
     expect(pdf?.textContent).toMatch(/^PDF \(120KB\): View.* or Download/);
   });
 
+  it('shows a picture of the visual summary, with its size set and its text on the page', () => {
+    renderWithRouter(
+      <ToolkitPage
+        data={{
+          kind: 'item',
+          item: { ...ITEM, picture: 'files/highlights/dark-mode-visual-summary' },
+          slugs: ['highlights', 'dark-mode'],
+          trail: TRAIL,
+          textHtml: '<p>Text.</p>',
+        }}
+      />,
+    );
+
+    const picture = screen.getByRole('img', { name: 'The Dark mode visual summary.' });
+    expect(picture).toHaveAttribute('src', '/files/highlights/dark-mode-visual-summary-960.png');
+    expect(picture).toHaveAttribute(
+      'srcset',
+      '/files/highlights/dark-mode-visual-summary-960.png 960w, /files/highlights/dark-mode-visual-summary-1920.png 1920w',
+    );
+    expect(picture).toHaveAttribute('width', '960');
+    expect(picture).toHaveAttribute('height', '540');
+    expect(picture.closest('figure')?.querySelector('figcaption')).toHaveTextContent(
+      'A preview of the visual summary. Everything in it is also in the section What’s in it.',
+    );
+    expect(screen.getByRole('link', { name: 'What’s in it' })).toHaveAttribute(
+      'href',
+      '/#whats-in-it',
+    );
+  });
+
+  it('names an infographic’s picture as the infographic', () => {
+    const infographic = {
+      ...ITEM,
+      versions: ITEM.versions
+        .slice(0, 1)
+        .map((version) => ({ ...version, name: 'Infographic' as const })),
+      picture: 'files/infographics/adhd',
+    };
+    renderWithRouter(
+      <ToolkitPage
+        data={{
+          kind: 'item',
+          item: infographic,
+          slugs: ['infographics', 'adhd'],
+          trail: TRAIL,
+          textHtml: '<p>Text.</p>',
+        }}
+      />,
+    );
+
+    expect(screen.getByRole('img', { name: 'The Dark mode infographic.' })).toBeInTheDocument();
+  });
+
+  it('shows no picture for a resource without slides', () => {
+    renderWithRouter(
+      <ToolkitPage
+        data={{
+          kind: 'item',
+          item: ITEM,
+          slugs: ['highlights', 'dark-mode'],
+          trail: TRAIL,
+          textHtml: '<p>Text.</p>',
+        }}
+      />,
+    );
+
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+  });
+
   it('shows no tags for an all-in-one resource, as it covers its whole folder', () => {
     renderWithRouter(
       <ToolkitPage

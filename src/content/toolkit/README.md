@@ -54,6 +54,10 @@ after its address. So `/accessibility/infographics/asthma` has:
 - `accessibility/infographics/asthma.pptx`
 - `accessibility/infographics/asthma.pdf`
 
+Each infographic and visual summary also has a picture of its slide for its page, at 2 widths,
+such as `accessibility/infographics/asthma-960.png` and `asthma-1920.png`. The all-in-one files
+have many slides, so they have no picture.
+
 They aren't listed in `toolkit.json`. The site finds them by their names, and works out their sizes
 when it's built. Each PDF's View link opens it in a new tab.
 

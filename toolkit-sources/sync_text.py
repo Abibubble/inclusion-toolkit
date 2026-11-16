@@ -66,7 +66,13 @@ def norm(text: str) -> str:
     )
 
 
+# A line break inside a slide's paragraph reads as a space, as in the infographics' disclaimer
+SLIDE_BREAK = re.compile(r'<a:br\b[^>]*/>|<a:br\b.*?</a:br>', re.S)
+
+
 def text_of(paragraph: str, pattern: re.Pattern) -> str:
+    if pattern is SLIDE_TEXT:
+        paragraph = SLIDE_BREAK.sub('<a:t> </a:t>', paragraph)
     return unescape(''.join(m.group(2) for m in pattern.finditer(paragraph)))
 
 

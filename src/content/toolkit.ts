@@ -38,6 +38,8 @@ export interface ToolkitItem {
   updated: string;
   /** The full guide, then the visual summary if it has slides */
   versions: ToolkitVersion[];
+  /** A picture of its infographic or visual summary (see toolkitPicture) */
+  picture?: string;
 }
 
 type ToolkitFileType = 'PDF' | 'Word document' | 'PowerPoint';
@@ -112,9 +114,40 @@ export function toolkitVersions(
   ];
 }
 
-/** Every file a resource needs in public/ (see toolkitVersions) */
+/** The all-in-one resources, such as accessibility/highlights/accessibility-highlights */
+export function isAllInOne(slugs: readonly string[]): boolean {
+  const [section, folder, slug] = slugs;
+  return slugs.length === 3 && slug === `${section}-${folder}`;
+}
+
+/** The slides are 16:9. Each picture is saved at 2 widths, the larger for sharp screens */
+export const PICTURE_SIZE = { width: 960, height: 540 };
+export const PICTURE_WIDTHS = [PICTURE_SIZE.width, PICTURE_SIZE.width * 2];
+
+/**
+ * A picture of a resource's infographic or visual summary slide, without its width and .png, such
+ * as files/accessibility/infographics/adhd. The all-in-ones have many slides, so they have none
+ */
+export function toolkitPicture(
+  slugs: readonly string[],
+  { slides, infographic = false }: ToolkitFormats,
+): string | undefined {
+  if (isAllInOne(slugs) || !(slides || infographic)) return undefined;
+  const start = `${TOOLKIT_FILES_FOLDER}/${slugs.join('/')}`;
+  return infographic ? start : `${start}-visual-summary`;
+}
+
+export function picturePath(picture: string, width: number): string {
+  return `${picture}-${String(width)}.png`;
+}
+
+/** Every file a resource needs in public/ (see toolkitVersions and toolkitPicture) */
 export function toolkitFilePaths(slugs: readonly string[], formats: ToolkitFormats): string[] {
-  return toolkitVersions(slugs, formats).flatMap(({ files }) => files.map(({ path }) => path));
+  const picture = toolkitPicture(slugs, formats);
+  return [
+    ...toolkitVersions(slugs, formats).flatMap(({ files }) => files.map(({ path }) => path)),
+    ...(picture ? PICTURE_WIDTHS.map((width) => picturePath(picture, width)) : []),
+  ];
 }
 
 function isReady(item: ToolkitItemRecord): boolean {
@@ -147,15 +180,19 @@ export function publicToolkit(record: ToolkitFolderRecord, slugs: string[] = [])
           updated,
           slides,
           infographic,
-        }) => ({
-          slug: itemSlug,
-          title,
-          description,
-          topics,
-          audiences,
-          updated,
-          versions: toolkitVersions([...slugs, itemSlug], { slides, infographic }),
-        }),
+        }) => {
+          const picture = toolkitPicture([...slugs, itemSlug], { slides, infographic });
+          return {
+            slug: itemSlug,
+            title,
+            description,
+            topics,
+            audiences,
+            updated,
+            versions: toolkitVersions([...slugs, itemSlug], { slides, infographic }),
+            ...(picture && { picture }),
+          };
+        },
       ),
   };
 }

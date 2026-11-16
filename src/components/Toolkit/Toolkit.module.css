@@ -204,3 +204,22 @@
     min-height: var(--size-target-min);
   }
 }
+
+.picture {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-8);
+  max-width: calc(var(--spacer-96) * 10);
+  margin: 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    border: var(--border-width) solid var(--color-border-decorative);
+    border-radius: var(--radius-small);
+  }
+
+  figcaption {
+    max-width: var(--size-measure);
+  }
+}

@@ -1,5 +1,5 @@
 import { AUDIENCES, type Audience, TOPICS, type Topic } from './tags';
-import { type ToolkitFolder, type ToolkitItem, toolkitPath } from './toolkit';
+import { type ToolkitFolder, type ToolkitItem, isAllInOne, toolkitPath } from './toolkit';
 
 export interface SectionResource {
   item: ToolkitItem;
@@ -48,8 +48,7 @@ export function sectionResources(
         path: toolkitPath([...slugs, folder.slug, item.slug]),
         type: { slug: folder.slug, title: folder.title },
       };
-      const isAllInOne = item.slug === `${section.slug}-${folder.slug}`;
-      (isAllInOne ? allInOne : resources).push(resource);
+      (isAllInOne([section.slug, folder.slug, item.slug]) ? allInOne : resources).push(resource);
     }
   }
 
