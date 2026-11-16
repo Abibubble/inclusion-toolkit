@@ -36,6 +36,14 @@ const HIGHLIGHTS: ToolkitFolder = {
   items: [ITEM],
 };
 
+const SECTION: ToolkitFolder = {
+  slug: 'accessibility',
+  title: 'Accessibility',
+  description: 'Resources about accessibility, disabilities, and health conditions.',
+  folders: [{ ...HIGHLIGHTS, title: 'Accessibility Highlights' }],
+  items: [],
+};
+
 const TRAIL = [{ title: 'Home', path: '/' }];
 
 const meta = {
@@ -48,9 +56,10 @@ const meta = {
         slug: '',
         title: 'Inclusion Toolkit',
         description: '',
-        folders: [HIGHLIGHTS],
+        folders: [SECTION],
         items: [],
       },
+      startHere: [{ item: ITEM, path: '/accessibility/highlights/dark-mode' }],
       search: [
         {
           kind: 'item',
@@ -70,6 +79,10 @@ export const MainPage: Story = {};
 
 export const Folder: Story = {
   args: { data: { kind: 'folder', folder: HIGHLIGHTS, slugs: ['highlights'], trail: TRAIL } },
+};
+
+export const Section: Story = {
+  args: { data: { kind: 'folder', folder: SECTION, slugs: ['accessibility'], trail: TRAIL } },
 };
 
 export const Resource: Story = {

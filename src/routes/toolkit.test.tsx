@@ -44,6 +44,7 @@ describe('Inclusion Toolkit pages', () => {
       metaFor({
         kind: 'home',
         toolkit: { slug: '', title: 'Inclusion Toolkit', description: '', folders: [], items: [] },
+        startHere: [],
         search: [],
       }),
     ).toEqual([

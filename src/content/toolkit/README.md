@@ -25,6 +25,11 @@ Each resource in a folder's `items` has:
 - `text`: `"draft"` while its text needs checking, then `"checked"`
 - `todo`: what's still to do for it
 
+## Start here
+
+The home page's "Start here" section lists the resources in `START_HERE`, in
+`src/content/toolkitPage.ts`, by address. The tests fail if one isn't a ready resource.
+
 ## Files
 
 Each resource comes in up to 2 versions, each as an editable file and a PDF of it, so people can

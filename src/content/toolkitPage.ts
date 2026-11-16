@@ -99,8 +99,36 @@ function toSearchEntry({
   };
 }
 
+/** Good places to begin, first on the home page, by address */
+export const START_HERE = [
+  'accessible-meeting-checklist',
+  'accessibility/highlights/inclusive-language',
+  'accessibility/highlights/alt-text',
+  'accessibility/highlights/basic-accessibility-testing',
+  'neurodiversity/highlights/key-terminology',
+  'neurodiversity/highlights/spoon-theory',
+];
+
+export interface ToolkitLink {
+  item: ToolkitItem;
+  path: string;
+}
+
+/** The resources at some addresses, leaving out any that aren't ready */
+export function toolkitLinks(paths: readonly string[], toolkit: ToolkitFolder): ToolkitLink[] {
+  return paths.flatMap((path) => {
+    const found = findInToolkit(path.split('/'), toolkit);
+    return found?.kind === 'item' ? [{ item: found.item, path: toolkitPath(found.slugs) }] : [];
+  });
+}
+
 export type ToolkitPageData =
-  | { kind: 'home'; toolkit: ToolkitFolder; search: ToolkitSearchEntry[] }
+  | {
+      kind: 'home';
+      toolkit: ToolkitFolder;
+      startHere: ToolkitLink[];
+      search: ToolkitSearchEntry[];
+    }
   | { kind: 'folder'; folder: ToolkitFolder; slugs: string[]; trail: ToolkitCrumb[] }
   | {
       kind: 'item';
@@ -129,6 +157,7 @@ export function loadToolkitPage(
     return {
       kind: 'home',
       toolkit: folderWithSizes(toolkit, sizeOf),
+      startHere: toolkitLinks(START_HERE, toolkit),
       search: toolkitEntries(toolkit).map(toSearchEntry),
     };
   }

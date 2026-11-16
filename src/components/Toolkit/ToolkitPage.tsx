@@ -1,7 +1,8 @@
 import { type ReactNode, useId } from 'react';
 
-import { type ToolkitFolder, toolkitPath } from '../../content/toolkit';
+import { type ToolkitFolder, type ToolkitItem, toolkitPath } from '../../content/toolkit';
 import { sectionResources } from '../../content/toolkitFilters';
+import { cx } from '../../utils/cx';
 import type { ToolkitPageData } from '../../content/toolkitPage';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { Heading } from '../Heading';
@@ -11,13 +12,21 @@ import { Stack } from '../Stack';
 import { Time } from '../Time';
 import { RichText } from '../RichText';
 import styles from './Toolkit.module.css';
-import { ToolkitFileCard, ToolkitFileLinks, ToolkitFolderCard, ToolkitTags } from './ToolkitCards';
+import { ToolkitFileCard, ToolkitFileLinks, ToolkitSectionCard, ToolkitTags } from './ToolkitCards';
 import { ToolkitFilters } from './ToolkitFilters';
 import { ToolkitSearch } from './ToolkitSearch';
 
 type PageData<Kind extends ToolkitPageData['kind']> = Extract<ToolkitPageData, { kind: Kind }>;
 
-function CardSection({ title, children }: { title: string; children: ReactNode }) {
+interface CardSectionProps {
+  title: string;
+  intro?: string;
+  /** Fewer, wider cards, which share the full width */
+  wide?: boolean;
+  children: ReactNode;
+}
+
+function CardSection({ title, intro, wide = false, children }: CardSectionProps) {
   const headingId = useId();
 
   return (
@@ -25,48 +34,30 @@ function CardSection({ title, children }: { title: string; children: ReactNode }
       <Heading level={2} id={headingId}>
         {title}
       </Heading>
-      <ul role="list" className={styles.cards}>
+      {intro && <p>{intro}</p>}
+      <ul role="list" className={cx(styles.cards, wide && styles.wideCards)}>
         {children}
       </ul>
     </Stack>
   );
 }
 
-function ToolkitContents({ folder, slugs }: { folder: ToolkitFolder; slugs: readonly string[] }) {
-  if (folder.folders.length === 0 && folder.items.length === 0) {
-    return <p>Resources are coming here soon.</p>;
-  }
-
-  return (
-    <>
-      {folder.folders.length > 0 && (
-        <CardSection title="Folders">
-          {folder.folders.map((child) => (
-            <li key={child.slug}>
-              <ToolkitFolderCard folder={child} path={toolkitPath([...slugs, child.slug])} />
-            </li>
-          ))}
-        </CardSection>
-      )}
-      {folder.items.length > 0 && (
-        <CardSection title="Files">
-          {folder.items.map((item) => (
-            <li key={item.slug}>
-              <ToolkitFileCard item={item} path={toolkitPath([...slugs, item.slug])} />
-            </li>
-          ))}
-        </CardSection>
-      )}
-    </>
-  );
+function FileCards({ items, slugs }: { items: readonly ToolkitItem[]; slugs: readonly string[] }) {
+  return items.map((item) => (
+    <li key={item.slug}>
+      <ToolkitFileCard item={item} path={toolkitPath([...slugs, item.slug])} />
+    </li>
+  ));
 }
 
 function ToolkitHome({ data }: { data: PageData<'home'> }) {
+  const { toolkit, startHere } = data;
+
   return (
     <Stack gap={6}>
       <TitleBand>
         <Stack gap={4}>
-          <PageHeading>{data.toolkit.title}</PageHeading>
+          <PageHeading>{toolkit.title}</PageHeading>
           <p>
             These resources help make workplaces, meetings, and the web more accessible and
             inclusive, covering accessibility and neurodiversity.
@@ -78,7 +69,32 @@ function ToolkitHome({ data }: { data: PageData<'home'> }) {
         </Stack>
       </TitleBand>
       <ToolkitSearch entries={data.search} />
-      <ToolkitContents folder={data.toolkit} slugs={[]} />
+      {toolkit.folders.length === 0 && toolkit.items.length === 0 && (
+        <p>Resources are coming here soon.</p>
+      )}
+      {startHere.length > 0 && (
+        <CardSection title="Start here" intro="Good places to begin, whatever your role.">
+          {startHere.map(({ item, path }) => (
+            <li key={path}>
+              <ToolkitFileCard item={item} path={path} />
+            </li>
+          ))}
+        </CardSection>
+      )}
+      {toolkit.folders.length > 0 && (
+        <CardSection title="Browse the toolkit" wide>
+          {toolkit.folders.map((section) => (
+            <li key={section.slug}>
+              <ToolkitSectionCard section={section} path={toolkitPath([section.slug])} />
+            </li>
+          ))}
+        </CardSection>
+      )}
+      {toolkit.items.length > 0 && (
+        <CardSection title="Templates and checklists" intro="Ready to use, for any team.">
+          <FileCards items={toolkit.items} slugs={[]} />
+        </CardSection>
+      )}
     </Stack>
   );
 }
@@ -118,7 +134,9 @@ function ToolkitFolderPage({ data }: { data: PageData<'folder'> }) {
       {isSection ? (
         <ToolkitSectionContents section={data.folder} slugs={data.slugs} />
       ) : (
-        <ToolkitContents folder={data.folder} slugs={data.slugs} />
+        <CardSection title="Resources">
+          <FileCards items={data.folder.items} slugs={data.slugs} />
+        </CardSection>
       )}
     </Stack>
   );

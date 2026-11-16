@@ -7,7 +7,17 @@ import {
   downloadName,
   fileType,
 } from '../../content/toolkit';
-import { audienceNames, topicNames } from '../../content/tags';
+import {
+  NO_FILTERS,
+  type ResourceFilters,
+  type SectionResource,
+  filteredPath,
+  matchesFilters,
+  sectionResources,
+  typeName,
+  usedTags,
+} from '../../content/toolkitFilters';
+import { AUDIENCES, TOPICS, audienceNames, topicNames } from '../../content/tags';
 import { cx } from '../../utils/cx';
 import { Abbr } from '../Abbr';
 import { Card } from '../Card';
@@ -123,23 +133,110 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
   );
 }
 
-interface FolderCardProps {
-  folder: ToolkitFolder;
+/** What each kind of resource is, by its folder's slug */
+const TYPE_SUMMARIES: Partial<Record<string, string>> = {
+  highlights: 'each covers one topic, with a full guide and slides.',
+  infographics: 'each is one page about a condition.',
+};
+
+/** Such as "1 infographic" or "2 infographics" */
+function kindName(type: string, count: number): string {
+  const name = type.toLowerCase();
+  return count === 1 ? name.replace(/s$/, '') : name;
+}
+
+interface BrowseLink {
+  label: string;
+  filters: Partial<ResourceFilters>;
+}
+
+interface BrowseListProps {
+  summary: string;
+  sectionTitle: string;
+  path: string;
+  resources: readonly SectionResource[];
+  links: readonly BrowseLink[];
+}
+
+/** Links to a section's list with one box ticked. Hidden without JavaScript, like the filters */
+function BrowseList({ summary, sectionTitle, path, resources, links }: BrowseListProps) {
+  return (
+    <details className={styles.disclosure}>
+      <summary className={styles.disclosureSummary}>{summary}</summary>
+      {/* Safari drops the list role without bullets */}
+      <ul role="list" className={styles.browseLinks}>
+        {links.map(({ label, filters }) => {
+          const count = resources.filter((resource) =>
+            matchesFilters(resource, { ...NO_FILTERS, ...filters }),
+          ).length;
+
+          return (
+            <li key={label}>
+              <Link to={filteredPath(path, filters)}>
+                {label} ({count}){/* Both sections have links with these names (WCAG 2.4.9) */}
+                <ScreenReaderOnly>, {sectionTitle}</ScreenReaderOnly>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </details>
+  );
+}
+
+interface SectionCardProps {
+  section: ToolkitFolder;
   path: string;
 }
 
-/** The whole card is clickable, but it stays one link and one Tab stop (see .cardLink) */
-export function ToolkitFolderCard({ folder, path }: FolderCardProps) {
+/** A section on the home page, with how many of each kind of resource it has, and ways in */
+export function ToolkitSectionCard({ section, path }: SectionCardProps) {
+  const { resources } = sectionResources(section, [section.slug]);
+  const tags = usedTags(resources);
+
   return (
-    <Card as="article" className={styles.linkCard}>
-      <Stack gap={2}>
-        <Heading level={3}>{folder.title}</Heading>
-        <p>{folder.description}</p>
+    <Card as="article">
+      <Stack gap={4}>
+        <Heading level={3}>{section.title}</Heading>
+        <p>{section.description}</p>
+        <ul className={styles.kinds}>
+          {section.folders.map((folder) => {
+            const count = resources.filter(({ type }) => type.slug === folder.slug).length;
+            return (
+              <li key={folder.slug}>
+                <strong>
+                  {count} {kindName(typeName(section, folder), count)}:
+                </strong>{' '}
+                {TYPE_SUMMARIES[folder.slug] ?? folder.description}
+              </li>
+            );
+          })}
+        </ul>
         <p className={styles.standalone}>
-          <Link to={path} className={styles.cardLink}>
-            Open the {folder.title} folder
+          <Link to={path}>
+            Browse all {resources.length} {section.title.toLowerCase()} resources
           </Link>
         </p>
+        <BrowseList
+          summary="Browse by topic"
+          sectionTitle={section.title}
+          path={path}
+          resources={resources}
+          links={tags.topics.map((topic) => ({
+            label: TOPICS[topic],
+            filters: { topics: [topic] },
+          }))}
+        />
+        <BrowseList
+          summary="Browse by who it’s for"
+          sectionTitle={section.title}
+          path={path}
+          resources={resources}
+          links={tags.audiences.map((audience) => ({
+            label: AUDIENCES[audience],
+            filters: { audiences: [audience] },
+          }))}
+        />
       </Stack>
     </Card>
   );

@@ -20,6 +20,10 @@
   }
 }
 
+.wideCards {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(var(--spacer-96) * 4.5)), 1fr));
+}
+
 .meta {
   color: var(--color-text-muted);
 }
@@ -117,18 +121,18 @@
   margin: 0;
 }
 
-.filters {
+.disclosure {
   padding: var(--spacer-8) var(--spacer-16);
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-medium);
 }
 
-/* Filters need JavaScript, so without it they're hidden and every resource shows */
-:global(:root:not([data-js])) .filters {
+/* The filters need JavaScript, so without it these are hidden and every resource shows */
+:global(:root:not([data-js])) .disclosure {
   display: none;
 }
 
-.filtersSummary {
+.disclosureSummary {
   align-content: center;
   min-height: var(--size-target-min);
   font-weight: var(--font-weight-emphasis);
@@ -179,4 +183,24 @@
 
 .filterStatus {
   margin: 0;
+}
+
+.kinds {
+  padding-inline-start: var(--spacer-24);
+  margin: 0;
+}
+
+.browseLinks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, calc(var(--spacer-96) * 2)), 1fr));
+  gap: 0 var(--spacer-24);
+  padding: var(--spacer-8) 0;
+  margin: 0;
+
+  /* Not in a sentence, so each needs a full size target (WCAG 2.5.5) */
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--size-target-min);
+  }
 }

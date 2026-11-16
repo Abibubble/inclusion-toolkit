@@ -11,6 +11,7 @@ import {
   filtersSearch,
   matchesFilters,
   readFilters,
+  typeName,
   usedTags,
 } from '../../content/toolkitFilters';
 import { Button } from '../Button';
@@ -90,9 +91,7 @@ export function ToolkitFilters({ section, resources }: ToolkitFiltersProps) {
   const hydrated = useHydrated();
   const types = section.folders.map((folder) => ({
     value: folder.slug,
-    label: folder.title.startsWith(`${section.title} `)
-      ? folder.title.slice(section.title.length + 1)
-      : folder.title,
+    label: typeName(section, folder),
   }));
   const [filters, setFilters] = useState(() =>
     readFilters(
@@ -126,8 +125,8 @@ export function ToolkitFilters({ section, resources }: ToolkitFiltersProps) {
         All resources
       </Heading>
       {/* Open if the address has filters in it */}
-      <details open={hydrated && openAtFirst} className={styles.filters}>
-        <summary className={styles.filtersSummary}>
+      <details open={hydrated && openAtFirst} className={styles.disclosure}>
+        <summary className={styles.disclosureSummary}>
           Filter by type, topic, or who it’s for
           {ticked > 0 && ` (${String(ticked)} ticked)`}
         </summary>

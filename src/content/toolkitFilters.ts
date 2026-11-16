@@ -19,6 +19,17 @@ export const NO_FILTERS: ResourceFilters = { types: [], topics: [], audiences: [
 /** The names in the address, such as ?topic=design&for=designers */
 const PARAMS = { types: 'type', topics: 'topic', audiences: 'for' } as const;
 
+/** A folder's title without its section's, such as Highlights for Accessibility Highlights */
+export function typeName(section: ToolkitFolder, folder: ToolkitFolder): string {
+  const prefix = `${section.title} `;
+  return folder.title.startsWith(prefix) ? folder.title.slice(prefix.length) : folder.title;
+}
+
+/** The address of a section's list with some boxes ticked, such as /accessibility?topic=design */
+export function filteredPath(path: string, filters: Partial<ResourceFilters>): string {
+  return `${path}${filtersSearch({ ...NO_FILTERS, ...filters })}`;
+}
+
 /**
  * Every resource in a section's folders, in one list by title. The all-in-one resources are kept
  * apart, as they cover everything in their folder

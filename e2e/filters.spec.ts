@@ -53,6 +53,19 @@ test.describe('Filtering a section’s resources', () => {
     await expect(resources(page)).toHaveCount(total);
   });
 
+  test('opens from the home page with a topic ticked', async ({ page }) => {
+    await page.goto('/');
+    await page.getByText('Browse by topic').first().click();
+    const design = page.getByRole('link', { name: /^Design \(\d+\) ?, Accessibility$/ });
+    const count = Number(/\((\d+)\)/.exec((await design.textContent()) ?? '')?.[1]);
+
+    await design.click();
+
+    await expect(page).toHaveURL('/accessibility?topic=design');
+    await expect(page.getByRole('checkbox', { name: 'Design', exact: true })).toBeChecked();
+    await expect(resources(page)).toHaveCount(count);
+  });
+
   test('has no detectable accessibility issues with the filters open and ticked', async ({
     page,
   }) => {

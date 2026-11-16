@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import type { ToolkitFolder, ToolkitItem } from '../../content/toolkit';
+import type { ToolkitPageData } from '../../content/toolkitPage';
 import { type ToolkitSearchEntry, searchToolkit } from '../../content/toolkitSearch';
 import { expectNoAxeViolations } from '../../test/axe';
 import { renderWithRouter } from '../../test/render';
@@ -93,6 +94,15 @@ const SECTION: ToolkitFolder = {
   ],
 };
 
+const CHECKLIST: ToolkitItem = {
+  ...ITEM,
+  slug: 'meeting-checklist',
+  title: 'Meeting checklist',
+  description: 'A checklist for meetings.',
+  topics: ['meetings'],
+  audiences: ['everyone'],
+};
+
 function renderSection(path = '/neurodiversity') {
   window.history.replaceState(null, '', path);
   return renderWithRouter(
@@ -138,30 +148,78 @@ const SEARCH: ToolkitSearchEntry[] = [
   },
 ];
 
+const HOME: ToolkitPageData = {
+  kind: 'home',
+  toolkit: { ...TOOLKIT, folders: [SECTION], items: [CHECKLIST] },
+  startHere: [
+    { item: CHECKLIST, path: '/meeting-checklist' },
+    { item: ITEM, path: '/neurodiversity/highlights/dark-mode' },
+  ],
+  search: SEARCH,
+};
+
 const TRAIL = [
   { title: 'Home', path: '/' },
   { title: 'Highlights', path: '/highlights' },
 ];
 
 describe('ToolkitPage', () => {
-  it('shows the main page with search, folders, and a link into each folder', () => {
-    renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search: SEARCH }} />);
+  it('shows the main page with search, where to start, each section, and the templates', () => {
+    renderWithRouter(<ToolkitPage data={HOME} />);
 
     expect(
       screen.getByRole('heading', { level: 1, name: 'Inclusion Toolkit' }),
     ).toBeInTheDocument();
     expect(screen.getByRole('searchbox', { name: 'Search resources' })).toBeInTheDocument();
-    const folders = within(screen.getByRole('region', { name: 'Folders' }));
-    expect(folders.getByRole('heading', { level: 3, name: 'Highlights' })).toBeInTheDocument();
-    expect(folders.getByRole('link', { name: 'Open the Highlights folder' })).toHaveAttribute(
+    expect(
+      within(screen.getByRole('region', { name: 'Start here' }))
+        .getAllByRole('link')
+        .map((link) => link.getAttribute('href')),
+    ).toEqual(['/meeting-checklist', '/neurodiversity/highlights/dark-mode']);
+    expect(
+      within(screen.getByRole('region', { name: 'Templates and checklists' })).getByRole('link', {
+        name: 'Meeting checklist',
+      }),
+    ).toHaveAttribute('href', '/meeting-checklist');
+  });
+
+  it('says how many of each kind of resource a section has, and what each kind is', () => {
+    renderWithRouter(<ToolkitPage data={HOME} />);
+
+    const section = within(screen.getByRole('region', { name: 'Browse the toolkit' }));
+    expect(section.getByRole('heading', { level: 3, name: 'Neurodiversity' })).toBeInTheDocument();
+    expect(section.getAllByRole('listitem').map((item) => item.textContent)).toEqual(
+      expect.arrayContaining([
+        '2 highlights: each covers one topic, with a full guide and slides.',
+        '1 infographic: each is one page about a condition.',
+      ]),
+    );
+    expect(
+      section.getByRole('link', { name: 'Browse all 3 neurodiversity resources' }),
+    ).toHaveAttribute('href', '/neurodiversity');
+  });
+
+  it('links to each section’s list for a topic or who it’s for, naming the section (WCAG 2.4.9)', async () => {
+    const user = userEvent.setup();
+    renderWithRouter(<ToolkitPage data={HOME} />);
+
+    await user.click(screen.getByText('Browse by topic'));
+    expect(
+      screen.getByRole('link', { name: 'Neurodivergent conditions (2), Neurodiversity' }),
+    ).toHaveAttribute('href', '/neurodiversity?topic=neurodivergent-conditions');
+
+    await user.click(screen.getByText('Browse by who it’s for'));
+    expect(screen.getByRole('link', { name: 'Designers (1), Neurodiversity' })).toHaveAttribute(
       'href',
-      '/highlights',
+      '/neurodiversity?for=designers',
     );
   });
 
   it('says resources are coming when there are none yet', () => {
     renderWithRouter(
-      <ToolkitPage data={{ kind: 'home', toolkit: { ...TOOLKIT, folders: [] }, search: [] }} />,
+      <ToolkitPage
+        data={{ ...HOME, toolkit: { ...TOOLKIT, folders: [], items: [] }, startHere: [] }}
+      />,
     );
 
     expect(screen.getByText('Resources are coming here soon.')).toBeInTheDocument();
@@ -169,7 +227,7 @@ describe('ToolkitPage', () => {
 
   it('asks for at least 2 characters before searching', async () => {
     const user = userEvent.setup();
-    renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search: SEARCH }} />);
+    renderWithRouter(<ToolkitPage data={HOME} />);
 
     await user.type(screen.getByRole('searchbox', { name: 'Search resources' }), 'h');
 
@@ -179,7 +237,7 @@ describe('ToolkitPage', () => {
 
   it('shows results as you type, says how many there are, and can be cleared', async () => {
     const user = userEvent.setup();
-    renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search: SEARCH }} />);
+    renderWithRouter(<ToolkitPage data={HOME} />);
     const searchbox = screen.getByRole('searchbox', { name: 'Search resources' });
 
     await user.type(searchbox, 'head');
@@ -206,7 +264,7 @@ describe('ToolkitPage', () => {
     );
     vi.stubGlobal('fetch', fetchIndex);
     const user = userEvent.setup();
-    renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search: SEARCH }} />);
+    renderWithRouter(<ToolkitPage data={HOME} />);
 
     expect(fetchIndex).not.toHaveBeenCalled();
     await user.type(screen.getByRole('searchbox'), 'ADHD');
@@ -218,7 +276,7 @@ describe('ToolkitPage', () => {
 
   it('says when the words searched for are too common to search for', async () => {
     const user = userEvent.setup();
-    renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search: SEARCH }} />);
+    renderWithRouter(<ToolkitPage data={HOME} />);
 
     await user.type(screen.getByRole('searchbox'), 'the');
 
@@ -229,7 +287,7 @@ describe('ToolkitPage', () => {
 
   it('marks folders in the results, so they can be told apart from resources', async () => {
     const user = userEvent.setup();
-    renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search: SEARCH }} />);
+    renderWithRouter(<ToolkitPage data={HOME} />);
 
     await user.type(screen.getByRole('searchbox'), 'highlights');
 
@@ -254,7 +312,7 @@ describe('ToolkitPage', () => {
         folder: 'Neurodiversity Highlights',
       },
     ];
-    renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search }} />);
+    renderWithRouter(<ToolkitPage data={{ ...HOME, search }} />);
 
     await user.type(screen.getByRole('searchbox'), 'meetings');
 
@@ -305,7 +363,7 @@ describe('ToolkitPage', () => {
     expect(breadcrumbs.getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/');
     expect(breadcrumbs.getByText('Highlights')).toHaveAttribute('aria-current', 'page');
 
-    const files = within(screen.getByRole('region', { name: 'Files' }));
+    const files = within(screen.getByRole('region', { name: 'Resources' }));
     expect(files.getByRole('link', { name: 'Dark mode' })).toHaveAttribute(
       'href',
       '/highlights/dark-mode',
@@ -512,7 +570,7 @@ describe('ToolkitPage', () => {
 
   it('has no detectable accessibility issues on any kind of page', async () => {
     const pages = [
-      renderWithRouter(<ToolkitPage data={{ kind: 'home', toolkit: TOOLKIT, search: SEARCH }} />),
+      renderWithRouter(<ToolkitPage data={HOME} />),
       renderWithRouter(
         <ToolkitPage
           data={{ kind: 'folder', folder: HIGHLIGHTS, slugs: ['highlights'], trail: TRAIL }}

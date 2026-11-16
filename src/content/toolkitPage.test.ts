@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import type { ToolkitFolder } from './toolkit';
-import { formatFileSize, loadToolkitPage } from './toolkitPage';
+import { TOOLKIT as TOOLKIT_SITE, type ToolkitFolder } from './toolkit';
+import { START_HERE, formatFileSize, loadToolkitPage, toolkitLinks } from './toolkitPage';
 
 const TOOLKIT: ToolkitFolder = {
   slug: '',
@@ -62,11 +62,25 @@ function thrownStatus(load: () => unknown): number | undefined {
   return undefined;
 }
 
+describe('START_HERE', () => {
+  it('only has ready resources, each once', () => {
+    expect(toolkitLinks(START_HERE, TOOLKIT_SITE).map(({ path }) => path.slice(1))).toEqual(
+      START_HERE,
+    );
+    expect(new Set(START_HERE).size).toBe(START_HERE.length);
+  });
+
+  it('leaves out addresses that aren’t ready resources', () => {
+    expect(toolkitLinks(['highlights', 'highlights/missing'], TOOLKIT)).toEqual([]);
+  });
+});
+
 describe('loadToolkitPage', () => {
   it('gives the main page, with every folder and resource to search', () => {
     expect(loadToolkitPage([], TOOLKIT, TEXTS, sizeOf)).toEqual({
       kind: 'home',
       toolkit: WITH_SIZES,
+      startHere: [],
       search: [
         {
           kind: 'folder',
