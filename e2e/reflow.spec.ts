@@ -1,6 +1,7 @@
 import { expect, test } from './support/test';
 
 import { TEXT_SPACING_CSS, expectNoHorizontalScroll } from './support/layout';
+import { menuButton } from './support/locators';
 import { ROUTES } from './support/routes';
 import { STRONGEST_SETTINGS, WIDE_SYSTEM_FONT, saveDisplaySettings } from './support/settings';
 
@@ -79,7 +80,7 @@ for (const route of ROUTES) {
       await page.setViewportSize({ width: 320, height: 640 });
       await page.goto(route.path);
       await page.addStyleTag(WIDE_SYSTEM_FONT);
-      await page.getByRole('button', { name: 'Menu' }).click();
+      await menuButton(page).click();
 
       await expectNoHorizontalScroll(page);
     });

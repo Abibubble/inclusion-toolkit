@@ -6,12 +6,12 @@ const DATA_BLOCK = /\btype="application\/(?:ld\+)?json"/;
 export function inlineScriptHashes(html: string): string[] {
   const hashes = [...html.matchAll(INLINE_SCRIPT)]
     .filter((match) => !DATA_BLOCK.test(match.groups?.attributes ?? ''))
-    .map((match) =>
-      createHash('sha256')
+    .map((match) => {
+      const hash = createHash('sha256')
         .update(match.groups?.body ?? '')
-        .digest('base64'),
-    )
-    .map((hash) => `'sha256-${hash}'`);
+        .digest('base64');
+      return `'sha256-${hash}'`;
+    });
   return [...new Set(hashes)];
 }
 

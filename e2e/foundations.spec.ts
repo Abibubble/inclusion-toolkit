@@ -1,11 +1,11 @@
 import { type Page, expect, test } from './support/test';
 
-const LIGHT_BACKGROUND = 'rgb(239, 245, 251)';
-const DARK_BACKGROUND = 'rgb(11, 20, 34)';
-const CREAM_BACKGROUND = 'rgb(251, 245, 230)';
-
-const bodyBackground = (page: Page) =>
-  page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+import {
+  CREAM_BACKGROUND,
+  DARK_BACKGROUND,
+  LIGHT_BACKGROUND,
+  bodyBackground,
+} from './support/settings';
 
 const setTheme = (page: Page, theme: string) =>
   page.evaluate((value) => {

@@ -21,6 +21,7 @@ import zipfile
 import zlib
 import xml.etree.ElementTree as ET
 from base64 import b64encode
+from collections.abc import Callable
 from datetime import date
 from html import escape, unescape
 from pathlib import Path
@@ -36,18 +37,7 @@ PUBLIC = REPO / 'public'
 FILES = 'files'
 RECORD = REPO / 'src' / 'content' / 'toolkit.json'
 
-
-def site_path(relative: Path) -> Path:
-    """
-    Sources are grouped by format first, such as highlights/accessibility/dark-mode, but the site
-    by topic first, such as accessibility/highlights/dark-mode
-    """
-    parts = relative.parts
-    if parts[0] in ('highlights', 'infographics') and len(parts) > 2:
-        return Path(parts[1], parts[0], *parts[2:])
-    return relative
-
-NAME = 'Abi Harrison-Nye'
+NAME ='Abi Harrison-Nye'
 # The slides' version of each resource, and what's added to its files' names
 SUMMARY = 'visual summary'
 SUMMARY_SUFFIX = '-visual-summary'
@@ -63,6 +53,17 @@ A = 'http://schemas.openxmlformats.org/drawingml/2006/main'
 WP = 'http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing'
 DC = 'http://purl.org/dc/elements/1.1/'
 REL = 'http://schemas.openxmlformats.org/package/2006/relationships'
+
+
+def site_path(relative: Path) -> Path:
+    """
+    Sources are grouped by format first, such as highlights/accessibility/dark-mode, but the site
+    by topic first, such as accessibility/highlights/dark-mode
+    """
+    parts = relative.parts
+    if parts[0] in ('highlights', 'infographics') and len(parts) > 2:
+        return Path(parts[1], parts[0], *parts[2:])
+    return relative
 
 
 def w(tag: str) -> str:
@@ -92,8 +93,6 @@ class Docx:
         }
         core = ET.fromstring(self.parts['docProps/core.xml'])
         self.title = core.findtext(f'{{{DC}}}title')
-        footer = self.parts.get('word/footer1.xml', b'').decode('utf-8')
-        self.footer_has_site = SITE_DISPLAY in footer
 
     def list_format(self, num_id: str, level: int) -> tuple[str, str, int]:
         """A list level's format, such as bullet or decimal, with its bullet and start number"""
@@ -429,16 +428,15 @@ def style_attr(css: str) -> str:
 SIDE_MARGIN = '1.45in'
 
 
-def footer_template(site_link: bool) -> str:
+def footer_template() -> str:
     """
     Like the Word file's footer. The browser can't make links in footers, so the address is in the
     footer's colour, not the link colour
     """
-    site = f' · {SITE_DISPLAY}' if site_link else ''
     return (
         f'<div style="width: 100%; margin: 0 {SIDE_MARGIN} 0.45in; display: flex; justify-content: space-between; '
         f"font-family: '{FONT}', sans-serif; font-size: 10pt; color: {FOOTER};\">"
-        f'<span>Inclusion Toolkit{site}</span>'
+        f'<span>Inclusion Toolkit · {SITE_DISPLAY}</span>'
         '<span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span></div>'
     )
 
@@ -730,11 +728,14 @@ def body_css(shape) -> dict[str, str]:
     return css
 
 
+def is_decorative(props) -> bool:
+    return any(e.get('val') == '1' for e in props.iter(DECORATIVE))
+
+
 def picture_html(picture, context: SlideContext) -> str:
     """A picture, with its alt text, or marked as decorative so screen readers skip it"""
     props = picture.find(f'.//{p("cNvPr")}')
-    decorative = any(e.get('val') == '1' for e in props.iter(DECORATIVE))
-    alt = '' if decorative else props.get('descr', '')
+    alt = '' if is_decorative(props) else props.get('descr', '')
     blip = picture.find(f'.//{a("blip")}')
     part = context.rels[blip.get(f'{{{R}}}embed')]
     data = b64encode(context.pptx.zip.read(part)).decode('ascii')
@@ -753,7 +754,7 @@ def picture_html(picture, context: SlideContext) -> str:
 
 def has_alt_text(picture) -> bool:
     props = picture.find(f'.//{p("cNvPr")}')
-    return not any(e.get('val') == '1' for e in props.iter(DECORATIVE)) and bool(props.get('descr'))
+    return not is_decorative(props) and bool(props.get('descr'))
 
 
 def shapes_html(shapes, context: SlideContext, title_level: int) -> tuple[str, str]:
@@ -1232,8 +1233,7 @@ def finish_pdf(path: Path, title: str, html: str = '') -> None:
 
 
 def escape_markdown(text: str) -> str:
-    text = re.sub(r'([\\`*_\[\]<>])', r'\\\1', text)
-    return text
+    return re.sub(r'([\\`*_\[\]<>])', r'\\\1', text)
 
 
 def inline_markdown(block_runs: list[dict]) -> str:
@@ -1351,6 +1351,20 @@ def same_content(new: Path, old: Path) -> bool:
     return new.read_bytes() == old.read_bytes()
 
 
+def copy_if_changed(source: Path, public: Path) -> None:
+    public.parent.mkdir(parents=True, exist_ok=True)
+    if not same_content(source, public):
+        shutil.copyfile(source, public)
+
+
+def draft_text(text_file: Path, make_text: Callable[[], str]) -> None:
+    if text_file.exists():
+        return
+    text_file.parent.mkdir(parents=True, exist_ok=True)
+    text_file.write_text(make_text(), encoding='utf-8')
+    print(f'Drafted {text_file.relative_to(REPO)}')
+
+
 def main() -> None:
     sources = sorted(BRANDED.glob('**/*.docx'))
     if not sources:
@@ -1371,7 +1385,7 @@ def main() -> None:
             {
                 'html': str(html_path),
                 'pdf': str(source.with_suffix('.pdf')),
-                'footer': footer_template(docx.footer_has_site),
+                'footer': footer_template(),
                 'sideMargin': SIDE_MARGIN,
             }
         )
@@ -1418,17 +1432,10 @@ def main() -> None:
         }
         files = {source: name for source, name in files.items() if source.exists()}
         for file, name in files.items():
-            public = PUBLIC / FILES / name
-            public.parent.mkdir(parents=True, exist_ok=True)
-            if not same_content(file, public):
-                shutil.copyfile(file, public)
+            copy_if_changed(file, PUBLIC / FILES / name)
         slides = BRANDED / relative.with_suffix('.pptx') in files
 
-        text_file = TEXT / site.with_suffix('.md')
-        if not text_file.exists():
-            text_file.parent.mkdir(parents=True, exist_ok=True)
-            text_file.write_text(document_markdown(docx, docx.title), encoding='utf-8')
-            print(f'Drafted {text_file.relative_to(REPO)}')
+        draft_text(TEXT / site.with_suffix('.md'), lambda: document_markdown(docx, docx.title))
 
         folder = find_folder(record, folders)
         item = next((i for i in folder['items'] if i['slug'] == slug), None)
@@ -1454,16 +1461,9 @@ def main() -> None:
         site = site_path(relative)
         *folders, slug = site.parts
         for suffix in ('.pptx', '.pdf'):
-            public = PUBLIC / FILES / site.with_suffix(suffix)
-            public.parent.mkdir(parents=True, exist_ok=True)
-            if not same_content(source.with_suffix(suffix), public):
-                shutil.copyfile(source.with_suffix(suffix), public)
+            copy_if_changed(source.with_suffix(suffix), PUBLIC / FILES / site.with_suffix(suffix))
 
-        text_file = TEXT / site.with_suffix('.md')
-        if not text_file.exists():
-            text_file.parent.mkdir(parents=True, exist_ok=True)
-            text_file.write_text(infographic_markdown(source), encoding='utf-8')
-            print(f'Drafted {text_file.relative_to(REPO)}')
+        draft_text(TEXT / site.with_suffix('.md'), lambda: infographic_markdown(source))
 
         folder = find_folder(record, folders)
         item = next((i for i in folder['items'] if i['slug'] == slug), None)

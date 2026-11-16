@@ -9,7 +9,7 @@ import {
 } from '../../content/toolkit';
 import { Abbr } from '../Abbr';
 import { Card } from '../Card';
-import { type HeadingLevel, Heading } from '../Heading';
+import { Heading } from '../Heading';
 import { Link } from '../Link';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
 import { Stack } from '../Stack';
@@ -23,23 +23,17 @@ const { BASE_URL } = import.meta.env;
  * (WCAG 2.4.9), after the visible words so speech control users can say what they see (WCAG 2.5.3)
  */
 export function ToolkitFileLinks({ item }: { item: ToolkitItem }) {
-  const [only] = item.versions;
-
-  if (item.versions.length === 1 && only) {
-    return (
-      <div className={styles.versions}>
-        <Card className={styles.versionCard}>
-          <ToolkitVersionFiles title={item.title} version={only} />
-        </Card>
-      </div>
-    );
-  }
+  const named = item.versions.length > 1;
 
   return (
     <div className={styles.versions}>
       {item.versions.map((version) => (
         <Card key={version.name} className={styles.versionCard}>
-          <ToolkitVersionSection title={item.title} version={version} />
+          {named ? (
+            <ToolkitVersionSection title={item.title} version={version} />
+          ) : (
+            <ToolkitVersionFiles title={item.title} version={version} />
+          )}
         </Card>
       ))}
     </div>
@@ -95,6 +89,7 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
     <ul role="list" className={styles.files}>
       {version.files.map((file) => {
         const type = fileType(file) ?? 'File';
+        const href = `${BASE_URL}${file.path}`;
 
         // Plain text, not flex, so the spaces stay when copied or in reader view
         return (
@@ -107,13 +102,13 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
             {type === 'PDF' && (
               <>
                 {/* Same tab, so Back returns here (WCAG 3.2.5) */}
-                <a href={`${BASE_URL}${file.path}`}>
+                <a href={href}>
                   View<ScreenReaderOnly>: {about}, PDF</ScreenReaderOnly>
                 </a>{' '}
                 or{' '}
               </>
             )}
-            <a href={`${BASE_URL}${file.path}`} download={downloadName(file.path)}>
+            <a href={href} download={downloadName(file.path)}>
               Download
               {/* The size is already read just before the link */}
               <ScreenReaderOnly>
@@ -130,15 +125,14 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
 interface FolderCardProps {
   folder: ToolkitFolder;
   path: string;
-  headingLevel: HeadingLevel;
 }
 
 /** The whole card is clickable, but it stays one link and one Tab stop (see .cardLink) */
-export function ToolkitFolderCard({ folder, path, headingLevel }: FolderCardProps) {
+export function ToolkitFolderCard({ folder, path }: FolderCardProps) {
   return (
     <Card as="article" className={styles.linkCard}>
       <Stack gap={2}>
-        <Heading level={headingLevel}>{folder.title}</Heading>
+        <Heading level={3}>{folder.title}</Heading>
         <p>{folder.description}</p>
         <p className={styles.standalone}>
           <Link to={path} className={styles.cardLink}>
@@ -153,15 +147,14 @@ export function ToolkitFolderCard({ folder, path, headingLevel }: FolderCardProp
 interface FileCardProps {
   item: ToolkitItem;
   path: string;
-  headingLevel: HeadingLevel;
 }
 
 /** Its files are on its own page, so the cards stay short */
-export function ToolkitFileCard({ item, path, headingLevel }: FileCardProps) {
+export function ToolkitFileCard({ item, path }: FileCardProps) {
   return (
     <Card as="article" className={styles.linkCard}>
       <Stack gap={2}>
-        <Heading level={headingLevel} className={styles.title}>
+        <Heading level={3} className={styles.title}>
           <Link to={path} className={styles.cardLink}>
             {item.title}
           </Link>

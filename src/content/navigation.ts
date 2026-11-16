@@ -6,12 +6,6 @@ interface NavItem {
 /** The page that credits where the toolkit came from, as its licence asks */
 export const ABOUT_PATH = '/about';
 
-export const MAIN_NAV: NavItem[] = [
-  { label: 'Home', to: '/' },
-  { label: 'Accessibility', to: '/accessibility' },
-  { label: 'Neurodiversity', to: '/neurodiversity' },
-];
-
 export const DISPLAY_SETTINGS_PATH = '/display-settings';
 
 /** The page explaining technical words used on the site, in plain words (WCAG 3.1.3) */
@@ -21,6 +15,12 @@ export const GLOSSARY_PATH = '/glossary';
 export const ACCESSIBILITY_PATH = '/accessibility-statement';
 
 export const PRIVACY_PATH = '/privacy';
+
+export const MAIN_NAV: NavItem[] = [
+  { label: 'Home', to: '/' },
+  { label: 'Accessibility', to: '/accessibility' },
+  { label: 'Neurodiversity', to: '/neurodiversity' },
+];
 
 export const FOOTER_NAV: NavItem[] = [
   { label: 'About', to: ABOUT_PATH },

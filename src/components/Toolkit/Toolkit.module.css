@@ -100,62 +100,6 @@
   list-style: none;
 }
 
-.search {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacer-8);
-  max-width: var(--size-measure);
-}
-
-/* Search needs JavaScript, so without it only the folders show, which lead to everything */
-:global(:root:not([data-js])) .search {
-  display: none;
-}
-
-.label {
-  font-weight: var(--font-weight-emphasis);
-  letter-spacing: var(--letter-spacing-emphasis);
-}
-
-.searchRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacer-8) var(--spacer-16);
-  align-items: center;
-}
-
-.input {
-  flex: 1 1 var(--size-input-max);
-  width: 100%;
-  max-width: var(--size-input-max);
-  min-height: var(--size-target-min);
-  padding: var(--spacer-8) var(--spacer-16);
-  color: var(--color-text);
-  background: var(--color-bg);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius-small);
-
-  /* The Clear search button does this, so the browser's own small cross would be a second way */
-  &::-webkit-search-cancel-button {
-    appearance: none;
-  }
-}
-
-.status {
-  margin: 0;
-
-  /* Hidden only visually while empty, so screen readers already know it's there and announce the
-     first message put in it (WCAG 4.1.3) */
-  &:empty {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-}
-
 .results {
   display: flex;
   flex-direction: column;

@@ -34,6 +34,43 @@ async function moveInto(from: string, to: string): Promise<void> {
   }
 }
 
+/** Pages prerender under the base path, but GitHub Pages already serves the build from there */
+async function moveOutOfBasePath(client: string): Promise<void> {
+  const [baseFolder, ...rest] = BASE_PATH.split('/').filter(Boolean);
+  if (!baseFolder) return;
+  await moveInto(join(client, baseFolder, ...rest), client);
+  await rm(join(client, baseFolder), { recursive: true });
+}
+
+async function removeUnpublishedFiles(client: string): Promise<void> {
+  await Promise.all(
+    unpublishedToolkitFiles().map((path) => rm(join(client, path), { force: true })),
+  );
+}
+
+/** Static hosts, including GitHub Pages, serve 404.html with a 404 status for unknown addresses */
+async function moveNotFoundPage(client: string): Promise<void> {
+  await rename(join(client, NOT_FOUND_PATH, 'index.html'), join(client, '404.html'));
+  await rmdir(join(client, NOT_FOUND_PATH));
+}
+
+async function writeSeoFiles(client: string, htmlFiles: readonly string[]): Promise<void> {
+  await writeFile(join(client, 'sitemap.xml'), sitemapXml(SITE_URL, pagePaths(htmlFiles)));
+  await writeFile(join(client, 'robots.txt'), robotsTxt(SITE_URL));
+}
+
+/** GitHub Pages can't send headers, so each page gets its own policy as a meta tag */
+async function addSecurityPolicies(client: string, htmlFiles: readonly string[]): Promise<void> {
+  await Promise.all(
+    htmlFiles.map(async (file) => {
+      const path = join(client, file);
+      // The policy allows inline scripts by their hash, so it must come after any change to them
+      const html = withoutRepeatedHtml(await readFile(path, 'utf8'));
+      await writeFile(path, withContentSecurityPolicy(html));
+    }),
+  );
+}
+
 export default {
   appDirectory: 'src',
   basename: BASE_PATH,
@@ -42,38 +79,14 @@ export default {
   routeDiscovery: { mode: 'initial' },
   async buildEnd({ reactRouterConfig }) {
     const client = join(reactRouterConfig.buildDirectory, 'client');
-
-    // Pages prerender under the base path, but GitHub Pages already serves the build from there
-    const [baseFolder, ...rest] = BASE_PATH.split('/').filter(Boolean);
-    if (baseFolder) {
-      await moveInto(join(client, baseFolder, ...rest), client);
-      await rm(join(client, baseFolder), { recursive: true });
-    }
-
-    // Everything in public/ is copied into the build, so resources' files only go live once their
-    // text is checked
-    await Promise.all(
-      unpublishedToolkitFiles().map((path) => rm(join(client, path), { force: true })),
-    );
-
-    // Static hosts, including GitHub Pages, serve 404.html with a 404 status for unknown addresses
-    await rename(join(client, NOT_FOUND_PATH, 'index.html'), join(client, '404.html'));
-    await rmdir(join(client, NOT_FOUND_PATH));
+    await moveOutOfBasePath(client);
+    await removeUnpublishedFiles(client);
+    await moveNotFoundPage(client);
 
     const htmlFiles = (await readdir(client, { recursive: true })).filter((file) =>
       file.endsWith('.html'),
     );
-    await writeFile(join(client, 'sitemap.xml'), sitemapXml(SITE_URL, pagePaths(htmlFiles)));
-    await writeFile(join(client, 'robots.txt'), robotsTxt(SITE_URL));
-
-    // GitHub Pages can't send headers, so each page gets its own policy as a meta tag
-    await Promise.all(
-      htmlFiles.map(async (file) => {
-        const path = join(client, file);
-        // The policy allows inline scripts by their hash, so it must come after any change to them
-        const html = withoutRepeatedHtml(await readFile(path, 'utf8'));
-        await writeFile(path, withContentSecurityPolicy(html));
-      }),
-    );
+    await writeSeoFiles(client, htmlFiles);
+    await addSecurityPolicies(client, htmlFiles);
   },
 } satisfies Config;

@@ -199,7 +199,7 @@ export function toolkitTextKey(slugs: readonly string[]): string {
   return slugs.join('/');
 }
 
-interface ToolkitEntry {
+export interface ToolkitEntry {
   kind: 'folder' | 'item';
   slugs: string[];
   title: string;
@@ -212,20 +212,22 @@ interface ToolkitEntry {
 export function toolkitEntries(folder: ToolkitFolder, slugs: string[] = []): ToolkitEntry[] {
   return [
     ...folder.folders.flatMap((child) => [
-      { kind: 'folder' as const, slugs: [...slugs, child.slug], ...describe(child) },
+      {
+        kind: 'folder' as const,
+        slugs: [...slugs, child.slug],
+        title: child.title,
+        description: child.description,
+      },
       ...toolkitEntries(child, [...slugs, child.slug]),
     ]),
     ...folder.items.map((item) => ({
       kind: 'item' as const,
       slugs: [...slugs, item.slug],
-      ...describe(item),
+      title: item.title,
+      description: item.description,
       ...(slugs.length > 0 && { folder: folder.title }),
     })),
   ];
-}
-
-function describe({ title, description }: { title: string; description: string }) {
-  return { title, description };
 }
 
 /** A step in the breadcrumbs, from the toolkit down to the current page */

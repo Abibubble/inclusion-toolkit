@@ -2,7 +2,7 @@ import { fileUrl, pageUrl } from './siteUrl';
 
 export function pagePaths(htmlFiles: readonly string[]): string[] {
   return htmlFiles
-    .map((file) => file.split('\\').join('/'))
+    .map((file) => file.replaceAll('\\', '/'))
     .filter((file) => file === 'index.html' || file.endsWith('/index.html'))
     .map((file) => `/${file.replace(/\/?index\.html$/, '')}`)
     .sort((a, b) => (a === '/' ? -1 : b === '/' ? 1 : a.localeCompare(b)));

@@ -5,10 +5,6 @@
 }
 
 .inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacer-16) var(--spacer-32);
-  align-items: center;
   padding-block: var(--spacer-32);
 }
 

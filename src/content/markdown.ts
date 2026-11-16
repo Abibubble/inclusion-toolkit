@@ -1,6 +1,11 @@
 import { Marked, type RendererObject } from 'marked';
 
-import { ABBREVIATIONS, ALWAYS_SHORT, type Abbreviation } from './abbreviations';
+import {
+  ABBREVIATION_PATTERN,
+  ABBREVIATIONS,
+  ALWAYS_SHORT,
+  type Abbreviation,
+} from './abbreviations';
 import { GLOSSARY, glossaryId } from './glossary';
 import { GLOSSARY_PATH } from './navigation';
 
@@ -34,14 +39,6 @@ export function markLinkOnlyItems(html: string): string {
     '<li class="linkOnly">$1</li>',
   );
 }
-
-const NAMES = (Object.keys(ABBREVIATIONS) as Abbreviation[]).sort((a, b) => b.length - a.length);
-
-// Each abbreviation as a whole word, with an optional plural "s". The same as AbbrText
-const ABBREVIATION = new RegExp(
-  `(?<![A-Za-z])(${NAMES.map((name) => name.replace('/', '\\/')).join('|')})(s?)(?![A-Za-z])`,
-  'g',
-);
 
 const TAG = /(<[^>]+>)/;
 
@@ -119,7 +116,7 @@ export function markAbbreviations(html: string): string {
     if (skipped) return text;
 
     return text.replace(
-      ABBREVIATION,
+      ABBREVIATION_PATTERN,
       (_match: string, name: Abbreviation, ending: string, index: number) => {
         const fullForm = ABBREVIATIONS[name];
         const abbr = `<abbr>${name}${ending}</abbr>`;

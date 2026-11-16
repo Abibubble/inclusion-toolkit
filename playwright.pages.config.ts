@@ -9,12 +9,12 @@ export default defineConfig({
   retries: isCI ? 2 : 0,
   reporter: isCI ? [['github'], ['list']] : [['list']],
   use: {
-    baseURL: `http://localhost:${String(PORT)}`,
+    baseURL: `http://localhost:${PORT}`,
     ...devices['Desktop Chrome'],
   },
   webServer: {
     command: 'node scripts/serve-pages.ts',
-    url: `http://localhost:${String(PORT)}`,
+    url: `http://localhost:${PORT}`,
     reuseExistingServer: false,
     timeout: 60_000,
   },

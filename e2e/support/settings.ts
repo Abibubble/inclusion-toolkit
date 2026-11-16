@@ -2,6 +2,17 @@ import type { Page } from '@playwright/test';
 
 import { type DisplaySettings, STORAGE_KEY } from '../../src/settings/displaySettings';
 
+export const LIGHT_BACKGROUND = 'rgb(239, 245, 251)';
+export const DARK_BACKGROUND = 'rgb(11, 20, 34)';
+export const CREAM_BACKGROUND = 'rgb(251, 245, 230)';
+
+export const bodyBackground = (page: Page) =>
+  page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+
+export async function rootFontSize(page: Page): Promise<number> {
+  return page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize));
+}
+
 export const STRONGEST_SETTINGS: Partial<DisplaySettings> = {
   textSize: 'larger',
   textSpacing: 'increased',

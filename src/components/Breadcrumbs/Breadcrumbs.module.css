@@ -19,7 +19,6 @@
   a {
     display: inline-flex;
     max-width: 100%;
-    overflow-wrap: anywhere;
     align-items: center;
     min-width: var(--size-target-min);
     min-height: var(--size-target-min);
@@ -29,7 +28,6 @@
   > span {
     display: inline-flex;
     max-width: 100%;
-    overflow-wrap: anywhere;
     align-items: center;
     min-height: var(--size-target-min);
     color: var(--color-text-muted);

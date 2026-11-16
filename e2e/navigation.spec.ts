@@ -1,9 +1,8 @@
 import { type Locator, type Page, expect, test } from './support/test';
 
+import { tabKey } from './support/keyboard';
+import { mainNav, menuButton } from './support/locators';
 import { SITE_PAGES } from './support/routes';
-
-const mainNav = (page: Page) => page.getByRole('navigation', { name: 'Main' });
-const menuButton = (page: Page) => page.getByRole('button', { name: 'Menu' });
 
 async function expectTargetSize(locator: Locator) {
   for (const target of await locator.all()) {
@@ -22,7 +21,7 @@ test.describe('Skip link', () => {
     browserName,
   }) => {
     await page.goto('/');
-    await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
+    await page.keyboard.press(tabKey(browserName));
 
     const skipLink = page.getByRole('link', { name: 'Skip to main content' });
     await expect(skipLink).toBeFocused();

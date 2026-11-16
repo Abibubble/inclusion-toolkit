@@ -1,13 +1,14 @@
-import { type Page, expect, test } from './support/test';
+import { expect, test } from './support/test';
 
-import { saveDisplaySettings } from './support/settings';
-
-const DARK_BACKGROUND = 'rgb(11, 20, 34)';
-const CREAM_BACKGROUND = 'rgb(251, 245, 230)';
-
-const bodyBackground = (page: Page) =>
-  page.evaluate(() => getComputedStyle(document.body).backgroundColor);
-const themeSelect = (page: Page) => page.getByRole('combobox', { name: 'Theme' });
+import { STORAGE_KEY } from '../src/settings/displaySettings';
+import { mainNav, menuButton, themeSelect } from './support/locators';
+import {
+  CREAM_BACKGROUND,
+  DARK_BACKGROUND,
+  bodyBackground,
+  rootFontSize,
+  saveDisplaySettings,
+} from './support/settings';
 
 test.describe('Theme switcher in the header', () => {
   test('changes the theme, and keeps it on other pages and after reloading', async ({ page }) => {
@@ -17,10 +18,7 @@ test.describe('Theme switcher in the header', () => {
     await themeSelect(page).selectOption('Dark');
     await expect.poll(() => bodyBackground(page)).toBe(DARK_BACKGROUND);
 
-    await page
-      .getByRole('navigation', { name: 'Main' })
-      .getByRole('link', { name: 'Neurodiversity' })
-      .click();
+    await mainNav(page).getByRole('link', { name: 'Neurodiversity' }).click();
     await expect(page.getByRole('heading', { level: 1, name: 'Neurodiversity' })).toBeVisible();
     await expect.poll(() => bodyBackground(page)).toBe(DARK_BACKGROUND);
 
@@ -34,7 +32,7 @@ test.describe('Theme switcher in the header', () => {
     await page.goto('/');
     await expect(themeSelect(page)).toBeHidden();
 
-    await page.getByRole('button', { name: 'Menu' }).click();
+    await menuButton(page).click();
 
     await expect(themeSelect(page)).toBeVisible();
   });
@@ -61,17 +59,15 @@ test.describe('Saved settings, with no JavaScript files', () => {
     await page.goto('/');
 
     await expect.poll(() => bodyBackground(page)).toBe(CREAM_BACKGROUND);
-    expect(await page.evaluate(() => getComputedStyle(document.documentElement).fontSize)).toBe(
-      '24px',
-    );
+    expect(await rootFontSize(page)).toBe(24);
   });
 });
 
 test.describe('Saved settings', () => {
   test('are ignored if they’ve been tampered with', async ({ page }) => {
-    await page.addInitScript(() => {
-      localStorage.setItem('display-settings', '{"theme": "<script>", "textSize": 1000}');
-    });
+    await page.addInitScript((key) => {
+      localStorage.setItem(key, '{"theme": "<script>", "textSize": 1000}');
+    }, STORAGE_KEY);
 
     await page.goto('/');
 
@@ -89,9 +85,7 @@ test.describe('Display settings page', () => {
   test('makes text bigger', async ({ page }) => {
     await page.getByRole('radio', { name: 'Largest (50% bigger)' }).check();
 
-    expect(await page.evaluate(() => getComputedStyle(document.documentElement).fontSize)).toBe(
-      '24px',
-    );
+    expect(await rootFontSize(page)).toBe(24);
   });
 
   test('increases text spacing to at least the WCAG 1.4.12 values', async ({ page }) => {

@@ -22,7 +22,7 @@ const titles = (results: ToolkitSearchEntry[]) => results.map((result) => result
 const withOthers = (texts: Record<string, string>, othersText = 'Something else.') =>
   searchIndex({
     ...Object.fromEntries(
-      Array.from({ length: 12 }, (_, number) => [`/other-${String(number)}`, othersText]),
+      Array.from({ length: 12 }, (_, number) => [`/other-${number}`, othersText]),
     ),
     ...texts,
   });

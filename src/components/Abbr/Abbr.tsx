@@ -17,8 +17,9 @@ interface AbbrProps {
 export function Abbr({ name, expand, spelledOut = false, plural = false }: AbbrProps) {
   const id = useId();
   const firstUses = useFirstUses();
-  const auto = ALWAYS_SHORT.includes(name) ? false : undefined;
-  const isFirst = (expand ?? auto) !== false && (firstUses?.isFirst(name, id) ?? false);
+  const claimsFirstUse = expand ?? !ALWAYS_SHORT.includes(name);
+  const isFirst = claimsFirstUse && (firstUses?.isFirst(name, id) ?? false);
+  const showFull = expand ?? (isFirst && !spelledOut);
   const ending = plural ? 's' : '';
   const fullForm = ABBREVIATIONS[name];
   const abbr = (
@@ -28,7 +29,7 @@ export function Abbr({ name, expand, spelledOut = false, plural = false }: AbbrP
     </abbr>
   );
 
-  if (!(expand ?? (isFirst && !spelledOut))) return abbr;
+  if (!showFull) return abbr;
 
   return (
     <>

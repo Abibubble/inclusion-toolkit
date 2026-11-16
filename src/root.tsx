@@ -83,17 +83,23 @@ export default function App() {
   );
 }
 
+function isNotFound(error: unknown): boolean {
+  return isRouteErrorResponse(error) && error.status === 404;
+}
+
 // Pages set their own titles, so this is only for the error page, which replaces them (WCAG 2.4.2)
 export function meta({ error }: Route.MetaArgs): Route.MetaDescriptors {
   if (!error) return [];
-  const notFound = isRouteErrorResponse(error) && error.status === 404;
   return [
-    { title: pageTitle(notFound ? 'Page not found' : 'Sorry, there’s a problem with this page') },
+    {
+      title: pageTitle(
+        isNotFound(error) ? 'Page not found' : 'Sorry, there’s a problem with this page',
+      ),
+    },
   ];
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  const notFound = isRouteErrorResponse(error) && error.status === 404;
   const navigationType = useNavigationType();
 
   // The error page brings its own shell, so focus its heading here (WCAG 2.4.3), but not on Back or
@@ -102,5 +108,5 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     if (navigationType !== NavigationType.Pop) document.getElementById(PAGE_HEADING_ID)?.focus();
   }, [navigationType]);
 
-  return <SiteShell>{notFound ? <NotFoundPage /> : <ErrorPage />}</SiteShell>;
+  return <SiteShell>{isNotFound(error) ? <NotFoundPage /> : <ErrorPage />}</SiteShell>;
 }

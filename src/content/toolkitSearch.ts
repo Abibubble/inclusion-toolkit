@@ -3,14 +3,9 @@
  * and words with or without a hyphen or space, find each other
  */
 
-export interface ToolkitSearchEntry {
-  kind: 'folder' | 'item';
-  title: string;
-  description: string;
-  path: string;
-  /** The title of the folder a resource is in */
-  folder?: string;
-}
+import type { ToolkitEntry } from './toolkit';
+
+export type ToolkitSearchEntry = Omit<ToolkitEntry, 'slugs'> & { path: string };
 
 /** Each resource's distinctive words, by its address */
 export type ToolkitSearchIndex = Record<string, string>;

@@ -15,6 +15,7 @@ vi.stubGlobal('fetch', (input: RequestInfo | URL) => {
 });
 
 afterEach(() => {
+  cleanup();
   expect(
     realRequests.splice(0),
     'A test made a real request. Pass a fake into the code being tested instead.',
@@ -24,7 +25,3 @@ afterEach(() => {
 if (typeof Element !== 'undefined') {
   Element.prototype.scrollIntoView = vi.fn();
 }
-
-afterEach(() => {
-  cleanup();
-});

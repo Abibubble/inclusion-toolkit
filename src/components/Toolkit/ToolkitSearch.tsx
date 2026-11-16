@@ -1,4 +1,4 @@
-import { useId, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import {
   MIN_SEARCH_LENGTH,
@@ -9,8 +9,8 @@ import {
   searchToolkit,
   searchableWords,
 } from '../../content/toolkitSearch';
-import { Button } from '../Button';
 import { Link } from '../Link';
+import { SearchBox } from '../SearchBox';
 import styles from './Toolkit.module.css';
 
 const { BASE_URL } = import.meta.env;
@@ -56,46 +56,21 @@ function resultsMessage(query: string, count: number): string {
  * Hidden without JavaScript
  */
 export function ToolkitSearch({ entries }: { entries: readonly ToolkitSearchEntry[] }) {
-  const id = useId();
-  const input = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState('');
   const [index, loadIndex] = useSearchIndex();
   const results = searchToolkit(entries, query, index);
 
   return (
-    <div role="search" className={styles.search}>
-      <label htmlFor={id} className={styles.label}>
-        Search resources
-      </label>
-      <div className={styles.searchRow}>
-        <input
-          ref={input}
-          id={id}
-          type="search"
-          className={styles.input}
-          value={query}
-          autoComplete="off"
-          onFocus={loadIndex}
-          onChange={(event) => {
-            loadIndex();
-            setQuery(event.target.value);
-          }}
-        />
-        {query !== '' && (
-          <Button
-            variant="secondary"
-            onClick={() => {
-              setQuery('');
-              input.current?.focus();
-            }}
-          >
-            Clear search
-          </Button>
-        )}
-      </div>
-      <p role="status" className={styles.status}>
-        {resultsMessage(query, results.length)}
-      </p>
+    <SearchBox
+      label="Search resources"
+      value={query}
+      onFocus={loadIndex}
+      onChange={(value) => {
+        loadIndex();
+        setQuery(value);
+      }}
+      status={resultsMessage(query, results.length)}
+    >
       {results.length > 0 && (
         // Safari drops the list role without bullets
         <ul role="list" className={styles.results} aria-label="Search results">
@@ -111,6 +86,6 @@ export function ToolkitSearch({ entries }: { entries: readonly ToolkitSearchEntr
           ))}
         </ul>
       )}
-    </div>
+    </SearchBox>
   );
 }

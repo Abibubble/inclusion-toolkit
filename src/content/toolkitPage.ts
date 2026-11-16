@@ -5,6 +5,7 @@ import { data } from 'react-router';
 import {
   TOOLKIT,
   type ToolkitCrumb,
+  type ToolkitEntry,
   type ToolkitFolder,
   type ToolkitItem,
   findInToolkit,
@@ -18,8 +19,8 @@ import { renderMarkdown } from './markdown';
 /** A size as computers show it, with 1000 bytes to a kilobyte, such as 307KB or 1.2MB */
 export function formatFileSize(bytes: number): string {
   return bytes < 1_000_000
-    ? `${String(Math.round(bytes / 1000))}KB`
-    : `${String(Math.round(bytes / 100_000) / 10)}MB`;
+    ? `${Math.round(bytes / 1000)}KB`
+    : `${Math.round(bytes / 100_000) / 10}MB`;
 }
 
 /**
@@ -80,6 +81,16 @@ export function loadToolkitSearchIndex(
   );
 }
 
+function toSearchEntry({
+  kind,
+  slugs,
+  title,
+  description,
+  folder,
+}: ToolkitEntry): ToolkitSearchEntry {
+  return { kind, title, description, path: toolkitPath(slugs), ...(folder && { folder }) };
+}
+
 export type ToolkitPageData =
   | { kind: 'home'; toolkit: ToolkitFolder; search: ToolkitSearchEntry[] }
   | { kind: 'folder'; folder: ToolkitFolder; slugs: string[]; trail: ToolkitCrumb[] }
@@ -110,15 +121,7 @@ export function loadToolkitPage(
     return {
       kind: 'home',
       toolkit: folderWithSizes(toolkit, sizeOf),
-      search: toolkitEntries(toolkit).map(
-        ({ kind, slugs: entrySlugs, title, description, folder }) => ({
-          kind,
-          title,
-          description,
-          path: toolkitPath(entrySlugs),
-          ...(folder && { folder }),
-        }),
-      ),
+      search: toolkitEntries(toolkit).map(toSearchEntry),
     };
   }
 

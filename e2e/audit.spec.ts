@@ -1,4 +1,5 @@
 import { ABBREVIATIONS, ALWAYS_SHORT } from '../src/content/abbreviations';
+import { tabKey } from './support/keyboard';
 import { ROUTES } from './support/routes';
 import { type Page, expect, test } from './support/test';
 
@@ -74,7 +75,7 @@ async function checkFocus(page: Page): Promise<FocusCheck> {
 
 async function tabOrderProblems(page: Page, browserName: string): Promise<string[]> {
   const expected = await markFocusable(page);
-  const tab = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
+  const tab = tabKey(browserName);
   const problems: string[] = [];
 
   for (const [position, label] of expected.entries()) {

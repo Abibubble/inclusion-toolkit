@@ -99,6 +99,12 @@ class Package:
             self.names = z.namelist()
             self.parts = {name: z.read(name) for name in self.names}
 
+    def copy(self) -> 'Package':
+        duplicate = Package.__new__(Package)
+        duplicate.names = list(self.names)
+        duplicate.parts = dict(self.parts)
+        return duplicate
+
     def text(self, name: str) -> str:
         return self.parts[name].decode('utf-8')
 
@@ -322,8 +328,8 @@ def docx_embed_fonts(pkg: Package) -> None:
     pkg.set_text('word/settings.xml', settings[:at] + '<w:embedTrueTypeFonts/>' + settings[at:])
 
 
-def docx_footer_text(pkg: Package, site_link: bool) -> None:
-    """The site's name, a link to the site if site_link is true, and the page number on the right"""
+def docx_footer_text(pkg: Package) -> None:
+    """The site's name, a link to the site, and the page number on the right"""
     xml = pkg.text('word/document.xml')
     sect = re.findall(r'<w:sectPr[ >].*?</w:sectPr>', xml, re.S)[-1]
     width = int(re.search(r'<w:pgSz [^>]*w:w="(\d+)"', sect).group(1))
@@ -344,13 +350,11 @@ def docx_footer_text(pkg: Package, site_link: bool) -> None:
         '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
         '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"></Relationships>',
     )
-    link = ''
-    if site_link:
-        rid = pkg.add_relationship(rels_part, REL_HYPERLINK, SITE_URL, True)
-        link = (
-            f'{run(" · ")}<w:hyperlink r:id="{rid}"><w:r>{link_rpr}'
-            f'<w:t xml:space="preserve">{SITE_DISPLAY}</w:t></w:r></w:hyperlink>'
-        )
+    rid = pkg.add_relationship(rels_part, REL_HYPERLINK, SITE_URL, True)
+    link = (
+        f'{run(" · ")}<w:hyperlink r:id="{rid}"><w:r>{link_rpr}'
+        f'<w:t xml:space="preserve">{SITE_DISPLAY}</w:t></w:r></w:hyperlink>'
+    )
 
     def field(code: str) -> str:
         return (
@@ -479,9 +483,7 @@ def split_highlights(full: Package, folder: Path, folder_title: str) -> list[str
             )
             for p in section
         ]
-        pkg = Package.__new__(Package)
-        pkg.names = list(full.names)
-        pkg.parts = dict(full.parts)
+        pkg = full.copy()
         # A line break between paragraphs, so an abbreviation at the start or end of one isn't
         # joined to the next paragraph's first word
         section_text = unescape(
@@ -570,9 +572,7 @@ def split_slides(deck: Path, folder: Path, slugs: list[str] | None, folder_title
         if slug in made:
             sys.exit(f'Two slides would share the file name {slug}.pptx')
 
-        pkg = Package.__new__(Package)
-        pkg.names = list(full.names)
-        pkg.parts = dict(full.parts)
+        pkg = full.copy()
         pkg.set_text('ppt/presentation.xml', presentation.replace(
             re.search(r'<p:sldIdLst>.*?</p:sldIdLst>', presentation, re.S).group(0),
             f'<p:sldIdLst>{entry}</p:sldIdLst>',
@@ -736,7 +736,7 @@ def finish_edited(path: Path, title: str) -> None:
     docx_title_heading(pkg)
     docx_no_fake_links(pkg)
     # After the margins, as the page number lines up with the right margin
-    docx_footer_text(pkg, site_link=True)
+    docx_footer_text(pkg)
     if path.name == 'accessible-meeting-checklist.docx':
         docx_link_text(pkg, 'Meeting Invite Template', f'{SITE_URL}/meeting-invite-template')
     swap_fonts(pkg)

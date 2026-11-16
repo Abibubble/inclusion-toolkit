@@ -74,3 +74,13 @@ export const ALWAYS_SHORT: readonly Abbreviation[] = [
   'TV',
   'UK',
 ];
+
+const NAMES_LONGEST_FIRST = (Object.keys(ABBREVIATIONS) as Abbreviation[]).sort(
+  (a, b) => b.length - a.length,
+);
+
+// Each abbreviation as a whole word, with an optional plural "s", as in "APIs"
+export const ABBREVIATION_PATTERN = new RegExp(
+  `(?<![A-Za-z])(${NAMES_LONGEST_FIRST.join('|')})(s?)(?![A-Za-z])`,
+  'g',
+);

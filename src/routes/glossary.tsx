@@ -1,9 +1,9 @@
-import { useEffect, useId, useRef, useState, useSyncExternalStore } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { useLocation } from 'react-router';
 
-import { Button } from '../components/Button';
 import { PageContents, PageContentsSection, type PageSection } from '../components/PageContents';
 import { PageHeading } from '../components/PageHeading';
+import { SearchBox } from '../components/SearchBox';
 import { TitleBand } from '../components/TitleBand';
 import { Stack } from '../components/Stack';
 import { ABBREVIATIONS, type Abbreviation } from '../content/abbreviations';
@@ -80,10 +80,62 @@ function resultsMessage(query: string, words: number, abbreviations: number): st
   return `${count(words, 'word', 'words')} and ${count(abbreviations, 'abbreviation', 'abbreviations')} match “${query.trim()}”.`;
 }
 
+interface GlossaryRow {
+  term: string;
+  definition: string;
+  id?: string;
+}
+
+interface GlossaryListProps {
+  rows: readonly GlossaryRow[];
+  headings: readonly [term: string, definition: string];
+  empty: string;
+  smallScreen: boolean;
+}
+
+function GlossaryList({ rows, headings, empty, smallScreen }: GlossaryListProps) {
+  if (rows.length === 0) return <p>{empty}</p>;
+
+  if (smallScreen) {
+    return (
+      <ul className={styles.terms}>
+        {rows.map(({ term, definition, id }) => (
+          <li key={term}>
+            {/* Each toolkit page links its first use of the term here */}
+            <details id={id} className={styles.term}>
+              <summary>{term}</summary>
+              <p>{definition}</p>
+            </details>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return (
+    <table className={styles.table}>
+      <thead>
+        <tr>
+          <th scope="col">{headings[0]}</th>
+          <th scope="col">{headings[1]}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(({ term, definition, id }) => (
+          <tr key={term}>
+            <th scope="row" id={id}>
+              {term}
+            </th>
+            <td>{definition}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
 /** Technical words (WCAG 3.1.3) and abbreviations (WCAG 3.1.4) used on the site, explained */
 export default function Glossary() {
-  const searchId = useId();
-  const input = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState('');
   const smallScreen = useSmallScreen();
   const { hash } = useLocation();
@@ -118,112 +170,32 @@ export default function Glossary() {
         </Stack>
       </TitleBand>
 
-      <div role="search" className={styles.search}>
-        <label htmlFor={searchId} className={styles.label}>
-          Search the glossary
-        </label>
-        <div className={styles.searchRow}>
-          <input
-            ref={input}
-            id={searchId}
-            type="search"
-            className={styles.input}
-            value={query}
-            autoComplete="off"
-            onChange={(event) => {
-              setQuery(event.target.value);
-            }}
-          />
-          {query !== '' && (
-            <Button
-              variant="secondary"
-              onClick={() => {
-                setQuery('');
-                input.current?.focus();
-              }}
-            >
-              Clear search
-            </Button>
-          )}
-        </div>
-        <p role="status" className={styles.status}>
-          {resultsMessage(query, words.length, abbreviations.length)}
-        </p>
-      </div>
+      <SearchBox
+        label="Search the glossary"
+        value={query}
+        onChange={setQuery}
+        status={resultsMessage(query, words.length, abbreviations.length)}
+      />
 
       <PageContents sections={Object.values(SECTIONS)} />
 
       <PageContentsSection section={SECTIONS.words}>
-        {words.length === 0 ? (
-          <p>No words match your search.</p>
-        ) : smallScreen ? (
-          <ul className={styles.terms}>
-            {words.map(({ term, definition }) => (
-              <li key={term}>
-                {/* Each toolkit page links its first use of the term here */}
-                <details id={glossaryId(term)} className={styles.term}>
-                  <summary>{term}</summary>
-                  <p>{definition}</p>
-                </details>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th scope="col">Word</th>
-                <th scope="col">What it means</th>
-              </tr>
-            </thead>
-            <tbody>
-              {words.map(({ term, definition }) => (
-                <tr key={term}>
-                  {/* Each toolkit page links its first use of the term here */}
-                  <th scope="row" id={glossaryId(term)}>
-                    {term}
-                  </th>
-                  <td>{definition}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+        <GlossaryList
+          rows={words.map(({ term, definition }) => ({ term, definition, id: glossaryId(term) }))}
+          headings={['Word', 'What it means']}
+          empty="No words match your search."
+          smallScreen={smallScreen}
+        />
       </PageContentsSection>
 
       <PageContentsSection section={SECTIONS.abbreviations}>
         <p>These are the abbreviations used on this site, and what they stand for.</p>
-        {abbreviations.length === 0 ? (
-          <p>No abbreviations match your search.</p>
-        ) : smallScreen ? (
-          <ul className={styles.terms}>
-            {abbreviations.map((name) => (
-              <li key={name}>
-                <details className={styles.term}>
-                  <summary>{name}</summary>
-                  <p>{ABBREVIATIONS[name]}</p>
-                </details>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th scope="col">Abbreviation</th>
-                <th scope="col">What it stands for</th>
-              </tr>
-            </thead>
-            <tbody>
-              {abbreviations.map((name) => (
-                <tr key={name}>
-                  <th scope="row">{name}</th>
-                  <td>{ABBREVIATIONS[name]}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+        <GlossaryList
+          rows={abbreviations.map((name) => ({ term: name, definition: ABBREVIATIONS[name] }))}
+          headings={['Abbreviation', 'What it stands for']}
+          empty="No abbreviations match your search."
+          smallScreen={smallScreen}
+        />
       </PageContentsSection>
     </Stack>
   );

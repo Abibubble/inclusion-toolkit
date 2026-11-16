@@ -6,6 +6,7 @@ import {
   toolkitItemRecords,
   unpublishedToolkitFiles,
 } from '../src/content/toolkit';
+import { mainNav, themeSelect } from './support/locators';
 import { ROUTES } from './support/routes';
 import { type Page, expect, test } from './support/test';
 
@@ -28,7 +29,7 @@ test.describe('Content Security Policy', () => {
       await page.goto(path);
 
       await expect(page.locator('html')).toHaveAttribute('data-js', '');
-      await expect(page.getByRole('combobox', { name: 'Theme' })).toBeEnabled();
+      await expect(themeSelect(page)).toBeEnabled();
       expect(await violations()).toEqual([]);
     });
   }
@@ -39,10 +40,7 @@ test.describe('Content Security Policy', () => {
 
     await page.getByRole('searchbox', { name: 'Search resources' }).fill('tremor');
     await expect(page.getByText(/results? found/)).toBeVisible();
-    await page
-      .getByRole('navigation', { name: 'Main' })
-      .getByRole('link', { name: 'Neurodiversity' })
-      .click();
+    await mainNav(page).getByRole('link', { name: 'Neurodiversity' }).click();
 
     await expect(page.getByRole('heading', { level: 1, name: 'Neurodiversity' })).toBeVisible();
     expect(await violations()).toEqual([]);

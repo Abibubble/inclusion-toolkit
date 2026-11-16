@@ -34,17 +34,13 @@ export const MARK: { viewBox: string; background: string; shapes: MarkShape[] } 
   ],
 };
 
-interface MarkSvgOptions {
-  rounded?: boolean;
-}
-
 function shapeSvg({ x, y, width, height, radius, fill, stroke, strokeWidth }: MarkShape): string {
-  const outline = stroke ? ` stroke="${stroke}" stroke-width="${String(strokeWidth ?? 1)}"` : '';
-  return `<rect x="${String(x)}" y="${String(y)}" width="${String(width)}" height="${String(height)}" rx="${String(radius)}" fill="${fill}"${outline}/>`;
+  const outline = stroke ? ` stroke="${stroke}" stroke-width="${strokeWidth ?? 1}"` : '';
+  return `<rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${radius}" fill="${fill}"${outline}/>`;
 }
 
 /** The mark as a standalone SVG file, with its blue background */
-export function markSvg({ rounded = true }: MarkSvgOptions = {}): string {
+export function markSvg({ rounded = true }: { rounded?: boolean } = {}): string {
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${MARK.viewBox}">`,
     `<rect width="64" height="64"${rounded ? ' rx="14"' : ''} fill="${MARK.background}"/>`,

@@ -64,7 +64,7 @@ export function withoutRepeatedHtml(html: string): string {
   const scripts = [...html.matchAll(PAGE_DATA)];
   if (scripts.length !== 1) {
     throw new Error(
-      `A page that shows HTML should have its data in 1 script, but has ${String(scripts.length)}. React Router may have changed how it adds the data.`,
+      `A page that shows HTML should have its data in 1 script, but has ${scripts.length}. React Router may have changed how it adds the data.`,
     );
   }
   const [script] = scripts;
