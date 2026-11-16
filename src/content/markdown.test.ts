@@ -71,9 +71,9 @@ describe('markLinkOnlyItems', () => {
 });
 
 describe('markAbbreviations', () => {
-  it('marks up each abbreviation with its full form (WCAG 3.1.4)', () => {
+  it('marks up each abbreviation, without a title, which screen readers would read twice (WCAG 3.1.4)', () => {
     expect(markAbbreviations('<p>Save it as a PDF, or two PDFs.</p>')).toBe(
-      '<p>Save it as a <abbr title="Portable Document Format">PDF</abbr>, or two <abbr title="Portable Document Format">PDFs</abbr>.</p>',
+      '<p>Save it as a <abbr>PDF</abbr>, or two <abbr>PDFs</abbr>.</p>',
     );
   });
 
@@ -90,7 +90,7 @@ describe('markAbbreviations', () => {
 
   it('marks up abbreviations after code, in headings and in links', () => {
     expect(markAbbreviations('<p><code>x</code> HTML</p><h3>CSS</h3><a href="/a">PDF</a>')).toBe(
-      '<p><code>x</code> <abbr title="HyperText Markup Language">HTML</abbr></p><h3><abbr title="Cascading Style Sheets">CSS</abbr></h3><a href="/a"><abbr title="Portable Document Format">PDF</abbr></a>',
+      '<p><code>x</code> <abbr>HTML</abbr></p><h3><abbr>CSS</abbr></h3><a href="/a"><abbr>PDF</abbr></a>',
     );
   });
 
@@ -101,22 +101,20 @@ describe('markAbbreviations', () => {
   });
 
   it('runs on every resource’s text', () => {
-    expect(renderMarkdown('An ADHD guide.')).toBe(
-      '<p>An <abbr title="attention deficit hyperactivity disorder">ADHD</abbr> guide.</p>\n',
-    );
+    expect(renderMarkdown('An ADHD guide.')).toBe('<p>An <abbr>ADHD</abbr> guide.</p>\n');
   });
 });
 
 describe('writing out abbreviations', () => {
   it('writes an abbreviation out in full the first time, and only marks it up after that', () => {
     expect(markAbbreviations('<p>Meet SC 2.5.8, then SC 2.5.5.</p>')).toBe(
-      '<p>Meet success criterion (<abbr title="success criterion">SC</abbr>) 2.5.8, then <abbr title="success criterion">SC</abbr> 2.5.5.</p>',
+      '<p>Meet success criterion (<abbr>SC</abbr>) 2.5.8, then <abbr>SC</abbr> 2.5.5.</p>',
     );
   });
 
   it('starts with a capital letter at the start of a sentence or block', () => {
     expect(markAbbreviations('<p>SC 1.4.3 matters. SC 1.4.6 too.</p><li>MDN Web Docs</li>')).toBe(
-      '<p>Success criterion (<abbr title="success criterion">SC</abbr>) 1.4.3 matters. <abbr title="success criterion">SC</abbr> 1.4.6 too.</p><li>Mozilla Developer Network (<abbr title="Mozilla Developer Network">MDN</abbr>) Web Docs</li>',
+      '<p>Success criterion (<abbr>SC</abbr>) 1.4.3 matters. <abbr>SC</abbr> 1.4.6 too.</p><li>Mozilla Developer Network (<abbr>MDN</abbr>) Web Docs</li>',
     );
   });
 
@@ -124,13 +122,13 @@ describe('writing out abbreviations', () => {
     expect(
       markAbbreviations('<p>Assistive Technology (AT) and IQs. Intelligence quotients (IQs)</p>'),
     ).toBe(
-      '<p>Assistive Technology (<abbr title="assistive technology">AT</abbr>) and intelligence quotients (<abbr title="intelligence quotient">IQs</abbr>). Intelligence quotients (<abbr title="intelligence quotient">IQs</abbr>)</p>',
+      '<p>Assistive Technology (<abbr>AT</abbr>) and intelligence quotients (<abbr>IQs</abbr>). Intelligence quotients (<abbr>IQs</abbr>)</p>',
     );
   });
 
   it('never writes out ones most people know, or text in code', () => {
     expect(markAbbreviations('<p>A TV and <code>WAI</code>, then WAI.</p>')).toBe(
-      '<p>A <abbr title="television">TV</abbr> and <code>WAI</code>, then Web Accessibility Initiative (<abbr title="Web Accessibility Initiative">WAI</abbr>).</p>',
+      '<p>A <abbr>TV</abbr> and <code>WAI</code>, then Web Accessibility Initiative (<abbr>WAI</abbr>).</p>',
     );
   });
 });

@@ -1,4 +1,6 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { MemoryRouter, useLocation } from 'react-router';
 import { describe, expect, it, vi } from 'vitest';
 
 import { pageHtmlMarker } from '../../build/repeatedHtml';
@@ -56,5 +58,56 @@ describe('RichText', () => {
     );
 
     await expectNoAxeViolations(container, { disableRules: ['region'] });
+  });
+
+  describe('links in the text', () => {
+    const LINKS =
+      '<p><a href="/glossary#tagging">tagging</a> <a href="/files/guide.pdf">the PDF</a> ' +
+      '<a href="https://example.com">another site</a></p>';
+
+    function Location() {
+      const { pathname, hash } = useLocation();
+      return <p data-testid="location">{pathname + hash}</p>;
+    }
+
+    function renderLinks() {
+      render(
+        <MemoryRouter>
+          <RichText html={LINKS} />
+          <Location />
+        </MemoryRouter>,
+      );
+    }
+
+    /** Whether the site took over a click on a link, rather than leaving it to the browser */
+    function handledBySite(name: string): boolean {
+      let prevented = false;
+      const record = (event: Event) => {
+        prevented = event.defaultPrevented;
+        // jsdom can't load another page, so it's stopped here, after the site has had its turn
+        event.preventDefault();
+      };
+      document.addEventListener('click', record);
+      screen.getByRole('link', { name }).click();
+      document.removeEventListener('click', record);
+      return prevented;
+    }
+
+    it('move to pages within the site, without loading a whole new page (WCAG 2.4.3)', async () => {
+      const user = userEvent.setup();
+      renderLinks();
+
+      await user.click(screen.getByRole('link', { name: 'tagging' }));
+
+      expect(screen.getByTestId('location')).toHaveTextContent('/glossary#tagging');
+    });
+
+    it('leave files and other sites to the browser', () => {
+      renderLinks();
+
+      expect(handledBySite('the PDF')).toBe(false);
+      expect(handledBySite('another site')).toBe(false);
+      expect(screen.getByTestId('location')).toHaveTextContent('/');
+    });
   });
 });

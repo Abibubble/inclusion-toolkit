@@ -9,16 +9,21 @@ import styles from './DisplaySettings.module.css';
 /** Every display setting, with a reset button. It has a page of its own, under the page heading */
 export function DisplaySettings() {
   const { settings, update, reset } = useDisplaySettings();
-  const [announcement, setAnnouncement] = useState('');
+  // Each message gets a new number, so it goes into a new element, which screen readers announce
+  // even when the words are the same as last time
+  const [announcement, setAnnouncement] = useState({ message: '', count: 0 });
   const announceTimer = useRef<number>(undefined);
 
-  /** Empties the message first, so pressing Reset again still changes it, and it's announced */
+  /**
+   * Empties the message first, then shows it in a new element, so pressing Reset again is announced
+   * again (WCAG 4.1.3)
+   */
   function announce(message: string) {
     window.clearTimeout(announceTimer.current);
-    setAnnouncement('');
+    setAnnouncement(({ count }) => ({ message: '', count }));
     if (message) {
       announceTimer.current = window.setTimeout(() => {
-        setAnnouncement(message);
+        setAnnouncement(({ count }) => ({ message, count: count + 1 }));
       }, 100);
     }
   }
@@ -69,7 +74,9 @@ export function DisplaySettings() {
           >
             Reset to defaults
           </Button>
-          <p role="status">{announcement}</p>
+          <p role="status">
+            {announcement.message && <span key={announcement.count}>{announcement.message}</span>}
+          </p>
         </div>
       </div>
     </div>

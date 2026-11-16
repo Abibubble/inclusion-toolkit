@@ -8,21 +8,18 @@ import { Link } from '../Link';
 import { Abbr } from './Abbr';
 
 describe('Abbr', () => {
-  it('marks up the abbreviation, with its full form as a title', () => {
+  it('marks up the abbreviation, with no title, so screen readers read it once', () => {
     const { container } = render(<Abbr name="WCAG" />);
 
     expect(container.querySelector('abbr')).toHaveTextContent('WCAG');
-    expect(container.querySelector('abbr')).toHaveAttribute(
-      'title',
-      'Web Content Accessibility Guidelines',
-    );
+    expect(container.querySelector('abbr')).not.toHaveAttribute('title');
   });
 
   it('is plain text, not something to tab to, the same when prerendered', () => {
     render(<Abbr name="UK" />);
 
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
-    expect(renderToString(<Abbr name="UK" />)).toBe('<abbr title="United Kingdom">UK</abbr>');
+    expect(renderToString(<Abbr name="UK" />)).toBe('<abbr>UK</abbr>');
   });
 
   it('works inside a link', () => {
@@ -32,10 +29,7 @@ describe('Abbr', () => {
       </Link>,
     );
 
-    expect(screen.getByRole('link').querySelector('abbr')).toHaveAttribute(
-      'title',
-      'Portable Document Format',
-    );
+    expect(screen.getByRole('link').querySelector('abbr')).toHaveTextContent('PDF');
   });
 
   it('writes the full form out in the text when expanded, for its first use on a page', () => {

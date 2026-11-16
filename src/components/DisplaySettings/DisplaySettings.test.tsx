@@ -18,6 +18,8 @@ afterEach(() => {
   displaySettingsStore.reset();
 });
 
+const MESSAGE = 'Display settings are back to their defaults.';
+
 describe('DisplaySettings', () => {
   it('has a group of options for every setting, starting at the defaults', () => {
     render(<DisplaySettings />);
@@ -72,23 +74,23 @@ describe('DisplaySettings', () => {
     expect(root).not.toHaveAttribute('data-text-size');
     expect(within(group('Theme')).getByRole('radio', { name: 'Match my device' })).toBeChecked();
     expect(within(group('Text size')).getByRole('radio', { name: 'Default' })).toBeChecked();
-    expect(await screen.findByText('Display settings are back to their defaults.')).toHaveRole(
-      'status',
-    );
+    expect(await screen.findByText(MESSAGE)).toBeInTheDocument();
+    expect(screen.getByRole('status')).toHaveTextContent(MESSAGE);
   });
 
   it('announces the reset again when it’s pressed a second time (WCAG 4.1.3)', async () => {
     const user = userEvent.setup();
     render(<DisplaySettings />);
     await user.click(screen.getByRole('button', { name: 'Reset to defaults' }));
-    await screen.findByText('Display settings are back to their defaults.');
+    const first = await screen.findByText(MESSAGE);
 
     await user.click(screen.getByRole('button', { name: 'Reset to defaults' }));
 
     expect(screen.getByRole('status')).toBeEmptyDOMElement();
-    expect(await screen.findByText('Display settings are back to their defaults.')).toHaveRole(
-      'status',
-    );
+    const second = await screen.findByText(MESSAGE);
+    expect(screen.getByRole('status')).toContainElement(second);
+    // A new element, which screen readers announce even though the words are the same
+    expect(second).not.toBe(first);
   });
 
   it('clears the reset message once another change is made', async () => {

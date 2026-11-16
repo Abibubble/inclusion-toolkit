@@ -67,7 +67,7 @@ describe('Accessibility statement', () => {
     renderWithRouter(<Accessibility />);
 
     expect(region('How this site is tested').getByText(/last checked on/)).toHaveTextContent(
-      'This statement was last checked on 13 November 2026.',
+      'This statement was last checked on 16 November 2026.',
     );
   });
 

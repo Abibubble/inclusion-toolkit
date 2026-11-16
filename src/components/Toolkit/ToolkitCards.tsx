@@ -126,8 +126,9 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
             )}
             <a href={`${BASE_URL}${file.path}`} download>
               Download
+              {/* The size is read just before the link, so the name only says what the file is */}
               <ScreenReaderOnly>
-                : {about}, {type}, {file.size}
+                : {about}, {type}
               </ScreenReaderOnly>
             </a>
           </li>

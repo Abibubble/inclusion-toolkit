@@ -80,9 +80,8 @@ async function tabOrderProblems(page: Page, browserName: string): Promise<string
   for (const [position, label] of expected.entries()) {
     await page.keyboard.press(tab);
     let focus = await checkFocus(page);
-    // Focusing can open something, such as an abbreviation's tooltip, while the browser scrolls to
-    // it. WebKit on slower computers can take a moment to finish, so give it up to a second. Anything
-    // really off screen or covered still fails
+    // The browser can still be scrolling to the focused element. WebKit on slower computers can take
+    // a moment to finish, so give it up to a second. Anything really off screen or covered still fails
     for (let wait = 0; wait < 10 && !(focus.inView && focus.onTop); wait++) {
       await page.waitForTimeout(100);
       focus = await checkFocus(page);
@@ -112,9 +111,9 @@ async function smallTargets(page: Page): Promise<string[]> {
       .flatMap((element) => {
         const block = element.closest(BLOCKS);
 
-        // Links and abbreviations in a sentence are exempt, as making them bigger would space out the text
+        // Links in a sentence are exempt, as making them bigger would space out the text
         if (
-          (element.tagName === 'A' || 'abbr' in element.dataset) &&
+          element.tagName === 'A' &&
           block &&
           block.textContent.trim() !== element.textContent.trim()
         ) {
@@ -188,8 +187,6 @@ async function invisibleHighContrastControls(page: Page): Promise<string[]> {
         return style.borderStyle === 'none' || parseFloat(style.borderWidth) === 0;
       })
       .filter((element) => !(element instanceof HTMLInputElement && element.type === 'radio'))
-      // Abbreviations are part of the text, so like links they're marked by an underline, not a border
-      .filter((element) => !('abbr' in element.dataset))
       .map((element) => `${element.tagName.toLowerCase()} “${element.textContent.trim()}”`),
   );
 }
@@ -212,7 +209,7 @@ test.describe('Audit', () => {
       expect(await tabOrderProblems(page, browserName)).toEqual([]);
     });
 
-    test(`${name}: every target is at least 44 by 44 pixels, apart from links and abbreviations in text (WCAG 2.5.5)`, async ({
+    test(`${name}: every target is at least 44 by 44 pixels, apart from links in text (WCAG 2.5.5)`, async ({
       page,
     }) => {
       await page.goto(path);

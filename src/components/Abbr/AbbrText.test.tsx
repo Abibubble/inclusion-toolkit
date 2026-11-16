@@ -99,7 +99,7 @@ describe('AbbrText', () => {
     const { container } = render(<AbbrText>The UK</AbbrText>);
 
     expect(container.textContent).toBe('The UK');
-    expect(container.querySelector('abbr')).toHaveAttribute('title', 'United Kingdom');
+    expect(container.querySelector('abbr')).toHaveTextContent('UK');
   });
 });
 
@@ -116,11 +116,11 @@ describe('Abbr', () => {
     expect(container).toHaveTextContent('WCAG then Web Content Accessibility Guidelines (WCAG)');
   });
 
-  it('keeps abbreviations most people know short, marked up with their full form', () => {
+  it('keeps abbreviations most people know short, marked up as abbreviations', () => {
     const { container } = renderInScope(<AbbrText>A PDF, in the UK.</AbbrText>);
 
     expect(container.textContent).toBe('A PDF, in the UK.');
-    expect(container.querySelector('abbr')).toHaveAttribute('title', 'Portable Document Format');
+    expect(container.querySelector('abbr')).toHaveTextContent('PDF');
   });
 
   it('can still write out one most people know, on purpose', () => {

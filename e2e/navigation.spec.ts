@@ -122,10 +122,24 @@ test.describe('Following a link to a glossary term', () => {
       .getByRole('link', { name: /, in the glossary$/ })
       .first();
 
+  test('stays within the site rather than loading a whole new page', async ({ page }) => {
+    await page.goto(PAGE);
+    await page.evaluate(() => {
+      (window as unknown as { samePage: boolean }).samePage = true;
+    });
+    await termLink(page).click();
+
+    await expect(page).toHaveURL(/\/glossary#/);
+    expect(await page.evaluate(() => (window as unknown as { samePage?: boolean }).samePage)).toBe(
+      true,
+    );
+  });
+
   test('moves focus to the term in the table on wide screens (WCAG 2.4.3)', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(PAGE);
     await termLink(page).click();
+    await expect(page).toHaveURL(/\/glossary#/);
 
     const id = decodeURIComponent(new URL(page.url()).hash.slice(1));
     await expect(page.locator(`[id="${id}"]`)).toBeFocused();
@@ -135,6 +149,7 @@ test.describe('Following a link to a glossary term', () => {
     await page.setViewportSize({ width: 375, height: 800 });
     await page.goto(PAGE);
     await termLink(page).click();
+    await expect(page).toHaveURL(/\/glossary#/);
 
     const id = decodeURIComponent(new URL(page.url()).hash.slice(1));
     await expect(page.locator(`[id="${id}"] > summary`)).toBeFocused();

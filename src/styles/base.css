@@ -108,11 +108,6 @@ pre {
   font-family: var(--font-family-code);
 }
 
-abbr[title] {
-  text-decoration: underline dotted;
-  cursor: help;
-}
-
 /*
  * Slanted letters are harder to read for many dyslexic people, so nothing is italic and emphasis is
  * shown by weight instead, as the British Dyslexia Association style guide recommends

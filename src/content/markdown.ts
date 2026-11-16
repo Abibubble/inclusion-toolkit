@@ -114,9 +114,9 @@ function capitalise(text: string): string {
 }
 
 /**
- * Marks up every abbreviation in the text with its full form, the same way the Abbr component does
- * without JavaScript (WCAG 3.1.4). The first time an abbreviation is used, it's also written out in
- * full, unless the text already does that, or it's one most people know (ALWAYS_SHORT). The end to
+ * Marks up every abbreviation in the text, the same way the Abbr component does (WCAG 3.1.4). The
+ * first time an abbreviation is used, it's written out in full, unless the text already does that,
+ * or it's one most people know (ALWAYS_SHORT). Every one is also in the Glossary page's list. The end to
  * end tests check every page does this. Text in code, and abbreviations already marked up, are
  * left as they are
  */
@@ -133,7 +133,7 @@ export function markAbbreviations(html: string): string {
       ABBREVIATION,
       (_match: string, name: Abbreviation, ending: string, index: number) => {
         const fullForm = ABBREVIATIONS[name];
-        const abbr = `<abbr title="${fullForm}">${name}${ending}</abbr>`;
+        const abbr = `<abbr>${name}${ending}</abbr>`;
         const first = !used.has(name);
         used.add(name);
         if (!first || ALWAYS_SHORT.includes(name)) return abbr;

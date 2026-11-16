@@ -218,8 +218,8 @@ describe('ToolkitPage', () => {
     );
     expect(sizes.length).toBeGreaterThan(0);
     for (const size of sizes) {
-      expect(size).toHaveAttribute('title', size.textContent === 'KB' ? 'kilobytes' : 'megabytes');
       expect(size.closest('button')).toBeNull();
+      expect(size).not.toHaveAttribute('title');
     }
   });
 
@@ -273,7 +273,7 @@ describe('ToolkitPage', () => {
     // It opens in the same tab, so the Back button brings people back
     expect(view).not.toHaveAttribute('target');
     expect(
-      guide.getByRole('link', { name: 'Download: Dark mode, full guide, Word document, 45KB' }),
+      guide.getByRole('link', { name: 'Download: Dark mode, full guide, Word document' }),
     ).toHaveAttribute('download');
 
     const summary = within(files.getByRole('region', { name: 'Visual summary' }));
@@ -283,7 +283,7 @@ describe('ToolkitPage', () => {
       }),
     ).toHaveAttribute('href', '/files/highlights/dark-mode-visual-summary.pdf');
     expect(
-      summary.getByRole('link', { name: 'Download: Dark mode, visual summary, PowerPoint, 300KB' }),
+      summary.getByRole('link', { name: 'Download: Dark mode, visual summary, PowerPoint' }),
     ).toHaveAttribute('download');
   });
 
@@ -322,7 +322,7 @@ describe('ToolkitPage', () => {
 
     expect(screen.queryByText('Full guide')).not.toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: 'Download: Dark mode, Word document, 45KB' }),
+      screen.getByRole('link', { name: 'Download: Dark mode, Word document' }),
     ).toBeInTheDocument();
   });
 
@@ -346,7 +346,7 @@ describe('ToolkitPage', () => {
         .map((link) => link.textContent),
     ).toEqual(['Home', 'Highlights']);
     expect(
-      screen.getByRole('link', { name: 'Download: Dark mode, full guide, PDF, 120KB' }),
+      screen.getByRole('link', { name: 'Download: Dark mode, full guide, PDF' }),
     ).toBeInTheDocument();
     const text = within(screen.getByRole('region', { name: 'What’s in it' }));
     expect(text.getByRole('heading', { level: 3, name: 'Contrast' })).toBeInTheDocument();
