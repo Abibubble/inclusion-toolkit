@@ -13,8 +13,8 @@ import { pageMeta } from '../seo/pageMeta';
 import { websiteSchema } from '../seo/website';
 
 /**
- * /accessibility/highlights gives accessibility and highlights. Anything before it in the site's base path,
- * such as /inclusion-toolkit/ on GitHub Pages, is left out. The home page's data is at /_.data
+ * Turns /accessibility/highlights into ['accessibility', 'highlights'], without the site's base
+ * path. The home page's data is at /_.data
  */
 export function toolkitSlugsFrom(
   url: string,
@@ -32,9 +32,8 @@ export function loader({ request }: LoaderFunctionArgs) {
 }
 
 /**
- * A page's title, with the folder it's in, so no two pages share a title (WCAG 2.4.2). There are
- * resources called Meetings in both the accessibility and neurodiversity highlights, for example.
- * Pages at the top of the toolkit, and resources named after their folder, keep just their own name
+ * Adds the folder name, so no two pages share a title (WCAG 2.4.2), such as the 2 Meetings
+ * resources
  */
 export function withFolder(title: string, trail: readonly ToolkitCrumb[]): string {
   const folder = trail.length > 1 ? trail.at(-1)?.title : undefined;

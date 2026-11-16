@@ -8,8 +8,8 @@ import { ThemeSwitcher } from '../ThemeSwitcher';
 import styles from './SiteHeader.module.css';
 
 /**
- * The logo's mark, next to the site name. It's hidden from screen readers, as the name says the same.
- * The square is drawn 1 unit in, so the outline it gets in dark mode stays inside the mark
+ * Hidden from screen readers, as the site name says the same. The square is drawn 1 unit in, so
+ * its dark mode outline stays inside the mark
  */
 function Mark() {
   return (

@@ -1,11 +1,8 @@
 /**
- * Searching the Inclusion Toolkit. Every word is put into one standard spelling before it's
- * compared, so British and American spellings find each other (colour and color, organise and
- * organize, centre and center), and so do words written with or without a hyphen or space
- * (colour-blind, colour blind and colourblind)
+ * Toolkit search. Words are compared in one standard spelling, so British and American spellings,
+ * and words with or without a hyphen or space, find each other
  */
 
-/** A folder or resource to search, with where it is */
 export interface ToolkitSearchEntry {
   kind: 'folder' | 'item';
   title: string;
@@ -15,13 +12,10 @@ export interface ToolkitSearchEntry {
   folder?: string;
 }
 
-/**
- * Each resource's distinctive words, by its address, in their standard spelling, for searching
- * its full text (see searchIndex)
- */
+/** Each resource's distinctive words, by its address */
 export type ToolkitSearchIndex = Record<string, string>;
 
-/** Where the index is, under the site's address. It's only fetched once someone starts searching */
+/** Under the site's address */
 export const SEARCH_INDEX_PATH = 'search.json';
 
 /** Spellings with no rule to follow, as the American spelling they match */
@@ -108,14 +102,10 @@ export function searchWords(text: string): string[] {
       if (spelt) words.set(spelt, (words.get(spelt) ?? 0) + 1);
     }
   }
-  // Most used first, so search can tell what a resource is mostly about
   return [...words.entries()].toSorted((a, b) => b[1] - a[1]).map(([word]) => word);
 }
 
-/**
- * Words too common to search for, in their standard spelling. They're left out of what's searched
- * for, so "the" doesn't find every resource
- */
+/** Words too common to search for, such as "the" */
 const COMMON_WORDS = new Set(
   (
     'a an and are as at be but by can do for from has have how i if in into is it its me my no ' +
@@ -130,10 +120,7 @@ const COMMON_WORDS = new Set(
  */
 const FULL_TEXT_MAX_SHARE = 0.25;
 
-/**
- * The distinctive words of each resource's full text, most used first, by its address, for the
- * search index. Common words, and words used in more than a quarter of resources, are left out
- */
+/** The distinctive words of each resource's full text, most used first, by its address */
 export function searchIndex(texts: Record<string, string>): ToolkitSearchIndex {
   const wordsOf = Object.entries(texts).map(([path, text]) => [path, searchWords(text)] as const);
   const resourcesUsing = new Map<string, number>();
@@ -195,23 +182,18 @@ function usage(words: string, searched: readonly string[]): number {
   return Math.max(...positions);
 }
 
-/**
- * The folders and resources with every word searched for, in any order, in their title,
- * description or full text. Common words, such as "the", are left out. Those with every word in
- * the title come first, then the description, then the full text, where those that use the words
- * most come first
- */
-/**
- * A search needs at least this many characters, as one letter matches nearly everything. The
- * toolkit search and the glossary search both use it
- */
+/** One letter matches nearly everything, so a search needs at least this many characters */
 export const MIN_SEARCH_LENGTH = 2;
 
-/** Whether a search box's text is long enough to search for */
 export function isLongEnough(query: string): boolean {
   return query.trim().length >= MIN_SEARCH_LENGTH;
 }
 
+/**
+ * The folders and resources with every word searched for, in any order, in their title,
+ * description or full text. Those with every word in the title come first, then the description,
+ * then the full text, where those that use the words most come first
+ */
 export function searchToolkit(
   entries: readonly ToolkitSearchEntry[],
   query: string,

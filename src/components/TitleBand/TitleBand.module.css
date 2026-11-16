@@ -1,8 +1,5 @@
-/*
- * The band starts at the top of the main area, so it meets the header. Its background is a border
- * image that reaches out to both edges of the window. A border image is only drawn, so it never
- * makes the page scroll sideways (WCAG 1.4.10). The bottom of it is the yellow line
- */
+/* The background is a border image that reaches both edges of the window. It's only drawn, so it
+   never makes the page scroll sideways (WCAG 1.4.10) */
 .band {
   padding-block: var(--spacer-32) calc(var(--spacer-32) + var(--spacer-4));
   border-image: linear-gradient(

@@ -1,6 +1,6 @@
 /*
- * Typography. Font sizes come from the same 16, 24, 32, 48 pixel steps as the spacing scale. Line
- * heights are unitless so they scale with the font size and with any text spacing a visitor applies
+ * Font sizes use the spacing scale's 16, 24, 32, 48 pixel steps. Line heights are unitless, so they
+ * scale with the font size and any text spacing a visitor applies
  */
 :root {
   --font-family-body:
@@ -17,11 +17,8 @@
   --font-size-4: 3rem; /* 48px */
 
   /*
-   * Emphasis: bold text at body size, such as buttons, labels and error messages. Full bold letters
-   * blur together for people with astigmatism, especially light text on a dark background, such as
-   * white on a blue button. Semi bold with a little extra space keeps each letter distinct
-   * Headings stay bold, because the blurring is much less at larger sizes. Always use these two
-   * tokens together
+   * Body-size emphasis, such as buttons and labels. Full bold blurs for people with astigmatism, so
+   * this is semi bold with extra letter spacing. Always use both together
    */
   --font-weight-emphasis: var(--font-weight-semibold);
   --letter-spacing-emphasis: 0.05em;
@@ -48,10 +45,8 @@
 }
 
 /*
- * Display settings, set as attributes on <html> by src/settings/displaySettings.ts
- *
- * Text size changes the root font size as a percentage, so it builds on whatever size the visitor has
- * already chosen in their browser. Every size on the site is in rem, so the whole layout scales
+ * Display settings, set on <html> by src/settings/displaySettings.ts. Text size is a percentage, so
+ * it builds on the browser's own size
  */
 :root[data-text-size='large'] {
   font-size: 125%;

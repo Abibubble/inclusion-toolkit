@@ -1,7 +1,4 @@
-/*
- * One class per step of the spacing scale, used by Stack.
- * --gap lets Stack keep paragraphs far enough apart when its gap is small
- */
+/* --gap lets Stack keep paragraphs far enough apart when its gap is small */
 .gap1 {
   --gap: var(--spacer-4);
 

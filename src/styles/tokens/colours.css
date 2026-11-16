@@ -1,13 +1,8 @@
 /*
- * Semantic colour tokens. Each one is light-dark(light theme, dark theme), so the light and dark
- * themes are just colour schemes. With no data-theme attribute the site follows the system setting
- *
- * Every text pairing meets the 7:1 AAA contrast ratio in every theme. tokens.test.ts checks this, so a
- * change that breaks contrast fails the tests
- *
- * Contrast is deliberately well above 7:1 but not at the maximum. Near black on near white glares for
- * some dyslexic readers and people with visual stress, and very bright text on a dark background can
- * appear to glow (halation), especially for people with astigmatism
+ * Semantic colours, as light-dark(light, dark). With no data-theme the site follows the system.
+ * Every text pairing meets 7:1 (tokens.test.ts checks this) but stays below the maximum: near black
+ * on near white glares for some dyslexic readers, and very bright text on dark can glow for people
+ * with astigmatism.
  */
 :root {
   color-scheme: light dark;
@@ -60,8 +55,8 @@
 }
 
 /*
- * Cream: a warm light theme. Some dyslexic readers find warm backgrounds easier to read than cool ones,
- * so it's offered as a choice in the display settings. Every semantic colour must be set here
+ * Cream: some dyslexic readers find warm backgrounds easier to read than cool ones. Every semantic
+ * colour must be set here
  */
 :root[data-theme='cream'] {
   color-scheme: light;

@@ -28,10 +28,8 @@
     padding-inline-start: var(--spacer-24);
   }
 
-  /* A list item that's only a link, such as in a list of useful links, stands on its own, so it
-     needs a full size target (WCAG 2.5.5). It's a block, not flex, so a written out abbreviation
-     inside the link flows as part of the text, rather than becoming its own column. Only as wide as
-     its text, and the bullet stays beside its first line */
+  /* A link alone in a list item needs a full size target (WCAG 2.5.5). Block, not flex, so an
+     expanded abbreviation flows as text */
   :global(li.linkOnly) > a {
     display: block;
     width: fit-content;
@@ -50,12 +48,10 @@
     border-radius: var(--radius-small);
   }
 
-  /* Tables fill the width, with lines between rows. Long words can break, so a table never makes the
-     page scroll sideways, even with the largest text at 320px (WCAG 1.4.10) */
+  /* Long words can break, so a table never makes the page scroll sideways, even with the largest
+     text at 320px (WCAG 1.4.10) */
   :global(table) {
     width: 100%;
-
-    /* Wider than a paragraph, as each cell's lines are short */
     max-width: calc(var(--size-measure) * 1.4);
     border-collapse: collapse;
   }
@@ -74,8 +70,7 @@
     padding-inline-start: 0;
   }
 
-  /* Each "In short" summary, in a pale yellow box with a thick yellow edge. The edge also shows in
-     high contrast mode, where the background doesn't */
+  /* The thick edge also shows in high contrast mode, where the background doesn't */
   > :global(.summary) {
     max-width: var(--size-measure);
     padding: var(--spacer-16) var(--spacer-24);

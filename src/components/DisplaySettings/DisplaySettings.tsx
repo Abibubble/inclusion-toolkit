@@ -6,18 +6,13 @@ import { Button } from '../Button';
 import { RadioGroup } from '../RadioGroup';
 import styles from './DisplaySettings.module.css';
 
-/** Every display setting, with a reset button. It has a page of its own, under the page heading */
 export function DisplaySettings() {
   const { settings, update, reset } = useDisplaySettings();
-  // Each message gets a new number, so it goes into a new element, which screen readers announce
-  // even when the words are the same as last time
   const [announcement, setAnnouncement] = useState({ message: '', count: 0 });
   const announceTimer = useRef<number>(undefined);
 
-  /**
-   * Empties the message first, then shows it in a new element, so pressing Reset again is announced
-   * again (WCAG 4.1.3)
-   */
+  // Clears the message, then adds it in a new element, so screen readers announce it again even if
+  // the words are the same (WCAG 4.1.3)
   function announce(message: string) {
     window.clearTimeout(announceTimer.current);
     setAnnouncement(({ count }) => ({ message: '', count }));

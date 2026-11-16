@@ -13,9 +13,9 @@ const FORMATS = {
 };
 
 /**
- * Formats a date written as "2026", "2026-06" or "2026-06-03" in words, as "2026", "June 2026" or
- * "3 June 2026". Months are always written out, because a date like 3/6/26 means different things to
- * different people and is harder to read for people with dyscalculia
+ * Formats "2026", "2026-06" or "2026-06-03" as "2026", "June 2026" or "3 June 2026". Months are
+ * written out, as 3/6/26 means different things to different people and is harder to read with
+ * dyscalculia
  */
 export function formatDate(date: string): string {
   const match = DATE_PATTERN.exec(date);

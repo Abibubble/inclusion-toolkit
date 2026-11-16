@@ -11,10 +11,8 @@ interface AbbrProps {
 }
 
 /**
- * An abbreviation, the same as abbreviations in the toolkit text. Its full form is written out the
- * first time it's used on a page, and in the list on the Glossary page, which everyone can use, with
- * a mouse, keyboard, touch, or screen reader (WCAG 3.1.4). It has no title: screen readers read a
- * title as well as the words, and its tooltip only shows for a mouse
+ * Written out in full on its first use on a page (WCAG 3.1.4). No title attribute: screen readers
+ * read it twice, and the tooltip only shows for a mouse
  */
 export function Abbr({ name, expand, spelledOut = false, plural = false }: AbbrProps) {
   const id = useId();

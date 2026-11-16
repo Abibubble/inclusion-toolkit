@@ -54,11 +54,8 @@
   }
 }
 
-/*
- * On wider screens, each section is a table: the word or abbreviation on the left, and what it
- * means on the right. The columns keep their widths, and a word only breaks if it can't fit on its
- * own line, so the table never makes the page scroll sideways (WCAG 1.4.10)
- */
+/* Fixed columns, and words only break if they must, so the table never scrolls sideways
+   (WCAG 1.4.10) */
 .table {
   width: 100%;
   max-width: calc(var(--spacer-96) * 8);
@@ -100,18 +97,15 @@
     }
   }
 
-  /* Every other row is shaded, so it's easy to follow a row across */
   tbody tr:nth-child(even) {
     background: var(--color-surface);
   }
 
-  /* The word someone followed a link to is highlighted */
   tbody tr:has(:target) {
     background: var(--color-summary);
   }
 }
 
-/* On small screens, each word is a line that opens to show what it means */
 .terms {
   max-width: var(--size-measure);
   padding: 0;
@@ -145,8 +139,7 @@
       display: none;
     }
 
-    /* An arrow that points right, and down when it's open. It's drawn with lines, not a
-       character, so screen readers don't read it out */
+    /* Drawn with borders, not a character, so screen readers don't read it */
     &::before {
       display: inline-block;
       inline-size: var(--spacer-8);
@@ -169,7 +162,6 @@
     margin: 0 0 var(--spacer-16);
   }
 
-  /* The word someone followed a link to is highlighted */
   &:target {
     background: var(--color-summary);
   }

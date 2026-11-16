@@ -68,7 +68,6 @@ const EXAMPLE = folder(
   ],
 );
 
-/** Every resource record in the real toolkit, with the slugs leading to it */
 const realItems = () => toolkitItemRecords();
 
 function realFolders(record: ToolkitFolderRecord = TOOLKIT_RECORD): ToolkitFolderRecord[] {
@@ -265,7 +264,7 @@ describe('toolkit.json', () => {
 });
 
 describe('the toolkit’s addresses', () => {
-  // Other pages and files at the top of the site, which a top level folder or resource would clash with
+  // Top level pages and files that a folder or resource would clash with
   const RESERVED = [
     'about',
     'display-settings',

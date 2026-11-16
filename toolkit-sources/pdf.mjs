@@ -1,6 +1,5 @@
-// Makes tagged PDFs from HTML pages, with the browser the site's tests use. export.py runs it with
-// a file listing each page, its PDF, and either the footer to put on every page of it, or that
-// it's slides, which set their own page size and have the site's address on each slide already
+// Makes tagged PDFs from HTML pages with Playwright's Chromium.
+// export.py runs it with a list of jobs.
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 

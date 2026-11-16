@@ -1,9 +1,7 @@
 /**
- * Runs the quick checks for `pnpm commit:check` in 2 stages, with the checks in each stage at the
- * same time, rather than one after another. The code checks go first. The tests go second, on their
- * own, as some time out if the computer is too busy. Each check's output is shown in one piece when
- * it finishes, rather than mixed together, then a summary says which passed and how long each took.
- * It stops after the first stage if anything fails.
+ * Runs pnpm commit:check's quick checks in 2 stages, with the checks in each stage at the same
+ * time. The tests run on their own, as some time out when the computer is busy. It stops after a
+ * stage that fails.
  */
 import { spawn } from 'node:child_process';
 

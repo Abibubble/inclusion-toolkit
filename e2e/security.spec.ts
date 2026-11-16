@@ -63,7 +63,6 @@ test.describe('Content Security Policy', () => {
   });
 });
 
-/** Every page in the built site, as text */
 function builtPages(): { file: string; html: string }[] {
   return readdirSync('build/client', { recursive: true, encoding: 'utf8' })
     .filter((file) => file.endsWith('.html'))

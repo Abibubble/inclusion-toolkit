@@ -12,10 +12,8 @@ export const SITE_PAGES = [
 ] as const;
 
 /**
- * Tests tagged with this only run when every page is tested: Chromium in CI (see
- * playwright.config.ts). The resources in a toolkit folder's folders, such as each single
- * highlight, all share one design, so Firefox, WebKit and `pnpm commit:check` test the sample
- * below, which keeps the runs short as the toolkit grows. lighthouserc.cjs uses the same sample
+ * Tests tagged with this run only in Chromium in CI. Other runs test only TOOLKIT_SAMPLE's single
+ * resources, as they share one design. lighthouserc.cjs uses the same sample.
  */
 const EVERY_PAGE = '@every-page';
 

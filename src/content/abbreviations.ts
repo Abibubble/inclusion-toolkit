@@ -1,6 +1,6 @@
 /**
- * Every abbreviation used on the site, with its expansion. The Abbr component only accepts
- * abbreviations listed here, and the Glossary page's list of abbreviations is built from this list (WCAG 3.1.4)
+ * Every abbreviation used on the site, with its expansion. The Abbr component only accepts these,
+ * and the Glossary page lists them (WCAG 3.1.4)
  */
 export const ABBREVIATIONS = {
   ADHD: 'attention deficit hyperactivity disorder',
@@ -50,8 +50,8 @@ export const ABBREVIATIONS = {
 export type Abbreviation = keyof typeof ABBREVIATIONS;
 
 /**
- * Abbreviations most people know, which are never written out in the text, as that would make it
- * harder to read. They're still marked up with their full form, and listed on the Glossary page
+ * Abbreviations most people know. Writing them out would make the text harder to read. They're
+ * still marked up with their full form, and listed on the Glossary page
  */
 export const ALWAYS_SHORT: readonly Abbreviation[] = [
   'ADHD',

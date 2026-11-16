@@ -1,4 +1,3 @@
-/* The same blue as the header bar, with the yellow highlight under each link */
 .footer {
   color: var(--color-header-text);
   background: var(--color-header-bg);

@@ -23,7 +23,6 @@ export default defineConfig({
     { name: 'firefox', use: { ...devices['Desktop Firefox'] }, grepInvert: /@every-page/ },
     { name: 'webkit', use: { ...devices['Desktop Safari'] }, grepInvert: /@every-page/ },
   ],
-  // Tests run against the production build, so they see exactly what visitors get.
   webServer: {
     // The tests build the site themselves, so `pnpm commit:check` doesn't build it as well. If the
     // build fails, it tries once more, so a one-off prerender timeout doesn't stop the tests

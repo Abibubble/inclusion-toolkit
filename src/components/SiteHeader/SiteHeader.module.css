@@ -3,7 +3,6 @@
   container: site-header / inline-size;
 }
 
-/* The blue bar with the site's name and the menu */
 .bar {
   color: var(--color-header-text);
   background: var(--color-header-bg);

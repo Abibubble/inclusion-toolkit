@@ -17,7 +17,7 @@ const PAGE_SOURCES = readdirSync(SRC, { recursive: true, encoding: 'utf8' })
   .filter((file) => /\.tsx?$/.test(file) && !/\.(test|stories)\.tsx?$/.test(file))
   .map((file) => readFileSync(join(SRC, file), 'utf8'));
 
-/** Every piece of text on the site: the toolkit's text, its titles and descriptions, and the pages */
+/** Every piece of text on the site */
 const ALL_TEXT = [
   ...Object.values(TOOLKIT_TEXT),
   JSON.stringify(TOOLKIT_RECORD),

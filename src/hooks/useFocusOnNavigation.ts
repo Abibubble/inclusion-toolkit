@@ -4,13 +4,12 @@ import { useLocation } from 'react-router';
 import { PAGE_HEADING_ID } from '../components/PageHeading';
 import { MAIN_CONTENT_ID } from '../components/SkipLink';
 
-/** Elements that can take focus without a tabindex */
+/** Elements that can already take focus */
 const FOCUSABLE = 'a[href], button, input, select, textarea, summary, [tabindex]';
 
 /**
- * Moves focus to the element with an id, so the next Tab carries on from it rather than from the
- * top of the page (WCAG 2.4.3). A closed <details> can't take focus, but its <summary> can.
- * Anything else that can't, such as a glossary table's <th>, is made focusable from code
+ * Focuses an element by id, so the next Tab carries on from there (WCAG 2.4.3). For a closed
+ * <details> it focuses the <summary>
  */
 export function focusById(id: string): void {
   const target = document.getElementById(id);

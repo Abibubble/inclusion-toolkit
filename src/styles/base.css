@@ -1,7 +1,3 @@
-/*
- * Base element styles. The root font size is only ever set as a percentage by the text size setting,
- * so 1rem always builds on whatever size the visitor has chosen in their browser
- */
 body {
   min-height: 100vh;
   font-family: var(--font-family-body);
@@ -42,17 +38,14 @@ h2 {
   font-size: var(--font-size-h2);
 }
 
-/*
- * Third level headings are body size on narrow screens, where full bold blurs for people with
- * astigmatism, so they use the emphasis weight and spacing at every size
- */
+/* Body size on narrow screens, where full bold blurs for people with astigmatism */
 h3 {
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-emphasis);
   letter-spacing: var(--letter-spacing-emphasis);
 }
 
-/* Lower headings are body size, so they use the emphasis weight and spacing too */
+/* Body size too */
 h4,
 h5,
 h6 {
@@ -121,7 +114,6 @@ address {
   font-style: normal;
 }
 
-/* Emphasis in running text uses the same semi bold and spacing as buttons and labels */
 strong,
 b,
 em {
@@ -134,10 +126,7 @@ em {
   background: var(--color-selection-bg);
 }
 
-/*
- * Motion is opt-in. Declare animation and transition styles only inside
- * @media (prefers-reduced-motion: no-preference). This remains a fallback for reduced-motion users.
- */
+/* Fallback only. Declare motion inside (prefers-reduced-motion: no-preference) */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

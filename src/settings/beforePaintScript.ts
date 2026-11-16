@@ -7,15 +7,13 @@ const ATTRIBUTES = Object.fromEntries(
   }),
 );
 
-/** How long after the page loads to wait for React, before showing the page as it is without JavaScript */
+/** How long after load to wait for React, before showing the page as it is without JavaScript */
 export const HYDRATION_WAIT_MS = 3000;
 
 /**
- * Marks that JavaScript is running, so the narrow-screen menu can collapse behind its button, and
- * applies saved display settings before anything is drawn. If React still hasn't taken over a
- * while after the page loads, such as when its script fails to load, the mark is taken off again.
- * The page then shows as it does without JavaScript, with the menu's links always visible, so
- * nobody is left with a Menu button that does nothing
+ * Adds data-js so the narrow menu can collapse, and applies saved display settings before the first
+ * paint. If React hasn't taken over soon after load, data-js comes off again, so the menu links
+ * show instead of a Menu button that does nothing
  */
 export const BEFORE_PAINT_SCRIPT = `(function () {
   var root = document.documentElement;

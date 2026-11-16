@@ -18,10 +18,7 @@ const entry = (title: string, description = `About ${title}.`): ToolkitSearchEnt
 
 const titles = (results: ToolkitSearchEntry[]) => results.map((result) => result.title);
 
-/**
- * A search index of some resources' text, among 12 other resources, as words used in more than a
- * quarter of resources are left out of the full text
- */
+/** Adds 12 other resources, as words used in more than a quarter of resources are left out */
 const withOthers = (texts: Record<string, string>, othersText = 'Something else.') =>
   searchIndex({
     ...Object.fromEntries(

@@ -1,15 +1,9 @@
 /**
- * Long pages, such as toolkit resources, are turned from Markdown into HTML
- * when the site is built. Each page also carries its loader data in a script, so the browser can
- * take over the page without fetching anything. That data includes the same HTML, so the text was
- * sent twice.
+ * Each prerendered page carries its loader data in a script, and that data repeats the page's long
+ * HTML. withoutRepeatedHtml swaps each repeat for a marker, and RichText reads the HTML back from
+ * the page. Pages reached by a link fetch their data separately, so don't need this.
  *
- * After the build, withoutRepeatedHtml swaps each piece of HTML in that data for a short marker,
- * when the same HTML is already on the page. When the page loads, the RichText component reads
- * the HTML back from the page instead. Pages reached by following a link fetch their data from a
- * separate file, with the HTML in full, so they don't need this.
- *
- * This file has no Node-only imports, as the browser uses the marker functions too
+ * No Node-only imports: the browser uses the marker functions.
  */
 
 /** Marks each element that shows HTML, with an ID that's the same in the build and the browser */
@@ -62,7 +56,7 @@ function shownIn(html: string, starts: Map<number, string>, value: string): stri
   return undefined;
 }
 
-/** The page, with each piece of HTML in its data that's already shown on the page swapped for a marker */
+/** The page, with each piece of HTML in its data that's already on the page swapped for a marker */
 export function withoutRepeatedHtml(html: string): string {
   const starts = shownHtmlStarts(html);
   if (starts.size === 0) return html;

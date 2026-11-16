@@ -4,12 +4,6 @@ import { ABBREVIATIONS, ALWAYS_SHORT, type Abbreviation } from './abbreviations'
 import { GLOSSARY, glossaryId } from './glossary';
 import { GLOSSARY_PATH } from './navigation';
 
-/**
- * Turns the toolkit's Markdown into HTML. Only loaders use this, and loaders run when the site is
- * built, so neither the Markdown nor the Markdown library are sent to visitors' browsers. They get
- * finished HTML
- */
-
 /** The arrow icon external links use, matching the Link component */
 const EXTERNAL_ICON =
   '<svg class="externalIcon" aria-hidden="true" focusable="false" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7v7M13 3 4 12" /></svg>';
@@ -43,16 +37,14 @@ export function markLinkOnlyItems(html: string): string {
 
 const NAMES = (Object.keys(ABBREVIATIONS) as Abbreviation[]).sort((a, b) => b.length - a.length);
 
-// Each abbreviation as a whole word, with an optional plural "s", as in "PDFs". The same as AbbrText
+// Each abbreviation as a whole word, with an optional plural "s". The same as AbbrText
 const ABBREVIATION = new RegExp(
   `(?<![A-Za-z])(${NAMES.map((name) => name.replace('/', '\\/')).join('|')})(s?)(?![A-Za-z])`,
   'g',
 );
 
-// The HTML split into tags and the text between them
 const TAG = /(<[^>]+>)/;
 
-/** Elements whose text is left alone, and elements that start a new block of text */
 const NO_ABBREVIATIONS = ['code', 'pre', 'abbr'];
 const NO_GLOSSARY_LINKS = ['code', 'pre', 'abbr', 'a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 const BLOCKS = [
@@ -73,7 +65,6 @@ const BLOCKS = [
 
 interface TextPart {
   text: string;
-  /** Whether the text is inside one of the elements being skipped */
   skipped: boolean;
   /** Whether this is the first text in a block, such as a paragraph or list item */
   blockStart: boolean;
@@ -114,11 +105,9 @@ function capitalise(text: string): string {
 }
 
 /**
- * Marks up every abbreviation in the text, the same way the Abbr component does (WCAG 3.1.4). The
- * first time an abbreviation is used, it's written out in full, unless the text already does that,
- * or it's one most people know (ALWAYS_SHORT). Every one is also in the Glossary page's list. The end to
- * end tests check every page does this. Text in code, and abbreviations already marked up, are
- * left as they are
+ * Marks up each abbreviation, as the Abbr component does (WCAG 3.1.4). The first use is written out
+ * in full, unless it's in ALWAYS_SHORT or already written out. Code and existing abbr elements are
+ * left alone
  */
 export function markAbbreviations(html: string): string {
   const used = new Set<Abbreviation>();
@@ -153,7 +142,7 @@ export function markAbbreviations(html: string): string {
   });
 }
 
-/** The other names a glossary term goes by, which are split by a slash with a space either side */
+/** The other names a glossary term goes by */
 export function termForms(term: string): string[] {
   return term.split(' / ').map((form) => form.trim());
 }

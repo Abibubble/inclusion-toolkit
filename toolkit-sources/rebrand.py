@@ -1,18 +1,14 @@
 """
-Makes and tidies the Inclusion Toolkit's branded files. The Word files and slides in
-toolkit-sources/branded/ are the ones to edit. Everything else is made from them.
-
-The branded files were first made from my giffgaff originals, which aren't in this repo. The code
-that did that is in the git history.
+Makes and tidies the Inclusion Toolkit's branded files. Edit the Word files and slides in
+toolkit-sources/branded/. Everything else is made from them.
 
 It never remakes a branded file, so edits to them are kept. Each run only:
-- sets each Word file's page margins, paragraph spacing, title heading and footer, with the site's
-  name, its address and the page number
-- takes link formatting off any text that isn't a link
+- sets each Word file's margins, paragraph spacing, title heading and footer
+- takes link formatting off text that isn't a link
 - puts the fonts inside each Word file, so they look the same for people who don't have them
 - sets the file details, which Word can change when I save
-- cuts the full highlights into one Word file for each highlight, each with a list of the
-  abbreviations it uses
+- cuts the full highlights and infographics into one file each, and lists the abbreviations each
+  highlight uses
 
 Run it from the repo root, with Python 3.10 or newer and no extra packages:
 
@@ -31,7 +27,7 @@ from xml.sax.saxutils import escape, unescape
 ROOT = Path(__file__).resolve().parent
 BRANDED = ROOT / 'branded'
 
-# The site's address. SITE_DISPLAY is how it's written, with capitals so it's easier to read
+# SITE_DISPLAY has capitals so it's easier to read
 SITE_URL = 'https://inclusiontoolkit.org'
 SITE_DISPLAY = 'InclusionToolkit.org'
 SITE_NAME = 'Inclusion Toolkit'
@@ -42,8 +38,7 @@ NAME = 'Abi Harrison-Nye'
 FONT = 'Atkinson Hyperlegible Next'
 MONO_FONT = 'Atkinson Hyperlegible Mono'
 
-# The fonts are put inside each file, so people who don't have them see the same layout. These are
-# the static fonts, installed on the Mac. The licence (SIL Open Font License) allows this
+# Static fonts, installed on the Mac. The SIL Open Font License allows putting them in files
 FONT_FOLDER = Path.home() / 'Library' / 'Fonts'
 FONT_FILES = {FONT: 'AtkinsonHyperlegibleNext', MONO_FONT: 'AtkinsonHyperlegibleMono'}
 FONT_STYLES = ('Regular', 'Bold', 'Italic', 'BoldItalic')
@@ -55,15 +50,13 @@ SLATE = '3A4A5E'  # Footer text on white: 9.1:1
 
 # Side margins of 1.45 inches, so a line of text on A4 is under 80 characters (WCAG 1.4.8)
 SIDE_MARGIN = 2088
-# Space after each paragraph, as in the full highlights. Between paragraphs, there's then more
-# space than between lines (WCAG 1.4.8)
+# Space after each paragraph, so there's more between paragraphs than between lines (WCAG 1.4.8)
 PARAGRAPH_AFTER = 280
 
-# The site's list of abbreviations, which each highlight's own file lists the ones it uses from
 ABBREVIATIONS_FILE = ROOT.parent / 'src' / 'content' / 'abbreviations.ts'
 
-# Resources in different folders that share a title, such as Meetings. Their files' titles have
-# the folder's name added, so two open files, or two downloads, can be told apart (WCAG 2.4.2)
+# Titles used in more than one folder. Their files' titles add the folder's name, so two open
+# files, or two downloads, can be told apart (WCAG 2.4.2)
 SHARED_TITLES = {'Meetings', 'Colour Blindness', "Tourette's Syndrome"}
 
 # Each Word file edited by hand, and its title
@@ -173,10 +166,7 @@ def set_core_properties(pkg: Package, title: str) -> None:
 
 
 def swap_fonts(pkg: Package) -> None:
-    """
-    Uses my fonts for everything. Arial stays for slide bullets only, as it has the bullet
-    characters, and in Word's list of fonts
-    """
+    """Swaps the old fonts (Poppins, Roboto Mono, Consolas and Arial) for the toolkit's fonts"""
     for name in pkg.xml_names():
         xml = pkg.text(name)
         swapped = (
@@ -201,15 +191,11 @@ def fonts_used(pkg: Package, parts: list[str]) -> list[str]:
 
 
 def font_key(family: str, style: str) -> str:
-    """A GUID for each font, the same every time, so files only change when their content does"""
+    """A fixed GUID for each font, so files only change when their content does"""
     return '{' + str(uuid.uuid5(uuid.NAMESPACE_URL, f'{SITE_URL}/fonts/{family}/{style}')).upper() + '}'
 
 
-# Word files
-
-
 def docx_paragraph(xml: str, marker: str) -> str:
-    """The one paragraph whose text includes the marker"""
     found = [
         p
         for p in re.findall(r'<w:p[ >](?:(?!<w:p[ >]).)*?</w:p>', xml, re.S)
@@ -250,7 +236,7 @@ def docx_rewrite_paragraph(pkg: Package, marker: str, segments: list) -> None:
 
 
 def docx_remove_embedded_fonts(pkg: Package) -> None:
-    """Removes the fonts inside the file, such as the copies of Poppins Google Docs put in"""
+    """Removes the fonts inside the file, so they can be put back in fresh"""
     for name in [n for n in pkg.names if n.startswith('word/fonts/')]:
         pkg.remove(name)
     if 'word/_rels/fontTable.xml.rels' in pkg.parts:
@@ -337,10 +323,7 @@ def docx_embed_fonts(pkg: Package) -> None:
 
 
 def docx_footer_text(pkg: Package, site_link: bool) -> None:
-    """
-    The footer's text: the site's name on the left, then a link to the site if site_link is true,
-    and the page number on the right
-    """
+    """The site's name, a link to the site if site_link is true, and the page number on the right"""
     xml = pkg.text('word/document.xml')
     sect = re.findall(r'<w:sectPr[ >].*?</w:sectPr>', xml, re.S)[-1]
     width = int(re.search(r'<w:pgSz [^>]*w:w="(\d+)"', sect).group(1))
@@ -396,7 +379,6 @@ def slugify(title: str) -> str:
 
 
 def remove_unused_parts(pkg: Package) -> None:
-    """Removes links and pictures the document no longer uses"""
     xml = pkg.text('word/document.xml')
     rels_part = 'word/_rels/document.xml.rels'
     rels = pkg.text(rels_part)
@@ -420,7 +402,6 @@ PROMOTE = {'Heading2': 'Heading1', 'Heading3': 'Heading2', 'Heading4': 'Heading3
 
 
 def site_abbreviations() -> dict[str, str]:
-    """Each abbreviation in the site's list, with its full form, such as HTML: HyperText Markup Language"""
     found = re.findall(
         r"^  '?([A-Za-z0-9]+)'?: '((?:[^'\\]|\\.)*)',$",
         ABBREVIATIONS_FILE.read_text(encoding='utf-8'),
@@ -433,9 +414,8 @@ def site_abbreviations() -> dict[str, str]:
 
 def abbreviations_section(text: str, abbreviations: dict[str, str]) -> str:
     """
-    A section listing each abbreviation the text uses, with its full form, for a highlight's own
-    file. The full file's glossary isn't in it, so this is how people find out what they mean (WCAG
-    3.1.4). It's empty if the text uses none
+    Lists each abbreviation the text uses, with its full form. A highlight's own file has no
+    glossary, so this is how people find out what they mean (WCAG 3.1.4)
     """
     used = [
         name
@@ -465,16 +445,12 @@ def abbreviations_section(text: str, abbreviations: dict[str, str]) -> str:
 
 
 def file_title(title: str, folder_title: str) -> str:
-    """A file's title, with its folder's name added if another folder has a resource with the same title"""
     plain = title.replace('’', "'")
     return f'{title} ({folder_title})' if plain in SHARED_TITLES else title
 
 
 def split_highlights(full: Package, folder: Path, folder_title: str) -> list[str]:
-    """
-    Makes a Word file for each highlight, from the full file, with the same formatting. The two
-    glossaries stay in the full file only, so each highlight's file lists its own abbreviations
-    """
+    """Makes a Word file for each highlight. The glossaries stay in the full file only"""
     abbreviations = site_abbreviations()
     xml = full.text('word/document.xml')
     body = re.search(r'<w:body>(.*)</w:body>', xml, re.S)
@@ -574,10 +550,7 @@ def remove_unreachable(pkg: Package) -> None:
 
 
 def split_slides(deck: Path, folder: Path, slugs: list[str] | None, folder_title: str) -> list[str]:
-    """
-    Makes a PowerPoint file for each highlight, with just its slide, from the full deck. Slides are
-    matched to highlights by their titles. The glossary slides stay in the full deck only
-    """
+    """Makes a PowerPoint file for each highlight's slide, matched to it by its title"""
     full = Package(deck)
     presentation = full.text('ppt/presentation.xml')
     pres_rels = full.text('ppt/_rels/presentation.xml.rels')
@@ -625,17 +598,14 @@ def split_slides(deck: Path, folder: Path, slugs: list[str] | None, folder_title
     return made
 
 
-# PowerPoint files
-
 # The slides' corner size: the same as the title block's, in EMUs (914400 to an inch)
 CORNER_RADIUS = 0.16 * 731520
 
 
 def same_corners(path: Path) -> None:
     """
-    Gives every rounded box on the slides the same corner size as the title block, whatever its
-    size, including boxes added by hand later, such as code examples. It also makes sure no slide
-    is hidden
+    Gives every rounded box the title block's corner size, whatever its size, including boxes added
+    later. It also makes sure no slide is hidden
     """
     radius = CORNER_RADIUS
     pkg = Package(path)
@@ -657,7 +627,7 @@ def same_corners(path: Path) -> None:
             )
 
         new = re.sub(r'<p:sp>(?:(?!</p:sp>).)*?prst="roundRect".*?</p:sp>', fix, xml, flags=re.S)
-        # The original decks marked every slide as hidden, so a slideshow would skip them all
+        # A slideshow skips hidden slides
         new = re.sub(r'(<p:sld\b[^>]*?) show="0"', r'\1', new)
         if new != xml:
             pkg.set_text(part, new)
@@ -687,7 +657,7 @@ def check_and_save(pkg: Package, out: Path) -> None:
 
 
 def docx_link_text(pkg: Package, text: str, url: str) -> None:
-    """Makes some words in a paragraph a link, unless the paragraph already has one"""
+    """Makes the text a link, unless its paragraph already has one"""
     paragraph = docx_paragraph(pkg.text('word/document.xml'), text)
     if '<w:hyperlink' in paragraph:
         return
@@ -696,17 +666,13 @@ def docx_link_text(pkg: Package, text: str, url: str) -> None:
 
 
 def docx_theme_fonts(pkg: Package) -> None:
-    """
-    Uses my font as the theme's heading and body fonts. Word puts Calibri and Cambria there, and
-    then puts copies of them in the file, which makes it over 1MB bigger
-    """
+    """Word puts Calibri and Cambria here, then copies of them in the file, which adds over 1MB"""
     theme = pkg.text('word/theme/theme1.xml')
     theme = re.sub(r'(<a:(?:major|minor)Font><a:latin typeface=")[^"]*"', rf'\1{FONT}"', theme)
     pkg.set_text('word/theme/theme1.xml', theme)
 
 
 def docx_margins(pkg: Package) -> None:
-    """Wider side margins, so lines are under 80 characters long (WCAG 1.4.8)"""
     xml = pkg.text('word/document.xml')
     xml = re.sub(
         r'<w:pgMar [^>]*/>',
@@ -717,10 +683,6 @@ def docx_margins(pkg: Package) -> None:
 
 
 def docx_paragraph_spacing(pkg: Package) -> None:
-    """
-    Space after each paragraph, unless the file sets it already, so there's more space between
-    paragraphs than between lines (WCAG 1.4.8)
-    """
     styles = pkg.text('word/styles.xml')
     default = re.search(r'<w:pPrDefault>.*?</w:pPrDefault>', styles, re.S).group(0)
     spacing = re.search(r'<w:spacing [^>]*/>', default)
@@ -768,7 +730,6 @@ def docx_no_fake_links(pkg: Package) -> None:
 
 
 def finish_edited(path: Path, title: str) -> None:
-    """Updates a file I've edited by hand, keeping everything I wrote"""
     pkg = Package(path)
     docx_margins(pkg)
     docx_paragraph_spacing(pkg)
@@ -786,10 +747,6 @@ def finish_edited(path: Path, title: str) -> None:
 
 
 def source(name: str) -> Path:
-    """
-    A source file in branded/. The giffgaff originals they were first made from aren't in this
-    repo, so a missing one stops the script
-    """
     path = BRANDED / name
     if not path.exists():
         sys.exit(f'{path.relative_to(ROOT.parent)} is missing. It is a source file, so restore it from git or a backup.')
@@ -797,7 +754,6 @@ def source(name: str) -> Path:
 
 
 def set_title(path: Path, title: str) -> None:
-    """Sets a file's title, author and language, which PDFs and screen readers use"""
     pkg = Package(path)
     set_core_properties(pkg, title)
     check_and_save(pkg, path)

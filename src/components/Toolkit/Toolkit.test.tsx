@@ -270,7 +270,6 @@ describe('ToolkitPage', () => {
     const guide = within(files.getByRole('region', { name: 'Full guide' }));
     const view = guide.getByRole('link', { name: 'View: Dark mode, full guide, PDF' });
     expect(view).toHaveAttribute('href', '/files/highlights/dark-mode.pdf');
-    // It opens in the same tab, so the Back button brings people back
     expect(view).not.toHaveAttribute('target');
     expect(
       guide.getByRole('link', { name: 'Download: Dark mode, full guide, Word document' }),

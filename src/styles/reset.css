@@ -21,7 +21,7 @@ video {
   height: auto;
 }
 
-/* Form controls don't inherit text styles by default, including spacing from the display settings */
+/* Form controls don't inherit text styles, including the display settings' spacing */
 input,
 button,
 textarea,

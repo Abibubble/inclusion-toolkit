@@ -1,4 +1,3 @@
-/* Each version's heading, with its few words straight underneath */
 .versionTitle > * {
   margin-block: 0;
 }
@@ -25,8 +24,7 @@
   color: var(--color-text-muted);
 }
 
-/* A card that's one big link. The link's clickable area stretches over the whole card, so the
-   card can be clicked anywhere, while it stays one link with a short name for screen readers */
+/* The link's ::after covers the card, so the whole card is clickable */
 .linkCard {
   position: relative;
 
@@ -53,9 +51,8 @@
   }
 }
 
-/* The heading link stands on its own, so it needs a full size target (WCAG 2.5.5). The maximum
-   width lets a long word, such as "Photosensitivity" in large text, wrap rather than make the link
-   wider than the screen (WCAG 1.4.10) */
+/* Stands on its own, so it needs a full size target (WCAG 2.5.5). max-width lets long words wrap
+   (WCAG 1.4.10) */
 .title a {
   display: inline-block;
   max-width: 100%;
@@ -75,16 +72,12 @@
   min-height: var(--size-target-min);
 }
 
-/* Each file is a line of text, such as "PDF (42KB): View or Download", with
-   the links in it. Links in a sentence don't need a full size target (WCAG 2.5.5), so the lines
-   can sit close together. A little space between them keeps the links easy to tell apart */
+/* Links in a line of text don't need a full size target (WCAG 2.5.5), so lines sit close
+   together */
 .file + .file {
   margin-block-start: var(--spacer-4);
 }
 
-/* The full guide and the visual summary, each in its own card, side by side when there's room.
-   A card is never narrower than 20rem, or the screen if that's narrower, and the pair never
-   stretches across the whole page */
 .versions {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
@@ -92,18 +85,15 @@
   max-width: calc(var(--spacer-96) * 10);
 }
 
-/* Less padding than other cards, so the files take up less room */
 .versions > .versionCard {
   padding: var(--spacer-16) var(--spacer-24);
 }
 
-/* A line between the files and the resource's text, so they're clearly separate */
 .text {
   padding-block-start: var(--spacer-32);
   border-block-start: var(--border-width) solid var(--color-border-decorative);
 }
 
-/* A line for each file: what it is and its size, then its links */
 .files {
   padding: 0;
   margin: 0;

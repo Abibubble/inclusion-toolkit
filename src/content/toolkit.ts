@@ -1,33 +1,25 @@
 import { SITE_NAME } from './site';
 import RECORD from './toolkit.json' with { type: 'json' };
 
-/** The toolkit is the whole site, so folders and resources sit under the home page, such as /accessibility */
+/** Folders and resources sit under the home page, such as /accessibility */
 export const TOOLKIT_PATH = '/';
 
-/** What the first step of the breadcrumbs is called. The same as the home page's name in the menu */
+/** Matches the home page's label in MAIN_NAV */
 const TOOLKIT_HOME_TITLE = 'Home';
 
-/** Where the toolkit's files are, in public/ */
+/** In public/ */
 const TOOLKIT_FILES_FOLDER = 'files';
 
 /** One format of a resource, such as its PDF, in public/ */
 interface ToolkitFile {
   /** Always under files/, such as files/infographics/neurodiversity/adhd.pdf */
   path: string;
-  /**
-   * Such as 1.2MB, using 1000 bytes to a kilobyte, as computers show it. Worked out from the file
-   * when the site is built, so it's empty until then
-   */
+  /** Such as 1.2MB. Empty until the site is built */
   size: string;
 }
 
 type ToolkitVersionName = 'Full guide' | 'Visual summary' | 'Infographic';
 
-/**
- * A version of a resource, in each format it comes in. The full guide is the Word file and a PDF
- * of it. The visual summary is the slides, as a PowerPoint file and a PDF of it. An infographic
- * is a PowerPoint file and a PDF of it, with no Word file
- */
 export interface ToolkitVersion {
   name: ToolkitVersionName;
   files: ToolkitFile[];
@@ -66,11 +58,11 @@ export interface ToolkitFolder {
 }
 
 /**
- * A resource in toolkit.json, with what's being tracked for it. The text of everything in it is in
- * src/content/toolkit/{folders}/{slug}.md, and its files are named the same way (see toolkitFilePaths)
+ * A resource in toolkit.json, with what's being tracked for it. Its text is in
+ * src/content/toolkit/{folders}/{slug}.md, and its files are named the same way
  */
 export interface ToolkitItemRecord extends Omit<ToolkitItem, 'versions'> {
-  /** Whether it has slides, which then need their PowerPoint file and PDF too, as the visual summary */
+  /** Slides need a PowerPoint file and PDF too, as the visual summary */
   slides: boolean;
   /** Whether it's an infographic, which is a PowerPoint file and PDF, with no Word file */
   infographic?: boolean;
@@ -96,12 +88,8 @@ export const TOOLKIT_RECORD: ToolkitFolderRecord = {
 type ToolkitFormats = Pick<ToolkitItemRecord, 'slides' | 'infographic'>;
 
 /**
- * Each version of a resource, with where its files go in public/, named after the slugs leading to
- * it. Most resources have the full guide. So accessibility/highlights/dark-mode has
- * files/accessibility/highlights/dark-mode.docx and .pdf. If it has slides, it
- * also has the visual summary, dark-mode-visual-summary.pptx and .pdf. An infographic only has
- * its PowerPoint file and PDF, such as accessibility/infographics/asthma.pptx and .pdf. The sizes
- * are filled in when the site is built
+ * Each version of a resource and its files in public/, named after its slugs, such as
+ * files/accessibility/highlights/dark-mode.docx and dark-mode-visual-summary.pptx
  */
 export function toolkitVersions(
   slugs: readonly string[],
@@ -125,17 +113,13 @@ export function toolkitFilePaths(slugs: readonly string[], formats: ToolkitForma
   return toolkitVersions(slugs, formats).flatMap(({ files }) => files.map(({ path }) => path));
 }
 
-/**
- * Ready once its text is checked. The tests and the build then make sure it has every file it
- * needs, so nobody is left out
- */
 function isReady(item: ToolkitItemRecord): boolean {
   return item.text === 'checked';
 }
 
 /**
- * Only what the site shows: ready resources, and folders with something in them.
- * It lists what to keep, rather than what to remove, so anything new added for tracking stays private
+ * Only what the site shows: ready resources, and folders with something in them. It lists what to
+ * keep, not what to remove, so anything new added for tracking stays private
  */
 export function publicToolkit(record: ToolkitFolderRecord, slugs: string[] = []): ToolkitFolder {
   const { slug, title, description } = record;
@@ -210,7 +194,7 @@ export function toolkitPath(slugs: readonly string[]): string {
   return `${TOOLKIT_PATH}${slugs.join('/')}`;
 }
 
-/** The key for a resource's text file, src/content/toolkit/{key}.md, such as highlights/dark-mode */
+/** The key in src/content/toolkit/{key}.md, such as highlights/dark-mode */
 export function toolkitTextKey(slugs: readonly string[]): string {
   return slugs.join('/');
 }
@@ -220,7 +204,7 @@ interface ToolkitEntry {
   slugs: string[];
   title: string;
   description: string;
-  /** The title of the folder a resource is in, as some resources in different folders share a title */
+  /** Its folder's title, as resources in different folders can share a title */
   folder?: string;
 }
 
@@ -292,10 +276,7 @@ export function toolkitItemRecords(
   ];
 }
 
-/**
- * The files in public/ of resources that aren't on the site yet. Everything in public/ is copied
- * into the built site, so the build removes these
- */
+/** Files in public/ for resources that aren't on the site yet */
 export function unpublishedToolkitFiles(record: ToolkitFolderRecord = TOOLKIT_RECORD): string[] {
   return toolkitItemRecords(record)
     .filter(({ item }) => !isReady(item))

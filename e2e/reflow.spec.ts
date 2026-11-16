@@ -19,12 +19,11 @@ for (const route of ROUTES) {
       await page.setViewportSize({ width: 1440, height: 900 });
       await page.goto(route.path);
 
-      // Counts the characters on each line as the browser lays them out, a word at a time. Text
-      // that's hidden visually, for screen readers, is left out
+      // Text hidden visually, for screen readers, is left out
       const longest = await page.evaluate(() => {
         let most = 0;
         for (const element of document.querySelectorAll('main :is(p, li, dd, blockquote)')) {
-          // The letters and the number of words on each line, which have a space between them
+          // Characters per line: the letters, plus a space between each word
           const lines = new Map<number, { letters: number; words: number }>();
           const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
           for (let node = walker.nextNode(); node; node = walker.nextNode()) {
@@ -38,8 +37,7 @@ for (const route of ROUTES) {
               const length = word[0].trimEnd().length;
               range.setEnd(node, word.index + length);
               const rects = [...range.getClientRects()];
-              // A long word, such as a web address, can be split across lines. Its parts can't be
-              // told apart here, so it's left out
+              // A web address or other word split across lines can't be counted, so it's skipped
               const tops = new Set(rects.map((rect) => Math.round(rect.top)));
               if (tops.size !== 1) continue;
               const [top = 0] = tops;

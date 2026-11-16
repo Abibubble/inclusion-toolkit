@@ -25,7 +25,7 @@ export function meta(): Route.MetaDescriptors {
 }
 
 const SECTIONS = {
-  // Not called Display settings, as the footer has a link with that name to another page (WCAG 2.4.9)
+  // Not called Display settings, as a footer link to another page has that name (WCAG 2.4.9)
   displaySettings: { id: 'display-settings', title: 'Change how the site looks' },
   howAccessible: { id: 'how-accessible', title: 'How accessible this site is' },
   whatsBeenDone: { id: 'whats-been-done', title: 'What’s been done to make it accessible' },

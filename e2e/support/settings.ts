@@ -9,8 +9,8 @@ export const STRONGEST_SETTINGS: Partial<DisplaySettings> = {
 };
 
 /**
- * The system font differs on each computer. Testing with a wide one (Verdana on a Mac, DejaVu Sans
- * on Linux, which CI uses) catches layouts that only break where the system font is wide
+ * A wide system font (Verdana on a Mac, DejaVu Sans on Linux in CI), to catch layouts that only
+ * break with wide fonts.
  */
 export const WIDE_SYSTEM_FONT = {
   content: ":root { --font-family-system: verdana, 'DejaVu Sans', sans-serif; }",

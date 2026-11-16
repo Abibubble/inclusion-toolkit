@@ -34,7 +34,6 @@ export const links: Route.LinksFunction = () => [
     crossOrigin: 'anonymous',
   },
   { rel: 'stylesheet', href: stylesheetUrl },
-  // Browsers that support SVG icons use that, others the .ico
   { rel: 'icon', href: `${BASE_URL}favicon.ico`, sizes: '32x32' },
   { rel: 'icon', href: `${BASE_URL}favicon.svg`, type: 'image/svg+xml' },
   { rel: 'apple-touch-icon', href: `${BASE_URL}apple-touch-icon.png` },
@@ -42,14 +41,13 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: ReactNode }) {
-  // Marks that React has taken over the prerendered page, so tests know when it's ready to use
+  // Tells the before paint script and tests that React has taken over
   useEffect(() => {
     document.documentElement.dataset.hydrated = '';
   }, []);
 
   return (
-    // The before paint script adds attributes to <html> before React loads, which React would
-    // otherwise warn about
+    // The before paint script changes <html> before React loads
     <html lang="en-GB" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
@@ -98,9 +96,8 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   const notFound = isRouteErrorResponse(error) && error.status === 404;
   const navigationType = useNavigationType();
 
-  // The error page brings its own shell, so the shell's focus handling starts again and doesn't
-  // move focus. After a link or button, focus goes to the heading, so screen reader users hear that
-  // the page changed (WCAG 2.4.3). Not on Back or Forward, or when the page first loads
+  // The error page brings its own shell, so focus its heading here (WCAG 2.4.3), but not on Back or
+  // Forward
   useEffect(() => {
     if (navigationType !== NavigationType.Pop) document.getElementById(PAGE_HEADING_ID)?.focus();
   }, [navigationType]);

@@ -16,9 +16,8 @@ import styles from './Toolkit.module.css';
 const { BASE_URL } = import.meta.env;
 
 /**
- * The words of every resource's full text, fetched the first time someone focuses the search box
- * or types in it, so the page itself stays small. Until it arrives, or if it can't be fetched,
- * search still finds titles and descriptions
+ * Fetched on first focus or typing, so the page stays small. Until then, search uses titles and
+ * descriptions
  */
 function useSearchIndex(): [ToolkitSearchIndex | undefined, () => void] {
   const [index, setIndex] = useState<ToolkitSearchIndex>();
@@ -53,11 +52,8 @@ function resultsMessage(query: string, count: number): string {
 }
 
 /**
- * Finds folders and resources as you type, in their titles, descriptions and full text, with
- * British and American spellings finding each other (see src/content/toolkitSearch.ts). The
- * results are ordinary links in a list, so they work
- * with Tab, screen readers and voice control, and the number found is announced. Without
- * JavaScript, it's hidden, and the folders below lead to everything instead
+ * Results are plain links in a list, so they work with Tab, screen readers and voice control.
+ * Hidden without JavaScript
  */
 export function ToolkitSearch({ entries }: { entries: readonly ToolkitSearchEntry[] }) {
   const id = useId();
@@ -101,13 +97,12 @@ export function ToolkitSearch({ entries }: { entries: readonly ToolkitSearchEntr
         {resultsMessage(query, results.length)}
       </p>
       {results.length > 0 && (
-        // role="list" keeps the list's role in Safari, which drops it from lists with no bullets
+        // Safari drops the list role without bullets
         <ul role="list" className={styles.results} aria-label="Search results">
           {results.map((result) => (
             <li key={result.path}>
               <Link to={result.path}>
-                {/* The folder tells apart resources that share a title, such as Meetings, so
-                    every link makes sense on its own (WCAG 2.4.9) */}
+                {/* The folder tells apart resources that share a title (WCAG 2.4.9) */}
                 {result.title}
                 {result.kind === 'folder' ? ' (folder)' : result.folder && ` (${result.folder})`}
               </Link>

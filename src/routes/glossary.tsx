@@ -32,7 +32,7 @@ const SECTIONS = {
 
 const ABBREVIATION_NAMES = Object.keys(ABBREVIATIONS) as Abbreviation[];
 
-/** Screens narrower than this show the words as a list that opens one at a time, not a table */
+/** Below this width, words show as a list that opens, not a table */
 const SMALL_SCREEN = '(width < 48rem)';
 
 function watchScreen(onChange: () => void): () => void {
@@ -93,9 +93,8 @@ export default function Glossary() {
     matches(query, name, ABBREVIATIONS[name]),
   );
 
-  // A link from a toolkit page to a word opens that word, on small screens where it's closed, and
-  // moves focus to it. Links in the toolkit text load this page afresh, so the site's focus
-  // handling for moving between pages doesn't do this. It runs again if the layout changes
+  // Opens the linked word on small screens, and focuses it, including when the page first loads
+  // with a hash
   useEffect(() => {
     if (hash === '') return;
     const id = decodeURIComponent(hash.slice(1));
@@ -119,7 +118,6 @@ export default function Glossary() {
         </Stack>
       </TitleBand>
 
-      {/* Search needs JavaScript, so without it the search box is hidden and everything shows */}
       <div role="search" className={styles.search}>
         <label htmlFor={searchId} className={styles.label}>
           Search the glossary
@@ -159,7 +157,6 @@ export default function Glossary() {
         {words.length === 0 ? (
           <p>No words match your search.</p>
         ) : smallScreen ? (
-          // On small screens, each word opens to show what it means, so the list stays short
           <ul className={styles.terms}>
             {words.map(({ term, definition }) => (
               <li key={term}>
@@ -199,7 +196,6 @@ export default function Glossary() {
         {abbreviations.length === 0 ? (
           <p>No abbreviations match your search.</p>
         ) : smallScreen ? (
-          // On small screens, each abbreviation opens to show what it stands for
           <ul className={styles.terms}>
             {abbreviations.map((name) => (
               <li key={name}>

@@ -11,7 +11,6 @@ import Glossary, { meta } from './glossary';
 
 const region = (name: string) => within(screen.getByRole('region', { name }));
 
-/** Pretends the screen is small, so the words show as a list that opens one at a time */
 function smallScreen() {
   vi.stubGlobal(
     'matchMedia',
@@ -28,9 +27,8 @@ afterEach(() => {
 });
 
 /**
- * The text of a table's column headers, row headers, and other cells. Read straight from the
- * markup, as finding hundreds of cells by their roles is slow enough to time out on a busy
- * computer. The axe test below checks the table's structure
+ * Read from the markup, as finding hundreds of cells by their roles can time out. The axe test
+ * below checks the table's structure
  */
 function tableText(section: HTMLElement) {
   const text = (selector: string) =>

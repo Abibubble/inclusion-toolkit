@@ -12,11 +12,8 @@
   letter-spacing: var(--letter-spacing-emphasis);
 }
 
-/*
- * Each option on a line of its own, with its description beside it, lined up in a second column.
- * The option's wrapper is left out of the layout, so every option's name and description share
- * the same 2 columns. On narrow screens, the description goes under its option's name instead
- */
+/* The option's wrapper is left out of the layout, so every option's name and description line up
+   in the same 2 columns */
 .options {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
@@ -32,7 +29,6 @@
   display: contents;
 }
 
-/* Short options with no descriptions, side by side, wrapping onto more lines if they need to */
 .inline {
   display: flex;
   flex-wrap: wrap;

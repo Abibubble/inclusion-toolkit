@@ -1,7 +1,7 @@
 """
 Makes everything else each Inclusion Toolkit resource needs, from its branded Word file:
-- a tagged PDF that looks like the Word file, made by the browser the site's tests use
-- if it has slides, a tagged PDF of them too, drawn from the PowerPoint file the same way
+- a tagged PDF that looks like the Word file
+- if it has slides, a tagged PDF of them too
 - a draft of its text for the site, in src/content/toolkit/, if it doesn't have one yet
 Then it copies the files into public/files/, and adds any new resource to
 src/content/toolkit.json. It never changes text, descriptions or to-dos already there, so
@@ -39,9 +39,8 @@ RECORD = REPO / 'src' / 'content' / 'toolkit.json'
 
 def site_path(relative: Path) -> Path:
     """
-    Where a resource is on the site. The sources are grouped by format, then topic, such as
-    highlights/accessibility/dark-mode, but the site is grouped by topic first, such as
-    accessibility/highlights/dark-mode
+    Sources are grouped by format first, such as highlights/accessibility/dark-mode, but the site
+    by topic first, such as accessibility/highlights/dark-mode
     """
     parts = relative.parts
     if parts[0] in ('highlights', 'infographics') and len(parts) > 2:
@@ -97,7 +96,7 @@ class Docx:
         self.footer_has_site = SITE_DISPLAY in footer
 
     def list_format(self, num_id: str, level: int) -> tuple[str, str, int]:
-        """The format of a list level, such as bullet or decimal, with its bullet and start number"""
+        """A list level's format, such as bullet or decimal, with its bullet and start number"""
         num = next(n for n in self.numbering.iter(w('num')) if n.get(w('numId')) == num_id)
         abstract_id = num.find(w('abstractNumId')).get(w('val'))
         abstract = next(
@@ -300,7 +299,6 @@ def merge_links(html: str) -> str:
 
 
 def keep_name_together(html: str) -> str:
-    """My surname is never split at its hyphen"""
     return html.replace('Harrison-Nye', '<span class="nowrap">Harrison-Nye</span>')
 
 
@@ -427,16 +425,14 @@ def style_attr(css: str) -> str:
     return f' style="{css}"' if css else ''
 
 
-# The page's side margins, so a line of text on A4 is under 80 characters (WCAG 1.4.8). The same as
-# the Word files' margins, which rebrand.py sets
+# The same as the Word files' margins, so lines are under 80 characters (WCAG 1.4.8)
 SIDE_MARGIN = '1.45in'
 
 
 def footer_template(site_link: bool) -> str:
     """
-    Like the Word file's footer: the site's name on the left, then its address if the Word file has
-    it, and the page number on the right. The browser can't make links in footers, so the address
-    is written out in full, in the footer's colour, so it doesn't look like a link
+    Like the Word file's footer. The browser can't make links in footers, so the address is in the
+    footer's colour, not the link colour
     """
     site = f' · {SITE_DISPLAY}' if site_link else ''
     return (
@@ -468,7 +464,7 @@ def inches(emu: int | str) -> str:
 
 
 class Pptx:
-    """The parts of a PowerPoint file needed to draw its slides: each slide, with its layout and master"""
+    """The parts of a PowerPoint file needed to draw its slides"""
 
     def __init__(self, path: Path):
         self.zip = zipfile.ZipFile(path)
@@ -503,8 +499,6 @@ class Pptx:
 
 
 class SlideContext:
-    """What a slide's shapes need to look things up: its colours, and the files its part links to"""
-
     def __init__(self, pptx: Pptx, part: str, colours: dict[str, str]):
         self.pptx = pptx
         self.part = part
@@ -574,7 +568,6 @@ def box_css(shape) -> dict[str, str]:
 
 
 def shape_css(shape, context: SlideContext) -> dict[str, str]:
-    """Where the shape is, and its fill, outline and rounded corners"""
     css = box_css(shape)
     props = shape.find(p('spPr'))
     geometry = props.find(a('prstGeom')) if props is not None else None
@@ -596,7 +589,6 @@ def shape_css(shape, context: SlideContext) -> dict[str, str]:
 
 
 def run_html(run, context: SlideContext) -> str:
-    """A run of text, with its own font, size, weight and colour, and its link if it has one"""
     if run.tag == a('br'):
         return '<br>'
     props = run.find(a('rPr'))
@@ -661,10 +653,7 @@ def bullet(paragraph) -> str | None:
 
 
 def text_html(shape, context: SlideContext, heading: int | None) -> str:
-    """
-    The shape's text, as the right kind of element, so the PDF's tags match what it is: headings,
-    lists for bullet points, and code examples kept line by line
-    """
+    """The shape's text as headings, lists or code, so the PDF's tags match what it is"""
     paragraphs = shape.findall(f'{p("txBody")}/{a("p")}')
     runs_of = [[r for r in paragraph if r.tag in (a('r'), a('br'))] for paragraph in paragraphs]
     if not any(r.tag == a('r') and (r.findtext(a('t')) or '').strip() for runs in runs_of for r in runs):
@@ -769,9 +758,8 @@ def has_alt_text(picture) -> bool:
 
 def shapes_html(shapes, context: SlideContext, title_level: int) -> tuple[str, str]:
     """
-    The shapes, in the order they're drawn. The text is given in reading order: the title first,
-    then each box's heading and text, and pictures with alt text where they are among them (WCAG
-    1.3.2). Shapes with no text, and decorative pictures, are only drawn
+    Returns the shapes that are only drawn, then the text in reading order: the title, then each
+    box's text, with pictures that have alt text (WCAG 1.3.2)
     """
     drawn, title, text = '', '', ''
     for shape in shapes:
@@ -798,10 +786,7 @@ def shapes_html(shapes, context: SlideContext, title_level: int) -> tuple[str, s
 
 
 def slides_html(path: Path, title: str) -> str:
-    """
-    Every slide of a PowerPoint file as a page, drawn to look like PowerPoint shows it. Each
-    slide's title is a level 1 heading, and the headings in its boxes are level 2
-    """
+    """Each slide as a page, drawn to look like PowerPoint shows it"""
     pptx = Pptx(path)
     pages = ''
     for slide_part in pptx.slides:
@@ -813,8 +798,8 @@ def slides_html(path: Path, title: str) -> str:
         layout = pptx.xml(layout_part)
 
         drawn, text, last = '', '', ''
-        # The master's and layout's own shapes, such as the logo, title box and the site's name, but not
-        # their empty placeholders, which the slide fills in
+        # The master's and layout's own shapes, such as the logo, but not their empty placeholders,
+        # which the slide fills in
         for part, context in zip(reversed(parts), reversed(contexts)):
             if part == master_part and layout.get('showMasterSp') == '0':
                 continue
@@ -868,9 +853,8 @@ def pptx_title(path: Path) -> str:
 
 def infographic_markdown(path: Path) -> str:
     """
-    The text of an infographic, for its page: each box's heading and points, then the note. A file
-    with every infographic in it has each one's title as a heading, with its boxes under it, and
-    the note once, at the end
+    Each box's heading and points, then the note. A file with every infographic has each one's
+    title as a heading, and the note once, at the end
     """
     pptx = Pptx(path)
     several = len(pptx.slides) > 1
@@ -935,8 +919,8 @@ def heading_texts(html: str) -> list[str]:
 # few of them pass a PDF/UA checker, such as PAC
 CLAIM_PDF_UA = False
 
-# Tokens in a page's drawing instructions: brackets for dictionaries and arrays, strings, names,
-# numbers and operators. Strings in brackets can nest, which is handled in content_tokens
+# Tokens in a page's drawing instructions. Strings in brackets can nest, so content_operations
+# reads them
 TOKEN = re.compile(rb'<<|>>|<[0-9A-Fa-f\s]*>|\[|\]|/[^\s/<>\[\]()%{}]*|[^\s/<>\[\]()%{}]+|%[^\r\n]*|\(')
 TEXT_SHOWING = {b'Tj', b'TJ', b"'", b'"'}
 PATH_BUILDING = {b'm', b'l', b'c', b'v', b'y', b'h', b're'}
@@ -945,7 +929,7 @@ OPERATOR = re.compile(rb"[A-Za-z'\"][A-Za-z*'\"]*")
 
 
 def content_operations(stream: bytes) -> list[tuple[int, int, bytes]]:
-    """Each drawing instruction in a page: where its operands start, where it ends, and its operator"""
+    """Each drawing instruction: where its operands start, where it ends, and its operator"""
     operations = []
     start = None
     position = 0
@@ -986,10 +970,9 @@ def content_operations(stream: bytes) -> list[tuple[int, int, bytes]]:
 
 def mark_artifacts(stream: bytes) -> tuple[bytes, int]:
     """
-    Marks everything a page draws outside its tags, such as the footer and decorative shapes, as an
-    artifact, which screen readers skip. Untagged content isn't allowed in an accessible PDF, and
-    some screen readers read it out of order. Each piece of text, shape and picture is marked on its
-    own, so the marks never cross the page's other instructions (PDF/UA 7.1)
+    Marks everything drawn outside the tags, such as the footer, as an artifact, which screen
+    readers skip. PDF/UA doesn't allow untagged content. Each piece is marked on its own, so the
+    marks never cross other instructions (PDF/UA 7.1)
     """
     wraps: list[tuple[int, int]] = []
     depth = 0
@@ -1077,10 +1060,8 @@ def link_texts(html: str) -> dict[str, list[str]]:
 
 def list_bodies(data: bytes, first_number: int) -> list[tuple[int, bytes]]:
     """
-    PDF/UA asks for each list item's content to be in an LBody tag, after its Lbl. The browser puts
-    the content straight in the list item, so this adds an LBody to each one, around everything
-    after the label, and makes it the parent of those tags. Returns the changed and new objects,
-    numbered from first_number
+    Wraps each list item's content after its Lbl in an LBody tag, which PDF/UA asks for and the
+    browser leaves out. New objects are numbered from first_number
     """
     objects = {
         int(m.group(1)): m.group(2)
@@ -1112,8 +1093,8 @@ def list_bodies(data: bytes, first_number: int) -> list[tuple[int, bytes]]:
 
 def link_tags(data: bytes) -> dict[int, int]:
     """
-    The tag each annotation belongs to, by the annotation's /StructParent, from the structure tree's
-    ParentTree. Empty if the tree is split into parts, which only happens in very large files
+    Each annotation's tag, by its /StructParent. Empty if the ParentTree is split into parts, which
+    only happens in very large files
     """
     root = re.search(rb'/StructTreeRoot (\d+) 0 R', data)
     if not root:
@@ -1130,10 +1111,7 @@ def link_tags(data: bytes) -> dict[int, int]:
 
 
 def xmp(title: str) -> bytes:
-    """
-    The file's details in XMP, the form PDF/UA asks for, matching the details the browser's own
-    dictionary has: the title, author and subject
-    """
+    """The file's details in XMP, which PDF/UA asks for, matching the browser's own details"""
     ua = (
         '<rdf:Description rdf:about="" xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/">'
         '<pdfuaid:part>1</pdfuaid:part></rdf:Description>'
@@ -1155,13 +1133,10 @@ def xmp(title: str) -> bytes:
 def finish_pdf(path: Path, title: str, html: str = '') -> None:
     """
     Adds what the browser leaves out, as an update at the end, so nothing else in the file moves:
-    - showing the title, rather than the file name, in the window, and the author
-    - the same details in XMP, which PDF checkers and some screen readers read
-    - the spaces the browser drops from a bookmark when its heading wraps onto 2 lines, such as
-      "What is itfor?", and a heading it repeats when it breaks across a page
-    - a description of each link, from its text, which screen readers read out
-    - marking the footer and decorative shapes, which aren't tagged, as artifacts
-    - an LBody tag around each list item's content, after its label
+    - the title in the window, and the details in XMP, which checkers and screen readers read
+    - spaces dropped from bookmarks for wrapped headings, and headings repeated at page breaks
+    - a description of each link, which screen readers read out
+    - artifact marks on untagged content, and LBody tags in lists
     """
     data = path.read_bytes()
     trailer = data[data.rindex(b'trailer') :]
@@ -1357,9 +1332,8 @@ def find_folder(record: dict, slugs: list[str]) -> dict:
 
 def same_content(new: Path, old: Path) -> bool:
     """
-    Whether 2 files have the same content, ignoring when they were made. Word and PowerPoint files
-    store the time in their zip, and PDFs in their details, so every run would otherwise change
-    every file, and they'd all need committing again
+    Whether 2 files match, ignoring the save time Office zips and PDFs store, so unchanged files
+    aren't rewritten
     """
     if not old.exists():
         return False

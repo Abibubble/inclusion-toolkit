@@ -48,17 +48,14 @@ function folderWithSizes(folder: ToolkitFolder, sizeOf: (path: string) => string
   };
 }
 
-/**
- * The text of each resource, in src/content/toolkit/{folders}/{slug}.md. Only loaders use it, and
- * loaders run when the site is built, so the Markdown is never sent to visitors' browsers
- */
+/** Only loaders read these, at build time, so the Markdown never reaches the browser */
 const TEXT_FILES = import.meta.glob<string>(['./toolkit/**/*.md', '!./toolkit/README.md'], {
   query: '?raw',
   import: 'default',
   eager: true,
 });
 
-/** Every resource's text, keyed by the slugs leading to it: ./toolkit/accessibility/highlights/dark-mode.md gives accessibility/highlights/dark-mode */
+/** Each resource's Markdown, keyed by its path under ./toolkit without .md */
 export const TOOLKIT_TEXT: Record<string, string> = Object.fromEntries(
   Object.entries(TEXT_FILES).map(([path, markdown]) => [
     path.replace(/^\.\/toolkit\//, '').replace(/\.md$/, ''),
@@ -67,9 +64,8 @@ export const TOOLKIT_TEXT: Record<string, string> = Object.fromEntries(
 );
 
 /**
- * The words of every resource's full text, by its address, so search can find words that aren't
- * in a title or description. It's a file of its own, only fetched once someone starts searching,
- * so the toolkit's main page stays small
+ * Each resource's full-text words, by address. A separate file, fetched only when someone
+ * searches, so the main page stays small
  */
 export function loadToolkitSearchIndex(
   toolkit: ToolkitFolder = TOOLKIT,

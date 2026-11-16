@@ -80,8 +80,7 @@ async function tabOrderProblems(page: Page, browserName: string): Promise<string
   for (const [position, label] of expected.entries()) {
     await page.keyboard.press(tab);
     let focus = await checkFocus(page);
-    // The browser can still be scrolling to the focused element. WebKit on slower computers can take
-    // a moment to finish, so give it up to a second. Anything really off screen or covered still fails
+    // WebKit can take up to a second to finish scrolling to the focused element
     for (let wait = 0; wait < 10 && !(focus.inView && focus.onTop); wait++) {
       await page.waitForTimeout(100);
       focus = await checkFocus(page);

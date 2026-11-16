@@ -1,4 +1,4 @@
-// Components must use design tokens for colour, spacing and type. Only token files may hold raw values.
+// Components must use design tokens for colour, spacing and type. Only token files hold raw values.
 const TOKENISED_PROPERTIES = [
   '/color$/',
   'fill',

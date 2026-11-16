@@ -50,7 +50,6 @@ test.describe('Theme switcher in the header', () => {
 });
 
 test.describe('Saved settings, with no JavaScript files', () => {
-  // The JavaScript files are blocked, so React never starts.
   test.use({ waitForReact: false });
 
   test('apply before the page is drawn, even before any JavaScript files load', async ({

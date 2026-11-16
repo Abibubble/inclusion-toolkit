@@ -1,5 +1,5 @@
 /*
- * Print tokens. Whatever theme is active, printed pages are black on white with print friendly sizes
+ * Print tokens. Printed pages are black on white in every theme, with print friendly sizes
  */
 @media print {
   /* Includes :root[data-theme] so a chosen theme, such as Cream, can't override print colours */
@@ -32,7 +32,7 @@
     --font-size-h2: 16pt;
     --font-size-h3: 13pt;
 
-    /* The same spacing steps, sized for paper (which gets spread larger on paper than on a webpage) */
+    /* The same spacing steps, sized for paper */
     --spacer-4: 2pt;
     --spacer-8: 3pt;
     --spacer-16: 6pt;

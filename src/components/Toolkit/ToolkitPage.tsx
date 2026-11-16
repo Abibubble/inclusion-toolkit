@@ -13,7 +13,6 @@ import styles from './Toolkit.module.css';
 import { ToolkitFileCard, ToolkitFileLinks, ToolkitFolderCard } from './ToolkitCards';
 import { ToolkitSearch } from './ToolkitSearch';
 
-/** A folder's folders, then its resources, each under their own heading */
 function ToolkitContents({ folder, slugs }: { folder: ToolkitFolder; slugs: readonly string[] }) {
   const foldersId = useId();
   const filesId = useId();
@@ -64,7 +63,6 @@ function ToolkitContents({ folder, slugs }: { folder: ToolkitFolder; slugs: read
   );
 }
 
-/** The Inclusion Toolkit: its main page with search, a folder, or a resource with its text */
 export function ToolkitPage({ data }: { data: ToolkitPageData }) {
   if (data.kind === 'home') {
     return (

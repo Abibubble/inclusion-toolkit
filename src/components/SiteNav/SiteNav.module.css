@@ -29,7 +29,6 @@
   height: var(--spacer-24);
 }
 
-/* On narrow screens the open menu is a panel below the header bar, in the page's own colours */
 .panel {
   display: flex;
   flex-basis: 100%;

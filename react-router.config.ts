@@ -12,10 +12,8 @@ import { pagePaths, robotsTxt, sitemapXml } from './src/seo/sitemap.ts';
 
 const NOT_FOUND_PATH = '/404';
 
-// Prerendering asks a local server for each page, in this same process. Node gives each connection
-// 250ms to open ("happy eyeballs"), and a big page can keep Node busy for longer than that, so the
-// connection timed out now and then ("connect ETIMEDOUT"). The server is always local, so there's
-// nothing to choose between, and this only affects the build
+// Node gives each connection 250ms to open, and a big prerendered page sometimes kept it busy
+// longer (connect ETIMEDOUT). The server is always local, so turn this off. Build only
 setDefaultAutoSelectFamily(false);
 
 async function isFolder(path: string): Promise<boolean> {
@@ -45,7 +43,7 @@ export default {
   async buildEnd({ reactRouterConfig }) {
     const client = join(reactRouterConfig.buildDirectory, 'client');
 
-    // Prerendered pages go under the base path, but GitHub Pages serves the build from there already
+    // Pages prerender under the base path, but GitHub Pages already serves the build from there
     const [baseFolder, ...rest] = BASE_PATH.split('/').filter(Boolean);
     if (baseFolder) {
       await moveInto(join(client, baseFolder, ...rest), client);
@@ -72,7 +70,7 @@ export default {
     await Promise.all(
       htmlFiles.map(async (file) => {
         const path = join(client, file);
-        // The policy allows each inline script by its hash, so it must come after any change to them
+        // The policy allows inline scripts by their hash, so it must come after any change to them
         const html = withoutRepeatedHtml(await readFile(path, 'utf8'));
         await writeFile(path, withContentSecurityPolicy(html));
       }),

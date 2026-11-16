@@ -19,18 +19,12 @@ import styles from './Toolkit.module.css';
 const { BASE_URL } = import.meta.env;
 
 /**
- * A resource's files, for its own page, under its "Files" heading. If it has more than one
- * version, each has a level 3 heading, so it's clear they're titles, and screen reader users can
- * move between them. Then there's a line for each file: what kind of file it is, its size, and
- * short links to view it (PDFs only, as browsers can show them) and download it. Screen readers
- * also hear which resource, version and file each link is for, so it makes sense read on its own
- * (WCAG 2.4.9). That comes after the visible words, so speech control users can say what they see
- * (WCAG 2.5.3)
+ * A resource's files. Hidden text says which resource, version and file each link is for
+ * (WCAG 2.4.9), after the visible words so speech control users can say what they see (WCAG 2.5.3)
  */
 export function ToolkitFileLinks({ item }: { item: ToolkitItem }) {
   const [only] = item.versions;
 
-  // With only one version, there's nothing to tell apart, so it isn't named
   if (item.versions.length === 1 && only) {
     return (
       <div className={styles.versions}>
@@ -41,7 +35,6 @@ export function ToolkitFileLinks({ item }: { item: ToolkitItem }) {
     );
   }
 
-  // Each version in a card of its own, side by side when there's room
   return (
     <div className={styles.versions}>
       {item.versions.map((version) => (
@@ -82,10 +75,7 @@ interface VersionFilesProps {
   named?: boolean;
 }
 
-/**
- * A file's size, such as 42KB, with KB or MB marked up as an abbreviation, which the Glossary page
- * also lists (WCAG 3.1.4)
- */
+/** KB and MB are marked up as abbreviations (WCAG 3.1.4) */
 function FileSize({ size }: { size: string }) {
   const match = /^([\d.]+)(KB|MB)$/.exec(size);
   if (!match) return size;
@@ -101,13 +91,12 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
   const about = named ? `${title}, ${version.name.toLowerCase()}` : title;
 
   return (
-    // role="list" keeps the list's role in Safari, which drops it from lists with no bullets
+    // Safari drops the list role without bullets
     <ul role="list" className={styles.files}>
       {version.files.map((file) => {
         const type = fileType(file) ?? 'File';
 
-        // The line is ordinary text, not a flex layout, so the spaces between the words and links
-        // stay when it's copied or shown in a reader view
+        // Plain text, not flex, so the spaces stay when copied or in reader view
         return (
           <li key={file.path} className={styles.file}>
             {type}{' '}
@@ -117,8 +106,7 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
             :{' '}
             {type === 'PDF' && (
               <>
-                {/* It opens in the same tab, so people aren't moved somewhere they didn't
-                    expect, and the Back button brings them back (WCAG 3.2.5) */}
+                {/* Same tab, so Back returns here (WCAG 3.2.5) */}
                 <a href={`${BASE_URL}${file.path}`}>
                   View<ScreenReaderOnly>: {about}, PDF</ScreenReaderOnly>
                 </a>{' '}
@@ -127,7 +115,7 @@ function ToolkitVersionFiles({ title, version, named = false }: VersionFilesProp
             )}
             <a href={`${BASE_URL}${file.path}`} download={downloadName(file.path)}>
               Download
-              {/* The size is read just before the link, so the name only says what the file is */}
+              {/* The size is already read just before the link */}
               <ScreenReaderOnly>
                 : {about}, {type}
               </ScreenReaderOnly>
@@ -145,11 +133,7 @@ interface FolderCardProps {
   headingLevel: HeadingLevel;
 }
 
-/**
- * The whole of a folder's or resource's card can be clicked, as it only has one link. It stays one
- * real link, so screen readers hear its name rather than everything in the card, and it's one Tab
- * stop. Its clickable area stretches over the card (see .cardLink)
- */
+/** The whole card is clickable, but it stays one link and one Tab stop (see .cardLink) */
 export function ToolkitFolderCard({ folder, path, headingLevel }: FolderCardProps) {
   return (
     <Card as="article" className={styles.linkCard}>
@@ -172,10 +156,7 @@ interface FileCardProps {
   headingLevel: HeadingLevel;
 }
 
-/**
- * A resource's card in a folder. Its files are on its own page, so the cards stay short. The whole
- * card can be clicked, as with folders' cards
- */
+/** Its files are on its own page, so the cards stay short */
 export function ToolkitFileCard({ item, path, headingLevel }: FileCardProps) {
   return (
     <Card as="article" className={styles.linkCard}>

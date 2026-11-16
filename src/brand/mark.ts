@@ -1,5 +1,4 @@
-// The site's mark: a toolbox on a blue square, for a kit of practical resources. It has a light blue
-// band and an amber catch. Run `pnpm brand-images` after changing it, to redraw the icons
+/** The site's mark. Run pnpm brand-images after changing it */
 
 interface MarkShape {
   x: number;

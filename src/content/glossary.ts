@@ -1,5 +1,5 @@
 interface GlossaryTerm {
-  /** The word or phrase. Other names for the same thing are split by a slash, such as "Tooltip / popover" */
+  /** Other names for the same thing are split by a slash, such as "Tooltip / popover" */
   term: string;
   definition: string;
   /**
@@ -19,10 +19,9 @@ export function glossaryId(term: string): string {
 }
 
 /**
- * Technical words used on the site, explained in plain words, for the Glossary page (WCAG 3.1.3).
- * The first use of each one on a toolkit page links here. Abbreviations have their own list. In
- * alphabetical order, and written without abbreviations, so nothing in a definition needs
- * explaining itself. Most come from the glossary at the end of the Accessibility Highlights
+ * Technical words explained in plain words, for the Glossary page (WCAG 3.1.3). The first use of
+ * each on a toolkit page links here. In alphabetical order, and written without abbreviations, so
+ * no definition needs explaining itself. Most come from the Accessibility Highlights glossary
  */
 export const GLOSSARY: GlossaryTerm[] = [
   {
