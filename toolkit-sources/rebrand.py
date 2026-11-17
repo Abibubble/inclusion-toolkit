@@ -57,7 +57,7 @@ ABBREVIATIONS_FILE = ROOT.parent / 'src' / 'content' / 'abbreviations.ts'
 
 # Titles used in more than one folder. Their files' titles add the folder's name, so two open
 # files, or two downloads, can be told apart (WCAG 2.4.2)
-SHARED_TITLES = {'Meetings', 'Colour Blindness', "Tourette's Syndrome"}
+SHARED_TITLES = {'Meetings', 'Colour Blindness', "Tourette's Syndrome", 'Dyscalculia'}
 
 # Each Word file edited by hand, and its title
 EDITED_FILES = [

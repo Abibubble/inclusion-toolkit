@@ -32,6 +32,7 @@ export const ABBREVIATIONS = {
   OLED: 'organic light-emitting diode',
   PAC: 'PDF Accessibility Checker',
   PDF: 'Portable Document Format',
+  PIN: 'personal identification number',
   pt: 'points, a unit of font size',
   px: 'pixels',
   QR: 'Quick Response',

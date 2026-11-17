@@ -225,7 +225,8 @@ def main() -> None:
         if item is None:
             item = {
                 'slug': slug,
-                'title': docx.title,
+                # A shared title has its folder added for the files (see SHARED_TITLES in rebrand.py)
+                'title': docx.title.removesuffix(f' ({folder["title"]})'),
                 'description': first_sentence(docx),
                 'topics': [],
                 'audiences': [],

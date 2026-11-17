@@ -940,7 +940,7 @@
               "description": "Every neurodiversity highlight in one file, each explaining a topic and how to support people, with useful links.",
               "topics": [],
               "audiences": [],
-              "updated": "2026-11-11",
+              "updated": "2026-11-17",
               "slides": true,
               "text": "checked",
               "todo": []
@@ -952,6 +952,17 @@
               "topics": ["ways-of-working"],
               "audiences": ["everyone", "managers"],
               "updated": "2026-11-11",
+              "slides": true,
+              "text": "checked",
+              "todo": []
+            },
+            {
+              "slug": "dyscalculia",
+              "title": "Dyscalculia",
+              "description": "What dyscalculia is, how it can affect work, and the small changes that help.",
+              "topics": ["neurodivergent-conditions", "ways-of-working"],
+              "audiences": ["everyone", "managers"],
+              "updated": "2026-11-17",
               "slides": true,
               "text": "checked",
               "todo": []
