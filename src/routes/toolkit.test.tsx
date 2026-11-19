@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import type { ToolkitPageData } from '../content/toolkitPage';
 import { pageMeta } from '../seo/pageMeta';
-import { websiteSchema } from '../seo/website';
+import { breadcrumbSchema, websiteSchema } from '../seo/website';
 import { loader, meta, toolkitSlugsFrom, withFolder } from './toolkit';
 
 const ITEM = {
@@ -63,17 +63,23 @@ describe('Inclusion Toolkit pages', () => {
         kind: 'item',
         item: ITEM,
         slugs: ['highlights', 'dark-mode'],
-        trail: [],
+        trail: [{ title: 'Home', path: '/' }],
         textHtml: '',
         readNext: [],
       }),
-    ).toEqual(
-      pageMeta({
+    ).toEqual([
+      ...pageMeta({
         title: 'Dark mode, Inclusion Toolkit',
         description: 'About dark mode.',
         path: '/highlights/dark-mode',
       }),
-    );
+      {
+        'script:ld+json': breadcrumbSchema([{ title: 'Home', path: '/' }], {
+          title: 'Dark mode',
+          path: '/highlights/dark-mode',
+        }),
+      },
+    ]);
   });
 
   it('adds the folder to a resource’s title, so two resources with the same name differ (WCAG 2.4.2)', () => {

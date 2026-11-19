@@ -21,6 +21,7 @@ import {
   toolkitEntries,
   toolkitFilePaths,
   toolkitItemRecords,
+  toolkitLastChanged,
   toolkitPath,
   toolkitPicture,
   toolkitVersions,
@@ -215,6 +216,43 @@ describe('toolkit files', () => {
       'files/empty/not-written.docx',
       'files/empty/not-written.pdf',
     ]);
+  });
+});
+
+describe('toolkitLastChanged', () => {
+  it('dates each resource, and each folder by the latest thing in it', () => {
+    const resource = (slug: string, updated: string) => ({
+      slug,
+      title: slug,
+      description: '',
+      topics: [],
+      audiences: [],
+      updated,
+      versions: [],
+    });
+    const toolkit = {
+      slug: '',
+      title: 'Inclusion Toolkit',
+      description: '',
+      items: [resource('checklist', '2026-06-01')],
+      folders: [
+        {
+          slug: 'highlights',
+          title: 'Highlights',
+          description: '',
+          folders: [],
+          items: [resource('a', '2026-11-17'), resource('b', '2026-11-11')],
+        },
+      ],
+    };
+
+    expect(Object.fromEntries(toolkitLastChanged(toolkit))).toEqual({
+      '/': '2026-11-17',
+      '/checklist': '2026-06-01',
+      '/highlights': '2026-11-17',
+      '/highlights/a': '2026-11-17',
+      '/highlights/b': '2026-11-11',
+    });
   });
 });
 

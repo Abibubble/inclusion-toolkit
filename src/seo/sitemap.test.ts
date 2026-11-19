@@ -46,6 +46,15 @@ describe('sitemapXml', () => {
       '<loc>https://example.com/a&amp;b&apos;/</loc>',
     );
   });
+
+  it('adds the date each page last changed, when it has one', () => {
+    const xml = sitemapXml('https://example.com', ['/', '/about'], new Map([['/', '2026-11-17']]));
+
+    expect(xml).toContain(
+      '<loc>https://example.com/</loc>\n    <lastmod>2026-11-17</lastmod>\n  </url>',
+    );
+    expect(xml).toContain('<loc>https://example.com/about/</loc>\n  </url>');
+  });
 });
 
 describe('robotsTxt', () => {

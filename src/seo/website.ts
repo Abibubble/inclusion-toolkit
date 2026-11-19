@@ -14,3 +14,22 @@ export function websiteSchema() {
     license: LICENCE_URL,
   };
 }
+
+interface Crumb {
+  title: string;
+  path: string;
+}
+
+/** The breadcrumbs from Home to a page, so search engines can show where it sits in the site */
+export function breadcrumbSchema(trail: readonly Crumb[], current: Crumb) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [...trail, current].map(({ title, path }, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: title,
+      item: absolutePageUrl(path),
+    })),
+  };
+}

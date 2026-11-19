@@ -289,6 +289,26 @@ export function toolkitEntries(folder: ToolkitFolder, slugs: string[] = []): Too
   ];
 }
 
+/**
+ * When each page in the toolkit last changed, by address: a resource's own date, or for a folder,
+ * the latest date of anything in it
+ */
+export function toolkitLastChanged(
+  folder: ToolkitFolder = TOOLKIT,
+  slugs: string[] = [],
+): Map<string, string> {
+  const dates = new Map<string, string>();
+  for (const item of folder.items) dates.set(toolkitPath([...slugs, item.slug]), item.updated);
+  for (const child of folder.folders) {
+    for (const [path, date] of toolkitLastChanged(child, [...slugs, child.slug])) {
+      dates.set(path, date);
+    }
+  }
+  const latest = [...dates.values()].toSorted().at(-1);
+  if (latest) dates.set(toolkitPath(slugs), latest);
+  return dates;
+}
+
 /** A step in the breadcrumbs, from the toolkit down to the current page */
 export interface ToolkitCrumb {
   title: string;

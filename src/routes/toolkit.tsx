@@ -10,7 +10,7 @@ import { SITE_DESCRIPTION, SITE_NAME, pageTitle } from '../content/site';
 import { TOOLKIT_PATH, type ToolkitCrumb, toolkitPath } from '../content/toolkit';
 import { loadToolkitPage } from '../content/toolkitPage';
 import { pageMeta } from '../seo/pageMeta';
-import { websiteSchema } from '../seo/website';
+import { breadcrumbSchema, websiteSchema } from '../seo/website';
 
 /**
  * Turns /accessibility/highlights into ['accessibility', 'highlights'], without the site's base
@@ -51,11 +51,11 @@ export function meta({ loaderData }: MetaArgs<typeof loader>): MetaDescriptor[] 
   }
 
   const { title, description } = loaderData.kind === 'folder' ? loaderData.folder : loaderData.item;
-  return pageMeta({
-    title: pageTitle(withFolder(title, loaderData.trail)),
-    description,
-    path: toolkitPath(loaderData.slugs),
-  });
+  const path = toolkitPath(loaderData.slugs);
+  return [
+    ...pageMeta({ title: pageTitle(withFolder(title, loaderData.trail)), description, path }),
+    { 'script:ld+json': breadcrumbSchema(loaderData.trail, { title, path }) },
+  ];
 }
 
 export default function Toolkit() {

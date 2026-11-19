@@ -6,7 +6,7 @@ import type { Config } from '@react-router/dev/config';
 
 import { BASE_PATH, SITE_URL } from './build-constants.ts';
 import { withoutRepeatedHtml } from './src/build/repeatedHtml.ts';
-import { unpublishedToolkitFiles } from './src/content/toolkit.ts';
+import { toolkitLastChanged, unpublishedToolkitFiles } from './src/content/toolkit.ts';
 import { withContentSecurityPolicy } from './src/security/contentSecurityPolicy.ts';
 import { pagePaths, robotsTxt, sitemapXml } from './src/seo/sitemap.ts';
 
@@ -55,7 +55,10 @@ async function moveNotFoundPage(client: string): Promise<void> {
 }
 
 async function writeSeoFiles(client: string, htmlFiles: readonly string[]): Promise<void> {
-  await writeFile(join(client, 'sitemap.xml'), sitemapXml(SITE_URL, pagePaths(htmlFiles)));
+  await writeFile(
+    join(client, 'sitemap.xml'),
+    sitemapXml(SITE_URL, pagePaths(htmlFiles), toolkitLastChanged()),
+  );
   await writeFile(join(client, 'robots.txt'), robotsTxt(SITE_URL));
 }
 

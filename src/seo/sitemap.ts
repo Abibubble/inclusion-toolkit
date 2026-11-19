@@ -17,10 +17,24 @@ function escapeXml(text: string): string {
     .replaceAll("'", '&apos;');
 }
 
-export function sitemapXml(siteUrl: string, paths: readonly string[]): string {
-  const urls = paths.map(
-    (path) => `  <url>\n    <loc>${escapeXml(pageUrl(siteUrl, path))}</loc>\n  </url>`,
-  );
+/**
+ * Every page's address. Pages with a date, as YYYY-MM-DD, get it as their last change, so search
+ * engines know which to check again
+ */
+export function sitemapXml(
+  siteUrl: string,
+  paths: readonly string[],
+  lastChanged: ReadonlyMap<string, string> = new Map(),
+): string {
+  const urls = paths.map((path) => {
+    const date = lastChanged.get(path);
+    return [
+      '  <url>',
+      `    <loc>${escapeXml(pageUrl(siteUrl, path))}</loc>`,
+      ...(date ? [`    <lastmod>${date}</lastmod>`] : []),
+      '  </url>',
+    ].join('\n');
+  });
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
